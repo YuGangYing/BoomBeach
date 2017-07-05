@@ -1,0 +1,25 @@
+"Name","SWF","ExportName","ParticleEmitter","Speed","StartHeight","StartOffset","IsBallistic","DisplayShadow"
+"String","String","String","String","int","int","int","boolean","boolean"
+"boomcannon_projectile","sc/in-game.sc","boomcannon_projectile","boom_cannon_trail",5000,75,300,"true",
+"Cannonball","sc/in-game.sc","cannon_ammo","cannon_trail",1000,75,300,"true",
+"flamethrower_projectile","sc/in-game.sc","Flamethrower_ammo",,850,0,300,,
+"Mortar Ammo","sc/in-game.sc","mortar_ammo1","mortar_trail",500,200,20,"true","true"
+"ArtilleryAmmo","sc/in-game.sc","mortar_ammo1",,2500,200,20,"true","true"
+"HealAmmo","sc/in-game.sc","heal_ammo",,3000,200,,,
+"HealerAmmo","sc/in-game.sc","healer_ammo",,1400,75,,,
+"HealerAmmo_old","sc/in-game.sc","healer_ammo",,700,75,,"true","true"
+"FocusFireAmmo","sc/in-game.sc","mortar_ammo1",,4000,200,20,"true","true"
+"StunAmmo","sc/in-game.sc","stun_ammo",,4000,200,20,"true",
+"Missile Ammo","sc/in-game.sc","mortar_ammo1",,2100,95,20,"true","true"
+"Rifle Ammo","sc/in-game.sc","rifle_unit_ammo1",,1600,50,60,"true",
+"TurretAmmo","sc/in-game.sc","basic_turret_ammo",,3000,75,38,,
+"Machine Nest Gun Ammo","sc/in-game.sc","machine_gun_ammo",,2400,50,300,,
+"Machine Gun Ammo","sc/in-game.sc","machine_gun_ammo",,2400,50,60,,
+"Tower Ammo","sc/in-game.sc","machine_gun_ammo",,2400,270,60,"true",
+"Mortar Ammo","sc/in-game.sc","mortar_ammo1","mortar_trail",500,230,30,"true","true"
+"Bazooka Ammo","sc/in-game.sc","bazooka_ammo1","Bazooka trail",1200,90,60,"true","true"
+"Tank Shell","sc/in-game.sc","cannon_ammo",,1700,90,90,"true",
+"Boss Mortar","sc/in-game.sc","mortar_ammo1","mortar_trail",600,95,20,"true","true"
+"Barrage Ammo","sc/in-game.sc","barrage_ammo","Barrage_trail",3800,200,20,"true","true"
+"smoke_ammo","sc/in-game.sc","smoke_ammo",,4000,200,20,"true","true"
+"Grenadier Ammo","sc/in-game.sc","bazooka_ammo1","Bazooka trail",700,90,60,"true","true"

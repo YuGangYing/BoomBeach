@@ -1,0 +1,236 @@
+/AchivementPanel/Image
+/AchivementPanel/ImageBackground
+/AchivementPanel/ImageBack
+/AchivementPanel/#txt_title
+/AchivementPanel/#btn_close
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (2)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (3)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (4)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (5)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Image
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/txt_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/img_item
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/img_star1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/img_star2
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/img_star
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/Image1/txt_disc
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/Image1
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/txt_resource
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/txt_resource (1)
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/txt_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/img_d
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/slider_num/Background
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/slider_num/Fill Area/Fill
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/slider_num/Fill Area
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/slider_num/txt_gold
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button/slider_num
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)/Button
+/AchivementPanel/#scroll_carditems/#grid_carditems/Carditem (6)
+/AchivementPanel/#scroll_carditems/#grid_carditems
+/AchivementPanel/#scroll_carditems
+/AchivementPanel/#btn_players/Text
+/AchivementPanel/#btn_players
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (1)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (1)
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (2)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (2)
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (3)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (3)
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (4)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (4)
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (5)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (5)
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (6)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (6)
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (7)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (7)
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_playerindex
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/img_playerlvl
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_playername
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/img_medal
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_medal
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/btn_visit/txt_sound
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem/btn_visit
+/AchivementPanel/#container_players/#grid_players/item (8)/container_playeritem
+/AchivementPanel/#container_players/#grid_players/item (8)
+/AchivementPanel/#container_players/#grid_players
+/AchivementPanel/#container_players
+/AchivementPanel/#btn_friends/Text
+/AchivementPanel/#btn_friends

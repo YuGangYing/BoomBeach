@@ -1,0 +1,28 @@
+
+local m_Trans;
+local gameObject;
+
+[PanelName] = {};
+local this = [PanelName];
+
+
+
+--构造函数--
+function [PanelName].Awake(object) 
+	gameObject = object;	
+	m_Trans = gameObject.transform;
+	this.InitVarCode();	
+	warn("Awake lua--->>"..m_Trans.name);
+end
+
+--初始化变量代码--
+function [PanelName].InitVarCode() 
+[InitVarCode]
+  [PanelName].Base = m_Trans:GetComponent('LuaPanelBase');
+end
+
+--销毁事件--
+function [PanelName].OnDestroy()
+[DestroyVar]
+	warn("OnDestroy----->>");
+end

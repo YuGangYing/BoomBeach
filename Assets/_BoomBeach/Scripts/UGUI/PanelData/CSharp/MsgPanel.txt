@@ -1,0 +1,10 @@
+/MsgPanel/Image
+/MsgPanel/Back
+/MsgPanel/TopBg
+/MsgPanel/#txt_title
+/MsgPanel/#btn_confirm/#txt_confirm
+/MsgPanel/#btn_confirm/#container_diamond
+/MsgPanel/#btn_confirm/#txt_diamond
+/MsgPanel/#btn_confirm
+/MsgPanel/#txt_msg
+/MsgPanel/#btn_close

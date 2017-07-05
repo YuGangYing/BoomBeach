@@ -1,0 +1,80 @@
+/ResearchPanel/Image
+/ResearchPanel/ImageBack
+/ResearchPanel/ImageBack (1)
+/ResearchPanel/#txt_title
+/ResearchPanel/#btn_close
+/ResearchPanel/#btn_back
+/ResearchPanel/#container_troop/#grid_army/TechItem/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem
+/ResearchPanel/#container_troop/#grid_army/TechItem (1)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (1)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (1)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (1)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (1)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (1)
+/ResearchPanel/#container_troop/#grid_army/TechItem (2)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (2)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (2)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (2)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (2)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (2)
+/ResearchPanel/#container_troop/#grid_army/TechItem (3)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (3)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (3)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (3)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (3)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (3)
+/ResearchPanel/#container_troop/#grid_army/TechItem (4)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (4)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (4)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (4)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (4)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (4)
+/ResearchPanel/#container_troop/#grid_army/TechItem (5)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (5)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (5)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (5)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (5)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (5)
+/ResearchPanel/#container_troop/#grid_army/TechItem (6)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (6)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (6)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (6)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (6)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (6)
+/ResearchPanel/#container_troop/#grid_army/TechItem (7)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (7)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (7)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (7)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (7)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (7)
+/ResearchPanel/#container_troop/#grid_army/TechItem (8)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (8)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (8)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (8)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (8)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (8)
+/ResearchPanel/#container_troop/#grid_army/TechItem (9)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (9)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (9)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (9)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (9)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (9)
+/ResearchPanel/#container_troop/#grid_army/TechItem (10)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (10)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (10)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (10)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (10)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (10)
+/ResearchPanel/#container_troop/#grid_army/TechItem (11)/icon_head
+/ResearchPanel/#container_troop/#grid_army/TechItem (11)/icon_info
+/ResearchPanel/#container_troop/#grid_army/TechItem (11)/txt_reason
+/ResearchPanel/#container_troop/#grid_army/TechItem (11)/icon_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (11)/txt_corn
+/ResearchPanel/#container_troop/#grid_army/TechItem (11)
+/ResearchPanel/#container_troop/#grid_army
+/ResearchPanel/#container_troop

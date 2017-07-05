@@ -1,0 +1,14 @@
+/ResearchPanel/WinBg
+/ResearchPanel/WinTop/#btn_cancel/Text
+/ResearchPanel/WinTop/#btn_cancel
+/ResearchPanel/WinTop/#btn_back/Text
+/ResearchPanel/WinTop/#btn_back
+/ResearchPanel/WinTop/#text_title
+/ResearchPanel/WinTop
+/ResearchPanel/#container_Content/ResearchItem/bg/avatar
+/ResearchPanel/#container_Content/ResearchItem/bg/price
+/ResearchPanel/#container_Content/ResearchItem/bg/icon
+/ResearchPanel/#container_Content/ResearchItem/bg
+/ResearchPanel/#container_Content/ResearchItem/info
+/ResearchPanel/#container_Content/ResearchItem
+/ResearchPanel/#container_Content

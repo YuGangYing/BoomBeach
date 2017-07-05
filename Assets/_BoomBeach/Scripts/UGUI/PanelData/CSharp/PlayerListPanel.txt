@@ -1,0 +1,101 @@
+/PlayerListPanel/Image
+/PlayerListPanel/ImageBackground
+/PlayerListPanel/ImageBack
+/PlayerListPanel/#title
+/PlayerListPanel/#btn_close
+/PlayerListPanel/#btn_players/Text
+/PlayerListPanel/#btn_players
+/PlayerListPanel/#btn_friends/Text
+/PlayerListPanel/#btn_friends
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (1)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (1)
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (2)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (2)
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (3)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (3)
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (4)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (4)
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (5)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (5)
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (6)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (6)
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (7)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (7)
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_playerindex
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/img_playerlvl
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_playername
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/img_medal
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_medal
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/btn_visit/txt_sound
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem/btn_visit
+/PlayerListPanel/#container_players/#grid_players/item (8)/container_playeritem
+/PlayerListPanel/#container_players/#grid_players/item (8)
+/PlayerListPanel/#container_players/#grid_players
+/PlayerListPanel/#container_players

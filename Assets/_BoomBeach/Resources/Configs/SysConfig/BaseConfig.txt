@@ -1,0 +1,12 @@
+version=2;
+isEnabelAutoLogin = false;
+sendingPeriod = 30f;
+domain=121.199.3.185;
+port=9933;
+zone=moba;
+defaultLanguage=Chinese;
+is_wap_pay=false;
+obstacleAlpha=0.3;
+baseTimeSpan=0.02;
+landCraftWidth=3;
+regions_id=0;

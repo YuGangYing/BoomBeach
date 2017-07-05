@@ -1,0 +1,92 @@
+/ArtifactPanel/Image
+/ArtifactPanel/ImageBack
+/ArtifactPanel/ImageBack (1)
+/ArtifactPanel/#txt_title
+/ArtifactPanel/#txt_info
+/ArtifactPanel/#btn_close
+/ArtifactPanel/#grid_info/item/Image
+/ArtifactPanel/#grid_info/item/Button/img_itemback
+/ArtifactPanel/#grid_info/item/Button/itempoint
+/ArtifactPanel/#grid_info/item/Button/txt_name
+/ArtifactPanel/#grid_info/item/Button/txt_build
+/ArtifactPanel/#grid_info/item/Button/txt_buildtime
+/ArtifactPanel/#grid_info/item/Button/txt_count
+/ArtifactPanel/#grid_info/item/Button/img_icon
+/ArtifactPanel/#grid_info/item/Button
+/ArtifactPanel/#grid_info/item
+/ArtifactPanel/#grid_info/item (1)/Image
+/ArtifactPanel/#grid_info/item (1)/Button/img_itemback
+/ArtifactPanel/#grid_info/item (1)/Button/itempoint
+/ArtifactPanel/#grid_info/item (1)/Button/txt_name
+/ArtifactPanel/#grid_info/item (1)/Button/txt_build
+/ArtifactPanel/#grid_info/item (1)/Button/txt_buildtime
+/ArtifactPanel/#grid_info/item (1)/Button/txt_count
+/ArtifactPanel/#grid_info/item (1)/Button/img_icon
+/ArtifactPanel/#grid_info/item (1)/Button
+/ArtifactPanel/#grid_info/item (1)
+/ArtifactPanel/#grid_info/item (2)/Image
+/ArtifactPanel/#grid_info/item (2)/Button/img_itemback
+/ArtifactPanel/#grid_info/item (2)/Button/itempoint
+/ArtifactPanel/#grid_info/item (2)/Button/txt_name
+/ArtifactPanel/#grid_info/item (2)/Button/txt_build
+/ArtifactPanel/#grid_info/item (2)/Button/txt_buildtime
+/ArtifactPanel/#grid_info/item (2)/Button/txt_count
+/ArtifactPanel/#grid_info/item (2)/Button/img_icon
+/ArtifactPanel/#grid_info/item (2)/Button
+/ArtifactPanel/#grid_info/item (2)
+/ArtifactPanel/#grid_info
+/ArtifactPanel/#grid_usercrystal/item/Image
+/ArtifactPanel/#grid_usercrystal/item/txt_num
+/ArtifactPanel/#grid_usercrystal/item
+/ArtifactPanel/#grid_usercrystal/item (1)/Image
+/ArtifactPanel/#grid_usercrystal/item (1)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (1)
+/ArtifactPanel/#grid_usercrystal/item (2)/Image
+/ArtifactPanel/#grid_usercrystal/item (2)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (2)
+/ArtifactPanel/#grid_usercrystal/item (3)/Image
+/ArtifactPanel/#grid_usercrystal/item (3)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (3)
+/ArtifactPanel/#grid_usercrystal/item (4)/Image
+/ArtifactPanel/#grid_usercrystal/item (4)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (4)
+/ArtifactPanel/#grid_usercrystal/item (5)/Image
+/ArtifactPanel/#grid_usercrystal/item (5)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (5)
+/ArtifactPanel/#grid_usercrystal/item (6)/Image
+/ArtifactPanel/#grid_usercrystal/item (6)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (6)
+/ArtifactPanel/#grid_usercrystal/item (7)/Image
+/ArtifactPanel/#grid_usercrystal/item (7)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (7)
+/ArtifactPanel/#grid_usercrystal/item (8)/Image
+/ArtifactPanel/#grid_usercrystal/item (8)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (8)
+/ArtifactPanel/#grid_usercrystal/item (9)/Image
+/ArtifactPanel/#grid_usercrystal/item (9)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (9)
+/ArtifactPanel/#grid_usercrystal/item (10)/Image
+/ArtifactPanel/#grid_usercrystal/item (10)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (10)
+/ArtifactPanel/#grid_usercrystal/item (11)/Image
+/ArtifactPanel/#grid_usercrystal/item (11)/txt_num
+/ArtifactPanel/#grid_usercrystal/item (11)
+/ArtifactPanel/#grid_usercrystal
+/ArtifactPanel/txt_infotitle
+/ArtifactPanel/#txt_totalinfo
+/ArtifactPanel/#btn_green/Back
+/ArtifactPanel/#btn_green/Image
+/ArtifactPanel/#btn_green/Text
+/ArtifactPanel/#btn_green
+/ArtifactPanel/#btn_blue/Back
+/ArtifactPanel/#btn_blue/Image
+/ArtifactPanel/#btn_blue/Text
+/ArtifactPanel/#btn_blue
+/ArtifactPanel/#btn_red/Back
+/ArtifactPanel/#btn_red/Image
+/ArtifactPanel/#btn_red/Text
+/ArtifactPanel/#btn_red
+/ArtifactPanel/#btn_deepp/Back
+/ArtifactPanel/#btn_deepp/Image
+/ArtifactPanel/#btn_deepp/Text
+/ArtifactPanel/#btn_deepp

@@ -1,0 +1,55 @@
+/ResultPanel/Image
+/ResultPanel/Image
+/ResultPanel/Text
+/ResultPanel/Image (1)
+/ResultPanel/Text (1)
+/ResultPanel/#container_reward/#container_rewardmedal/Image
+/ResultPanel/#container_reward/#container_rewardmedal/Text
+/ResultPanel/#container_reward/#container_rewardmedal
+/ResultPanel/#container_reward/#container_rewardgold/Image
+/ResultPanel/#container_reward/#container_rewardgold/Text
+/ResultPanel/#container_reward/#container_rewardgold
+/ResultPanel/#container_reward/#container_rewardwood/Image
+/ResultPanel/#container_reward/#container_rewardwood/Text
+/ResultPanel/#container_reward/#container_rewardwood
+/ResultPanel/#container_reward/#container_rewardstone/Image
+/ResultPanel/#container_reward/#container_rewardstone/Text
+/ResultPanel/#container_reward/#container_rewardstone
+/ResultPanel/#container_reward/#container_rewardiron/Image
+/ResultPanel/#container_reward/#container_rewardiron/Text
+/ResultPanel/#container_reward/#container_rewardiron
+/ResultPanel/#container_reward/#container_rewardpiece/Image
+/ResultPanel/#container_reward/#container_rewardpiece/Text
+/ResultPanel/#container_reward/#container_rewardpiece
+/ResultPanel/#container_reward
+/ResultPanel/#container_troop/item/Image
+/ResultPanel/#container_troop/item/Text
+/ResultPanel/#container_troop/item
+/ResultPanel/#container_troop/item (1)/Image
+/ResultPanel/#container_troop/item (1)/Text
+/ResultPanel/#container_troop/item (1)
+/ResultPanel/#container_troop/item (2)/Image
+/ResultPanel/#container_troop/item (2)/Text
+/ResultPanel/#container_troop/item (2)
+/ResultPanel/#container_troop/item (3)/Image
+/ResultPanel/#container_troop/item (3)/Text
+/ResultPanel/#container_troop/item (3)
+/ResultPanel/#container_troop/item (4)/Image
+/ResultPanel/#container_troop/item (4)/Text
+/ResultPanel/#container_troop/item (4)
+/ResultPanel/#container_troop/item (5)/Image
+/ResultPanel/#container_troop/item (5)/Text
+/ResultPanel/#container_troop/item (5)
+/ResultPanel/#container_troop/item (6)/Image
+/ResultPanel/#container_troop/item (6)/Text
+/ResultPanel/#container_troop/item (6)
+/ResultPanel/#container_troop/item (7)/Image
+/ResultPanel/#container_troop/item (7)/Text
+/ResultPanel/#container_troop/item (7)
+/ResultPanel/#container_troop
+/ResultPanel/#btn_return/Text
+/ResultPanel/#btn_return
+/ResultPanel/#txt_reward
+/ResultPanel/#txt_troop
+/ResultPanel/#txt_battlefail
+/ResultPanel/#txt_battlewin

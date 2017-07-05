@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
+
+namespace BattleFramework.Data{
+	[System.Serializable]
+	public class $CLASS_NAME$ {
+	public static string[] columnNameArray = new string[" + csvFile.listColumnName.Count + "];
+	public static List<$CLASS_NAME$> LoadDatas(TextAsset text){
+		CSVFileReader csvFile = new CSVFileReader();
+		csvFile.Open(text);
+		List<$CLASS_NAME$> dataList = new List<$CLASS_NAME$>();
+		string[] strs;
+		string[] strsTwo;
+		List<int> listChild;
+		columnNameArray = new string[" + csvFile.listColumnName.Count + "];
+		for(int i = 0;i < csvFile.mapData.Count;i ++){
+			if (csvFile.mapData[i].data.Count < columnNameArray.Length){");
+				Debug.LogError(\""csvFile.mapData[i].data.Count :\" + csvFile.mapData[i].data.Count + \"" columnNameArray.Length:\" + columnNameArray.Length);");
+				continue;
+	 		}

@@ -1,0 +1,68 @@
+/TroopDetailPanel/Image
+/TroopDetailPanel/ImageBack
+/TroopDetailPanel/ImageBack (1)
+/TroopDetailPanel/ImageBack (2)
+/TroopDetailPanel/#txt_title
+/TroopDetailPanel/#btn_close
+/TroopDetailPanel/#btn_back
+/TroopDetailPanel/#grid_info/info_item/img
+/TroopDetailPanel/#grid_info/info_item/txt_name
+/TroopDetailPanel/#grid_info/info_item/txt_num
+/TroopDetailPanel/#grid_info/info_item/txt_add_num
+/TroopDetailPanel/#grid_info/info_item
+/TroopDetailPanel/#grid_info/info_item (1)/img
+/TroopDetailPanel/#grid_info/info_item (1)/txt_name
+/TroopDetailPanel/#grid_info/info_item (1)/txt_num
+/TroopDetailPanel/#grid_info/info_item (1)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (1)
+/TroopDetailPanel/#grid_info/info_item (2)/img
+/TroopDetailPanel/#grid_info/info_item (2)/txt_name
+/TroopDetailPanel/#grid_info/info_item (2)/txt_num
+/TroopDetailPanel/#grid_info/info_item (2)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (2)
+/TroopDetailPanel/#grid_info/info_item (3)/img
+/TroopDetailPanel/#grid_info/info_item (3)/txt_name
+/TroopDetailPanel/#grid_info/info_item (3)/txt_num
+/TroopDetailPanel/#grid_info/info_item (3)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (3)
+/TroopDetailPanel/#grid_info/info_item (4)/img
+/TroopDetailPanel/#grid_info/info_item (4)/txt_name
+/TroopDetailPanel/#grid_info/info_item (4)/txt_num
+/TroopDetailPanel/#grid_info/info_item (4)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (4)
+/TroopDetailPanel/#grid_info/info_item (5)/img
+/TroopDetailPanel/#grid_info/info_item (5)/txt_name
+/TroopDetailPanel/#grid_info/info_item (5)/txt_num
+/TroopDetailPanel/#grid_info/info_item (5)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (5)
+/TroopDetailPanel/#grid_info/info_item (6)/img
+/TroopDetailPanel/#grid_info/info_item (6)/txt_name
+/TroopDetailPanel/#grid_info/info_item (6)/txt_num
+/TroopDetailPanel/#grid_info/info_item (6)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (6)
+/TroopDetailPanel/#grid_info/info_item (7)/img
+/TroopDetailPanel/#grid_info/info_item (7)/txt_name
+/TroopDetailPanel/#grid_info/info_item (7)/txt_num
+/TroopDetailPanel/#grid_info/info_item (7)/txt_add_num
+/TroopDetailPanel/#grid_info/info_item (7)
+/TroopDetailPanel/#grid_info
+/TroopDetailPanel/#img_bigicon
+/TroopDetailPanel/#txt_level
+/TroopDetailPanel/#txt_infotitle
+/TroopDetailPanel/#txt_info
+/TroopDetailPanel/#container_upgrade/#btn_upgrade/txt_upgrade
+/TroopDetailPanel/#container_upgrade/#btn_upgrade/#txt_time
+/TroopDetailPanel/#container_upgrade/#btn_upgrade/img_time
+/TroopDetailPanel/#container_upgrade/#btn_upgrade
+/TroopDetailPanel/#container_upgrade/#container_gold/img
+/TroopDetailPanel/#container_upgrade/#container_gold/#txt_gold
+/TroopDetailPanel/#container_upgrade/#container_gold/img_gold
+/TroopDetailPanel/#container_upgrade/#container_gold
+/TroopDetailPanel/#container_upgrade/#container_diamond/img
+/TroopDetailPanel/#container_upgrade/#container_diamond/#txt_diamond
+/TroopDetailPanel/#container_upgrade/#container_diamond/img_wood
+/TroopDetailPanel/#container_upgrade/#container_diamond
+/TroopDetailPanel/#container_upgrade/#btn_instant/txt_finish
+/TroopDetailPanel/#container_upgrade/#btn_instant/img_light
+/TroopDetailPanel/#container_upgrade/#btn_instant
+/TroopDetailPanel/#container_upgrade

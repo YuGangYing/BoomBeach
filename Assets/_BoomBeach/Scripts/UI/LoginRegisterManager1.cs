@@ -1,0 +1,794 @@
+#if false
+using UnityEngine;
+using System.Collections;
+
+using System;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Collections.Generic;
+using Sfs2X;
+using Sfs2X.Core;
+using Sfs2X.Entities;
+using Sfs2X.Requests;
+using Sfs2X.Logging;
+using Sfs2X.Entities.Data;
+using System.Net;
+using UnityEngine.UI;
+using BoomBeach;
+//using System.Security.Cryptography;
+
+public class LoginRegisterManager1 : MonoBehaviour {
+
+
+	public bool debug = false;
+	
+	//public HplBaseLoading baseLoading;
+	public GameObject login_btn_pp,login_btn_91;
+	
+	private SmartFox smartFox;
+	
+	// Network info
+	//private string ip = "g.fanwesoft.com";
+	//private string ip = "127.0.0.1";
+	//private string ip = "112.124.32.200";
+	private int port = 9933;
+	public string zone = "moba";
+	//private string zone = "GameTest";
+	
+	private Transform thisTransform;
+	
+	// Error display label
+	//private UILabel errorMessage;
+	
+	// Login box and register box
+	private GameObject loginBox,registerBox;
+	
+	// Login box account input and password input.
+	private UIInput loginBoxAccountInput,loginBoxPasswordInput;
+	
+	// Register box account,password and confirm password.
+	private Transform registerBoxAccount,registerBoxPassword,RegisterButtonTransform,LoginButtonTransform,TrialButtonTransform,RegisterButtonTransform_New;
+	
+	private UIInput registerBoxAccountInput,registerBoxPasswordInput;
+	
+
+	private UISprite RegisterButtonBg,LoginButtonBg,TrialButtonBg,RegisterButtonBg_NEW;
+	//private UIButton RegisterButton,LoginButton,TrialButton;
+	//private BoxCollider RegisterButton,LoginButton,TrialButton,RegisterButton_NEW;
+	private GameObject runSprite;
+	private RotateAnimation new_rotate;
+	private UILabel MsgTimeLabel;
+	private int lock_attack_time = 0;
+	// Only number and letter can input
+	private Regex numberLetterRegex = new Regex(@"[A-Za-z0-9]");
+	private float timeLastSending = 0.0f;
+	private float sendingPeriod = 30f; 
+	private bool is_first = true;
+	
+	private bool isLogining = false;
+	
+	private UIAtlas hplUINormal,hplUIGray;
+	private string UpgradeUrl;
+	
+	private AsyncOperation async;
+	private bool isLoad = false;
+	private bool isShowLoginBox=true;
+	private bool not_used=true;
+	
+	private UITexture LoginBackground;
+	private UISlider loadingSlider;
+	private UILabel loadingStep;
+	private GameObject load_box;
+	private UILabel hint_lable;
+
+	private float time_interval = 5;
+
+
+	private GameObject ErrorBox;
+	private UILabel error_title, error_desc, error_btn_name;
+	private UIButton error_btn;
+	private EventDelegate.Callback error_callback;
+
+	void Awake() {
+		is_first = true;
+		if (PlayerPrefs.HasKey("SoundEffectSwitch")){
+			PlayerPrefs.SetInt("SoundEffectSwitch",1);
+		}
+		if (PlayerPrefs.HasKey("MusicSwitch")){
+			PlayerPrefs.SetInt("MusicSwitch",1);
+		}
+       	
+		thisTransform = transform;
+		ConnectToServer(string.Empty);
+    }
+	
+	void OnDestroy() {
+		//print("Script was destroyed");
+		//LoginBackground.mainTexture = null;
+		//Resources.UnloadUnusedAssets();
+	}
+
+    //注册登陆按钮事件
+    Button mRegisterBtn;
+    Button mLoginBtn;
+    InputField mAccount;
+    InputField mPwd;
+    Transform mMask;
+
+	public string md5(string str)
+    {		
+		
+		String md_str = FanweMD5.MDString(str);
+		return md_str.Replace("-","").ToLower();
+		/*
+        MD5 m = new MD5CryptoServiceProvider();
+        byte[] s = m.ComputeHash(UnicodeEncoding.UTF8.GetBytes(str));
+        String md_str = BitConverter.ToString(s);		
+		return md_str.Replace("-","").ToLower();
+		*/
+    }
+
+    void Update()
+    {
+        smartFox.ProcessEvents();
+        if (timeLastSending >= sendingPeriod)
+        {
+            timeLastSending = 0;
+            smartFox.Send(new PingPongRequest());
+        }
+        timeLastSending += Time.deltaTime;
+    }
+
+    private IEnumerator DelayLoadScene () {
+		yield return new WaitForSeconds(0.5f);
+		
+		async.allowSceneActivation = true;
+	}
+
+	void Start(){
+		//Debug.Log("HplLoginRegisterManager.Start");
+		if (is_first == false){
+			OnReConnect();
+		}
+		is_first = false;
+	}
+
+	
+	public void runStatus(string type,bool is_load){
+		return;
+
+		if(type=="load"){
+			if(is_load){
+				runSprite.SetActive(true);
+				new_rotate.StartRotationAnimation();
+			
+				loginBoxAccountInput.enabled=false;
+				loginBoxPasswordInput.enabled=false;
+				
+				//RegisterButton.enabled=false;
+				//LoginButton.enabled=false;
+				//TrialButton.enabled=false;
+				
+				
+				//RegisterButtonBg.atlas = hplUIGray;
+				LoginButtonBg.atlas = hplUIGray;
+				TrialButtonBg.atlas = hplUIGray;
+				
+			}else{
+				runSprite.SetActive(false);
+				new_rotate.StopRotationAnimation();
+				loginBoxAccountInput.enabled=true;
+				loginBoxPasswordInput.enabled=true;
+				//RegisterButton.enabled=true;
+				//LoginButton.enabled=true;
+				//TrialButton.enabled=true;
+				
+				//RegisterButtonBg.atlas = hplUINormal;
+				LoginButtonBg.atlas = hplUINormal;
+				TrialButtonBg.atlas = hplUINormal;
+				
+				
+			}
+		}else if(type=="reg"){
+			
+			if(is_load){
+				runSprite.SetActive(true);
+				new_rotate.StartRotationAnimation();
+				registerBoxAccountInput.enabled=false;
+				registerBoxPasswordInput.enabled=false;
+				//registerBoxConfirmPasswordInput.enabled=false;
+				//RegisterButton_NEW.enabled=false;
+				
+				//RegisterButtonBg_NEW.atlas = hplUIGray;
+				
+			}else{
+				runSprite.SetActive(false);
+				new_rotate.StopRotationAnimation();
+				
+				registerBoxAccountInput.enabled=true;
+				registerBoxPasswordInput.enabled=true;
+				//registerBoxConfirmPasswordInput.enabled=true;
+				//RegisterButton_NEW.enabled=true;
+				
+				//RegisterButtonBg_NEW.atlas = hplUINormal;
+			}
+			
+		}
+		
+	}
+	
+	private void RegisterSFSEvent () {
+		//SFSEvent.CONNECTION_RESUME
+		smartFox.AddEventListener(SFSEvent.CONNECTION, OnConnection);
+		smartFox.AddEventListener(SFSEvent.CONNECTION_LOST, OnConnectionLost);
+		//public void OnLogin(BaseEvent evt) {smartFox.AddEventListener(SFSEvent.LOGIN, OnLogin);
+		//smartFox.AddEventListener(SFSEvent.LOGOUT, OnLogout);
+		smartFox.AddEventListener(SFSEvent.LOGIN_ERROR,OnLoginError);
+        smartFox.AddEventListener(SFSEvent.LOGIN, OnLogin);
+		//smartFox.AddLogListener(LogLevel.DEBUG, OnDebugMessage);	
+		//smartFox.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
+		//smartFox.AddEventListener(SFSEvent.CONFIG_LOAD_SUCCESS, OnConfigLoadSuccessHandler);
+		//smartFox.AddEventListener(SFSEvent.CONFIG_LOAD_FAILURE, OnConfigLoadFailureHandler);
+	}
+	
+	private void RegisterNGUIEvent () {
+		/*
+		loginBoxAccountInput.validator += OnInputValidator;
+		loginBoxPasswordInput.validator += OnInputValidator;
+		registerBoxAccountInput.validator += OnInputValidator;
+		registerBoxPasswordInput.validator += OnInputValidator;
+		//registerBoxConfirmPasswordInput.validator += OnInputValidator;
+		*/
+	}
+	
+	private void UnRegisterNGUIEvent () {
+		/*
+		loginBoxAccountInput.validator -= OnInputValidator;
+		loginBoxPasswordInput.validator -= OnInputValidator;
+		registerBoxAccountInput.validator -= OnInputValidator;
+		registerBoxPasswordInput.validator -= OnInputValidator;
+		//registerBoxConfirmPasswordInput.validator -= OnInputValidator;
+		*/
+	}
+	
+	private void UnregisterSFSSceneCallbacks() {
+		// This should be called when switching scenes, so callbacks from the backend do not trigger code in this scene
+		//smartFox.RemoveAllEventListeners();
+	}
+
+    public SmartFox GetSmartFox() {
+        return smartFox;
+    }
+
+    public void OnLoginAction () {
+		//Debug.Log("OnLoginAction:" +isLogining);
+		if(!isLogining){
+			//Debug.Log1("OnLoginAction");
+			string userName = loginBoxAccountInput.text;
+			
+			if(userName.Equals(string.Empty) || userName.Equals(string.Empty))
+			{
+                //errorMessage.text = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_HINT");
+                UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_HINT"));
+				return;
+			}
+
+			string userPassword = loginBoxPasswordInput.text;
+			
+			if(userName.Length < 2 || userPassword.Length < 3){
+                //errorMessage.text = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_HINT2");
+                UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_HINT2"));
+				return;
+			}
+			
+			if(userPassword.Length != 32)
+				userPassword = md5(userPassword);
+				
+			if(smartFox == null || !smartFox.IsConnected){
+				if(PlayerPrefs.HasKey("user_name"))
+					PlayerPrefs.DeleteKey("user_name");
+				
+				if(PlayerPrefs.HasKey("user_pwd"))
+					PlayerPrefs.DeleteKey("user_pwd");
+				
+				PlayerPrefs.SetString("user_name",userName);
+				PlayerPrefs.SetString("user_pwd",userPassword);
+				PlayerPrefs.Save();
+				
+				OnReConnect();
+				return;
+			}
+			
+			
+			ISFSObject data = new SFSObject();
+			data.PutInt("version", Globals.version);//当前软件版本号;
+			runStatus("load",true);
+			smartFox.Send(new LoginRequest(userName, userPassword, zone,data));
+			
+			isLogining = true;
+		}
+		else{
+
+            UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_LOGIN_HINT_ISLOGINING"));
+		}
+	}
+	
+	public void OnShowRegister() {
+		ErrorBox.SetActive(false);
+		loginBox.SetActive(false);
+		registerBox.SetActive(true);
+	}
+	
+	public void OnCloseRegisterBox () {
+		ErrorBox.SetActive(false);
+		if(isShowLoginBox){
+		loginBox.SetActive(true);
+		}
+		registerBox.SetActive(false);
+		runStatus("reg",false);
+	}
+
+    public void OnRegisterAction () {
+		string userName = registerBoxAccountInput.text.Trim();
+		//Debug.Log("userName:" + userName + ";userName.length:" + userName.Length);
+		if(userName.Length < 3){
+            //registerBoxAccountHintLabel.gameObject.SetActive(false);
+            //registerBoxAccountErrorHint.gameObject.SetActive(true);
+            UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_INVALID_NAME2"));
+			return;
+		}
+			
+		if(registerBoxPasswordInput.text.Length < 3){
+            UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_CHANGE_PWD_ERROR_HINT"));			
+			return;
+		}
+		
+			
+		if(!Helper.CheckUserName(userName))
+		{
+            //errorMessage.text = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_HINT");
+            UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_INVALID_NAME"));
+				return;
+		}
+			
+		/*
+		if(registerBoxConfirmPasswordInput.text.Length < 3 || !registerBoxConfirmPasswordInput.text.Equals(registerBoxPasswordInput.text)){
+			registerBoxConfirmPasswordHintLabel.gameObject.SetActive(false);
+			registerBoxConfirmPasswordErrorHint.gameObject.SetActive(true);
+			
+			return;
+		}*/
+		
+		if(smartFox == null || !smartFox.IsConnected){
+			if(PlayerPrefs.HasKey("user_name"))
+				PlayerPrefs.DeleteKey("user_name");
+				
+			if(PlayerPrefs.HasKey("user_pwd"))
+				PlayerPrefs.DeleteKey("user_pwd");
+
+			OnReConnect();
+			return;
+		}
+		
+		// Reset hint
+		//registerBoxAccountHintLabel.gameObject.SetActive(true);
+		//registerBoxAccountErrorHint.gameObject.SetActive(false);
+		//registerBoxPasswordHintLabel.gameObject.SetActive(true);
+		//registerBoxConfirmPasswordErrorHint.gameObject.SetActive(false);
+		//registerBoxConfirmPasswordHintLabel.gameObject.SetActive(true);
+		//registerBoxConfirmPasswordErrorHint.gameObject.SetActive(false);
+		
+		// Register
+		ISFSObject data = new SFSObject();
+		data.PutUtfString("user_name", registerBoxAccountInput.text);
+		data.PutUtfString("user_pwd", registerBoxPasswordInput.text);
+
+		data.PutInt("version", Globals.version);//当前软件版本号;	
+		runStatus("reg",true);
+		smartFox.Send(new LoginRequest("user_reg", "fanwe998", zone, data));
+	}
+	
+	public void OnTrialAction () {
+		//Debug.Log("OnLoginAction:" +isLogining);
+		if(!isLogining){				
+			if(smartFox == null || !smartFox.IsConnected){
+				if(PlayerPrefs.HasKey("user_name"))
+					PlayerPrefs.DeleteKey("user_name");
+				
+				if(PlayerPrefs.HasKey("user_pwd"))
+					PlayerPrefs.DeleteKey("user_pwd");
+				
+				OnReConnect();
+				return;
+			}
+			
+			//Debug.Log("smartFox.IsConnected:" + smartFox.IsConnected);
+			runStatus("load",true);
+			isLogining = true;
+			
+			ISFSObject data = new SFSObject();
+			data.PutInt("version", Globals.version);//当前软件版本号;
+			smartFox.Send(new LoginRequest("players_reg", "fanwe998", zone,data));	
+		}
+		else{
+
+            UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_LOGIN_HINT_ISLOGINING"));
+		}
+	}
+	
+	// NGUI callbacks
+	public char OnInputValidator (string currentText, char nextChar) {
+		//Debug.Log1("current text:"+currentText+" next char:"+nextChar.ToString());
+		char result = default(char);
+		
+		if(numberLetterRegex.IsMatch(nextChar.ToString())){
+			result = nextChar;
+		}
+		
+		return result;
+	}
+
+	public void OnReConnect(){
+		//Debug.Log("OnDoFinish ip:" + ip + ";port:" + port);
+		if (smartFox != null){
+					
+			UnregisterSFSSceneCallbacks();
+			if (smartFox.IsConnected){
+				smartFox.Disconnect();				
+			}
+			smartFox = null;
+		}else{
+			//Debug.Log1("smartFox is null");
+		}
+		
+		smartFox = new SmartFox(debug);			
+		RegisterSFSEvent();	
+		//ip = "g.fanwesoft.com";
+		smartFox.Connect(Globals.domain, port);	
+	}
+	
+	public void OnConnection(BaseEvent evt) {
+		
+		bool success = (bool)evt.Params["success"];
+        //Debug.Log1("OnConnection");
+		//errorMessage.text = string.Empty;
+		Debug.Log("OnConnection:" + success);
+		if (success) {
+			SmartFoxConnection.Connection = smartFox;
+		} else {
+			Alert(LocalizationCustom.instance.Get("TID_BUTTON_OKAY"),
+				LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_CONNECTION_FAILURE"),
+				LocalizationCustom.instance.Get("TID_BUTTON_OKAY"),OnReConnect);
+		}
+	}
+	
+	public void autoLogin(){
+		//自动登陆;
+		String user_name = PlayerPrefs.GetString("user_name",string.Empty);
+		String user_pwd = PlayerPrefs.GetString("user_pwd",string.Empty);
+		//Debug.Log("user_name1:" + user_name + ";user_pwd1:" + user_pwd + ";zone:" + zone);
+		//1:允许自动登陆;	0:不允许自动登陆;
+		//int allowAutoLogin = PlayerPrefs.GetInt("allowAutoLogin",1);
+		if (!string.Empty.Equals(user_name) && !string.Empty.Equals(user_pwd)){
+			if (user_pwd.Length != 32){
+			user_pwd = md5(user_pwd);
+		}
+		//loginBox.gameObject.SetActive(false);
+		
+		if (smartFox != null || smartFox.IsConnected){
+			ISFSObject data = new SFSObject();
+			data.PutInt("version", Globals.version);//当前软件版本号;			
+			smartFox.Send(new LoginRequest(user_name, user_pwd, zone,data));
+			isLogining = true;
+		}else{
+			OnReConnect();
+		}	
+		}
+	}
+	
+	public void OnConnectionLost(BaseEvent evt) {
+		if (registerBox.activeSelf == false){
+            UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_CONNECTION_LOST"));
+			UnregisterSFSSceneCallbacks();
+			UnRegisterNGUIEvent();
+			isLogining = false;
+			OnReConnect();
+		}
+	}
+
+	public void OnDebugMessage(BaseEvent evt) {
+		//string message = (string)evt.Params["message"];
+		//Debug.Log("[SFS DEBUG] " + message);
+	}
+	
+	public void OnLogin(BaseEvent evt) {
+		//Debug.Log("reg_error1111111:" );
+		//User user = (User)evt.Params["user"];
+		//Debug.Log1("OnLogin:" + (String)evt.Params["zone"]);
+		// Startup up UDP
+		Debug.Log("Login ok");	
+		Globals.LastSceneUserId = -1;
+		Globals.LastSceneRegionsId = -1;
+		ISFSObject dt = (SFSObject)evt.Params["data"];
+		int sync_error = dt.GetInt("sync_error");
+		//Debug.Log1("sync_error:" + sync_error);
+		if (sync_error == 0){
+			//成功注册后,登陆;
+			String user_name = dt.GetUtfString("user_name");// (String)evt.Params["user_name"];
+			String user_pwd = dt.GetUtfString("user_pwd");//(String)evt.Params["user_pwd"];
+			//Debug.Log("user_name:" + user_name + ";user_pwd:" + user_pwd);
+			int user_id = dt.GetInt("user_id");
+			PlayerPrefs.SetString("user_name",user_name);
+			PlayerPrefs.SetString("user_pwd",user_pwd);
+			PlayerPrefs.SetInt("user_id",user_id);
+			PlayerPrefs.Save();
+		}
+		//Debug.Log1("LoadLevel_lobby");
+		UnregisterSFSSceneCallbacks();
+		UnRegisterNGUIEvent();
+		//Application.LoadLevel("lobby");
+		//Application.LoadLevel("HomeScene");	
+		//loginBox.SetActive(false);
+		//registerBox.SetActive(false);
+		//runSprite.SetActive(false);
+		// Load home scene async
+		//async = Application.LoadLevelAsync("MainScene");
+		//async.allowSceneActivation = false;
+		AudioPlayer.Instance.PlaySfx("supercell_jingle");
+        //Invoke("JumpScene",1f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        StartCoroutine(_LoadMain());
+    }
+
+
+
+    IEnumerator _LoadMain()
+    {
+        yield return new WaitForSeconds(0.5f);
+        //FindObjectOfType<GameFacade>().MgrCenter.GetManager<UIManager>().ClosePanel(ControllerNames.LOGIN_CONTROLLER);
+
+       // transform.root.gameObject.SetActive(false);
+
+    }
+
+
+	void JumpScene()
+	{
+		AudioPlayer.Instance.PlaySfx("loading_screen_jingle");
+		SMGameEnvironment.Instance.SceneManager.TransitionPrefab = "SceneTransitions/LoginToMain";
+		SMGameEnvironment.Instance.SceneManager.LoadLevel ("MainScene");
+	}
+
+	
+	public void OnUpgrade(){
+		//Debug.Log("OnUpgrade");
+		//HplIOSCall.OpenUpgradePage();
+		if (UpgradeUrl.LastIndexOf("?") > 0){
+			UpgradeUrl += "&sys_type=" + Globals.sys_type;
+		}else{
+			UpgradeUrl += "?sys_type=" + Globals.sys_type;
+		}
+
+		//ErrorBox.SetActive(true);
+
+		Application.OpenURL(UpgradeUrl);
+
+	}
+
+	public void ConnectToServer (string message) {
+		Debug.Log ("ConnectToServer");
+		//errorMessage.text = string.Empty;
+		
+		//loginBox.SetActive(false);
+		//registerBox.SetActive(false);
+		//Debug.Log("SmartFoxConnection.IsInitialized:" + SmartFoxConnection.IsInitialized);
+		if (SmartFoxConnection.IsInitialized) {	
+			if(isShowLoginBox){
+			//loginBox.SetActive(true);
+			}
+			smartFox = SmartFoxConnection.Connection;
+		} else {
+			smartFox = new SmartFox(debug);			
+		}
+		
+		// Register callback delegate
+		RegisterSFSEvent();
+		
+		// Register input delegate
+		RegisterNGUIEvent();
+		
+		//默认音乐是开启的;
+		if (PlayerPrefs.GetInt("MusicSwitch",-1) == -1){
+			PlayerPrefs.SetInt("MusicSwitch",1);
+		}
+		
+		if (PlayerPrefs.GetInt("SoundEffectSwitch",-1) == -1){
+			PlayerPrefs.SetInt("SoundEffectSwitch",1);
+		}		
+		//smartFox.LoadConfig(Application.streamingAssetsPath + "/sfs-ancienttimes-config.xml",false);
+		//PlayerPrefs.GetString("host_ip");
+		//Debug.Log1(Dns.GetHostEntry("www.fanwe.com").AddressList[0]);
+		//ip = Dns.GetHostEntry("g.fanwesoft.com").AddressList[0].ToString();//"121.199.23.76";
+		//Debug.Log1("ip:" + ip);
+		if (smartFox.IsConnected){
+			is_first = true;
+			//autoLogin();
+		}else
+        {
+            try
+            {
+                smartFox.Connect(Globals.domain, port);
+            }
+            catch (Exception ex)
+            {
+                Debug.Log("Connect Error msg : "+ex.Message);
+            }
+		}	
+	}
+	
+	public void OnLoginError(BaseEvent evt) {
+		runStatus("load",false);
+		isLogining = false;
+		//Debug.Log("OnLoginError:" + evt.ToString());
+		/*
+		foreach (DictionaryEntry de in evt.Params){
+			//Debug.Log1("de.Key:" + de.Key + ";de.Value:" + de.Value);
+			//Debug.Log1(de.Value);
+		}
+		*/
+		//SFS
+		/*
+		PlayerPrefs.DeleteKey("user_name");
+		PlayerPrefs.DeleteKey("user_pwd");
+		*/
+		
+		
+		string errorMsg = (string)evt.Params["errorMessage"];
+		short errorCode = (short)evt.Params["errorCode"];
+		//Debug.LogError("errorMsg:" + errorMsg+"  error code : "+errorCode);
+		
+		string[] arr = errorMsg.Split('^');
+		if (arr.Length > 0){
+			string code = arr[0];
+			if ("-1".Equals(code)){
+				//msg = "-1" + "^" + String.valueOf(type_reg) + "^" + res.getInt("user_id").toString() + "^" + res.getUtfString("user_name") + "^" + res.getUtfString("user_pwd");
+				//注册;
+				int type_reg = int.Parse(arr[1]);
+				int user_id = int.Parse(arr[2]);
+				if (user_id > 0){
+					String user_name = arr[3];
+					String user_pwd = arr[4];
+					
+					PlayerPrefs.SetString("user_name",user_name);
+					PlayerPrefs.SetString("user_pwd",user_pwd);
+					PlayerPrefs.SetInt("user_id",user_id);
+					PlayerPrefs.Save();	
+					
+					runStatus("load",true);
+					isLogining = true;
+					//再次使用新帐户登陆;
+					ISFSObject data = new SFSObject();
+					data.PutInt("version", Globals.version);//当前软件版本号;					
+					smartFox.Send(new LoginRequest(user_name, user_pwd, zone,data));
+				}else{
+					//创建新帐户失败!;
+					//String msg = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_REG_ERROR");
+					//MessageManage.Instance.ShowMessage(msg);
+					if (type_reg == 3){
+                        //用户已经存在;
+                        UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_USER_NAME_EXIST"));
+					}else{
+                        //TID_ERROR_MESSAGE_REG_ERROR = 创建新帐户失败!
+                        UIManager.Instance().normalMsgCtrl.ShowPop(LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_REG_ERROR"));
+					}
+				
+					runStatus("reg",false);			
+					//loginBox.gameObject.SetActive(true);
+				}				
+			}else if ("1".Equals(code)){
+				//抱歉，服务器正在维护中。请稍后重试;
+				Alert(LocalizationCustom.instance.Get("TID_ERROR_POP_UP_SERVER_MAINTENANCE_TITLE"),
+									LocalizationCustom.instance.Get("TID_ERROR_POP_UP_SERVER_MAINTENANCE"),
+									LocalizationCustom.instance.Get("TID_ERROR_POP_UP_SERVER_MAINTENANCE_BUTTON"),autoLogin);				
+				loginBox.gameObject.SetActive(false);				
+			}else if ("2".Equals(code)){
+				//好消息！现在可以免费下载新版本了;
+				if (arr.Length == 2){
+					UpgradeUrl = arr[1];
+				}else{
+					UpgradeUrl = "";
+				}
+				
+				Alert(LocalizationCustom.instance.Get("TID_ERROR_POP_UP_WRONG_CLIENT_VERSION_TITLE"),
+									LocalizationCustom.instance.Get("TID_ERROR_POP_UP_WRONG_CLIENT_VERSION"),
+									LocalizationCustom.instance.Get("TID_ERROR_POP_UP_WRONG_CLIENT_VERSION_BUTTON"),OnUpgrade);								
+			}else if ("3".Equals(code)){
+				//TID_POPUP_HEADER_WARNING = 警告;
+				//TID_POPUP_UNDER_ATTACK = 您的村庄正在遭受攻击！请稍等，稍后您的村庄信息将会自动更新;
+				//TID_POPUP_TRY_AGAIN = 预计所需时间;
+
+				//不在登陆时，提示：正在被攻击;
+
+				lock_attack_time = int.Parse(arr[1]) + 240 + 10;
+				Globals.lastLoadTime = long.Parse(arr[2]);
+				long epoch = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000;
+				Globals.time_difference = Globals.lastLoadTime - epoch;
+				int itime = lock_attack_time - Helper.current_time();
+				/*
+				if (lock_attack_time > 0 && AttackBox.activeSelf){
+					int itime = lock_attack_time - UserData.current_time();
+					if (itime > 0){
+						MsgTimeLabel.text = CalcCheck.GetFormatTime(itime,0);
+					}else{
+						lock_attack_time = 0;
+						AttackBox.SetActive(false);
+						autoLogin();
+					}	
+				}
+				*/
+
+				Alert(LocalizationCustom.instance.Get("TID_POPUP_HEADER_WARNING"),
+				      LocalizationCustom.instance.Get("TID_POPUP_UNDER_ATTACK") + LocalizationCustom.instance.Get("TID_POPUP_TRY_AGAIN") + Helper.GetFormatTime(itime,0),
+				      LocalizationCustom.instance.Get("TID_BUTTON_OKAY"),autoLogin);
+
+				loginBox.gameObject.SetActive(false);
+
+			}else{
+				String msg = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_ERROR");
+                UIManager.Instance().normalMsgCtrl.ShowPop(msg);
+				if(isShowLoginBox){
+				loginBox.gameObject.SetActive(true);		
+				}
+			}			
+		}else{
+			String msg = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_ERROR");
+            UIManager.Instance().normalMsgCtrl.ShowPop(msg);
+			if(isShowLoginBox){
+			loginBox.gameObject.SetActive(true);
+			}
+		}
+		/*
+		if (errorCode == 1){
+			int user_id = int.Parse(arr[0]);
+			string user_name = arr[1];
+			string user_pwd = arr[2];
+			
+		}else{
+		
+			//Debug.Log1("Login error:"+errorMsg+"Error code:"+errorCode);
+			String msg = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_ERROR") + "\n" + errorMsg + "\n" + errorCode;
+			MessageManage.Instance.ShowMessage(msg);
+			loginBox.gameObject.SetActive(true);
+		}
+		*/	
+	}
+
+	public void Alert(string title, string desc, string btn_name, EventDelegate.Callback errEvent){
+		loginBox.gameObject.SetActive(false);
+		registerBox.gameObject.SetActive(false);
+
+		ErrorBox.SetActive(true);
+		
+		error_title.text = title; 
+		error_btn_name.text = btn_name;
+		error_desc.text = desc;
+		error_callback = errEvent;
+	
+
+	}
+
+	void OnAlertClick(){
+		if (error_callback != null){
+			//Debug.Log("aaa");
+			error_callback();
+			if (error_callback != OnUpgrade){
+				//Debug.Log("xxx");
+				ErrorBox.SetActive(false);
+				error_callback = null;
+			}
+		}
+	}
+	
+}
+#endif

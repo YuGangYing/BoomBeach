@@ -1,0 +1,10 @@
+/PopMsgPanel/Image
+/PopMsgPanel/Back
+/PopMsgPanel/TopBg
+/PopMsgPanel/#txt_title
+/PopMsgPanel/#btn_confirm/#txt_confirm
+/PopMsgPanel/#btn_confirm/#container_diamond
+/PopMsgPanel/#btn_confirm/#txt_diamond
+/PopMsgPanel/#btn_confirm
+/PopMsgPanel/#txt_msg
+/PopMsgPanel/#btn_close

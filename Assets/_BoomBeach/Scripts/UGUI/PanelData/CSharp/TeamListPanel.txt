@@ -1,0 +1,101 @@
+/TeamListPanel/Image
+/TeamListPanel/ImageBackground
+/TeamListPanel/ImageBack
+/TeamListPanel/#title
+/TeamListPanel/#btn_close
+/TeamListPanel/#btn_players/Text
+/TeamListPanel/#btn_players
+/TeamListPanel/#btn_friends/Text
+/TeamListPanel/#btn_friends
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (1)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (1)
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (2)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (2)
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (3)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (3)
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (4)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (4)
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (5)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (5)
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (6)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (6)
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (7)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (7)
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_playerindex
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/img_playerlvl/txt_playerlvl_c
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/img_playerlvl
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_playername
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/img_medal
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/txt_medal
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/btn_visit/txt_sound
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem/btn_visit
+/TeamListPanel/#container_players/#grid_players/item (8)/container_playeritem
+/TeamListPanel/#container_players/#grid_players/item (8)
+/TeamListPanel/#container_players/#grid_players
+/TeamListPanel/#container_players

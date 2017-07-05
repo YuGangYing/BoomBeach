@@ -1,0 +1,14 @@
+/CardPanel/#container_scrollbar/#grid_item
+/CardPanel/#container_scrollbar
+/CardPanel/Bottom/BottomBg/Image/LeftTab/#btn_leftTabBtn/Text
+/CardPanel/Bottom/BottomBg/Image/LeftTab/#btn_leftTabBtn
+/CardPanel/Bottom/BottomBg/Image/LeftTab
+/CardPanel/Bottom/BottomBg/Image/CenterTab/#btn_centerTabBtn/Text
+/CardPanel/Bottom/BottomBg/Image/CenterTab/#btn_centerTabBtn
+/CardPanel/Bottom/BottomBg/Image/CenterTab
+/CardPanel/Bottom/BottomBg/Image/RightTab/#btn_rightTabBtn/Text
+/CardPanel/Bottom/BottomBg/Image/RightTab/#btn_rightTabBtn
+/CardPanel/Bottom/BottomBg/Image/RightTab
+/CardPanel/Bottom/BottomBg/Image
+/CardPanel/Bottom/BottomBg
+/CardPanel/Bottom

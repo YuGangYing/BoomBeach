@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: 0826c837f217eca44bf3b50a01b6c48f
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: ______002
+    100002: ______003
+    100004: ______008
+    100006: ______01
+    100008: hill
+    100010: //RootNode
+    100012: Line027
+    100014: Object010
+    100016: Plane002
+    100018: Plane003
+    100020: Rectangle007
+    100022: Rectangle010
+    100024: army area plane
+    100026: army area wall
+    100028: ref_plane
+    400000: ______002
+    400002: ______003
+    400004: ______008
+    400006: ______01
+    400008: hill
+    400010: //RootNode
+    400012: Line027
+    400014: Object010
+    400016: Plane002
+    400018: Plane003
+    400020: Rectangle007
+    400022: Rectangle010
+    400024: army area plane
+    400026: army area wall
+    400028: ref_plane
+    2300000: ______002
+    2300002: ______003
+    2300004: ______008
+    2300006: ______01
+    2300008: hill
+    2300010: Line027
+    2300012: Object010
+    2300014: Plane002
+    2300016: Plane003
+    2300018: Rectangle007
+    2300020: Rectangle010
+    2300022: //RootNode
+    2300024: army area plane
+    2300026: army area wall
+    2300028: ref_plane
+    3300000: ______002
+    3300002: ______003
+    3300004: ______008
+    3300006: ______01
+    3300008: hill
+    3300010: Line027
+    3300012: Object010
+    3300014: Plane002
+    3300016: Plane003
+    3300018: Rectangle007
+    3300020: Rectangle010
+    3300022: //RootNode
+    3300024: army area plane
+    3300026: army area wall
+    3300028: ref_plane
+    4300000: Rectangle007
+    4300002: Rectangle010
+    4300004: ______002
+    4300006: Plane002
+    4300008: Plane003
+    4300010: hill
+    4300012: ______01
+    4300014: Line027
+    4300016: ______003
+    4300018: Object010
+    4300020: ______008
+    4300022: ref_plane
+    4300024: army area wall
+    4300026: army area plane
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 

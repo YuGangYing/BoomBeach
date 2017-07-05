@@ -1,0 +1,88 @@
+/MainInterfacePanel/Image
+/MainInterfacePanel/#container_info/#txt_name
+/MainInterfacePanel/#container_info/#container_level/#img_levelbg
+/MainInterfacePanel/#container_info/#container_level/#img_levelbar
+/MainInterfacePanel/#container_info/#container_level/#txt_level
+/MainInterfacePanel/#container_info/#container_level
+/MainInterfacePanel/#container_info/#container_medal/#img_medalbg
+/MainInterfacePanel/#container_info/#container_medal/#img_medal
+/MainInterfacePanel/#container_info/#container_medal/#txt_medal
+/MainInterfacePanel/#container_info/#container_medal
+/MainInterfacePanel/#container_info
+/MainInterfacePanel/#btn_shop/img_icon
+/MainInterfacePanel/#btn_shop/#container_buildnum/#txt_buildnum
+/MainInterfacePanel/#btn_shop/#container_buildnum
+/MainInterfacePanel/#btn_shop
+/MainInterfacePanel/#btn_map/img_icon
+/MainInterfacePanel/#btn_map
+/MainInterfacePanel/#container_resourcebar/#slider_iron/#btn_ironback
+/MainInterfacePanel/#container_resourcebar/#slider_iron/Fill Area/#btn_ironfill
+/MainInterfacePanel/#container_resourcebar/#slider_iron/Fill Area
+/MainInterfacePanel/#container_resourcebar/#slider_iron/#txt_iron
+/MainInterfacePanel/#container_resourcebar/#slider_iron/#btn_iron
+/MainInterfacePanel/#container_resourcebar/#slider_iron
+/MainInterfacePanel/#container_resourcebar/#slider_stone/#btn_stoneback
+/MainInterfacePanel/#container_resourcebar/#slider_stone/Fill Area/#btn_stonefill
+/MainInterfacePanel/#container_resourcebar/#slider_stone/Fill Area
+/MainInterfacePanel/#container_resourcebar/#slider_stone/#txt_stone
+/MainInterfacePanel/#container_resourcebar/#slider_stone/#btn_stone
+/MainInterfacePanel/#container_resourcebar/#slider_stone
+/MainInterfacePanel/#container_resourcebar/#slider_wood/#btn_woodback
+/MainInterfacePanel/#container_resourcebar/#slider_wood/Fill Area/#btn_woodfill
+/MainInterfacePanel/#container_resourcebar/#slider_wood/Fill Area
+/MainInterfacePanel/#container_resourcebar/#slider_wood/#txt_wood
+/MainInterfacePanel/#container_resourcebar/#slider_wood/#btn_wood
+/MainInterfacePanel/#container_resourcebar/#slider_wood
+/MainInterfacePanel/#container_resourcebar/#slider_gold/#btn_goldback
+/MainInterfacePanel/#container_resourcebar/#slider_gold/Fill Area/#btn_goldfill
+/MainInterfacePanel/#container_resourcebar/#slider_gold/Fill Area
+/MainInterfacePanel/#container_resourcebar/#slider_gold/#txt_gold
+/MainInterfacePanel/#container_resourcebar/#slider_gold/#btn_gold
+/MainInterfacePanel/#container_resourcebar/#slider_gold
+/MainInterfacePanel/#container_resourcebar
+/MainInterfacePanel/#container_diamondbar/#img_diamondbg
+/MainInterfacePanel/#container_diamondbar/#btn_adddiamond
+/MainInterfacePanel/#container_diamondbar/#img_diamond
+/MainInterfacePanel/#container_diamondbar/#txt_diamond
+/MainInterfacePanel/#container_diamondbar
+/MainInterfacePanel/#container_mainbtns/#btn_achivement/img_achivement
+/MainInterfacePanel/#container_mainbtns/#btn_achivement
+/MainInterfacePanel/#container_mainbtns/#btn_friend/img_friend
+/MainInterfacePanel/#container_mainbtns/#btn_friend
+/MainInterfacePanel/#container_mainbtns/#btn_team/img_team
+/MainInterfacePanel/#container_mainbtns/#btn_team
+/MainInterfacePanel/#container_mainbtns/#btn_setting/#img_setting
+/MainInterfacePanel/#container_mainbtns/#btn_setting
+/MainInterfacePanel/#container_mainbtns/#btn_mail/#img_mail
+/MainInterfacePanel/#container_mainbtns/#btn_mail
+/MainInterfacePanel/#container_mainbtns
+/MainInterfacePanel/#btn_chat/btn_chat
+/MainInterfacePanel/#btn_chat
+/MainInterfacePanel/#btn_teambattle/btn_teambattle
+/MainInterfacePanel/#btn_teambattle
+/MainInterfacePanel/#container_levelpopbox/poparrow
+/MainInterfacePanel/#container_levelpopbox/popback
+/MainInterfacePanel/#container_levelpopbox/#txt_levelpopboxtitle
+/MainInterfacePanel/#container_levelpopbox/progress_to_next_level
+/MainInterfacePanel/#container_levelpopbox/#txt_progress_to_next_level
+/MainInterfacePanel/#container_levelpopbox/description
+/MainInterfacePanel/#container_levelpopbox
+/MainInterfacePanel/#container_medalpopbox/poparrow
+/MainInterfacePanel/#container_medalpopbox/popback
+/MainInterfacePanel/#container_medalpopbox/#txt_medalpopboxtitle
+/MainInterfacePanel/#container_medalpopbox/progress_to_next_level
+/MainInterfacePanel/#container_medalpopbox
+/MainInterfacePanel/#container_resourcepopbox/poparrow
+/MainInterfacePanel/#container_resourcepopbox/popback
+/MainInterfacePanel/#container_resourcepopbox/#txt_title
+/MainInterfacePanel/#container_resourcepopbox/production_per_hour
+/MainInterfacePanel/#container_resourcepopbox/#txt_production_per_hour
+/MainInterfacePanel/#container_resourcepopbox/from_base
+/MainInterfacePanel/#container_resourcepopbox/#txt_from_base
+/MainInterfacePanel/#container_resourcepopbox/from_freed_villages
+/MainInterfacePanel/#container_resourcepopbox/#txt_from_freed_villages
+/MainInterfacePanel/#container_resourcepopbox/storage_capacity
+/MainInterfacePanel/#container_resourcepopbox/#txt_storage_capacity
+/MainInterfacePanel/#container_resourcepopbox/protected_by_vault
+/MainInterfacePanel/#container_resourcepopbox/#txt_protected_by_vault
+/MainInterfacePanel/#container_resourcepopbox

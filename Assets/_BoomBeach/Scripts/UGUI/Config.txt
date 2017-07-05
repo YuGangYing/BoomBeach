@@ -1,0 +1,9 @@
+luaViewPath=/Scripts/Lua/View
+luaPrefabPath=/res/prefabs/ui/lp/
+luaTemplatePath=/Templates/LuaPanelView.txt
+luaPanelDataPath=/Editor/PanelData/Lua/
+
+CSViewPath=/_BoomBeach/Scripts/Panel/CSharp/
+CSPrefabPath=/_BoomBeach/Prefabs/UI/CSharp/
+CSTemplatePath=/_BoomBeach/Scripts/UGUI/Templates/C#PanelView.txt
+CSPanelDataPath=/_BoomBeach/Scripts/UGUI/PanelData/CSharp/

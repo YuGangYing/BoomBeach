@@ -1,0 +1,50 @@
+/ConscribelPanel/Image
+/ConscribelPanel/ImageBack
+/ConscribelPanel/ImageBack (1)
+/ConscribelPanel/#txt_title
+/ConscribelPanel/#btn_close
+/ConscribelPanel/#btn_back
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem/icon_head
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem/icon_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem/icon_info
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem/txt_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem/icon_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem/txt_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)/icon_head
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)/icon_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)/icon_info
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)/txt_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)/icon_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)/txt_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (1)
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)/icon_head
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)/icon_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)/icon_info
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)/txt_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)/icon_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)/txt_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (2)
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)/icon_head
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)/icon_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)/icon_info
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)/txt_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)/icon_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)/txt_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (3)
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)/icon_head
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)/icon_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)/icon_info
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)/txt_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)/icon_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)/txt_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (4)
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)/icon_head
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)/icon_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)/icon_info
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)/txt_corn
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)/icon_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)/txt_time
+/ConscribelPanel/#container_conscribel/#grid_army/TechItem (5)
+/ConscribelPanel/#container_conscribel/#grid_army
+/ConscribelPanel/#container_conscribel

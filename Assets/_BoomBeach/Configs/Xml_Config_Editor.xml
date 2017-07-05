@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+
+  <LuaViewScriptPath>/NewGameRes/SourceCodes/Scripts/Lua/View/</LuaViewScriptPath>
+  <UIPrefabLuaPanelPath>/NewGameRes/StreamingAssetsPath/UI/Prefabs/LuaPanel/</UIPrefabLuaPanelPath>
+  <LuaPanelViewTemplatePath>/NewGameRes/Templates/LuaPanelView.txt</LuaPanelViewTemplatePath>
+  <LuaPanelDataPath>/NewGameRes/SourceCodes/Editor/PanelData/Lua/</LuaPanelDataPath>
+
+  <CSharpViewScriptPath>/_BoomBeach/Scripts/UGUI/</CSharpViewScriptPath>
+  <UIPrefabCSharpPanelPath>/_BoomBeach/StreamingAssetsPath/UI/Prefabs/CSharpPanel/</UIPrefabCSharpPanelPath>
+  <CSharpPanelViewTemplatePath>/_BoomBeach/Templates/C#PanelView.txt</CSharpPanelViewTemplatePath>
+  <CSharpPanelDataPath>/_BoomBeach/Editor/PanelData/CSharp/</CSharpPanelDataPath>
+  
+</Paths>
+
+

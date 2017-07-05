@@ -1,0 +1,52 @@
+/ResearchDetailPanel/Image
+/ResearchDetailPanel/ImageBack
+/ResearchDetailPanel/ImageBack (1)
+/ResearchDetailPanel/ImageBack (2)
+/ResearchDetailPanel/#txt_title
+/ResearchDetailPanel/#btn_close
+/ResearchDetailPanel/#btn_back
+/ResearchDetailPanel/#grid_info/info_item/img
+/ResearchDetailPanel/#grid_info/info_item/txt_name
+/ResearchDetailPanel/#grid_info/info_item/txt_num
+/ResearchDetailPanel/#grid_info/info_item/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item
+/ResearchDetailPanel/#grid_info/info_item (1)/img
+/ResearchDetailPanel/#grid_info/info_item (1)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (1)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (1)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (1)
+/ResearchDetailPanel/#grid_info/info_item (2)/img
+/ResearchDetailPanel/#grid_info/info_item (2)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (2)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (2)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (2)
+/ResearchDetailPanel/#grid_info/info_item (3)/img
+/ResearchDetailPanel/#grid_info/info_item (3)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (3)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (3)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (3)
+/ResearchDetailPanel/#grid_info/info_item (4)/img
+/ResearchDetailPanel/#grid_info/info_item (4)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (4)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (4)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (4)
+/ResearchDetailPanel/#grid_info/info_item (5)/img
+/ResearchDetailPanel/#grid_info/info_item (5)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (5)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (5)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (5)
+/ResearchDetailPanel/#grid_info/info_item (6)/img
+/ResearchDetailPanel/#grid_info/info_item (6)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (6)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (6)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (6)
+/ResearchDetailPanel/#grid_info/info_item (7)/img
+/ResearchDetailPanel/#grid_info/info_item (7)/txt_name
+/ResearchDetailPanel/#grid_info/info_item (7)/txt_num
+/ResearchDetailPanel/#grid_info/info_item (7)/txt_add_num
+/ResearchDetailPanel/#grid_info/info_item (7)
+/ResearchDetailPanel/#grid_info
+/ResearchDetailPanel/#img_bigicon
+/ResearchDetailPanel/#txt_level
+/ResearchDetailPanel/#txt_infotitle
+/ResearchDetailPanel/#txt_info

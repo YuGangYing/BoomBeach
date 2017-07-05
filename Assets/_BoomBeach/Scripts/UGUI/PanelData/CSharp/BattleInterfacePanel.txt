@@ -1,0 +1,180 @@
+/BattleInterfacePanel/Image
+/BattleInterfacePanel/txt_add
+/BattleInterfacePanel/container_resources/item/Image
+/BattleInterfacePanel/container_resources/item/#txt_goldnum
+/BattleInterfacePanel/container_resources/item/#txt_goldnumadd
+/BattleInterfacePanel/container_resources/item
+/BattleInterfacePanel/container_resources/item (1)/Image
+/BattleInterfacePanel/container_resources/item (1)/#txt_woodnum
+/BattleInterfacePanel/container_resources/item (1)/#txt_woodnumadd
+/BattleInterfacePanel/container_resources/item (1)
+/BattleInterfacePanel/container_resources/item (2)/Image
+/BattleInterfacePanel/container_resources/item (2)/#txt_stonenum
+/BattleInterfacePanel/container_resources/item (2)/#txt_stonenumadd
+/BattleInterfacePanel/container_resources/item (2)
+/BattleInterfacePanel/container_resources/item (3)/Image
+/BattleInterfacePanel/container_resources/item (3)/#txt_ironnum
+/BattleInterfacePanel/container_resources/item (3)/#txt_ironnumadd
+/BattleInterfacePanel/container_resources/item (3)
+/BattleInterfacePanel/container_resources/item (4)/Image
+/BattleInterfacePanel/container_resources/item (4)/#txt_medalnum
+/BattleInterfacePanel/container_resources/item (4)
+/BattleInterfacePanel/container_resources
+/BattleInterfacePanel/container_chance/item/#img_small
+/BattleInterfacePanel/container_chance/item/#img_middle
+/BattleInterfacePanel/container_chance/item/#img_big
+/BattleInterfacePanel/container_chance/item
+/BattleInterfacePanel/container_chance/item (1)/#txt_medalnumadd
+/BattleInterfacePanel/container_chance/item (1)/Image (1)
+/BattleInterfacePanel/container_chance/item (1)
+/BattleInterfacePanel/container_chance
+/BattleInterfacePanel/txt_chance
+/BattleInterfacePanel/#container_energy/Image
+/BattleInterfacePanel/#container_energy/#txt_energy
+/BattleInterfacePanel/#container_energy
+/BattleInterfacePanel/#img_selectweapon
+/BattleInterfacePanel/#img_selecttroop
+/BattleInterfacePanel/#container_troops/Button/img_icon
+/BattleInterfacePanel/#container_troops/Button/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button/img_energycost
+/BattleInterfacePanel/#container_troops/Button/txt_energycost
+/BattleInterfacePanel/#container_troops/Button
+/BattleInterfacePanel/#container_troops/Button (1)/img_icon
+/BattleInterfacePanel/#container_troops/Button (1)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (1)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (1)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (1)
+/BattleInterfacePanel/#container_troops/Button (2)/img_icon
+/BattleInterfacePanel/#container_troops/Button (2)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (2)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (2)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (2)
+/BattleInterfacePanel/#container_troops/Button (3)/img_icon
+/BattleInterfacePanel/#container_troops/Button (3)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (3)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (3)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (3)
+/BattleInterfacePanel/#container_troops/Button (4)/img_icon
+/BattleInterfacePanel/#container_troops/Button (4)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (4)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (4)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (4)
+/BattleInterfacePanel/#container_troops/Button (5)/img_icon
+/BattleInterfacePanel/#container_troops/Button (5)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (5)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (5)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (5)
+/BattleInterfacePanel/#container_troops/Button (6)/img_icon
+/BattleInterfacePanel/#container_troops/Button (6)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (6)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (6)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (6)
+/BattleInterfacePanel/#container_troops/Button (7)/img_icon
+/BattleInterfacePanel/#container_troops/Button (7)/txt_troopnum
+/BattleInterfacePanel/#container_troops/Button (7)/img_energycost
+/BattleInterfacePanel/#container_troops/Button (7)/txt_energycost
+/BattleInterfacePanel/#container_troops/Button (7)
+/BattleInterfacePanel/#container_troops
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (1)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (1)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (1)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (2)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (2)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (2)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (3)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (3)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (3)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (4)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (4)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (4)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (5)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (5)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (5)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (6)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (6)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (6)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (7)/Image
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (7)/Text
+/BattleInterfacePanel/#container_battleview/#container_viewtroops/Button (7)
+/BattleInterfacePanel/#container_battleview/#container_viewtroops
+/BattleInterfacePanel/#container_battleview/txt_battleview
+/BattleInterfacePanel/#container_battleview
+/BattleInterfacePanel/#container_weapons/Button/img_icon
+/BattleInterfacePanel/#container_weapons/Button/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button/Image (1)
+/BattleInterfacePanel/#container_weapons/Button
+/BattleInterfacePanel/#container_weapons/Button (1)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (1)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (1)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (1)
+/BattleInterfacePanel/#container_weapons/Button (2)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (2)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (2)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (2)
+/BattleInterfacePanel/#container_weapons/Button (3)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (3)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (3)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (3)
+/BattleInterfacePanel/#container_weapons/Button (4)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (4)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (4)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (4)
+/BattleInterfacePanel/#container_weapons/Button (5)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (5)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (5)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (5)
+/BattleInterfacePanel/#container_weapons/Button (6)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (6)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (6)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (6)
+/BattleInterfacePanel/#container_weapons/Button (7)/img_icon
+/BattleInterfacePanel/#container_weapons/Button (7)/txt_energycost
+/BattleInterfacePanel/#container_weapons/Button (7)/Image (1)
+/BattleInterfacePanel/#container_weapons/Button (7)
+/BattleInterfacePanel/#container_weapons
+/BattleInterfacePanel/#container_info/#txt_name
+/BattleInterfacePanel/#container_info/#container_level/#img_levelbg
+/BattleInterfacePanel/#container_info/#container_level/#img_levelbar
+/BattleInterfacePanel/#container_info/#container_level/#txt_level
+/BattleInterfacePanel/#container_info/#container_level
+/BattleInterfacePanel/#container_info
+/BattleInterfacePanel/#btn_end/Text
+/BattleInterfacePanel/#btn_end
+/BattleInterfacePanel/#btn_battle/Image (1)
+/BattleInterfacePanel/#btn_battle/#txt_attackgold
+/BattleInterfacePanel/#btn_battle/txt_attack
+/BattleInterfacePanel/#btn_battle
+/BattleInterfacePanel/#btn_map/img_icon
+/BattleInterfacePanel/#btn_map
+/BattleInterfacePanel/#container_resourcebar/#slider_iron/btn_ironback
+/BattleInterfacePanel/#container_resourcebar/#slider_iron/Fill Area/#btn_ironfill
+/BattleInterfacePanel/#container_resourcebar/#slider_iron/Fill Area
+/BattleInterfacePanel/#container_resourcebar/#slider_iron/#txt_iron
+/BattleInterfacePanel/#container_resourcebar/#slider_iron/btn_iron
+/BattleInterfacePanel/#container_resourcebar/#slider_iron
+/BattleInterfacePanel/#container_resourcebar/#slider_stone/btn_stoneback
+/BattleInterfacePanel/#container_resourcebar/#slider_stone/Fill Area/#btn_stonefill
+/BattleInterfacePanel/#container_resourcebar/#slider_stone/Fill Area
+/BattleInterfacePanel/#container_resourcebar/#slider_stone/#txt_stone
+/BattleInterfacePanel/#container_resourcebar/#slider_stone/btn_stone
+/BattleInterfacePanel/#container_resourcebar/#slider_stone
+/BattleInterfacePanel/#container_resourcebar/#slider_wood/btn_woodback
+/BattleInterfacePanel/#container_resourcebar/#slider_wood/Fill Area/#btn_woodfill
+/BattleInterfacePanel/#container_resourcebar/#slider_wood/Fill Area
+/BattleInterfacePanel/#container_resourcebar/#slider_wood/#txt_wood
+/BattleInterfacePanel/#container_resourcebar/#slider_wood/btn_wood
+/BattleInterfacePanel/#container_resourcebar/#slider_wood
+/BattleInterfacePanel/#container_resourcebar/#slider_gold/btn_goldback
+/BattleInterfacePanel/#container_resourcebar/#slider_gold/Fill Area/#btn_goldfill
+/BattleInterfacePanel/#container_resourcebar/#slider_gold/Fill Area
+/BattleInterfacePanel/#container_resourcebar/#slider_gold/#txt_gold
+/BattleInterfacePanel/#container_resourcebar/#slider_gold/btn_gold
+/BattleInterfacePanel/#container_resourcebar/#slider_gold
+/BattleInterfacePanel/#container_resourcebar
+/BattleInterfacePanel/#container_diamondbar/img_diamondbg
+/BattleInterfacePanel/#container_diamondbar/img_diamond
+/BattleInterfacePanel/#container_diamondbar/#txt_diamond
+/BattleInterfacePanel/#container_diamondbar

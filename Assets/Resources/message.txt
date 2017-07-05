@@ -1,0 +1,66 @@
+#######create building############
+1=success.
+2=Building not exists.
+3=Cannot create building, user hq level lower.
+4=Cannot create building, less resources.user bao shi lass.
+5=create building server exception.
+-1=user have this building and count enough.
+#######upgrade building###########
+6=null is userBuildingId or userBuildingId less than 1.
+7=cannot find UserBuillding by userBuilding id.
+8=this building was highested.
+9=user resource lack.
+-2=user hq level is lower, can not upgrade this building.
+#######create soldier############
+10=the parameter soldierTid is null.
+11=user building not exist or error user building id not match user id.
+12=soldierNum less than 1.
+13= the parameter userBuildingId lass than 1.
+14=soldier not exists.
+15=you cannot create this soldier, because you hq level lower.
+16=cannot find UserBuilding by userBuildingId.
+17=cannot put soldier, building space  full.
+18=create soldier , not enough corn.
+-5=user character list is null.
+#######upgrade soldier############
+19=userBuildingId is null or userBuildingId less than 1.
+20=cannot find UserCharacter by userCharacter id.
+21=this soldier level is highest.
+22=upgrade soldier, no enough corn.
+-3=user hq level is lower, can not upgrade this building.
+#######upgrade spell############
+23=user spell id is null or less than 1.
+24=can not find user spell by this user spell id.
+25=this spell level is highest.
+26=upgrade spell ------>corn not enough.
+-4=user hq level is lower, can not upgrade this building.
+#######collect resource############
+27=res_type is null.
+28=collect_num less than 0.
+29=userBuildingId is null or less than 0.
+30=update user resource server error.
+31=update user building collect time server error.
+#######user register############
+32=user name or password  is null.
+#######change x,y ############
+33=change x, y - null is userBuildingId or userBuildingId less than 1
+34=cannot find userBuilding.
+#######speed up############
+35=param type is error. not 0,1,2.
+36=param id is null or lass than 1.
+37=no need to speed up, cause upgrade done.
+38=bao shi not enough.
+39=speed  up building, can not find building by id.
+40=user character list is null.
+41=user spell list is null.
+42=param tid is null.
+#######immediately up############
+43=param type is error. not 0,1,2.
+44=param id is null or lass than 1.
+45=user building not exist.
+46=param tid is null.
+47=user character not exist.
+48=user spell not exist.
+49=user bao shi not enough.
+50=soldier level is highest.
+54=user hq level is lower.

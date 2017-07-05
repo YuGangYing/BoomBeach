@@ -1,0 +1,38 @@
+﻿//==========================================
+// Created By [UserName] At [CreateTime]
+//==========================================
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace BoomBeach
+{
+    ///<summary>
+    ///
+    ///</summary>
+    public class [PanelName]View : PanelBase
+    {
+        ///////////////////////////////////以下为静态成员//////////////////////////////
+
+        ///////////////////////////////////以下为非静态成员///////////////////////////
+[CtrlVarName]
+
+        // Use this for initialization
+        public override void Awake()
+        {
+[InitVarCode]
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+		void OnDestroy()
+		{
+[DestroyVar]
+		}
+    }
+}

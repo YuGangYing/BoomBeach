@@ -1,0 +1,6 @@
+id,key,head,head1,life,life1,bike,bike1
+int,string,string,string,string,string,string,string
+1,1,head_oso,head_kara,life_oso,life_kara,bike_oso,bike_kara
+2,1,head_oso,head_kara,life_oso,life_kara,bike_oso,bike_kara
+3,1,head_oso,head_kara,life_oso,life_kara,bike_oso,bike_kara
+4,1,head_oso,head_kara,life_oso,life_kara,bike_oso,bike_kara

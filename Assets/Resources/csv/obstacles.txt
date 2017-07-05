@@ -1,0 +1,11 @@
+"Name","TID","SWF","ExportName","ExportNameBase","ExportNameBaseNpc","ClearTimeSeconds","Width","Height","Passable","ClearCost","LootResource","LootCount","ClearEffect","PickUpEffect","RespawnWeight","DepositResource","RequiredTownHallLevel"
+"String","String","String","String","String","String","int","int","int","boolean","String","String","int","String","String","int","String","int"
+"Trees 1","TID_RESOURCE_OBSTACLE_WOOD","sc/in-game.sc","obstacle_tree1",,,2,2,2,"false",600,"Resource2",300,"Remove Tree","Tree Pickup",0,,0
+"Trees 2","TID_RESOURCE_OBSTACLE_WOOD2","sc/in-game.sc","obstacle_tree2",,,2,3,3,"false",3000,"Resource2",1000,"Remove Tree","Tree Pickup",0,,4
+"Trees 3","TID_RESOURCE_OBSTACLE_WOOD3","sc/in-game.sc","obstacle_tree3",,,2,4,4,"false",12000,"Resource2",3000,"Remove Tree","Tree Pickup",0,,10
+"Trees 3b","TID_RESOURCE_OBSTACLE_WOOD3B","sc/in-game.sc","obstacle_tree3b",,,2,4,4,"false",25000,"Resource2",5000,"Remove Tree","Tree Pickup",0,,12
+"Stones 1","TID_RESOURCE_OBSTACLE_STONE","sc/in-game.sc","obstacle_stone1",,,2,2,2,"false",1200,"Resource3",300,,"Stone Pickup",0,,6
+"Stones 2","TID_RESOURCE_OBSTACLE_STONE2","sc/in-game.sc","obstacle_stone2",,,2,3,3,"false",9000,"Resource3",1000,,"Stone Pickup",0,,12
+"Trees 1b","TID_RESOURCE_OBSTACLE_WOOD1B","sc/in-game.sc","obstacle_tree1b",,,2,2,2,"false",600,"Resource2",300,"Remove Tree","Tree Pickup",0,,0
+"Trees 1c","TID_RESOURCE_OBSTACLE_WOOD1C","sc/in-game.sc","obstacle_tree1c",,,2,2,2,"false",600,"Resource2",300,"Remove Tree","Tree Pickup",0,,8
+"Trees 2b","TID_RESOURCE_OBSTACLE_WOOD2B","sc/in-game.sc","obstacle_tree2b",,,2,3,3,"false",3000,"Resource2",1000,"Remove Tree","Tree Pickup",0,,9

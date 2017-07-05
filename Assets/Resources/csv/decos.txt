@@ -1,0 +1,6 @@
+"Name","TID","InfoTID","SWF","ExportName","ExportNameConstruction","BuildCost","RequiredExpLevel","MaxCount","Width","Height","Icon","ExportNameBase","ExportNameBaseNpc","VillagerProbability","EventProbability"
+"String","String","String","String","String","String","String","int","int","int","int","String","String","String","int","int"
+"Debris2","TID_DEBRIS","TID_DEBRIS","sc/in-game.sc","gen_destroyed_2","empty_state","100,100,100",,1,2,2,,"empty_state","empty_state",10,0
+"Debris3","TID_DEBRIS","TID_DEBRIS","sc/in-game.sc","gen_destroyed_3","empty_state","100,100,100",,1,3,3,,"empty_state","empty_state",10,0
+"Debris4","TID_DEBRIS","TID_DEBRIS","sc/in-game.sc","gen_destroyed_4","empty_state","100,100,100",,1,4,4,,"empty_state","empty_state",10,0
+"Debris5","TID_DEBRIS","TID_DEBRIS","sc/in-game.sc","gen_destroyed_5","empty_state","100,100,100",,1,5,5,,"empty_state","empty_state",10,0

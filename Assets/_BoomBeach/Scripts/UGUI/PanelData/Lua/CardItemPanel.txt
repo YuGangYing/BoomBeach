@@ -1,0 +1,11 @@
+/CardItemPanel/#btn_click/#txt_Title
+/CardItemPanel/#btn_click/#tex_Descript
+/CardItemPanel/#btn_click/#img_buildIcon
+/CardItemPanel/#btn_click/buildTime/#txt_buildTimeText
+/CardItemPanel/#btn_click/buildTime
+/CardItemPanel/#btn_click/buildCounts/#txt_buildCountsText
+/CardItemPanel/#btn_click/buildCounts
+/CardItemPanel/#btn_click/bottom/#txt_cost
+/CardItemPanel/#btn_click/bottom/Image
+/CardItemPanel/#btn_click/bottom
+/CardItemPanel/#btn_click

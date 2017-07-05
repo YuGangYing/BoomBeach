@@ -1,0 +1,105 @@
+/BuildDetailPanel/Image
+/BuildDetailPanel/ImageBack
+/BuildDetailPanel/ImageBack (1)
+/BuildDetailPanel/#txt_title
+/BuildDetailPanel/#btn_close
+/BuildDetailPanel/#btn_back
+/BuildDetailPanel/#grid_info/item_title/img_health
+/BuildDetailPanel/#grid_info/item_title/txt_health
+/BuildDetailPanel/#grid_info/item_title/#txt_health_num
+/BuildDetailPanel/#grid_info/item_title/txt_title
+/BuildDetailPanel/#grid_info/item_title
+/BuildDetailPanel/#grid_info/info_item/img
+/BuildDetailPanel/#grid_info/info_item/txt_name
+/BuildDetailPanel/#grid_info/info_item/txt_num
+/BuildDetailPanel/#grid_info/info_item/txt_add_num
+/BuildDetailPanel/#grid_info/info_item
+/BuildDetailPanel/#grid_info/info_item (1)/img
+/BuildDetailPanel/#grid_info/info_item (1)/txt_name
+/BuildDetailPanel/#grid_info/info_item (1)/txt_num
+/BuildDetailPanel/#grid_info/info_item (1)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (1)
+/BuildDetailPanel/#grid_info/info_item (2)/img
+/BuildDetailPanel/#grid_info/info_item (2)/txt_name
+/BuildDetailPanel/#grid_info/info_item (2)/txt_num
+/BuildDetailPanel/#grid_info/info_item (2)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (2)
+/BuildDetailPanel/#grid_info/info_item (3)/img
+/BuildDetailPanel/#grid_info/info_item (3)/txt_name
+/BuildDetailPanel/#grid_info/info_item (3)/txt_num
+/BuildDetailPanel/#grid_info/info_item (3)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (3)
+/BuildDetailPanel/#grid_info/info_item (4)/img
+/BuildDetailPanel/#grid_info/info_item (4)/txt_name
+/BuildDetailPanel/#grid_info/info_item (4)/txt_num
+/BuildDetailPanel/#grid_info/info_item (4)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (4)
+/BuildDetailPanel/#grid_info/info_item (5)/img
+/BuildDetailPanel/#grid_info/info_item (5)/txt_name
+/BuildDetailPanel/#grid_info/info_item (5)/txt_num
+/BuildDetailPanel/#grid_info/info_item (5)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (5)
+/BuildDetailPanel/#grid_info/info_item (6)/img
+/BuildDetailPanel/#grid_info/info_item (6)/txt_name
+/BuildDetailPanel/#grid_info/info_item (6)/txt_num
+/BuildDetailPanel/#grid_info/info_item (6)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (6)
+/BuildDetailPanel/#grid_info/info_item (7)/img
+/BuildDetailPanel/#grid_info/info_item (7)/txt_name
+/BuildDetailPanel/#grid_info/info_item (7)/txt_num
+/BuildDetailPanel/#grid_info/info_item (7)/txt_add_num
+/BuildDetailPanel/#grid_info/info_item (7)
+/BuildDetailPanel/#grid_info
+/BuildDetailPanel/#container_buildpoint
+/BuildDetailPanel/#txt_level
+/BuildDetailPanel/#txt_info
+/BuildDetailPanel/#container_upgrade/#btn_upgrade/txt_upgrade
+/BuildDetailPanel/#container_upgrade/#btn_upgrade/#txt_time
+/BuildDetailPanel/#container_upgrade/#btn_upgrade/img_time
+/BuildDetailPanel/#container_upgrade/#btn_upgrade
+/BuildDetailPanel/#container_upgrade/#container_diamond/img
+/BuildDetailPanel/#container_upgrade/#container_diamond/#txt_diamond
+/BuildDetailPanel/#container_upgrade/#container_diamond/img_wood
+/BuildDetailPanel/#container_upgrade/#container_diamond
+/BuildDetailPanel/#container_upgrade/#btn_instant/txt_finish
+/BuildDetailPanel/#container_upgrade/#btn_instant/img_light
+/BuildDetailPanel/#container_upgrade/#btn_instant
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_iron/img
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_iron/#txt_iron
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_iron/img_iron
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_iron
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_stone/img
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_stone/#txt_stone
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_stone/img_stone
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_stone
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_wood/img
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_wood/#txt_wood
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_wood/img_wood
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources/#container_wood
+/BuildDetailPanel/#container_upgrade/grid_upgraderesources
+/BuildDetailPanel/#container_upgrade
+/BuildDetailPanel/#container_unlock/Button/Image
+/BuildDetailPanel/#container_unlock/Button/buildpoint
+/BuildDetailPanel/#container_unlock/Button/Text
+/BuildDetailPanel/#container_unlock/Button
+/BuildDetailPanel/#container_unlock/Button (1)/Image
+/BuildDetailPanel/#container_unlock/Button (1)/buildpoint
+/BuildDetailPanel/#container_unlock/Button (1)/Text
+/BuildDetailPanel/#container_unlock/Button (1)
+/BuildDetailPanel/#container_unlock/Button (2)/Image
+/BuildDetailPanel/#container_unlock/Button (2)/buildpoint
+/BuildDetailPanel/#container_unlock/Button (2)/Text
+/BuildDetailPanel/#container_unlock/Button (2)
+/BuildDetailPanel/#container_unlock/Button (3)/Image
+/BuildDetailPanel/#container_unlock/Button (3)/buildpoint
+/BuildDetailPanel/#container_unlock/Button (3)/Text
+/BuildDetailPanel/#container_unlock/Button (3)
+/BuildDetailPanel/#container_unlock/Button (4)/Image
+/BuildDetailPanel/#container_unlock/Button (4)/buildpoint
+/BuildDetailPanel/#container_unlock/Button (4)/Text
+/BuildDetailPanel/#container_unlock/Button (4)
+/BuildDetailPanel/#container_unlock/Button (5)/Image
+/BuildDetailPanel/#container_unlock/Button (5)/buildpoint
+/BuildDetailPanel/#container_unlock/Button (5)/Text
+/BuildDetailPanel/#container_unlock/Button (5)
+/BuildDetailPanel/#container_unlock

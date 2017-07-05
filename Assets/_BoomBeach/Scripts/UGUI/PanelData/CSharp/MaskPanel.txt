@@ -1,0 +1,7 @@
+/MaskPanel/#btn_mask
+/MaskPanel/#container_mask/TopBg
+/MaskPanel/#container_mask/#txt_title
+/MaskPanel/#container_mask/#btn_confirm/Text
+/MaskPanel/#container_mask/#btn_confirm
+/MaskPanel/#container_mask/#txt_msg
+/MaskPanel/#container_mask
