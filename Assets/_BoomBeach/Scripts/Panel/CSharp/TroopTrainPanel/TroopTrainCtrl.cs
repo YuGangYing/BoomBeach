@@ -78,7 +78,7 @@ public class TroopTrainCtrl : BaseCtrl
             Text goldText = trans.Find("container_info/txt_corn").GetComponent<Text>();
             //trans.Find("Reason").gameObject.SetActive(false);
             goldText.text = tidData.trainCost.ToString();
-            if (tidData.trainCost > DataManager.GetInstance.userInfo.gold_count)
+            if (tidData.trainCost > DataManager.GetInstance.model.user_info.gold_count)
             {
                 goldText.color = Color.red;
             }

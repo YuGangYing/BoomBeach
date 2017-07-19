@@ -497,11 +497,6 @@
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\AchievementItem.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\Artifact.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\BaseEntity.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\Entity\BaseEntity\BuildingInfo.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\Entity\BaseEntity\RegionInfo.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\Entity\BaseEntity\TechnologyInfo.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\Entity\BaseEntity\TroopInfo.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\Entity\BaseEntity\UserInfo.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\BattleItem.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\BattleTrooperData.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\BattleTrooperItem.cs" />
@@ -562,6 +557,7 @@
      <Compile Include="Assets\_BoomBeach\Scripts\Helper\Globals.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Helper\GlobalsHelper.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Helper\Helper.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Main\MainManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\BuildManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\CSVManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\DataManager.cs" />
@@ -576,7 +572,12 @@
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\SpawnManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\TempleData.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\UIManager.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Network\Models\BuildingModel.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Network\Models\Model.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Network\Models\RegionModel.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Network\Models\TechnologyModel.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Network\Models\TroopModel.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Network\Models\UserInfo.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Network\NetworkManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Network\SFSNetwork\ApiConstant.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Network\SFSNetwork\SFSNetworkManager.cs" />

@@ -87,4 +87,10 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>{
 		//Debug.Log("TOWN_HALL_MAX_DAMAGE_FROM_ONE_BUILDING_PERCENT:" + Globals.GlobalsCsv["TOWN_HALL_MAX_DAMAGE_FROM_ONE_BUILDING_PERCENT"].NumberValue);
 	}
 
+	public CsvInfo GetBuildingData(string type,int level){
+		string tid_level = type + "_" + level;
+		return this.csvTable[tid_level] as CsvInfo;
+	}
+
+
 }

@@ -58,7 +58,7 @@ public class TroopDetailCtrl : BaseCtrl
         mTroopDetailPanelView.m_containerUpgrade.SetActive(true);
 		mTroopDetailPanelView.m_txtDiamond.text = Helper.GetUpgradeInstant (tidData.tid_level).ToString();
         mTroopDetailPanelView.m_txtGold.text = tidData.upgradeCost.ToString();
-        if (tidData.upgradeCost > DataManager.GetInstance.userInfo.gold_count)
+        if (tidData.upgradeCost > DataManager.GetInstance.model.user_info.gold_count)
         {
             mTroopDetailPanelView.m_txtGold.color = Color.red;
         }

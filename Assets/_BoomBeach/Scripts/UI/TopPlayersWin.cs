@@ -83,7 +83,7 @@ namespace BoomBeach{
 				UIDragScrollView drag = player.transform.GetComponent<UIDragScrollView>();
 				drag.scrollView = scrollView;
 
-				if (DataManager.GetInstance.userInfo.id == item.GetInt("id")){
+				if (DataManager.GetInstance.model.user_info.id == item.GetInt("id")){
 					player.transform.Find("bg_sprite").GetComponent<UISprite>().spriteName = "blue_item";
 				}else{
 					if (i % 2 == 0)
@@ -104,7 +104,7 @@ namespace BoomBeach{
 		{
 			//Debug.Log("OnClickItem:" + sender.name);
 
-			if (DataManager.GetInstance.userInfo.id == int.Parse(sender.name)){
+			if (DataManager.GetInstance.model.user_info.id == int.Parse(sender.name)){
 				btn_panel.gameObject.SetActive(false);
 				select_user_id = 0;
 			}else{

@@ -210,7 +210,7 @@ public class Helper: MonoBehaviour {
 				//
 				rTid.hasTrain = StringFormat.FormatByTid("TID_UPGRADE_TH_TO_UNLOCK",new object[]{csvData.UnlockTownHallLevel});
 			}else{
-				//	DataManager.GetInstance.userInfo.laboratory_level
+				//	DataManager.GetInstance.model.user_info.laboratory_level
 				rTid.hasTrain = null;
 			}
 			
@@ -291,8 +291,8 @@ public class Helper: MonoBehaviour {
 
 		for(int i = 0; i < tid_list.Count; i ++){
 			string tid = tid_list[i];
-			int cur_max = getBuildingMaxCount(tid,DataManager.GetInstance.userInfo.town_hall_level);
-			int new_max = getBuildingMaxCount(tid,DataManager.GetInstance.userInfo.town_hall_level + 1);
+			int cur_max = getBuildingMaxCount(tid,DataManager.GetInstance.model.user_info.town_hall_level);
+			int new_max = getBuildingMaxCount(tid,DataManager.GetInstance.model.user_info.town_hall_level + 1);
 			int dif_num = new_max - cur_max;
 			if (dif_num > 0){
 				CsvInfo csvData = (CsvInfo)CSVManager.GetInstance.csvTable[tid + "_1"];
@@ -563,7 +563,7 @@ public class Helper: MonoBehaviour {
 				//TID_BUILDING_CAP_REACHED	You've already built the maximum amount of these buildings.
 				//不能再新建,已经是最大容量（或需要升级主城来获得更大的容量);				
 				int max_count = BuildMax;
-				for(int thl = DataManager.GetInstance.userInfo.town_hall_level + 1; thl < Globals.maxTownHallLevel + 1; thl ++){
+				for(int thl = DataManager.GetInstance.model.user_info.town_hall_level + 1; thl < Globals.maxTownHallLevel + 1; thl ++){
 					//获取指定建筑物的请允许我最大建筑数量;
 					max_count = Helper.getBuildingMaxCount(csvInfo.TID,thl);
 					
@@ -721,14 +721,14 @@ public class Helper: MonoBehaviour {
 				}								
 			}else if ("BUILDING".Equals(csvData.TID_Type)){
 				//TID_TOWN_HALL_LEVEL_TOO_LOW To upgrade this building, you first need Headquarters level <number>!
-				if (DataManager.GetInstance.userInfo.town_hall_level >= csvData.TownHallLevel){
+				if (DataManager.GetInstance.model.user_info.town_hall_level >= csvData.TownHallLevel){
 					return null;
 				}else{
 					return StringFormat.FormatByTid("TID_TOWN_HALL_LEVEL_TOO_LOW", new object[]{csvData.TownHallLevel});
 				}								
 			}else if ("CHARACTERS".Equals(csvData.TID_Type) || "SPELLS".Equals(csvData.TID_Type) || "TRAPS".Equals(csvData.TID_Type)){
 				//TID_REQUIRED_ACADEMY_LEVEL Level <number> Combat Academy Required
-				if (DataManager.GetInstance.userInfo.laboratory_level >= csvData.UpgradeHouseLevel){
+				if (DataManager.GetInstance.model.user_info.laboratory_level >= csvData.UpgradeHouseLevel){
 					return null;
 				}else{
 					return StringFormat.FormatByTid("TID_REQUIRED_ACADEMY_LEVEL", new object[]{csvData.UpgradeHouseLevel});
@@ -1759,15 +1759,15 @@ layout/enemybase.level
 		//Debug.Log1("csvData.tid_type:" + csvData.tid_type);
 		
 		if ("BUILDING".Equals(csvData.TID_Type)){
-			return DataManager.GetInstance.userInfo.town_hall_level >= csvData.TownHallLevel;								
+			return DataManager.GetInstance.model.user_info.town_hall_level >= csvData.TownHallLevel;								
 		}else if ("CHARACTERS".Equals(csvData.TID_Type)){
-			//return  DataManager.GetInstance.userInfo.laboratory_level >= csvData.UpgradeHouseLevel && DataManager.GetInstance.userInfo.town_hall_level >= csvData.UnlockTownHallLevel;
-			return  DataManager.GetInstance.userInfo.town_hall_level >= csvData.UnlockTownHallLevel;				
+			//return  DataManager.GetInstance.model.user_info.laboratory_level >= csvData.UpgradeHouseLevel && DataManager.GetInstance.model.user_info.town_hall_level >= csvData.UnlockTownHallLevel;
+			return  DataManager.GetInstance.model.user_info.town_hall_level >= csvData.UnlockTownHallLevel;				
 		}else if ("SPELLS".Equals(csvData.TID_Type)){
-			//return  DataManager.GetInstance.userInfo.laboratory_level >= csvData.UpgradeHouseLevel && DataManager.GetInstance.userInfo.town_hall_level >= csvData.UnlockTownHallLevel;
-			return  DataManager.GetInstance.userInfo.town_hall_level >= csvData.UnlockTownHallLevel;	
+			//return  DataManager.GetInstance.model.user_info.laboratory_level >= csvData.UpgradeHouseLevel && DataManager.GetInstance.model.user_info.town_hall_level >= csvData.UnlockTownHallLevel;
+			return  DataManager.GetInstance.model.user_info.town_hall_level >= csvData.UnlockTownHallLevel;	
 		}else if ("TRAPS".Equals(csvData.TID_Type)){
-			return  true;//DataManager.GetInstance.userInfo.laboratory_level >= csvData.UpgradeHouseLevel;
+			return  true;//DataManager.GetInstance.model.user_info.laboratory_level >= csvData.UpgradeHouseLevel;
 		}else if ("DECOS".Equals(csvData.TID_Type)){
 			return false;			
 		}else{
@@ -1793,7 +1793,7 @@ layout/enemybase.level
 		int num = 0;
 		tid = tid.ToUpper();
 		if (town_hall_level == 0){
-			town_hall_level = DataManager.GetInstance.userInfo.town_hall_level;
+			town_hall_level = DataManager.GetInstance.model.user_info.town_hall_level;
 		}
 
 		if (town_hall_level == 0){
@@ -1858,19 +1858,19 @@ layout/enemybase.level
 		
 		if (s.tid == "TID_BUILDING_HOUSING"){
 			//TID_BUILDING_HOUSING
-			if (DataManager.GetInstance.userInfo.gold_count + collect_num > DataManager.GetInstance.userInfo.max_gold_count){
+			if (DataManager.GetInstance.model.user_info.gold_count + collect_num > DataManager.GetInstance.model.user_info.max_gold_count){
 				return 3;
 			}
 		}else if (s.tid == "TID_BUILDING_STONE_QUARRY"){
-			if (DataManager.GetInstance.userInfo.stone_count + collect_num > DataManager.GetInstance.userInfo.max_stone_count){
+			if (DataManager.GetInstance.model.user_info.stone_count + collect_num > DataManager.GetInstance.model.user_info.max_stone_count){
 				return 3;
 			}
 		}else if (s.tid == "TID_BUILDING_METAL_MINE"){
-			if (DataManager.GetInstance.userInfo.iron_count + collect_num > DataManager.GetInstance.userInfo.max_iron_count){
+			if (DataManager.GetInstance.model.user_info.iron_count + collect_num > DataManager.GetInstance.model.user_info.max_iron_count){
 				return 3;
 			}
 		}else if (s.tid == "TID_BUILDING_WOODCUTTER"){
-			if (DataManager.GetInstance.userInfo.wood_count + collect_num > DataManager.GetInstance.userInfo.max_wood_count){
+			if (DataManager.GetInstance.model.user_info.wood_count + collect_num > DataManager.GetInstance.model.user_info.max_wood_count){
 				return 3;
 			}
 		}else{
@@ -2012,7 +2012,7 @@ layout/enemybase.level
 		//Debug.Log("autoAllocGoldStored");
 
 		if (stored_count == 0)
-			stored_count = DataManager.GetInstance.userInfo.gold_count;
+			stored_count = DataManager.GetInstance.model.user_info.gold_count;
 
 		//清空当前分配的;
 		foreach(BuildInfo s in DataManager.GetInstance.buildList.Values){
@@ -2027,8 +2027,8 @@ layout/enemybase.level
 		}
 
 		//如果传入的参数大于用户最大可存储量，则使用最大可存储量;
-		if (stored_count > DataManager.GetInstance.userInfo.max_gold_count){
-			stored_count = DataManager.GetInstance.userInfo.max_gold_count;	
+		if (stored_count > DataManager.GetInstance.model.user_info.max_gold_count){
+			stored_count = DataManager.GetInstance.model.user_info.max_gold_count;	
 		}
 
 
@@ -2130,7 +2130,7 @@ layout/enemybase.level
 		//Debug.Log("autoAllocGoldStored");
 		
 		if (stored_count == 0)
-			stored_count = DataManager.GetInstance.userInfo.wood_count;
+			stored_count = DataManager.GetInstance.model.user_info.wood_count;
 		
 		//清空当前分配的;
 		foreach(BuildInfo s in DataManager.GetInstance.buildList.Values){
@@ -2145,8 +2145,8 @@ layout/enemybase.level
 		}
 		
 		//如果传入的参数大于用户最大可存储量，则使用最大可存储量;
-		if (stored_count > DataManager.GetInstance.userInfo.max_wood_count){
-			stored_count = DataManager.GetInstance.userInfo.max_wood_count;	
+		if (stored_count > DataManager.GetInstance.model.user_info.max_wood_count){
+			stored_count = DataManager.GetInstance.model.user_info.max_wood_count;	
 		}
 		
 		
@@ -2249,7 +2249,7 @@ layout/enemybase.level
 		//Debug.Log("autoAllocGoldStored");
 		
 		if (stored_count == 0)
-			stored_count = DataManager.GetInstance.userInfo.stone_count;
+			stored_count = DataManager.GetInstance.model.user_info.stone_count;
 		
 		//清空当前分配的;
 		foreach(BuildInfo s in DataManager.GetInstance.buildList.Values){
@@ -2264,8 +2264,8 @@ layout/enemybase.level
 		}
 		
 		//如果传入的参数大于用户最大可存储量，则使用最大可存储量;
-		if (stored_count > DataManager.GetInstance.userInfo.max_stone_count){
-			stored_count = DataManager.GetInstance.userInfo.max_stone_count;	
+		if (stored_count > DataManager.GetInstance.model.user_info.max_stone_count){
+			stored_count = DataManager.GetInstance.model.user_info.max_stone_count;	
 		}
 		
 		
@@ -2367,7 +2367,7 @@ layout/enemybase.level
 		//Debug.Log("autoAllocMetalStored");
 		
 		if (stored_count == 0)
-			stored_count = DataManager.GetInstance.userInfo.iron_count;
+			stored_count = DataManager.GetInstance.model.user_info.iron_count;
 		
 		//清空当前分配的;
 		foreach(BuildInfo s in DataManager.GetInstance.buildList.Values){
@@ -2381,8 +2381,8 @@ layout/enemybase.level
 		}
 		
 		//如果传入的参数大于用户最大可存储量，则使用最大可存储量;
-		if (stored_count > DataManager.GetInstance.userInfo.max_iron_count){
-			stored_count = DataManager.GetInstance.userInfo.max_iron_count;	
+		if (stored_count > DataManager.GetInstance.model.user_info.max_iron_count){
+			stored_count = DataManager.GetInstance.model.user_info.max_iron_count;	
 		}
 		
 		
@@ -2608,29 +2608,29 @@ layout/enemybase.level
 		//bc = getBuildCost(tid_level);
 
 
-		//Debug.Log(DataManager.GetInstance.userInfo.wood_count);
-		int diff_wood = bc.wood - DataManager.GetInstance.userInfo.wood_count;
+		//Debug.Log(DataManager.GetInstance.model.user_info.wood_count);
+		int diff_wood = bc.wood - DataManager.GetInstance.model.user_info.wood_count;
 		if (diff_wood > 0){
 			diff_count ++;
 			ht["TID_WOOD"] = diff_wood;
 			gems += CalcHelper.doCalcResourceToGems(diff_wood);
 		}
 		
-		int diff_stone = bc.stone - DataManager.GetInstance.userInfo.stone_count;
+		int diff_stone = bc.stone - DataManager.GetInstance.model.user_info.stone_count;
 		if (diff_stone > 0){
 			diff_count ++;
 			ht["TID_STONE"] = diff_stone;
 			gems += CalcHelper.doCalcResourceToGems(diff_stone);
 		}
 
-		int diff_iron = bc.iron - DataManager.GetInstance.userInfo.iron_count;
+		int diff_iron = bc.iron - DataManager.GetInstance.model.user_info.iron_count;
 		if (diff_iron > 0){
 			diff_count ++;
 			ht["TID_METAL"] = diff_iron;
 			gems += CalcHelper.doCalcResourceToGems(diff_iron);
 		}
 
-		int diff_gold = bc.gold - DataManager.GetInstance.userInfo.gold_count;
+		int diff_gold = bc.gold - DataManager.GetInstance.model.user_info.gold_count;
 		if (diff_gold > 0){
 			diff_count ++;
 			ht["TID_GOLD"] = diff_gold;
@@ -2640,7 +2640,7 @@ layout/enemybase.level
 		//=======================================
 		if (bc.wood > 0 || showAll){
 			if (diff_wood > 0){				
-				ht["Wood"] = DataManager.GetInstance.userInfo.wood_count;
+				ht["Wood"] = DataManager.GetInstance.model.user_info.wood_count;
 			}else{
 				ht["Wood"] = bc.wood;
 			}
@@ -2648,7 +2648,7 @@ layout/enemybase.level
 		
 		if (bc.stone > 0 || showAll){
 			if (diff_stone > 0){				
-				ht["Stone"] = DataManager.GetInstance.userInfo.stone_count;
+				ht["Stone"] = DataManager.GetInstance.model.user_info.stone_count;
 			}else{
 				ht["Stone"] = bc.stone;
 			}
@@ -2656,7 +2656,7 @@ layout/enemybase.level
 		
 		if (bc.iron > 0 || showAll){
 			if (diff_stone > 0){				
-				ht["Iron"] = DataManager.GetInstance.userInfo.iron_count;
+				ht["Iron"] = DataManager.GetInstance.model.user_info.iron_count;
 			}else{
 				ht["Iron"] = bc.iron;
 			}
@@ -2664,7 +2664,7 @@ layout/enemybase.level
 		
 		if (bc.gold > 0 || showAll){
 			if (diff_gold > 0){				
-				ht["Gold"] = DataManager.GetInstance.userInfo.gold_count;
+				ht["Gold"] = DataManager.GetInstance.model.user_info.gold_count;
 			}else{
 				ht["Gold"] = bc.gold;
 			}
@@ -2754,129 +2754,129 @@ layout/enemybase.level
 	/*return -1 药水或金额或宝石或黑药水不足;*/
 	public static int SetResourceCount(string resource_type, int num, bool olny_chek = false, bool update_ui = true){
 		if ("Gold".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.gold_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.gold_count + num) < 0 ){
 				return -1;
 			}else{
 				//检查容量是否超出;
 				if (olny_chek){
-					if (DataManager.GetInstance.userInfo.gold_count + num > DataManager.GetInstance.userInfo.max_gold_count){
+					if (DataManager.GetInstance.model.user_info.gold_count + num > DataManager.GetInstance.model.user_info.max_gold_count){
 						return -1;
 					}else{
 						return 1;
 					}					
 				}else{
-					if (DataManager.GetInstance.userInfo.gold_count + num > DataManager.GetInstance.userInfo.max_gold_count){
-						DataManager.GetInstance.userInfo.gold_count = DataManager.GetInstance.userInfo.max_gold_count;
+					if (DataManager.GetInstance.model.user_info.gold_count + num > DataManager.GetInstance.model.user_info.max_gold_count){
+						DataManager.GetInstance.model.user_info.gold_count = DataManager.GetInstance.model.user_info.max_gold_count;
 					}else{
-						DataManager.GetInstance.userInfo.gold_count = DataManager.GetInstance.userInfo.gold_count + num;
+						DataManager.GetInstance.model.user_info.gold_count = DataManager.GetInstance.model.user_info.gold_count + num;
 					}	
 					
-					autoAllocGoldStored(DataManager.GetInstance.userInfo.gold_count);
+					autoAllocGoldStored(DataManager.GetInstance.model.user_info.gold_count);
 
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.gold_count;
+					return DataManager.GetInstance.model.user_info.gold_count;
 				}					
 			}	
 		}else if ("Wood".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.wood_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.wood_count + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//检查容量是否超出;
-					if (DataManager.GetInstance.userInfo.wood_count + num > DataManager.GetInstance.userInfo.max_wood_count){
+					if (DataManager.GetInstance.model.user_info.wood_count + num > DataManager.GetInstance.model.user_info.max_wood_count){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{		
-					if (DataManager.GetInstance.userInfo.wood_count + num > DataManager.GetInstance.userInfo.max_wood_count){
-						DataManager.GetInstance.userInfo.wood_count = DataManager.GetInstance.userInfo.max_wood_count;
+					if (DataManager.GetInstance.model.user_info.wood_count + num > DataManager.GetInstance.model.user_info.max_wood_count){
+						DataManager.GetInstance.model.user_info.wood_count = DataManager.GetInstance.model.user_info.max_wood_count;
 					}else{
-						DataManager.GetInstance.userInfo.wood_count = DataManager.GetInstance.userInfo.wood_count + num;
+						DataManager.GetInstance.model.user_info.wood_count = DataManager.GetInstance.model.user_info.wood_count + num;
 					}
 					
-					autoAllocWoodStored(DataManager.GetInstance.userInfo.wood_count);
+					autoAllocWoodStored(DataManager.GetInstance.model.user_info.wood_count);
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.wood_count;
+					return DataManager.GetInstance.model.user_info.wood_count;
 				}	
 			}	
 		}else if ("Stone".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.stone_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.stone_count + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//检查容量是否超出;
-					if (DataManager.GetInstance.userInfo.stone_count + num > DataManager.GetInstance.userInfo.max_stone_count){
+					if (DataManager.GetInstance.model.user_info.stone_count + num > DataManager.GetInstance.model.user_info.max_stone_count){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{		
-					if (DataManager.GetInstance.userInfo.stone_count + num > DataManager.GetInstance.userInfo.max_stone_count){
-						DataManager.GetInstance.userInfo.stone_count = DataManager.GetInstance.userInfo.max_stone_count;
+					if (DataManager.GetInstance.model.user_info.stone_count + num > DataManager.GetInstance.model.user_info.max_stone_count){
+						DataManager.GetInstance.model.user_info.stone_count = DataManager.GetInstance.model.user_info.max_stone_count;
 					}else{
-						DataManager.GetInstance.userInfo.stone_count = DataManager.GetInstance.userInfo.stone_count + num;
+						DataManager.GetInstance.model.user_info.stone_count = DataManager.GetInstance.model.user_info.stone_count + num;
 					}
 					
-					autoAllocStoneStored(DataManager.GetInstance.userInfo.stone_count);
+					autoAllocStoneStored(DataManager.GetInstance.model.user_info.stone_count);
 
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.stone_count;
+					return DataManager.GetInstance.model.user_info.stone_count;
 				}	
 			}
 		}else if ("Iron".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.iron_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.iron_count + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//检查容量是否超出;
-					if (DataManager.GetInstance.userInfo.iron_count + num > DataManager.GetInstance.userInfo.max_iron_count){
+					if (DataManager.GetInstance.model.user_info.iron_count + num > DataManager.GetInstance.model.user_info.max_iron_count){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{		
-					if (DataManager.GetInstance.userInfo.iron_count + num > DataManager.GetInstance.userInfo.max_iron_count){
-						DataManager.GetInstance.userInfo.iron_count = DataManager.GetInstance.userInfo.max_iron_count;
+					if (DataManager.GetInstance.model.user_info.iron_count + num > DataManager.GetInstance.model.user_info.max_iron_count){
+						DataManager.GetInstance.model.user_info.iron_count = DataManager.GetInstance.model.user_info.max_iron_count;
 					}else{
-						DataManager.GetInstance.userInfo.iron_count = DataManager.GetInstance.userInfo.iron_count + num;
+						DataManager.GetInstance.model.user_info.iron_count = DataManager.GetInstance.model.user_info.iron_count + num;
 					}
 					
-					autoAllocMetalStored(DataManager.GetInstance.userInfo.iron_count);
+					autoAllocMetalStored(DataManager.GetInstance.model.user_info.iron_count);
 
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.iron_count;
+					return DataManager.GetInstance.model.user_info.iron_count;
 				}	
 			}		
 		}else if ("Gems".Equals(resource_type) || "Diamonds".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.diamond_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.diamond_count + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.diamond_count + num < 0){
+					if (DataManager.GetInstance.model.user_info.diamond_count + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.diamond_count = DataManager.GetInstance.userInfo.diamond_count + num;														
+					DataManager.GetInstance.model.user_info.diamond_count = DataManager.GetInstance.model.user_info.diamond_count + num;														
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.diamond_count;
+					return DataManager.GetInstance.model.user_info.diamond_count;
 				}
 			}	
 		}else if ("Exp".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.exp_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.exp_count + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
@@ -2884,14 +2884,14 @@ layout/enemybase.level
 				}else{				
 
 
-					DataManager.GetInstance.userInfo.exp_count = DataManager.GetInstance.userInfo.exp_count + num;	
+					DataManager.GetInstance.model.user_info.exp_count = DataManager.GetInstance.model.user_info.exp_count + num;	
 
-					ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+					ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 					int max_exp = 0;
 					if (el == null){
-						Debug.Log(CSVManager.GetInstance.experienceLevelsList.Count + ";exp_level:" + DataManager.GetInstance.userInfo.exp_level + ";num:" + num);
+						Debug.Log(CSVManager.GetInstance.experienceLevelsList.Count + ";exp_level:" + DataManager.GetInstance.model.user_info.exp_level + ";num:" + num);
 
-						Debug.Log(CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString()));
+						Debug.Log(CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.model.user_info.exp_level.ToString()));
 
 							/*
 						foreach(string key in CSVMananger.GetInstance.experienceLevelsList.Keys){
@@ -2902,14 +2902,14 @@ layout/enemybase.level
 */
 						max_exp = 9999;
 						//获取某等级需要多少经验值;
-						// CalcHelper.calcExperience(DataManager.GetInstance.userInfo.exp_level + 1);
+						// CalcHelper.calcExperience(DataManager.GetInstance.model.user_info.exp_level + 1);
 					}else{
 						max_exp = el.ExpPoints;
 					}
 					//升一级;
-					if (DataManager.GetInstance.userInfo.exp_count >= max_exp){
-						DataManager.GetInstance.userInfo.exp_level += 1;
-						DataManager.GetInstance.userInfo.exp_count -= max_exp;
+					if (DataManager.GetInstance.model.user_info.exp_count >= max_exp){
+						DataManager.GetInstance.model.user_info.exp_level += 1;
+						DataManager.GetInstance.model.user_info.exp_count -= max_exp;
 
 						AudioPlayer.Instance.PlaySfx("xp_level_up_01");
 					}
@@ -2918,216 +2918,216 @@ layout/enemybase.level
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.exp_count;
+					return DataManager.GetInstance.model.user_info.exp_count;
 				}
 			}	
 		}else if ("Reward".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.reward_count + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.reward_count + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					return 1;
 				}else{				
-					DataManager.GetInstance.userInfo.reward_count = DataManager.GetInstance.userInfo.reward_count + num;														
+					DataManager.GetInstance.model.user_info.reward_count = DataManager.GetInstance.model.user_info.reward_count + num;														
 					if (update_ui){
 						UpdateResUI(resource_type,true);
 					}
-					return DataManager.GetInstance.userInfo.reward_count;
+					return DataManager.GetInstance.model.user_info.reward_count;
 				}
 			}
 		}else if ("CommonPiece".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.common_piece + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.common_piece + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.common_piece + num < 0){
+					if (DataManager.GetInstance.model.user_info.common_piece + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.common_piece = DataManager.GetInstance.userInfo.common_piece + num;
-					return DataManager.GetInstance.userInfo.common_piece;
+					DataManager.GetInstance.model.user_info.common_piece = DataManager.GetInstance.model.user_info.common_piece + num;
+					return DataManager.GetInstance.model.user_info.common_piece;
 				}
 			}
 		}else if ("RarePiece".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.rare_piece + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.rare_piece + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.rare_piece + num < 0){
+					if (DataManager.GetInstance.model.user_info.rare_piece + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.rare_piece = DataManager.GetInstance.userInfo.rare_piece + num;
-					return DataManager.GetInstance.userInfo.rare_piece;
+					DataManager.GetInstance.model.user_info.rare_piece = DataManager.GetInstance.model.user_info.rare_piece + num;
+					return DataManager.GetInstance.model.user_info.rare_piece;
 				}
 			}
 		}else if ("EpicPiece".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.epic_piece + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.epic_piece + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.epic_piece + num < 0){
+					if (DataManager.GetInstance.model.user_info.epic_piece + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.epic_piece = DataManager.GetInstance.userInfo.epic_piece + num;
-					return DataManager.GetInstance.userInfo.epic_piece;
+					DataManager.GetInstance.model.user_info.epic_piece = DataManager.GetInstance.model.user_info.epic_piece + num;
+					return DataManager.GetInstance.model.user_info.epic_piece;
 				}
 			}
 		
 		}else if ("CommonPieceIce".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.common_piece_ice + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.common_piece_ice + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.common_piece_ice + num < 0){
+					if (DataManager.GetInstance.model.user_info.common_piece_ice + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.common_piece_ice = DataManager.GetInstance.userInfo.common_piece_ice + num;
-					return DataManager.GetInstance.userInfo.common_piece_ice;
+					DataManager.GetInstance.model.user_info.common_piece_ice = DataManager.GetInstance.model.user_info.common_piece_ice + num;
+					return DataManager.GetInstance.model.user_info.common_piece_ice;
 				}
 			}
 		}else if ("RarePieceIce".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.rare_piece_ice + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.rare_piece_ice + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.rare_piece_ice + num < 0){
+					if (DataManager.GetInstance.model.user_info.rare_piece_ice + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.rare_piece_ice = DataManager.GetInstance.userInfo.rare_piece_ice + num;
-					return DataManager.GetInstance.userInfo.rare_piece_ice;
+					DataManager.GetInstance.model.user_info.rare_piece_ice = DataManager.GetInstance.model.user_info.rare_piece_ice + num;
+					return DataManager.GetInstance.model.user_info.rare_piece_ice;
 				}
 			}
 		}else if ("EpicPieceIce".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.epic_piece_ice + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.epic_piece_ice + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.epic_piece_ice + num < 0){
+					if (DataManager.GetInstance.model.user_info.epic_piece_ice + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.epic_piece_ice = DataManager.GetInstance.userInfo.epic_piece_ice + num;
-					return DataManager.GetInstance.userInfo.epic_piece_ice;
+					DataManager.GetInstance.model.user_info.epic_piece_ice = DataManager.GetInstance.model.user_info.epic_piece_ice + num;
+					return DataManager.GetInstance.model.user_info.epic_piece_ice;
 				}
 			}
 			
 		}else if ("CommonPieceFire".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.common_piece_fire + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.common_piece_fire + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.common_piece_fire + num < 0){
+					if (DataManager.GetInstance.model.user_info.common_piece_fire + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.common_piece_fire = DataManager.GetInstance.userInfo.common_piece_fire + num;
-					return DataManager.GetInstance.userInfo.common_piece_fire;
+					DataManager.GetInstance.model.user_info.common_piece_fire = DataManager.GetInstance.model.user_info.common_piece_fire + num;
+					return DataManager.GetInstance.model.user_info.common_piece_fire;
 				}
 			}
 		}else if ("RarePieceFire".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.rare_piece_fire + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.rare_piece_fire + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.rare_piece_fire + num < 0){
+					if (DataManager.GetInstance.model.user_info.rare_piece_fire + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.rare_piece_fire = DataManager.GetInstance.userInfo.rare_piece_fire + num;
-					return DataManager.GetInstance.userInfo.rare_piece_fire;
+					DataManager.GetInstance.model.user_info.rare_piece_fire = DataManager.GetInstance.model.user_info.rare_piece_fire + num;
+					return DataManager.GetInstance.model.user_info.rare_piece_fire;
 				}
 			}
 		}else if ("EpicPieceFire".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.epic_piece_fire + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.epic_piece_fire + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.epic_piece_fire + num < 0){
+					if (DataManager.GetInstance.model.user_info.epic_piece_fire + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.epic_piece_fire = DataManager.GetInstance.userInfo.epic_piece_fire + num;
-					return DataManager.GetInstance.userInfo.epic_piece_fire;
+					DataManager.GetInstance.model.user_info.epic_piece_fire = DataManager.GetInstance.model.user_info.epic_piece_fire + num;
+					return DataManager.GetInstance.model.user_info.epic_piece_fire;
 				}
 			}
 			
 		}else if ("CommonPieceDark".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.common_piece_dark + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.common_piece_dark + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.common_piece_dark + num < 0){
+					if (DataManager.GetInstance.model.user_info.common_piece_dark + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.common_piece_dark = DataManager.GetInstance.userInfo.common_piece_dark + num;
-					return DataManager.GetInstance.userInfo.common_piece_dark;
+					DataManager.GetInstance.model.user_info.common_piece_dark = DataManager.GetInstance.model.user_info.common_piece_dark + num;
+					return DataManager.GetInstance.model.user_info.common_piece_dark;
 				}
 			}
 		}else if ("RarePieceDark".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.rare_piece_dark + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.rare_piece_dark + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.rare_piece_dark + num < 0){
+					if (DataManager.GetInstance.model.user_info.rare_piece_dark + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.rare_piece_dark = DataManager.GetInstance.userInfo.rare_piece_dark + num;
-					return DataManager.GetInstance.userInfo.rare_piece_dark;
+					DataManager.GetInstance.model.user_info.rare_piece_dark = DataManager.GetInstance.model.user_info.rare_piece_dark + num;
+					return DataManager.GetInstance.model.user_info.rare_piece_dark;
 				}
 			}
 		}else if ("EpicPieceDark".Equals(resource_type)){
-			if (num < 0 && (DataManager.GetInstance.userInfo.epic_piece_dark + num) < 0 ){
+			if (num < 0 && (DataManager.GetInstance.model.user_info.epic_piece_dark + num) < 0 ){
 				return -1;
 			}else{
 				if (olny_chek){
 					//资源是否足够;
-					if (DataManager.GetInstance.userInfo.epic_piece_dark + num < 0){
+					if (DataManager.GetInstance.model.user_info.epic_piece_dark + num < 0){
 						return -1;
 					}else{
 						return 1;
 					}
 				}else{				
-					DataManager.GetInstance.userInfo.epic_piece_dark = DataManager.GetInstance.userInfo.epic_piece_dark + num;
-					return DataManager.GetInstance.userInfo.epic_piece_dark;
+					DataManager.GetInstance.model.user_info.epic_piece_dark = DataManager.GetInstance.model.user_info.epic_piece_dark + num;
+					return DataManager.GetInstance.model.user_info.epic_piece_dark;
 				}
 			}			
 		}else{
@@ -3139,72 +3139,72 @@ layout/enemybase.level
 	public static void UpdateResUI(string resource_type, bool playAnim = false){
 		MainInterfaceCtrl mainInterfaceCtrl = BoomBeach.UIManager.GetInstance.GetController<MainInterfaceCtrl>();
 		if ("Gold".Equals(resource_type) || "All".Equals(resource_type)){
-			//ScreenUIManage.Instance.data.GoldCurrent = DataManager.GetInstance.userInfo.gold_count;
-			//ScreenUIManage.Instance.data.GoldStorageCapacity = DataManager.GetInstance.userInfo.max_gold_count;
+			//ScreenUIManage.Instance.data.GoldCurrent = DataManager.GetInstance.model.user_info.gold_count;
+			//ScreenUIManage.Instance.data.GoldStorageCapacity = DataManager.GetInstance.model.user_info.max_gold_count;
 			//ScreenUIManage.Instance.UpdateGoldResource(playAnim);
 
-			mainInterfaceCtrl.data.GoldCurrent = DataManager.GetInstance.userInfo.gold_count;
-			mainInterfaceCtrl.data.GoldStorageCapacity = DataManager.GetInstance.userInfo.max_gold_count;
+			mainInterfaceCtrl.data.GoldCurrent = DataManager.GetInstance.model.user_info.gold_count;
+			mainInterfaceCtrl.data.GoldStorageCapacity = DataManager.GetInstance.model.user_info.max_gold_count;
 			mainInterfaceCtrl.UpdateGoldResource(playAnim);
 
 		}
 		if ("Wood".Equals(resource_type) || "All".Equals(resource_type)){
-			//ScreenUIManage.Instance.data.WoodCurrent = DataManager.GetInstance.userInfo.wood_count;
-			//ScreenUIManage.Instance.data.WoodStorageCapacity = DataManager.GetInstance.userInfo.max_wood_count;
+			//ScreenUIManage.Instance.data.WoodCurrent = DataManager.GetInstance.model.user_info.wood_count;
+			//ScreenUIManage.Instance.data.WoodStorageCapacity = DataManager.GetInstance.model.user_info.max_wood_count;
 			//ScreenUIManage.Instance.UpdateWoodResource(playAnim);
 
-			mainInterfaceCtrl.data.WoodCurrent = DataManager.GetInstance.userInfo.wood_count;
-			mainInterfaceCtrl.data.WoodStorageCapacity = DataManager.GetInstance.userInfo.max_wood_count;
+			mainInterfaceCtrl.data.WoodCurrent = DataManager.GetInstance.model.user_info.wood_count;
+			mainInterfaceCtrl.data.WoodStorageCapacity = DataManager.GetInstance.model.user_info.max_wood_count;
 			mainInterfaceCtrl.UpdateWoodResource(playAnim);
 		}
 		if ("Stone".Equals(resource_type) || "All".Equals(resource_type)){
-			//ScreenUIManage.Instance.data.StoneCurrent = DataManager.GetInstance.userInfo.stone_count;
-			//ScreenUIManage.Instance.data.StoneStorageCapacity = DataManager.GetInstance.userInfo.max_stone_count;
+			//ScreenUIManage.Instance.data.StoneCurrent = DataManager.GetInstance.model.user_info.stone_count;
+			//ScreenUIManage.Instance.data.StoneStorageCapacity = DataManager.GetInstance.model.user_info.max_stone_count;
 			//ScreenUIManage.Instance.UpdateStoneResource(playAnim);
 
-			mainInterfaceCtrl.data.StoneCurrent = DataManager.GetInstance.userInfo.stone_count;
-			mainInterfaceCtrl.data.StoneStorageCapacity = DataManager.GetInstance.userInfo.max_stone_count;
+			mainInterfaceCtrl.data.StoneCurrent = DataManager.GetInstance.model.user_info.stone_count;
+			mainInterfaceCtrl.data.StoneStorageCapacity = DataManager.GetInstance.model.user_info.max_stone_count;
 			mainInterfaceCtrl.UpdateStoneResource(playAnim);
 		}
 		if ("Iron".Equals(resource_type) || "All".Equals(resource_type)){
-			//ScreenUIManage.Instance.data.IronCurrent = DataManager.GetInstance.userInfo.iron_count;
-			//ScreenUIManage.Instance.data.IronStorageCapacity = DataManager.GetInstance.userInfo.max_iron_count;
+			//ScreenUIManage.Instance.data.IronCurrent = DataManager.GetInstance.model.user_info.iron_count;
+			//ScreenUIManage.Instance.data.IronStorageCapacity = DataManager.GetInstance.model.user_info.max_iron_count;
 			//ScreenUIManage.Instance.UpdateIronResource(playAnim);
 
-			mainInterfaceCtrl.data.IronCurrent = DataManager.GetInstance.userInfo.iron_count;
-			mainInterfaceCtrl.data.IronStorageCapacity = DataManager.GetInstance.userInfo.max_iron_count;
+			mainInterfaceCtrl.data.IronCurrent = DataManager.GetInstance.model.user_info.iron_count;
+			mainInterfaceCtrl.data.IronStorageCapacity = DataManager.GetInstance.model.user_info.max_iron_count;
 			mainInterfaceCtrl.UpdateIronResource(playAnim);
 		}
 
 		if ("Gems".Equals(resource_type) || "Diamonds".Equals(resource_type) || "All".Equals(resource_type)){
-			//ScreenUIManage.Instance.data.DiamondCurrent = DataManager.GetInstance.userInfo.diamond_count;
+			//ScreenUIManage.Instance.data.DiamondCurrent = DataManager.GetInstance.model.user_info.diamond_count;
 			//ScreenUIManage.Instance.UpdateDiamondResource(playAnim);
 
-			mainInterfaceCtrl.data.DiamondCurrent = DataManager.GetInstance.userInfo.diamond_count;
+			mainInterfaceCtrl.data.DiamondCurrent = DataManager.GetInstance.model.user_info.diamond_count;
 			mainInterfaceCtrl.UpdateDiamondResource(playAnim);
 		}
 
 		if ("Exp".Equals(resource_type) || "All".Equals(resource_type)){
-			//int max_exp = CalcHelper.calcExperience(DataManager.GetInstance.userInfo.exp_level);
-			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+			//int max_exp = CalcHelper.calcExperience(DataManager.GetInstance.model.user_info.exp_level);
+			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 			if (el != null){
 				int max_exp = el.ExpPoints;
-                mainInterfaceCtrl.data.UserLevel = DataManager.GetInstance.userInfo.exp_level;
-                mainInterfaceCtrl.data.CurrentExp = DataManager.GetInstance.userInfo.exp_count;
+				mainInterfaceCtrl.data.UserLevel = DataManager.GetInstance.model.user_info.exp_level;
+				mainInterfaceCtrl.data.CurrentExp = DataManager.GetInstance.model.user_info.exp_count;
                 mainInterfaceCtrl.data.UpgradeExp = max_exp;
                 mainInterfaceCtrl.UpdateUserLevel(playAnim);
-                if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.UserLevel = DataManager.GetInstance.userInfo.exp_level;
-                if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.CurrentExp = DataManager.GetInstance.userInfo.exp_count;
+				if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.UserLevel = DataManager.GetInstance.model.user_info.exp_level;
+				if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.CurrentExp = DataManager.GetInstance.model.user_info.exp_count;
                 if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.UpgradeExp = max_exp;
                 if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.UpdateUserLevel(playAnim);
 			}
 		}
 
 		if ("Reward".Equals(resource_type) || "All".Equals(resource_type)){
-            mainInterfaceCtrl.data.UserMedal = DataManager.GetInstance.userInfo.reward_count;
+			mainInterfaceCtrl.data.UserMedal = DataManager.GetInstance.model.user_info.reward_count;
             mainInterfaceCtrl.UpdateUserMedal();
 
-            if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.UserMedal = DataManager.GetInstance.userInfo.reward_count;
+			if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.data.UserMedal = DataManager.GetInstance.model.user_info.reward_count;
             if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.UpdateUserMedal();
 		}
 	}
@@ -4009,25 +4009,25 @@ layout/enemybase.level
 	public static void SetMaxStored(String tid_type, bool update_ui = true){
 		int maxStored = GetMaxStored(tid_type);
 		if (tid_type == "GOLD_STORAGE"){
-			DataManager.GetInstance.userInfo.max_gold_count = maxStored;
+			DataManager.GetInstance.model.user_info.max_gold_count = maxStored;
 			if (update_ui)
 				UpdateResUI("Gold",false);
 		}
 
 		if (tid_type == "WOOD_STORAGE"){
-			DataManager.GetInstance.userInfo.max_wood_count = maxStored;
+			DataManager.GetInstance.model.user_info.max_wood_count = maxStored;
 			if (update_ui)
 				UpdateResUI("Wood",false);
 		}
 
 		if (tid_type == "STONE_STORAGE"){
-			DataManager.GetInstance.userInfo.max_stone_count = maxStored;
+			DataManager.GetInstance.model.user_info.max_stone_count = maxStored;
 			if (update_ui)
 				UpdateResUI("Stone",false);
 		}
 
 		if (tid_type == "METAL_STORAGE"){
-			DataManager.GetInstance.userInfo.max_iron_count = maxStored;	
+			DataManager.GetInstance.model.user_info.max_iron_count = maxStored;	
 			if (update_ui)
 				UpdateResUI("Iron",false);
 		}
@@ -4046,22 +4046,22 @@ layout/enemybase.level
 		int max_level = getTidMaxLevel(tid,0);
 		if (tid == "TID_BUILDING_PALACE"){
 			//司令部等级;		
-			DataManager.GetInstance.userInfo.town_hall_level = max_level;
+			DataManager.GetInstance.model.user_info.town_hall_level = max_level;
 		}
 		
 		if (tid == "TID_BUILDING_LABORATORY"){
 			//作战学院/实验室等级			
-			DataManager.GetInstance.userInfo.laboratory_level = max_level;
+			DataManager.GetInstance.model.user_info.laboratory_level = max_level;
 		}
 		
 		if (tid == "TID_BUILDING_GUNSHIP"){
 			//炮舰等级			
-			DataManager.GetInstance.userInfo.gunship_level = max_level;
+			DataManager.GetInstance.model.user_info.gunship_level = max_level;
 		}
 		
 		if (tid == "TID_BUILDING_VAULT"){
 			//TID_BUILDING_VAULT地下仓库;等级			
-			DataManager.GetInstance.userInfo.vault_level = max_level;
+			DataManager.GetInstance.model.user_info.vault_level = max_level;
 		}
 	}
 
@@ -4091,7 +4091,7 @@ layout/enemybase.level
 		int worker = GetWorkeringCount(ref min_b_id);
 		bool is_show = false;
 		foreach(BuildInfo s in DataManager.GetInstance.buildList.Values){
-			if ("BUILDING".Equals(s.tid_type) && DataManager.GetInstance.userInfo.worker_count > worker){
+			if ("BUILDING".Equals(s.tid_type) && DataManager.GetInstance.model.user_info.worker_count > worker){
 				if (CheckHasUpgrade(s.tid,s.level) == null){
 
 					//还可以升级;
@@ -4179,7 +4179,7 @@ layout/enemybase.level
 		
 		int rph = 0;
 		foreach(UserRegions s in DataManager.GetInstance.userRegionsList.Values){
-			if (s.res_tid == tid && s.capture_id == DataManager.GetInstance.userInfo.id){	
+			if (s.res_tid == tid && s.capture_id == DataManager.GetInstance.model.user_info.id){	
 				if (tid == "TID_BUILDING_HOUSING"){
 					rph += 40;
 				}else{
@@ -4225,7 +4225,7 @@ layout/enemybase.level
 		int collect_num = 0;
 		foreach(UserRegions s in DataManager.GetInstance.userRegionsList.Values){
 
-			if (s.regions_id > 1 && s.is_npc != 9 && s.capture_id == DataManager.GetInstance.userInfo.id){
+			if (s.regions_id > 1 && s.is_npc != 9 && s.capture_id == DataManager.GetInstance.model.user_info.id){
 				collect_num = 0;
 				if (tid == "TID_BUILDING_HOUSING" && (s.res_tid == "" || s.res_tid == null)){
 					int rph = 40;
@@ -4258,9 +4258,9 @@ layout/enemybase.level
 			}
 		}
 
-		if (tid == "TID_BUILDING_HOUSING" && total_num > DataManager.GetInstance.userInfo.max_gold_count){
+		if (tid == "TID_BUILDING_HOUSING" && total_num > DataManager.GetInstance.model.user_info.max_gold_count){
 			Debug.Log("total_num:" + total_num);
-			total_num = DataManager.GetInstance.userInfo.max_gold_count;
+			total_num = DataManager.GetInstance.model.user_info.max_gold_count;
 		}
 
 		//设置最后采集时间;
@@ -4920,19 +4920,19 @@ layout/enemybase.level
 		int max_num = 0;
 		if(res_type==RES_TYPE_GOLD)
 		{
-			max_num = DataManager.GetInstance.userInfo.max_gold_count;
+			max_num = DataManager.GetInstance.model.user_info.max_gold_count;
 		}
 		else if(res_type==RES_TYPE_WOOD)
 		{
-			max_num = DataManager.GetInstance.userInfo.max_wood_count;
+			max_num = DataManager.GetInstance.model.user_info.max_wood_count;
 		}
 		else if(res_type==RES_TYPE_STONE)
 		{
-			max_num = DataManager.GetInstance.userInfo.max_stone_count;
+			max_num = DataManager.GetInstance.model.user_info.max_stone_count;
 		}
 		else if(res_type==RES_TYPE_IRON)
 		{
-			max_num = DataManager.GetInstance.userInfo.max_iron_count;
+			max_num = DataManager.GetInstance.model.user_info.max_iron_count;
 		}
 		return max_num;
 	}

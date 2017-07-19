@@ -13,45 +13,24 @@ public class Initialize : SingleMonoBehaviour<Initialize> {
 	protected override void Awake()
     {
         Globals.gameManager = GameObject.Find("GameManage");
-		UIManager.GetInstance.AddCtroller<MainInterfaceCtrl>();
-		UIManager.GetInstance.AddCtroller<MaskCtrl>();
-		UIManager.GetInstance.AddCtroller<PopMsgCtrl>();
-		UIManager.GetInstance.AddCtroller<PlayerListCtrl>();
-		UIManager.GetInstance.AddCtroller<SettingCtrl>();
-		UIManager.GetInstance.AddCtroller<ShopCtrl>();
-		UIManager.GetInstance.AddCtroller<TeamListCtrl>();
-		UIManager.GetInstance.AddCtroller<AchivementCtrl>();
-		UIManager.GetInstance.AddCtroller<BuildDetailCtrl>();
-		UIManager.GetInstance.AddCtroller<TroopTrainCtrl>();
-		UIManager.GetInstance.AddCtroller<TroopDetailCtrl>();
-		UIManager.GetInstance.AddCtroller<ResearchCtrl>();
-		UIManager.GetInstance.AddCtroller<ArtifactCtrl>();
-		UIManager.GetInstance.AddCtroller<NormalMsgCtrl>();
-		UIManager.GetInstance.AddCtroller<IslandPopCtrl>();
-		UIManager.GetInstance.AddCtroller<BattleInterfaceCtrl> ();
-		UIManager.GetInstance.AddCtroller<BattleResultCtrl> ();
-		UIManager.GetInstance.GetController<MainInterfaceCtrl> ().ShowPanel ();
+		UIManager.GetInstance.InitCtrollers ();
     }
 
 	void Start () 
 	{
-		BattleSceneUI.BattleSceneUIS = new List<BattleSceneUI> ();
-		GameLoader.Instance.play_cloud = false;
-
+//		BattleSceneUI.BattleSceneUIS = new List<BattleSceneUI> ();
+//		GameLoader.Instance.play_cloud = false;
+//
 		GameLoader.Instance.SwitchScene (SceneStatus.HOME);
     }
 
 	void LoadHome(){
 		Globals.LastSceneUserId = current_user_id;
 		Globals.LastSceneRegionsId = current_region_id;
-//		BuildManager.GetInstance.InitBuilding
-		current_user_id = DataManager.GetInstance.userInfo.id;
+		current_user_id = DataManager.GetInstance.model.user_info.id;
 		current_region_id = DEFAULT_USER_REGION_ID;
-
-
-		List<BuildingInfo> buildingList = DataManager.GetInstance.model.building_list;
+		List<Network.BuildingModel> buildingList = DataManager.GetInstance.model.building_list;
 		BuildManager.GetInstance.InitBuildings (buildingList);
-
 		UIManager.GetInstance.ShowHome ();
 	}
 

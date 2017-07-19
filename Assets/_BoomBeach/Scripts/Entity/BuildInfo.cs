@@ -640,7 +640,7 @@ public class BuildInfo : MonoBehaviour {
 	public bool CheckWookerCount(){
 		//获得忙碌的工人数;building_id最快完工的building_id;
 		long min_b_id = 0;
-		if (DataManager.GetInstance.userInfo.worker_count <= Helper.GetWorkeringCount(ref min_b_id)){
+		if (DataManager.GetInstance.model.user_info.worker_count <= Helper.GetWorkeringCount(ref min_b_id)){
 			BuildInfo min_s = (BuildInfo)DataManager.GetInstance.buildList[min_b_id];
 			
 			int seconds = min_s.end_time - Helper.current_time();					
@@ -729,7 +729,7 @@ public class BuildInfo : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			//BuildHandle.CreateBuild (dt.GetInt("Wood"),dt.GetInt("Stone"),dt.GetInt("Iron"),dt.GetInt("Gems"),this);
 			//NewBuildToServer(dt.GetInt("Wood"),dt.GetInt("Stone"),dt.GetInt("Iron"),dt.GetInt("Gems"));
@@ -762,8 +762,8 @@ public class BuildInfo : MonoBehaviour {
 			msg = StringFormat.FormatByTid("TID_POPUP_CLEAR_OBSTACLE",new object[]{StringFormat.FormatByTid(s.tid)});
 			msg = msg + " " + csvData.LootCount.ToString() + " " + StringFormat.FormatByTid(Helper.GetNameToTid(csvData.LootResource));
 			//msg = "TID_POPUP_CLEAR_OBSTACLE";
-			Debug.Log("DataManager.GetInstance.userInfo.town_hall_level:" + DataManager.GetInstance.userInfo.town_hall_level + ";csvData.RequiredTownHallLevel:" + csvData.RequiredTownHallLevel);
-			if (DataManager.GetInstance.userInfo.town_hall_level < csvData.RequiredTownHallLevel){
+			Debug.Log("DataManager.GetInstance.model.user_info.town_hall_level:" + DataManager.GetInstance.model.user_info.town_hall_level + ";csvData.RequiredTownHallLevel:" + csvData.RequiredTownHallLevel);
+			if (DataManager.GetInstance.model.user_info.town_hall_level < csvData.RequiredTownHallLevel){
 				
 				msg = StringFormat.FormatByTid("TID_CAN_NOT_CLEAR_OBSTACLE",new object[]{csvData.RequiredTownHallLevel});
 				PopManage.Instance.ShowMsg(msg);
@@ -870,7 +870,7 @@ public class BuildInfo : MonoBehaviour {
 		
 		//int gems = dt.GetInt("Gems");
 		
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			RemovalBuildToLocal(dt);
 		}else{
 			//宝石不够;
@@ -981,19 +981,19 @@ public class BuildInfo : MonoBehaviour {
 					}else if (LootResource == "TID_WOOD"){
 						//Helper.SetResource(0,s.csvInfo.LootCount,0,0,0,true);
 						partType = PartType.Wood;
-						max_num = DataManager.GetInstance.userInfo.max_wood_count;
+						max_num = DataManager.GetInstance.model.user_info.max_wood_count;
 					}else if (LootResource == "TID_STONE"){
 						//Helper.SetResource(0,0,s.csvInfo.LootCount,0,0,true);
 						partType = PartType.Stone;
-						max_num = DataManager.GetInstance.userInfo.max_stone_count;
+						max_num = DataManager.GetInstance.model.user_info.max_stone_count;
 					}else if (LootResource == "TID_METAL"){
 						//Helper.SetResource(0,0,0,s.csvInfo.LootCount,0,true);
 						partType = PartType.Iron;
-						max_num = DataManager.GetInstance.userInfo.max_iron_count;
+						max_num = DataManager.GetInstance.model.user_info.max_iron_count;
 					}else if (LootResource == "TID_GOLD"){
 						//Helper.SetResource(s.csvInfo.LootCount,0,0,0,0,true);
 						partType = PartType.Gold;
-						max_num = DataManager.GetInstance.userInfo.max_gold_count;
+						max_num = DataManager.GetInstance.model.user_info.max_gold_count;
 					}
 					
 					
@@ -1347,13 +1347,13 @@ TID_STOP	Stop
 				CsvInfo csvInfo = (CsvInfo)CSVManager.GetInstance.csvTable[s.status_tid_level];
 				if (csvInfo.TID == "TID_BUILDING_ARTIFACT1"){
 					//Common Artifact;
-					DataManager.GetInstance.userInfo.common_piece += bc.piece;
+					DataManager.GetInstance.model.user_info.common_piece += bc.piece;
 				}else if (csvInfo.TID == "TID_BUILDING_ARTIFACT2"){
 					//Rare Artifact;
-					DataManager.GetInstance.userInfo.rare_piece += bc.piece;
+					DataManager.GetInstance.model.user_info.rare_piece += bc.piece;
 				}else if (csvInfo.TID == "TID_BUILDING_ARTIFACT3"){
 					//Epic Artifact;
-					DataManager.GetInstance.userInfo.epic_piece += bc.piece;
+					DataManager.GetInstance.model.user_info.epic_piece += bc.piece;
 				}
 
 				s.status_tid_level = null;
@@ -1364,7 +1364,7 @@ TID_STOP	Stop
 					int collect_num = bc.gold;
 					if (collect_num > 0){
 						
-						int max_num = DataManager.GetInstance.userInfo.max_gold_count;
+						int max_num = DataManager.GetInstance.model.user_info.max_gold_count;
 						
 						
 						//collect_num = max_num;
@@ -1556,7 +1556,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			int gems = CalcHelper.calcTimeToGems(s.end_time - current_time);
 			//Debug.Log("current_time:" + current_time + ";s.end_time:" + s.end_time + ";seconds:" + (current_time - s.end_time) + ";gems:" + gems);
 		
-			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= gems){
 				FinishBuildToServer(s,current_time, gems);
 			}else{
 				//宝石不够;
@@ -1950,7 +1950,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	}
 	
 	private void OnDialogUpgradeBuildYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			//string status_tid_level = dt.GetUtfString("status_tid_level");
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
@@ -1984,7 +1984,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	}
 
 	private void OnDialogUpgradeTechYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			//string tid_level = dt.GetUtfString("tid_level");
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
@@ -2109,7 +2109,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);		
 		if (msg == null && s.status == BuildStatus.Normal){
 			int gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
-			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= gems){
 				s.status_tid_level = status_tid_level;
 				BuildHandle.ImmediateUpgradeBuild (s);
 				//FinishBuildToServer(s,0, gems, true, status_tid_level);					
@@ -2161,19 +2161,19 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				int max_num = 0;
 				if(res_type=="Gold")
 				{
-					max_num = DataManager.GetInstance.userInfo.max_gold_count;
+					max_num = DataManager.GetInstance.model.user_info.max_gold_count;
 				}
 				else if(res_type=="Wood")
 				{
-					max_num = DataManager.GetInstance.userInfo.max_wood_count;
+					max_num = DataManager.GetInstance.model.user_info.max_wood_count;
 				}
 				else if(res_type=="Stone")
 				{
-					max_num = DataManager.GetInstance.userInfo.max_stone_count;
+					max_num = DataManager.GetInstance.model.user_info.max_stone_count;
 				}
 				else if(res_type=="Iron")
 				{
-					max_num = DataManager.GetInstance.userInfo.max_iron_count;
+					max_num = DataManager.GetInstance.model.user_info.max_iron_count;
 				}
 				//collect_num = max_num;
 				int c = 0;
@@ -2278,7 +2278,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	private void onDialogTrainYes(ISFSObject dt,BuildInfo buildInfo = null){
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			//Debug.Log(dt.GetDump());
 			StartTrainToServer(s,dt.GetUtfString("status_tid_level"), dt.GetInt("train_time"), dt.GetInt("Gold"),dt.GetInt("Gems"));
@@ -2298,7 +2298,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				//负数时，退还差价;
 				int collect_num = -gold;
 				if (collect_num > 0){
-					int max_num = DataManager.GetInstance.userInfo.max_gold_count;
+					int max_num = DataManager.GetInstance.model.user_info.max_gold_count;
 					int c = 0;
 					if(max_num>0)
 					{

@@ -178,8 +178,8 @@ namespace BoomBeach {
 		//查看敌方时切换到攻击场景;
 		public void OnClickAttack()
 		{
-			if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
-				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+			if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.model.user_info.exp_level.ToString())){
+				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 				//花费;
 				ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
 				int gems = dt.GetInt("Gems");
@@ -203,7 +203,7 @@ namespace BoomBeach {
 
 		// 战斗开始触发
 		private void OnBattleDialogYes(ISFSObject dt,BuildInfo buildInfo = null){
-			if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 				GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,Globals.LastSceneUserId,Globals.LastSceneRegionsId,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			}else{
 				//宝石不够;
@@ -230,7 +230,7 @@ namespace BoomBeach {
                 Globals.LastSceneUserId = -1;
                 Globals.LastSceneRegionsId = -1;
                 AudioPlayer.Instance.PlayMusic("home_music");
-                GameLoader.Instance.SwitchScene(SceneStatus.WORLDMAP, DataManager.GetInstance.userInfo.id, Globals.LastSceneRegionsId, 0, 0);
+                GameLoader.Instance.SwitchScene(SceneStatus.WORLDMAP, DataManager.GetInstance.model.user_info.id, Globals.LastSceneRegionsId, 0, 0);
             }
 
             //已派出的兵与已死亡的兵相等，表示派出的兵全死完或未派兵，直接弹窗;
@@ -378,7 +378,7 @@ namespace BoomBeach {
 		}
 			
 		void InitResources(){
-			UserInfo userInfo = DataManager.GetInstance.userInfo;
+			UserInfo userInfo = DataManager.GetInstance.model.user_info;
 
 			mBattleInterfacePanelView.m_txtDiamond.text = userInfo.diamond_count.ToString();
 

@@ -32,7 +32,7 @@ public static class TrainHandle {
 	}
 
 	static void OnDialogTrainYes(ISFSObject dt,BuildInfo s = null){
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			Train (s,dt.GetUtfString("train_tid"),dt.GetInt("train_time"),dt.GetInt("Gold"),dt.GetInt("Gem"));
 		}else{
 			//宝石不够;
@@ -49,7 +49,7 @@ public static class TrainHandle {
 				//负数时，退还差价;
 				int collect_num = -gold;
 				if (collect_num > 0) {
-					int max_num = DataManager.GetInstance.userInfo.max_gold_count;
+					int max_num = DataManager.GetInstance.model.user_info.max_gold_count;
 					int c = 0;
 					if (max_num > 0) {
 						c = Mathf.CeilToInt (collect_num * 100f / max_num);
@@ -110,7 +110,7 @@ public static class TrainHandle {
 		if (s.status == BuildStatus.Train) {
 			int current_time = Helper.current_time ();
 			int gems = CalcHelper.calcTimeToGems (s.end_time - current_time);
-			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= gems){
 				Helper.SetResource (0, 0, 0, 0, -gems, true);
 				SendTrainSpeedUpToServer (s);
 				TrainTroops(s,s.end_time);//时间决定数量

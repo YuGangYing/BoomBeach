@@ -84,8 +84,8 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		}
 		if (DataManager.GetInstance.sceneStatus == SceneStatus.WORLDMAP || DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYVIEW){
 			//
-			if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){				
-				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+			if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.model.user_info.exp_level.ToString())){				
+				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 				int SearchCost = (int) (el.AttackCost * Globals.SearchCostFactor);
 				if(ScreenUIManage.Instance!=null) ScreenUIManage.Instance.FindGoldLabel.text = SearchCost.ToString();
                 if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.AttackGoldLabel.text = el.AttackCost.ToString(); 
@@ -104,7 +104,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			UIManager.GetInstance.GetController<MainInterfaceCtrl>().ShowHome ();
             UIManager.GetInstance.GetController<BattleInterfaceCtrl>().Close();
             if (user_id == 0){
-				user_id = DataManager.GetInstance.userInfo.id;
+				user_id = DataManager.GetInstance.model.user_info.id;
                 //user_id = (int)GameFacade.Instance().ModelMgr.GetModel<Models.CharacterDataModel>().G_MainCharacterData.charid;
 			}
 			if (regions_id == 1){
@@ -237,10 +237,10 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		}
 		if (user_info!=null)//获取用户相关配置列表
         {
-			DataManager.GetInstance.userInfo.ISFSObjectToBean(user_info);
+			DataManager.GetInstance.model.user_info.ISFSObjectToBean(user_info);
 			//SFSDebug.Log (user_info);
-			mUserInfo = DataManager.GetInstance.userInfo;
-			DataManager.GetInstance.userInfo.worker_count = 1;
+			mUserInfo = DataManager.GetInstance.model.user_info;
+			DataManager.GetInstance.model.user_info.worker_count = 1;
 			//Globals.islandType = (IslandType)user_info.GetInt("island_type");
 			Globals.islandType = IslandType.playerbase;//TODO
 			#region 1.获取用户建筑数据
@@ -302,7 +302,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			#endregion 
 		}
         Globals.Init ();
-		Globals.LastSceneUserId = DataManager.GetInstance.userInfo.id;//最后加载的场景用户id;
+		Globals.LastSceneUserId = DataManager.GetInstance.model.user_info.id;//最后加载的场景用户id;
 		Globals.LastSceneRegionsId = dt.GetInt("regions_id");//最后一次加载的岛屿id;
 
 		//不重复处理被攻击列表数据;
@@ -338,8 +338,8 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
         //资源岛
         if (DataManager.GetInstance.sceneStatus == SceneStatus.HOMERESOURCE){
 			EnemyNameAndResource enar = ScreenUIManage.Instance.enemyNameAndResource;
-			enar.UserName = DataManager.GetInstance.userInfo.user_name;
-			enar.UserLevel = DataManager.GetInstance.userInfo.exp_level.ToString();
+			enar.UserName = DataManager.GetInstance.model.user_info.user_name;
+			enar.UserLevel = DataManager.GetInstance.model.user_info.exp_level.ToString();
 		}
 		//判断是否开启wap支付;
 		//Globals.is_wap_pay = dt.GetInt("is_wap_pay") == 1;
@@ -734,7 +734,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		//BuildInfo s = Helper.getBuildInfoByTid("TID_BUILDING_GUNSHIP");
 		//Globals.EnergyTotal = s.csvInfo.StartingEnergy + Helper.getArtifactBoost(s.csvInfo.StartingEnergy,ArtifactType.BoostGunshipEnergy);
 		
-		CsvInfo csvGunship = CSVManager.GetInstance.csvTable["TID_BUILDING_GUNSHIP_" + DataManager.GetInstance.userInfo.gunship_level.ToString()] as CsvInfo;
+		CsvInfo csvGunship = CSVManager.GetInstance.csvTable["TID_BUILDING_GUNSHIP_" + DataManager.GetInstance.model.user_info.gunship_level.ToString()] as CsvInfo;
 		Globals.EnergyTotal = csvGunship.StartingEnergy + getArtifactBoost(csvGunship.StartingEnergy,ArtifactType.BoostGunshipEnergy,troops_list);
 		
 		
@@ -757,7 +757,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			//Debug.Log("tid_level:" + tid_level);
 			CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 			
-			if (csvInfo.UnlockTownHallLevel <= DataManager.GetInstance.userInfo.town_hall_level){
+			if (csvInfo.UnlockTownHallLevel <= DataManager.GetInstance.model.user_info.town_hall_level){
 				BattleTrooperData btd = new BattleTrooperData();
 				btd.csvInfo = csvInfo;
 				btd.building_id = 0;
@@ -981,7 +981,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				//初始化用户地图数据;
 				Helper.HandleWolrdMap();
                 if (ScreenUIManage.Instance != null)
-                    ScreenUIManage.Instance.data.UserName = DataManager.GetInstance.userInfo.user_name;
+                    ScreenUIManage.Instance.data.UserName = DataManager.GetInstance.model.user_info.user_name;
                 if (ScreenUIManage.Instance != null) 
 					ScreenUIManage.Instance.UpdateUserName();
 				//设置每个建筑物上面的，升级提示标识;

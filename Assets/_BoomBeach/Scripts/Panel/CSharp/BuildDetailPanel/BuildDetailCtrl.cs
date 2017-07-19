@@ -83,7 +83,7 @@ namespace BoomBeach
                 {
                     mBuildDetailPanelView.m_containerWood.SetActive(true);
                     mBuildDetailPanelView.m_txtWood.text = buildCost.wood.ToString();
-                    if (buildCost.wood > DataManager.GetInstance.userInfo.wood_count)
+                    if (buildCost.wood > DataManager.GetInstance.model.user_info.wood_count)
                     {
                         mBuildDetailPanelView.m_txtWood.color = Color.red;
                     }
@@ -101,7 +101,7 @@ namespace BoomBeach
                 {
                     mBuildDetailPanelView.m_containerStone.SetActive(true);
                     mBuildDetailPanelView.m_txtStone.text = buildCost.stone.ToString();
-                    if (buildCost.stone > DataManager.GetInstance.userInfo.stone_count)
+                    if (buildCost.stone > DataManager.GetInstance.model.user_info.stone_count)
                     {
                         mBuildDetailPanelView.m_txtStone.color = Color.red;
                     }
@@ -119,7 +119,7 @@ namespace BoomBeach
                 {
                     mBuildDetailPanelView.m_containerIron.SetActive(true);
                     mBuildDetailPanelView.m_txtIron.text = buildCost.iron.ToString();
-                    if (buildCost.iron > DataManager.GetInstance.userInfo.iron_count)
+                    if (buildCost.iron > DataManager.GetInstance.model.user_info.iron_count)
                     {
                         mBuildDetailPanelView.m_txtIron.color = Color.red;
                     }

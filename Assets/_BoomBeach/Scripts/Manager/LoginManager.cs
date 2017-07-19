@@ -31,6 +31,7 @@ namespace BoomBeach{
 //				text = text.Replace("\\","");
 //				Debug.Log(text);
 				JsonUtility.FromJsonOverwrite(text,DataManager.GetInstance.model);
+				UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
 			});
 	    }
 

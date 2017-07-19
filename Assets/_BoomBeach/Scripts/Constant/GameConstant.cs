@@ -83,6 +83,39 @@ public static class GameConstant
 	//辅助神像大きい
 	public const string TID_BUILDING_ARTIFACT3_DARK = "TID_BUILDING_ARTIFACT3_DARK";
 	#endregion 
+
+	#region 4.科技
+	//地雷
+	public const string TID_TRAP_MINE = "TID_TRAP_MINE";
+	//坦克地雷
+	public const string TID_TRAP_TANK_MINE = "TID_TRAP_TANK_MINE";
+	//步兵
+	public const string TID_RIFLEMAN = "TID_RIFLEMAN";
+	//重机枪手
+	public const string TID_HEAVY = "TID_HEAVY";
+	//火箭兵
+	public const string TID_ZOOKA = "TID_ZOOKA";
+	//武士
+	public const string TID_WARRIOR = "TID_WARRIOR";
+	//坦克
+	public const string TID_TANK = "TID_TANK";
+	//未使用的？？
+	public const string TID_UNUSED = "TID_UNUSED";
+	//火炮
+	public const string TID_ARTILLERY = "TID_ARTILLERY";
+	//信号弹
+	public const string TID_FLARE = "TID_FLARE";
+	//医疗包
+	public const string TID_MEDKIT = "TID_MEDKIT";
+	//震爆
+	public const string TID_STUN = "TID_STUN";
+	//弹幕
+	public const string TID_BARRAGE = "TID_BARRAGE";
+	//烟雾弹
+	public const string TID_SMOKE_SCREEN = "TID_SMOKE_SCREEN";
+	#endregion
+
+
 }
 
 

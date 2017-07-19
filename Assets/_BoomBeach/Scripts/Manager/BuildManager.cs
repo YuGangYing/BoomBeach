@@ -28,16 +28,17 @@ namespace BoomBeach
 				buildContainer = GameObject.Find ("PBuilds").transform;
 		}
 
-		public void InitBuildings (List<BuildingInfo> buildingList)
+		public void InitBuildings (List<Network.BuildingModel> buildingList)
 		{
 			for (int i = 0; i < buildingList.Count; i++) {
-				 
+				BuildParam param = new BuildParam ();
+				param.tid = buildingList [i].type;
+				param.level = buildingList [i].level;
+				param.tid_level = param.tid + "_" + param.level;
+				Debug.Log (param.tid_level);
+				CreateBuild (param);
 			}
 		}
-
-
-
-
 
 		//创建建筑物
 		//创建完后，会缓存一份buildInfo到BuildList

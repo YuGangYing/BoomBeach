@@ -124,7 +124,7 @@ namespace BoomBeach
                 transform.Find("avatar").GetComponent<UISprite>().color = Color.white;
                 **/
 
-                if (tid.upgradeCost > DataManager.GetInstance.userInfo.gold_count)
+                if (tid.upgradeCost > DataManager.GetInstance.model.user_info.gold_count)
                     ele.Find("txt_corn").GetComponent<Text>().color = Color.red;
                 else
                     ele.Find("txt_corn").GetComponent<Text>().color = Color.white;

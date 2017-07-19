@@ -9,10 +9,10 @@ namespace Network
 		//public Notice update_done_list;//升级完成的通知（在home场景的时候）
 		public UserInfo user_info;
 		public UserInfo enemy_info;
-		public List<BuildingInfo> building_list;
-		public List<TroopInfo> troop_list;
-		public List<RegionInfo> region_list;
-		public List<TechnologyInfo> technology_list;
+		public List<BuildingModel> building_list;
+		public List<TroopModel> troop_list;
+		public List<RegionModel> region_list;
+		public List<TechnologyModel> technology_list;
 	}
 
 

@@ -76,17 +76,17 @@ public class ResourceShip : MonoBehaviour {
 			int max_num = 0;
 			int cur_num = 0;
 			if (i_partType == PartType.Gold) {
-				max_num = DataManager.GetInstance.userInfo.max_gold_count;	
-				cur_num = DataManager.GetInstance.userInfo.gold_count;
+				max_num = DataManager.GetInstance.model.user_info.max_gold_count;	
+				cur_num = DataManager.GetInstance.model.user_info.gold_count;
 			} else if (i_partType == PartType.Wood) {
-				max_num = DataManager.GetInstance.userInfo.max_wood_count;
-				cur_num = DataManager.GetInstance.userInfo.wood_count;
+				max_num = DataManager.GetInstance.model.user_info.max_wood_count;
+				cur_num = DataManager.GetInstance.model.user_info.wood_count;
 			} else if (i_partType == PartType.Stone) {
-				max_num = DataManager.GetInstance.userInfo.max_stone_count;
-				cur_num = DataManager.GetInstance.userInfo.stone_count;
+				max_num = DataManager.GetInstance.model.user_info.max_stone_count;
+				cur_num = DataManager.GetInstance.model.user_info.stone_count;
 			} else if (i_partType == PartType.Iron) {
-				max_num = DataManager.GetInstance.userInfo.max_iron_count;
-				cur_num = DataManager.GetInstance.userInfo.iron_count;
+				max_num = DataManager.GetInstance.model.user_info.max_iron_count;
+				cur_num = DataManager.GetInstance.model.user_info.iron_count;
 			}
 			
 			if (cur_num + resourceNum > max_num){
@@ -135,17 +135,17 @@ public class ResourceShip : MonoBehaviour {
 				int cur_num = 0;
 			
 				if (partType == PartType.Gold) {
-					max_num = DataManager.GetInstance.userInfo.max_gold_count;	
-					cur_num = DataManager.GetInstance.userInfo.gold_count;
+					max_num = DataManager.GetInstance.model.user_info.max_gold_count;	
+					cur_num = DataManager.GetInstance.model.user_info.gold_count;
 				} else if (partType == PartType.Wood) {
-					max_num = DataManager.GetInstance.userInfo.max_wood_count;
-					cur_num = DataManager.GetInstance.userInfo.wood_count;
+					max_num = DataManager.GetInstance.model.user_info.max_wood_count;
+					cur_num = DataManager.GetInstance.model.user_info.wood_count;
 				} else if (partType == PartType.Stone) {
-					max_num = DataManager.GetInstance.userInfo.max_stone_count;
-					cur_num = DataManager.GetInstance.userInfo.stone_count;
+					max_num = DataManager.GetInstance.model.user_info.max_stone_count;
+					cur_num = DataManager.GetInstance.model.user_info.stone_count;
 				} else if (partType == PartType.Iron) {
-					max_num = DataManager.GetInstance.userInfo.max_iron_count;
-					cur_num = DataManager.GetInstance.userInfo.iron_count;
+					max_num = DataManager.GetInstance.model.user_info.max_iron_count;
+					cur_num = DataManager.GetInstance.model.user_info.iron_count;
 				}
 
 				if (cur_num + resourceNum > max_num){

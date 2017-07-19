@@ -88,7 +88,7 @@ public class TroopUpgradeWin : MonoBehaviour {
 
 		DiamondResourceLabel.text = CalcHelper.calcTimeToGems (tidData.upgradeTime).ToString();
 		GoldResourceLabel.text = tidData.upgradeCost.ToString ();
-		if(tidData.upgradeCost>DataManager.GetInstance.userInfo.gold_count)
+		if(tidData.upgradeCost>DataManager.GetInstance.model.user_info.gold_count)
 		{
 			GoldResourceLabel.color = Color.red;
 		}

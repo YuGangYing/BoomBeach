@@ -392,10 +392,10 @@ public class WorldEvent : MonoBehaviour {
 	
 	public void OnAttack(){
 		//Debug.Log("OnAttack");
-		if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
+		if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.model.user_info.exp_level.ToString())){
 			WorldCameraOpEvent.Instance.ClosePop();
 			
-			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 			//花费;
 			//Debug.Log(el.AttackCost);
 			ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
@@ -474,7 +474,7 @@ public class WorldEvent : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,ur.capture_id,ur.regions_id,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			//GameLoader.Instance.StartBattle(dt.GetInt("Gold"),dt.GetInt("Gems"),0,0);
 		}else{
@@ -529,7 +529,7 @@ public class WorldEvent : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			rs.sending = true;
 			rs.send_sprite.SetActive(true);
 			ISFSObject data = new SFSObject();

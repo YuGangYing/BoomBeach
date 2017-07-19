@@ -145,7 +145,7 @@ namespace BoomBeach
 					UserRegions ur = DataManager.GetInstance.userRegionsList[Globals.LastSceneRegionsId] as UserRegions;
 					if (ur != null && (ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE")){
 						//攻击胜利，如果是资源岛屿的话,则重新返回到该资源岛屿;
-						GameLoader.Instance.SwitchScene(SceneStatus.HOMERESOURCE,DataManager.GetInstance.userInfo.id,Globals.LastSceneRegionsId,0,0);
+						GameLoader.Instance.SwitchScene(SceneStatus.HOMERESOURCE,DataManager.GetInstance.model.user_info.id,Globals.LastSceneRegionsId,0,0);
 					}else{
 						Globals.LastSceneUserId = -1;
 						Globals.LastSceneRegionsId = -1;

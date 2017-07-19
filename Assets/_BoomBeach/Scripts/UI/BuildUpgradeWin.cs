@@ -128,7 +128,7 @@ public class BuildUpgradeWin : MonoBehaviour {
 			{
 				WoodResource.gameObject.SetActive(true);
 				WoodLabel.text = buildCost.wood.ToString();
-				if(buildCost.wood>DataManager.GetInstance.userInfo.wood_count)
+				if(buildCost.wood>DataManager.GetInstance.model.user_info.wood_count)
 				{
 					WoodLabel.color = Color.red;
 				}
@@ -146,7 +146,7 @@ public class BuildUpgradeWin : MonoBehaviour {
 			{
 				StoneResource.gameObject.SetActive(true);
 				StoneLabel.text = buildCost.stone.ToString();
-				if(buildCost.stone>DataManager.GetInstance.userInfo.stone_count)
+				if(buildCost.stone>DataManager.GetInstance.model.user_info.stone_count)
 				{
 					StoneLabel.color = Color.red;
 				}
@@ -164,7 +164,7 @@ public class BuildUpgradeWin : MonoBehaviour {
 			{
 				IronResource.gameObject.SetActive(true);
 				IronLabel.text = buildCost.iron.ToString();
-				if(buildCost.iron>DataManager.GetInstance.userInfo.iron_count)
+				if(buildCost.iron>DataManager.GetInstance.model.user_info.iron_count)
 				{
 					IronLabel.color = Color.red;
 				}

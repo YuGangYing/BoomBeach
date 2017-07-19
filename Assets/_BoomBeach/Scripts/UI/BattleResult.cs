@@ -48,7 +48,7 @@ public class BattleResult : MonoBehaviour {
 				UserRegions ur = DataManager.GetInstance.userRegionsList[Globals.LastSceneRegionsId] as UserRegions;
 				if (ur != null && (ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE")){
 					//攻击胜利，如果是资源岛屿的话,则重新返回到该资源岛屿;
-					GameLoader.Instance.SwitchScene(SceneStatus.HOMERESOURCE,DataManager.GetInstance.userInfo.id,Globals.LastSceneRegionsId,0,0);
+					GameLoader.Instance.SwitchScene(SceneStatus.HOMERESOURCE,DataManager.GetInstance.model.user_info.id,Globals.LastSceneRegionsId,0,0);
 				}else{
 					Globals.LastSceneUserId = -1;
 					Globals.LastSceneRegionsId = -1;
@@ -108,11 +108,11 @@ public class BattleResult : MonoBehaviour {
 		if (dt.ContainsKey("user")){
 			//更新用户资源;
 			ISFSObject obj = dt.GetSFSObject("user");
-			DataManager.GetInstance.userInfo.gold_count = obj.GetInt("gold_count");
-			DataManager.GetInstance.userInfo.wood_count = obj.GetInt("wood_count");
-			DataManager.GetInstance.userInfo.stone_count = obj.GetInt("stone_count");
-			DataManager.GetInstance.userInfo.iron_count = obj.GetInt("iron_count");
-			DataManager.GetInstance.userInfo.reward_count = obj.GetInt("reward_count");
+			DataManager.GetInstance.model.user_info.gold_count = obj.GetInt("gold_count");
+			DataManager.GetInstance.model.user_info.wood_count = obj.GetInt("wood_count");
+			DataManager.GetInstance.model.user_info.stone_count = obj.GetInt("stone_count");
+			DataManager.GetInstance.model.user_info.iron_count = obj.GetInt("iron_count");
+			DataManager.GetInstance.model.user_info.reward_count = obj.GetInt("reward_count");
 		
 			Helper.UpdateResUI("All",false);
 		}

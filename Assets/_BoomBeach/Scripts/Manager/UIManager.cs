@@ -15,14 +15,13 @@ namespace BoomBeach
         {
 			base.Awake ();
 			InitLayers();
-			InitCtrollers ();
         }
 
 		void Start(){
-			UIManager.GetInstance.GetController<MainInterfaceCtrl> ().ShowPanel ();
+			
 		}
 
-        void InitCtrollers()
+        public void InitCtrollers()
         {
 			AddCtroller<LoginCtrl>();
             AddCtroller<MainInterfaceCtrl>();
@@ -42,6 +41,7 @@ namespace BoomBeach
             AddCtroller<IslandPopCtrl>();
 			AddCtroller<BattleInterfaceCtrl> ();
 			AddCtroller<BattleResultCtrl> ();
+			UIManager.GetInstance.GetController<MainInterfaceCtrl> ().ShowPanel ();
         }
 
 		public void ShowHome(){

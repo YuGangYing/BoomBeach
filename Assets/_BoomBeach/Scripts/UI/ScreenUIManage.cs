@@ -199,17 +199,17 @@ public class ScreenUIManage : MonoBehaviour {
 		ScreenUIManage.Instance.data.GoldProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_HOUSING");
 		ScreenUIManage.Instance.data.GoldProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_HOUSING");
 		ScreenUIManage.Instance.data.GoldProduce = ScreenUIManage.Instance.data.GoldProduceFromHome + ScreenUIManage.Instance.data.GoldProduceFromVillage;
-		ScreenUIManage.Instance.data.GoldStorageCapacity = DataManager.GetInstance.userInfo.max_gold_count;
+		ScreenUIManage.Instance.data.GoldStorageCapacity = DataManager.GetInstance.model.user_info.max_gold_count;
 		
 		BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 		int prot_num = 0;
 		if (vault != null){
 			//金币;
-			if (DataManager.GetInstance.userInfo.gold_count < vault.csvInfo.MaxStoredResourceGold){
-				prot_num = DataManager.GetInstance.userInfo.gold_count;
+			if (DataManager.GetInstance.model.user_info.gold_count < vault.csvInfo.MaxStoredResourceGold){
+				prot_num = DataManager.GetInstance.model.user_info.gold_count;
 			}else{
 				//被保护的资源;
-				prot_num = (int)((DataManager.GetInstance.userInfo.gold_count - vault.csvInfo.MaxStoredResourceGold) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceGold;
+				prot_num = (int)((DataManager.GetInstance.model.user_info.gold_count - vault.csvInfo.MaxStoredResourceGold) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceGold;
 			}
 		}		
 		ScreenUIManage.Instance.data.GoldProtected = prot_num;//
@@ -276,17 +276,17 @@ public class ScreenUIManage : MonoBehaviour {
 		ScreenUIManage.Instance.data.WoodProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_WOODCUTTER");
 		ScreenUIManage.Instance.data.WoodProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_WOODCUTTER");
 		ScreenUIManage.Instance.data.WoodProduce = ScreenUIManage.Instance.data.WoodProduceFromHome + ScreenUIManage.Instance.data.WoodProduceFromVillage;
-		ScreenUIManage.Instance.data.WoodStorageCapacity = DataManager.GetInstance.userInfo.max_stone_count;
+		ScreenUIManage.Instance.data.WoodStorageCapacity = DataManager.GetInstance.model.user_info.max_stone_count;
 		
 		BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 		int prot_num = 0;
 		if (vault != null){
 			//金币;
-			if (DataManager.GetInstance.userInfo.wood_count < vault.csvInfo.MaxStoredResourceWood){
-				prot_num = DataManager.GetInstance.userInfo.wood_count;
+			if (DataManager.GetInstance.model.user_info.wood_count < vault.csvInfo.MaxStoredResourceWood){
+				prot_num = DataManager.GetInstance.model.user_info.wood_count;
 			}else{
 				//被保护的资源;
-				prot_num = (int)((DataManager.GetInstance.userInfo.wood_count - vault.csvInfo.MaxStoredResourceWood) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceWood;
+				prot_num = (int)((DataManager.GetInstance.model.user_info.wood_count - vault.csvInfo.MaxStoredResourceWood) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceWood;
 			}
 		}		
 		ScreenUIManage.Instance.data.WoodProtected = prot_num;//
@@ -361,17 +361,17 @@ public class ScreenUIManage : MonoBehaviour {
 		ScreenUIManage.Instance.data.StoneProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_STONE_QUARRY");
 		ScreenUIManage.Instance.data.StoneProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_STONE_QUARRY");
 		ScreenUIManage.Instance.data.StoneProduce = ScreenUIManage.Instance.data.StoneProduceFromHome + ScreenUIManage.Instance.data.StoneProduceFromVillage;
-		ScreenUIManage.Instance.data.StoneStorageCapacity = DataManager.GetInstance.userInfo.max_stone_count;
+		ScreenUIManage.Instance.data.StoneStorageCapacity = DataManager.GetInstance.model.user_info.max_stone_count;
 		
 		BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 		int prot_num = 0;
 		if (vault != null){
 			//金币;
-			if (DataManager.GetInstance.userInfo.stone_count < vault.csvInfo.MaxStoredResourceStone){
-				prot_num = DataManager.GetInstance.userInfo.stone_count;
+			if (DataManager.GetInstance.model.user_info.stone_count < vault.csvInfo.MaxStoredResourceStone){
+				prot_num = DataManager.GetInstance.model.user_info.stone_count;
 			}else{
 				//被保护的资源;
-				prot_num = (int)((DataManager.GetInstance.userInfo.stone_count - vault.csvInfo.MaxStoredResourceStone) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceStone;
+				prot_num = (int)((DataManager.GetInstance.model.user_info.stone_count - vault.csvInfo.MaxStoredResourceStone) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceStone;
 			}
 		}		
 		ScreenUIManage.Instance.data.StoneProtected = prot_num;//
@@ -445,17 +445,17 @@ public class ScreenUIManage : MonoBehaviour {
 		ScreenUIManage.Instance.data.IronProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_METAL_MINE");
 		ScreenUIManage.Instance.data.IronProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_METAL_MINE");
 		ScreenUIManage.Instance.data.IronProduce = ScreenUIManage.Instance.data.IronProduceFromHome + ScreenUIManage.Instance.data.IronProduceFromVillage;
-		ScreenUIManage.Instance.data.IronStorageCapacity = DataManager.GetInstance.userInfo.max_iron_count;
+		ScreenUIManage.Instance.data.IronStorageCapacity = DataManager.GetInstance.model.user_info.max_iron_count;
 		
 		BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 		int prot_num = 0;
 		if (vault != null){
 			//金币;
-			if (DataManager.GetInstance.userInfo.iron_count < vault.csvInfo.MaxStoredResourceIron){
-				prot_num = DataManager.GetInstance.userInfo.iron_count;
+			if (DataManager.GetInstance.model.user_info.iron_count < vault.csvInfo.MaxStoredResourceIron){
+				prot_num = DataManager.GetInstance.model.user_info.iron_count;
 			}else{
 				//被保护的资源;
-				prot_num = (int)((DataManager.GetInstance.userInfo.iron_count - vault.csvInfo.MaxStoredResourceIron) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceIron;
+				prot_num = (int)((DataManager.GetInstance.model.user_info.iron_count - vault.csvInfo.MaxStoredResourceIron) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceIron;
 			}
 		}		
 		ScreenUIManage.Instance.data.IronProtected = prot_num;//
@@ -601,7 +601,7 @@ public class ScreenUIManage : MonoBehaviour {
 				popBox5.SetActive(false);
 				popBox = popBox2;
 
-				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 
 				//花费;
 				//Debug.Log(el.AttackCost);
@@ -617,7 +617,7 @@ public class ScreenUIManage : MonoBehaviour {
 
 				popBox = popBox3;
 
-				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 				//花费;
 				//Debug.Log(el.AttackCost);
 				UILabel AttackGoldNum = popBox3.transform.Find("AttackBtn/gold_num").GetComponent<UILabel>();

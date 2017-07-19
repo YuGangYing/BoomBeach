@@ -56,7 +56,7 @@ public class WorldHouse : MonoBehaviour {
 				
 				//show_type;1:go home; 2:Scout,Attack; 3:Scout,Attack,Find; 4:Explore; 5:Production per hour;
 				int show_type = 0;
-				if (ur.capture_id == DataManager.GetInstance.userInfo.id){
+				if (ur.capture_id == DataManager.GetInstance.model.user_info.id){
 					if (ur.regions_id == 0 || ur.regions_id == 1 || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){
 						show_type = 1;
 					}else{
@@ -125,7 +125,7 @@ public class WorldHouse : MonoBehaviour {
 
 				//show_type;1:go home; 2:Scout,Attack; 3:Scout,Attack,Find; 4:Explore; 5:Production per hour;
 				int show_type = 0;
-				if (ur.capture_id == DataManager.GetInstance.userInfo.id){
+				if (ur.capture_id == DataManager.GetInstance.model.user_info.id){
 					if (ur.regions_id == 0 || ur.regions_id == 1 || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){
 						show_type = 1;
 					}else{
@@ -187,10 +187,10 @@ public class WorldHouse : MonoBehaviour {
 		//tk2dUIItem.SendMessageOnClickMethodName = "OnClick";
 		sigh_sprite.gameObject.SetActive(false);
 
-		//Debug.Log("ur.capture_id:" + ur.capture_id + ";DataManager.GetInstance.userInfo.id:" + DataManager.GetInstance.userInfo.id);
+		//Debug.Log("ur.capture_id:" + ur.capture_id + ";DataManager.GetInstance.model.user_info.id:" + DataManager.GetInstance.model.user_info.id);
 		//Debug.Log("ur.res_tid:" + ur.res_tid + ";ur.is_npc:" + ur.is_npc + ";ur.regions_id:" + ur.regions_id);
 
-		if (ur.capture_id == DataManager.GetInstance.userInfo.id){
+		if (ur.capture_id == DataManager.GetInstance.model.user_info.id){
 			//被自己占领,要显示：蓝色图片;
 			top_sprite.SetSprite(top_sprite.GetSpriteIdByName("BlueCircle"));
 			level_sprite.SetSprite(level_sprite.GetSpriteIdByName("SmallBlueCircle"));
@@ -222,7 +222,7 @@ public class WorldHouse : MonoBehaviour {
 						house_sprite.SetSprite(house_sprite.GetSpriteIdByName("Headquarters"));
 						type_sprite.SetSprite(type_sprite.GetSpriteIdByName("BluePerson"));
 						//name.Text = StringFormat.FormatByTid("TID_YOU");
-						level.text = DataManager.GetInstance.userInfo.exp_level.ToString();
+						level.text = DataManager.GetInstance.model.user_info.exp_level.ToString();
 					}else{
 						//name.gameObject.SetActive(false);
 						top_sprite.gameObject.SetActive(false);
@@ -281,7 +281,7 @@ public class WorldHouse : MonoBehaviour {
 
 			if (ur.is_npc == 0 && Helper.current_time() - ur.capture_time > Globals.FindNewOpponentTime){
 				//默认22小时，可更新一次(只能更新比自己级别高的或资源岛屿;
-				//if (ur.capture_level > DataManager.GetInstance.userInfo.exp_level || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){						
+				//if (ur.capture_level > DataManager.GetInstance.model.user_info.exp_level || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){						
 				sigh_sprite.gameObject.SetActive(true);			
 				//}
 			}

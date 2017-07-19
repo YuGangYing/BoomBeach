@@ -36,7 +36,7 @@ public static class ResearchHandle {
 	}
 
 	static void OnDialogUpgradeTechYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			//BuildInfo s = Globals.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			string tid_level = dt.GetUtfString("tid_level");
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
@@ -97,7 +97,7 @@ public static class ResearchHandle {
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);		
 		if (msg == null && buildInfo.status == BuildStatus.Normal){
 			int gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
-			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= gems){
 				buildInfo.status_tid_level = mTid_level;
 				if (csvInfo.TID_Type == Helper.TID_TYPE_CHARACTERS) {
 					SendTrooperUpgradeImmediatelyToServer (csvInfo.TID);
@@ -141,7 +141,7 @@ public static class ResearchHandle {
 		int gems = CalcHelper.calcTimeToGems(s.end_time - Helper.current_time());
 		s.status = BuildStatus.Normal;
 		if (gems > 0) {
-			if(DataManager.GetInstance.userInfo.diamond_count < gems){
+			if(DataManager.GetInstance.model.user_info.diamond_count < gems){
 				PopManage.Instance.ShowNeedGemsDialog ();
 			}else {
 				string title = StringFormat.FormatByTid("TID_POPUP_HEADER_ABOUT_TO_SPEED_UP_RESEARCH");

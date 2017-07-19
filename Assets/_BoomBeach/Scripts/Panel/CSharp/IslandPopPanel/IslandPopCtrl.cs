@@ -56,7 +56,7 @@ namespace BoomBeach
                 //3:Scout,Attack,Find; 
                 //31:Scout,Attack,Find,Resource; 
                 //32:Scout,Attack,Find,Resource,Per hour; 
-                if (ur.capture_id == DataManager.GetInstance.userInfo.id)//自己
+                if (ur.capture_id == DataManager.GetInstance.model.user_info.id)//自己
                 {
                     if (ur.res_tid == null || ur.res_tid == "" ||ur.regions_id == 0 || ur.regions_id == 1)
                     {
@@ -223,7 +223,7 @@ namespace BoomBeach
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox2;
                 currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
                 Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
                 Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
@@ -234,7 +234,7 @@ namespace BoomBeach
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox21;
                 currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
                 Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
                 Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
@@ -250,7 +250,7 @@ namespace BoomBeach
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox22;
                 currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
                 Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
                 Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
@@ -269,7 +269,7 @@ namespace BoomBeach
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox3;
                 currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
                 Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
                 Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
@@ -280,7 +280,7 @@ namespace BoomBeach
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox3;
                 currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
                 Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
                 Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
@@ -296,7 +296,7 @@ namespace BoomBeach
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox3;
                 currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
                 Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
                 Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
@@ -437,7 +437,7 @@ namespace BoomBeach
         {
             Close();
             CloseMask();
-            if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems"))
+            if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems"))
             {
                 /**
                 mRegions.sending = true;
@@ -573,10 +573,10 @@ namespace BoomBeach
 			CloseMask();
             if (mUserRegions != null)
             {
-				if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
+				if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.model.user_info.exp_level.ToString())){
 					WorldCameraOpEvent.Instance.ClosePop();
 
-					ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+					ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.model.user_info.exp_level.ToString()] as ExperienceLevels;
 					//花费;
 					//Debug.Log(el.AttackCost);
 					ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
@@ -600,7 +600,7 @@ namespace BoomBeach
         }
 
 		private void OnBattleDialogYes(ISFSObject dt,BuildInfo s){
-			if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 				GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,mUserRegions.capture_id,mUserRegions.regions_id,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			}else{
 				//宝石不够;

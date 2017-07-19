@@ -47,7 +47,7 @@ public static class BuildHandle {
 	}
 
 	static void OnCreateBuildDialogYes(ISFSObject dt,BuildInfo s = null){
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			CreateBuild (s);
 		}else{
@@ -200,7 +200,7 @@ public static class BuildHandle {
 	}
 
 	static void OnUpgradeBuildDialogYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= dt.GetInt("Gems")){
 			//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			UpgradeBuild (buildInfo);
@@ -312,7 +312,7 @@ public static class BuildHandle {
 	static void OnSpeedUpUpgradeBuildDialogYes(ISFSObject dt,BuildInfo s = null){
 		int current_time = Helper.current_time();
 		int gems = CalcHelper.calcTimeToGems(s.end_time - current_time);
-		if (DataManager.GetInstance.userInfo.diamond_count >= gems){
+		if (DataManager.GetInstance.model.user_info.diamond_count >= gems){
 			SpeedUpUpgradeBuild (s);
 		}else{
 			//宝石不够;
@@ -348,7 +348,7 @@ public static class BuildHandle {
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);		
 		if (msg == null && s.status == BuildStatus.Normal){
 			int gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
-			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.model.user_info.diamond_count >= gems){
 				Helper.SetResource (0,0,0,0,-gems,true);
 				SendBuildUpgradeImmediatelyToServer (s);
 				OnBuildDone (s);
@@ -438,7 +438,7 @@ public static class BuildHandle {
 
 	static bool CheckWookerCount(){
 		long min_b_id = 0;
-		if (DataManager.GetInstance.userInfo.worker_count <= Helper.GetWorkeringCount (ref min_b_id)) {
+		if (DataManager.GetInstance.model.user_info.worker_count <= Helper.GetWorkeringCount (ref min_b_id)) {
 			BuildInfo min_s = (BuildInfo)DataManager.GetInstance.buildList [min_b_id];
 			int seconds = min_s.end_time - Helper.current_time ();					
 			int gems_count = CalcHelper.calcTimeToGems (seconds);
