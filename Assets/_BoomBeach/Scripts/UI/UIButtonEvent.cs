@@ -121,7 +121,7 @@ public class UIButtonEvent : MonoBehaviour {
 	{
 		PopManage.Instance.ShowShopPanel ();
 
-		UIManager.GetInstance().GetController<ShopCtrl>().ShowPanel();
+		UIManager.GetInstance.GetController<ShopCtrl>().ShowPanel();
 	}
 
 
@@ -165,9 +165,9 @@ public class UIButtonEvent : MonoBehaviour {
 	//查看敌方时切换到攻击场景;
 	public void OnClickAttackIco()
 	{
-		if (CSVManager.GetInstance().experienceLevelsList.ContainsKey(DataManager.GetInstance().userInfo.exp_level.ToString())){
+		if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
 			
-			ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
+			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
 			//花费;
 			//Debug.Log(el.AttackCost);
 			ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
@@ -206,7 +206,7 @@ public class UIButtonEvent : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,Globals.LastSceneUserId,Globals.LastSceneRegionsId,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			//GameLoader.Instance.StartBattle(dt.GetInt("Gold"),dt.GetInt("Gems"),0,0);
 		}else{
@@ -219,9 +219,9 @@ public class UIButtonEvent : MonoBehaviour {
 	//搜索对手;
 	public void OnClickSearchIco()
 	{
-		if (CSVManager.GetInstance().experienceLevelsList.ContainsKey(DataManager.GetInstance().userInfo.exp_level.ToString())){
+		if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
 			
-			ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
+			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
 			//花费;
 			//Debug.Log(el.AttackCost);
 			int SearchCost = (int) (el.AttackCost * Globals.SearchCostFactor);
@@ -254,7 +254,7 @@ public class UIButtonEvent : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			GameLoader.Instance.SwitchScene(SceneStatus.ENEMYVIEW,0,0,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			//GameLoader.Instance.StartBattle(dt.GetInt("Gold"),dt.GetInt("Gems"),0,0);
 		}else{
@@ -272,7 +272,7 @@ public class UIButtonEvent : MonoBehaviour {
 		if(BattleData.Instance.BattleIsStart&&BattleData.Instance.AllocateTrooperList.Count==BattleData.Instance.DeadTrooperList.Count){
 			if(ScreenUIManage.Instance!=null)
 				ScreenUIManage.Instance.battleResultWin.ShowResultWin();
-			UIManager.GetInstance ().GetController<BattleResultCtrl>().ShowPanel ();
+			UIManager.GetInstance.GetController<BattleResultCtrl>().ShowPanel ();
 		}
 		else
 		{

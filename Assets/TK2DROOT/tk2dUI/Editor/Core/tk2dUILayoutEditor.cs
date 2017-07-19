@@ -61,7 +61,7 @@ public class tk2dUILayoutEditor : Editor {
 			tk2dUndo.RecordObjects(deps, "Resize");
 			My.Reshape(dMin, dMax, updateChildren);
 			foreach (var dep in deps)
-				EditorUtility.SetDirty(dep);
+				tk2dUtil.SetDirty(dep);
 		}
 
 		Event ev = Event.current;
@@ -211,7 +211,7 @@ public class tk2dUILayoutEditor : Editor {
 					box.center -= My.transform.worldToLocalMatrix.MultiplyVector(My.transform.position - lastPos);
 
 				foreach (var dep in deps)
-					EditorUtility.SetDirty(dep);
+					tk2dUtil.SetDirty(dep);
 			}
 		}
 		GUILayout.EndHorizontal();
@@ -269,7 +269,7 @@ public class tk2dUILayoutEditor : Editor {
 		GUILayout.EndVertical();
 
 		if (GUI.changed) {
-			EditorUtility.SetDirty(target);
+			tk2dUtil.SetDirty(target);
 		}
 	}
 
@@ -299,7 +299,7 @@ public class tk2dUILayoutEditor : Editor {
 		GUI.Box(middleRect, "", borderStyle);
 		GUI.color = Color.white;
 
-		GUIStyle style = new GUIStyle("");
+		GUIStyle style = new GUIStyle();
 		style.border = new RectOffset(0, 0, 0, 0);
 		style.margin = new RectOffset(0, 0, 0, 0);
 		style.padding = new RectOffset(0, 0, 0, 0);

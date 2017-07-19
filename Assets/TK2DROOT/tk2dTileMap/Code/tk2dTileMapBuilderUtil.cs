@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR || !UNITY_FLASH
-
 namespace tk2dRuntime.TileMap
 {
 	public static class BuilderUtil
@@ -482,5 +480,3 @@ namespace tk2dRuntime.TileMap
 		}
 	}
 }
-
-#endif

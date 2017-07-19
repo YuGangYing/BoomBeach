@@ -200,7 +200,7 @@ public class ProjectileController  {
 			if(ResourceCache.load(path)==null) path="Model/Projectile/Machine Gun Ammo"; //防止报错，发布后禁用;
 			GameObject bulletPrefab = ResourceCache.load(path) as GameObject;
 			GameObject bulletObj = GameObject.Instantiate(bulletPrefab) as GameObject;
-			bulletObj.transform.parent = SpawnManager.GetInstance().bulletContainer;
+			bulletObj.transform.parent = SpawnManager.GetInstance.bulletContainer;
 			bulletObj.transform.localScale = Vector3.one;
 			bullet = bulletObj.GetComponent<ProjectileInfo>();
 			bullet.ProjectileName = name;

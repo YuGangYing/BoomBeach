@@ -15,48 +15,45 @@ namespace BoomBeach
         {
 			base.Awake ();
 			InitLayers();
+			InitCtrollers ();
         }
 
-        //public LoginCtrl loginCtrl;
-        //public MainInterfaceCtrl mainInterfaceCtrl;
-        //public MaskCtrl maskCtrl;
-        //public PopMsgCtrl popMsgCtrl;
-        //public PlayerListCtrl playerListCtrl;
-        //public SettingCtrl settingCtrl;
-        //public ShopCtrl shopCtrl;
-        //public TeamListCtrl teamListCtrl;
-        //public AchivementCtrl achivementCtrl;
-        //public BuildDetailCtrl buildDetailCtrl;
-        //public TroopTrainCtrl troopTrainCtrl;
-        //public TroopDetailCtrl troopDetailCtrl;
-        //public ResearchCtrl researchCtrl;
-        //public ArtifactCtrl artifactCtrl;
-        //public NormalMsgCtrl normalMsgCtrl;
-        //public IslandPopCtrl islandPopCtrl;
-		//public BattleInterfaceCtrl battleInterfaceCtrl;
-		//public BattleResultCtrl battleResultCtrl;
+		void Start(){
+			UIManager.GetInstance.GetController<MainInterfaceCtrl> ().ShowPanel ();
+		}
 
-        //void InitCtrollers()
-        //{
-			//loginCtrl = AddCtroller<LoginCtrl>();
-            //mainInterfaceCtrl = AddCtroller<MainInterfaceCtrl>();
-            //maskCtrl = AddCtroller<MaskCtrl>();
-            //popMsgCtrl = AddCtroller<PopMsgCtrl>();
-            //playerListCtrl = AddCtroller<PlayerListCtrl>();
-            //settingCtrl = AddCtroller<SettingCtrl>();
-            //shopCtrl = AddCtroller<ShopCtrl>();
-            //teamListCtrl = AddCtroller<TeamListCtrl>();
-            //achivementCtrl = AddCtroller<AchivementCtrl>();
-            //buildDetailCtrl = AddCtroller<BuildDetailCtrl>();
-            //troopTrainCtrl = AddCtroller<TroopTrainCtrl>();
-            //troopDetailCtrl = AddCtroller<TroopDetailCtrl>();
-            //researchCtrl = AddCtroller<ResearchCtrl>();
-            //artifactCtrl = AddCtroller<ArtifactCtrl>();
-            //normalMsgCtrl = AddCtroller<NormalMsgCtrl>();
-            //islandPopCtrl = AddCtroller<IslandPopCtrl>();
-			//battleInterfaceCtrl = AddCtroller<BattleInterfaceCtrl> ();
-			//battleResultCtrl = AddCtroller<BattleResultCtrl> ();
-        //}
+        void InitCtrollers()
+        {
+			AddCtroller<LoginCtrl>();
+            AddCtroller<MainInterfaceCtrl>();
+            AddCtroller<MaskCtrl>();
+            AddCtroller<PopMsgCtrl>();
+            AddCtroller<PlayerListCtrl>();
+            AddCtroller<SettingCtrl>();
+            AddCtroller<ShopCtrl>();
+            AddCtroller<TeamListCtrl>();
+            AddCtroller<AchivementCtrl>();
+            AddCtroller<BuildDetailCtrl>();
+            AddCtroller<TroopTrainCtrl>();
+            AddCtroller<TroopDetailCtrl>();
+            AddCtroller<ResearchCtrl>();
+            AddCtroller<ArtifactCtrl>();
+            AddCtroller<NormalMsgCtrl>();
+            AddCtroller<IslandPopCtrl>();
+			AddCtroller<BattleInterfaceCtrl> ();
+			AddCtroller<BattleResultCtrl> ();
+        }
+
+		public void ShowHome(){
+		
+		}
+
+
+
+
+
+
+
 
 		public T AddCtroller<T>() where T : BaseCtrl
         {
@@ -221,7 +218,7 @@ namespace BoomBeach
             }
             else
             {
-                GameObject prefab = ResourceManager.GetInstance().LoadLocalPanelPrefab(panelStr);
+                GameObject prefab = ResourceManager.GetInstance.LoadLocalPanelPrefab(panelStr);
                 panelGo = Instantiate<GameObject>(prefab);
                 m_panels.Add(panelStr, panelGo);
 				panelGo.transform.SetParent(m_uiLayers[type].transform);

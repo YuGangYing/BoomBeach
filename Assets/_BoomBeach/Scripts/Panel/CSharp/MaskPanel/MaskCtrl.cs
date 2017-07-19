@@ -18,7 +18,7 @@ public class MaskCtrl : BaseCtrl
     public void ShowPanel(UnityAction action)
     {
         bool isCreate;
-        mMaskPanelView = UIManager.GetInstance().ShowPanel<MaskPanelView>(UIManager.UILayerType.Mask,out isCreate);
+        mMaskPanelView = UIManager.GetInstance.ShowPanel<MaskPanelView>(UIManager.UILayerType.Mask,out isCreate);
         mMaskPanelView.m_btnMask.onClick.RemoveAllListeners();
 		if (action != null) {
 			mMaskPanelView.m_btnMask.onClick.AddListener(action);

@@ -33,16 +33,16 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_txtInfo = m_Trans.FindChild("#txt_info").GetComponent<Text>();
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_gridInfo = m_Trans.FindChild("#grid_info");
-            m_gridUsercrystal = m_Trans.FindChild("#grid_usercrystal");
-            m_txtTotalinfo = m_Trans.FindChild("#txt_totalinfo").GetComponent<Text>();
-            m_btnGreen = m_Trans.FindChild("#btn_green").GetComponent<Button>();
-            m_btnBlue = m_Trans.FindChild("#btn_blue").GetComponent<Button>();
-            m_btnRed = m_Trans.FindChild("#btn_red").GetComponent<Button>();
-            m_btnDeepp = m_Trans.FindChild("#btn_deepp").GetComponent<Button>();
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_txtInfo = m_Trans.Find("#txt_info").GetComponent<Text>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_gridInfo = m_Trans.Find("#grid_info");
+            m_gridUsercrystal = m_Trans.Find("#grid_usercrystal");
+            m_txtTotalinfo = m_Trans.Find("#txt_totalinfo").GetComponent<Text>();
+            m_btnGreen = m_Trans.Find("#btn_green").GetComponent<Button>();
+            m_btnBlue = m_Trans.Find("#btn_blue").GetComponent<Button>();
+            m_btnRed = m_Trans.Find("#btn_red").GetComponent<Button>();
+            m_btnDeepp = m_Trans.Find("#btn_deepp").GetComponent<Button>();
 
         }
 

@@ -141,7 +141,7 @@ public class tk2dUIScrollableArea : MonoBehaviour
                 backgroundUIItem.sendMessageTarget = value;
             
                 #if UNITY_EDITOR
-                    UnityEditor.EditorUtility.SetDirty(backgroundUIItem);
+                    tk2dUtil.SetDirty(backgroundUIItem);
                 #endif
             }
         }
@@ -375,9 +375,25 @@ public class tk2dUIScrollableArea : MonoBehaviour
             swipeScrollingContentStartLocalPos = ContentContainerOffset;
             swipeScrollingContentDestLocalPos = swipeScrollingContentStartLocalPos;
             isBackgroundButtonDown = true;
-            swipeCurrVelocity = 0;
+
+			// Is during inertial scrolling?
+			if (swipeCurrVelocity != 0)
+			{
+				// Call OverrideClearAllChildrenPresses at the end of the frame to make sure the
+				// item doesn't register a click when dragged and let go < threshold when dragging
+				// during inertial scrolling.
+				StartCoroutine(coDeferredClearChildrenPresses());
+			}
+
+			swipeCurrVelocity = 0;
         }
     }
+
+	IEnumerator coDeferredClearChildrenPresses()
+	{
+		yield return new WaitForEndOfFrame();
+		tk2dUIManager.Instance.OverrideClearAllChildrenPresses(backgroundUIItem);
+	}
 
     private void BackgroundOverUpdate()
     {
@@ -429,7 +445,14 @@ public class tk2dUIScrollableArea : MonoBehaviour
                     swipeScrollingContentDestLocalPos.y = destValue;
                 }
 
-                newPercent = destValue / (contentLength - visibleAreaLength);
+                if (contentLength - visibleAreaLength > Mathf.Epsilon) 
+                {
+                    newPercent = destValue / (contentLength - visibleAreaLength);
+                }
+                else 
+                {
+                    newPercent = 0;
+                }                    
             }
             else //background button not down
             {

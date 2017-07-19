@@ -40,7 +40,7 @@ public class MortarAmmoController : ProjectileController {
 		AudioPlayer.Instance.PlaySfx("mortar_hit_01");
 		if(trail!=null)
 		{
-			trail.transform.parent = SpawnManager.GetInstance().bulletContainer;
+			trail.transform.parent = SpawnManager.GetInstance.bulletContainer;
 			trail.GetComponent<ParticleEmitter>().emit = false;
 		}
 		

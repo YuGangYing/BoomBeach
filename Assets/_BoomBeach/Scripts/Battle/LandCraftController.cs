@@ -86,7 +86,7 @@ public class LandCraftController : MonoBehaviour {
 				landCraft.setDeck("down");
 				if(BattleData.Instance.AllTrooperRetreat)
 				BattleData.Instance.AllTrooperRetreat = false;
-				if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+				if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 				{
 					if(!BattleData.Instance.BattleIsEnd)
 					{
@@ -95,7 +95,7 @@ public class LandCraftController : MonoBehaviour {
 						{
 							//出兵前先分配撤退点;
 							charInfo.RetreatPoint = charInfo.Position;
-							charInfo.transform.parent = SpawnManager.GetInstance ().characterContainer;//将小兵的父物体由原来的登陆舰的停靠点换成角色的全局父容器
+							charInfo.transform.parent = SpawnManager.GetInstance.characterContainer;//将小兵的父物体由原来的登陆舰的停靠点换成角色的全局父容器
 							if(FocusFireAmmoController.FocusFireProjectile!=null)
 							{
 								FocusFireAmmoController ffac = FocusFireAmmoController.FocusFireProjectile.projectileCtl as FocusFireAmmoController;

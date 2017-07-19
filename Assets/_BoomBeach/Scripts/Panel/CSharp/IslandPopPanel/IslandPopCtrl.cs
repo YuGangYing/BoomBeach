@@ -56,7 +56,7 @@ namespace BoomBeach
                 //3:Scout,Attack,Find; 
                 //31:Scout,Attack,Find,Resource; 
                 //32:Scout,Attack,Find,Resource,Per hour; 
-                if (ur.capture_id == DataManager.GetInstance().userInfo.id)//自己
+                if (ur.capture_id == DataManager.GetInstance.userInfo.id)//自己
                 {
                     if (ur.res_tid == null || ur.res_tid == "" ||ur.regions_id == 0 || ur.regions_id == 1)
                     {
@@ -142,11 +142,11 @@ namespace BoomBeach
                 mIslandPopPanelView.m_containerIslandpopbox31.SetActive(false);
                 mIslandPopPanelView.m_containerIslandpopbox32.SetActive(false);
                 mIslandPopPanelView.m_containerIslandpopbox.SetActive(true);
-                Text goldText = mIslandPopPanelView.m_containerIslandpopbox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_islandpopgold").GetComponent<Text>();
+                Text goldText = mIslandPopPanelView.m_containerIslandpopbox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_islandpopgold").GetComponent<Text>();
                 goldText.text = regions.ExplorationCost.ToString();
 
                 GameObject currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox;
-                GameObject currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                GameObject currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 //float width = currentIslandPopBox.GetComponent<RectTransform>().sizeDelta.x;
                 float height = currentIslandPopBox.GetComponent<RectTransform>().sizeDelta.y;
                 //float screenWidth = Screen.width;
@@ -204,42 +204,42 @@ namespace BoomBeach
             if (show_type == 1)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox1;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>().text = StringFormat.FormatByTid("TID_BUTTON_GO_TO_OUTPOST");
+                currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>().text = StringFormat.FormatByTid("TID_BUTTON_GO_TO_OUTPOST");
 
             }
             else if (show_type == 11)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox11;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>().text = StringFormat.FormatByTid("TID_BUTTON_GO_TO_OUTPOST");
-                Text resource = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandperhour/txt_islandperhour").GetComponent<Text>();
+                currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>().text = StringFormat.FormatByTid("TID_BUTTON_GO_TO_OUTPOST");
+                Text resource = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandperhour/txt_islandperhour").GetComponent<Text>();
                 resource.text = ur.resource_perhour.ToString();
             }
             else if (show_type == 2)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox2;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
-                Text search = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
-                Text AttackGoldNum = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
+                Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
                 AttackGoldNum.text = el.AttackCost.ToString();
             }
             else if (show_type ==21)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox21;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
-                Text search = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
-                Text AttackGoldNum = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
+                Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
                 AttackGoldNum.text = el.AttackCost.ToString();
-                LayoutElement[] eles = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
+                LayoutElement[] eles = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
                 eles[0].GetComponentInChildren<Text>().text = ur.gold.ToString();
                 eles[1].GetComponentInChildren<Text>().text = ur.wood.ToString();
                 eles[2].GetComponentInChildren<Text>().text = ur.stone.ToString();
@@ -248,44 +248,44 @@ namespace BoomBeach
             else if (show_type == 22)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox22;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
-                Text search = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
-                Text AttackGoldNum = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
+                Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
                 AttackGoldNum.text = el.AttackCost.ToString();
-                LayoutElement[] eles = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
+                LayoutElement[] eles = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
                 eles[0].GetComponentInChildren<Text>().text = ur.gold.ToString();
                 eles[1].GetComponentInChildren<Text>().text = ur.wood.ToString();
                 eles[2].GetComponentInChildren<Text>().text = ur.stone.ToString();
                 eles[3].GetComponentInChildren<Text>().text = ur.iron.ToString();
-                Text resource = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandperhour/txt_islandperhour").GetComponent<Text>();
+                Text resource = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandperhour/txt_islandperhour").GetComponent<Text>();
                 resource.text = ur.resource_perhour.ToString();
             }
 
             else if (show_type == 3)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox3;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
-                Text search = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
-                Text AttackGoldNum = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
+                Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
                 AttackGoldNum.text = el.AttackCost.ToString();
             }
             else if (show_type == 31)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox3;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
-                Text search = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
-                Text AttackGoldNum = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
+                Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
                 AttackGoldNum.text = el.AttackCost.ToString();
-                LayoutElement[] eles = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
+                LayoutElement[] eles = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
                 eles[0].GetComponentInChildren<Text>().text = ur.gold.ToString();
                 eles[1].GetComponentInChildren<Text>().text = ur.wood.ToString();
                 eles[2].GetComponentInChildren<Text>().text = ur.stone.ToString();
@@ -294,19 +294,19 @@ namespace BoomBeach
             else if (show_type == 32)
             {
                 currentIslandPopBox = mIslandPopPanelView.m_containerIslandpopbox3;
-                currentArrow = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_arrow").gameObject;
+                currentArrow = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_arrow").gameObject;
                 currentIslandPopBox.SetActive(true);
-                ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
-                Text search = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
+                ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
+                Text search = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandsearch/txt_confirm").GetComponent<Text>();
                 search.text = StringFormat.FormatByTid("TID_SCOUT_BUTTON");
-                Text AttackGoldNum = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
+                Text AttackGoldNum = currentIslandPopBox.transform.Find("container_islandpopboxpivot/btn_islandattack/txt_islandpopgold").GetComponent<Text>();
                 AttackGoldNum.text = el.AttackCost.ToString();
-                LayoutElement[] eles = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
+                LayoutElement[] eles = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandresource").GetComponentsInChildren<LayoutElement>();
                 eles[0].GetComponentInChildren<Text>().text = ur.gold.ToString();
                 eles[1].GetComponentInChildren<Text>().text = ur.wood.ToString();
                 eles[2].GetComponentInChildren<Text>().text = ur.stone.ToString();
                 eles[3].GetComponentInChildren<Text>().text = ur.iron.ToString();
-                Text resource = currentIslandPopBox.transform.FindChild("container_islandpopboxpivot/container_islandperhour/txt_islandperhour").GetComponent<Text>();
+                Text resource = currentIslandPopBox.transform.Find("container_islandpopboxpivot/container_islandperhour/txt_islandperhour").GetComponent<Text>();
                 resource.text = ur.resource_perhour.ToString();
             }
             #endregion
@@ -348,42 +348,42 @@ namespace BoomBeach
         void OnCreatePanel()
         {
             Button button;
-            button = mIslandPopPanelView.m_containerIslandpopbox.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnExplore);
 
-            button = mIslandPopPanelView.m_containerIslandpopbox1.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox1.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnGoHome);
-            button = mIslandPopPanelView.m_containerIslandpopbox11.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox11.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnGoHome);
-            button = mIslandPopPanelView.m_containerIslandpopbox2.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox2.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnSearch);
-            button = mIslandPopPanelView.m_containerIslandpopbox2.transform.FindChild("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox2.transform.Find("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
             button.onClick.AddListener(OnAttack);
-            button = mIslandPopPanelView.m_containerIslandpopbox21.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox21.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnSearch);
-            button = mIslandPopPanelView.m_containerIslandpopbox21.transform.FindChild("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox21.transform.Find("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
             button.onClick.AddListener(OnAttack);
-            button = mIslandPopPanelView.m_containerIslandpopbox22.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox22.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnSearch);
-            button = mIslandPopPanelView.m_containerIslandpopbox22.transform.FindChild("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox22.transform.Find("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
             button.onClick.AddListener(OnAttack);
-            button = mIslandPopPanelView.m_containerIslandpopbox3.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox3.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnSearch);
-            button = mIslandPopPanelView.m_containerIslandpopbox3.transform.FindChild("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox3.transform.Find("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
             button.onClick.AddListener(OnAttack);
-            button = mIslandPopPanelView.m_containerIslandpopbox3.transform.FindChild("container_islandpopboxpivot/btn_islandchange").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox3.transform.Find("container_islandpopboxpivot/btn_islandchange").GetComponent<Button>();
             button.onClick.AddListener(OnChange);
-            button = mIslandPopPanelView.m_containerIslandpopbox31.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox31.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnSearch);
-            button = mIslandPopPanelView.m_containerIslandpopbox31.transform.FindChild("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox31.transform.Find("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
             button.onClick.AddListener(OnAttack);
-            button = mIslandPopPanelView.m_containerIslandpopbox31.transform.FindChild("container_islandpopboxpivot/btn_islandchange").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox31.transform.Find("container_islandpopboxpivot/btn_islandchange").GetComponent<Button>();
             button.onClick.AddListener(OnChange);
-            button = mIslandPopPanelView.m_containerIslandpopbox32.transform.FindChild("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox32.transform.Find("container_islandpopboxpivot/btn_islandsearch").GetComponent<Button>();
             button.onClick.AddListener(OnSearch);
-            button = mIslandPopPanelView.m_containerIslandpopbox32.transform.FindChild("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox32.transform.Find("container_islandpopboxpivot/btn_islandattack").GetComponent<Button>();
             button.onClick.AddListener(OnAttack);
-            button = mIslandPopPanelView.m_containerIslandpopbox32.transform.FindChild("container_islandpopboxpivot/btn_islandchange").GetComponent<Button>();
+            button = mIslandPopPanelView.m_containerIslandpopbox32.transform.Find("container_islandpopboxpivot/btn_islandchange").GetComponent<Button>();
             button.onClick.AddListener(OnChange);
         }
 
@@ -437,7 +437,7 @@ namespace BoomBeach
         {
             Close();
             CloseMask();
-            if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems"))
+            if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems"))
             {
                 /**
                 mRegions.sending = true;
@@ -494,7 +494,7 @@ namespace BoomBeach
             Debug.Log("HandleExploreResponse");
             WorldCameraOpEvent.Instance.ClosePop();
             string regions_name = dt.GetUtfString("regions_name");
-			Regions rs2 = CSVManager.GetInstance().regionsList[regions_name] as Regions;
+			Regions rs2 = CSVManager.GetInstance.regionsList[regions_name] as Regions;
             //regions_name
             rs2.sending = false;
             //Debug.Log(rs2.cloud.name);
@@ -508,7 +508,7 @@ namespace BoomBeach
                 ISFSObject obj = user_regions.GetSFSObject(i);
                 UserRegions ur = new UserRegions();
                 ur.ISFSObjectToBean(obj);
-				DataManager.GetInstance().userRegionsList[ur.regions_id] = ur;
+				DataManager.GetInstance.userRegionsList[ur.regions_id] = ur;
                 GameObject islandHouse = Instantiate(ResourceCache.load("UI/islandHouse")) as GameObject;
                 Transform house_pos = House.Find(ur.regions_id.ToString());
                 /*
@@ -573,10 +573,10 @@ namespace BoomBeach
 			CloseMask();
             if (mUserRegions != null)
             {
-				if (CSVManager.GetInstance().experienceLevelsList.ContainsKey(DataManager.GetInstance().userInfo.exp_level.ToString())){
+				if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
 					WorldCameraOpEvent.Instance.ClosePop();
 
-					ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
+					ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
 					//花费;
 					//Debug.Log(el.AttackCost);
 					ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
@@ -600,7 +600,7 @@ namespace BoomBeach
         }
 
 		private void OnBattleDialogYes(ISFSObject dt,BuildInfo s){
-			if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+			if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 				GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,mUserRegions.capture_id,mUserRegions.regions_id,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			}else{
 				//宝石不够;

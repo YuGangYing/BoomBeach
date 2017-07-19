@@ -10,7 +10,7 @@ public class SceneUI : MonoBehaviour {
 	{
 		for(int i=0;i<ShowsScene.Length;i++)
 		{
-			if(DataManager.GetInstance().sceneStatus==ShowsScene[i])
+			if(DataManager.GetInstance.sceneStatus==ShowsScene[i])
 			{
 				gameObject.SetActive(true);
 				return;

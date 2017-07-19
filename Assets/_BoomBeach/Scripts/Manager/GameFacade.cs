@@ -46,15 +46,17 @@ public class GameFacade : MonoBehaviour {
 			}
 		}
 		LocalizationCustom.instance.currentLanguage = lng;
-
 		//初始化音效
 		AudioPlayer.Init();
 		PlayerPrefs.SetInt("SoundEffectSwitch",1);
 		PlayerPrefs.SetInt("MusicSwitch",1);
 		//UIManager.Instance ();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoginScene");
-
 		//读取csv数据
 		//CSVMananger.instance.Init ();
     }
+
+
+	void Start(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene("LoginScene");
+	}
 }

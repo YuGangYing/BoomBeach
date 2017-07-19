@@ -50,7 +50,7 @@ public class WorkerManage : MonoBehaviour {
 
 	void createWorker()
 	{
-		if(workers!=null&&workers.Count<workerCount&&DataManager.GetInstance().buildArray.Count>0)
+		if(workers!=null&&workers.Count<workerCount&&DataManager.GetInstance.buildArray.Count>0)
 		{
 			GameObject worker = Instantiate(workerPrefab) as GameObject;
 			worker.transform.parent = transform;
@@ -59,8 +59,8 @@ public class WorkerManage : MonoBehaviour {
 
 			if(workBuildInfo==null)
 			{
-				int idx = Random.Range (0, DataManager.GetInstance().buildArray.Count);		//针对每个士兵随机选择一个建筑	
-				BuildInfo b = DataManager.GetInstance().buildArray [idx];			
+				int idx = Random.Range (0, DataManager.GetInstance.buildArray.Count);		//针对每个士兵随机选择一个建筑	
+				BuildInfo b = DataManager.GetInstance.buildArray [idx];			
 				worker.transform.position = Globals.GetRandStandPointAroundBuild (b,worker.transform);
 			}
 			else

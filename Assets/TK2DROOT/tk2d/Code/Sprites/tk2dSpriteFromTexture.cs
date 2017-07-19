@@ -34,8 +34,9 @@ public class tk2dSpriteFromTexture : MonoBehaviour {
 
 	void OnDestroy() {
 		DestroyInternal();
-		if (GetComponent<Renderer>() != null) {
-			GetComponent<Renderer>().material = null;
+		Renderer renderer = GetComponent<Renderer>();
+		if (renderer != null) {
+			renderer.material = null;
 		}
 	}
 

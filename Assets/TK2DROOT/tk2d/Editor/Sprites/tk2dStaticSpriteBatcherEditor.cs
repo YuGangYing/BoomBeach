@@ -22,6 +22,23 @@ class tk2dStaticSpriteBatcherEditor : Editor
 			Transform[] allTransforms = batcher.transform.GetComponentsInChildren<Transform>();
 			allTransforms = (from t in allTransforms where t != batcher.transform select t).ToArray();
 			
+#if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+			Renderer[] allRenderers = batcher.transform.GetComponentsInChildren<Renderer>();
+			allRenderers = (from r in allRenderers where r != batcher.GetComponent<Renderer>() select r).ToArray();
+			if (allRenderers.Length > 0) {
+				string sortingLayerName = allRenderers[0].sortingLayerName;
+				int sortingOrder = allRenderers[0].sortingOrder;
+				foreach (Renderer r in allRenderers) {
+					if (sortingLayerName != r.sortingLayerName ||
+						sortingOrder != r.sortingOrder) {
+
+						EditorUtility.DisplayDialog("StaticSpriteBatcher", "Error: Child objects use different sorting layer names and/or sorting orders.\n\nOnly one sorting layer and order is permitted in a static sprite batcher.", "Ok");
+						return;
+					}
+				}
+			}
+#endif
+
 			// sort sprites, smaller to larger z
 			if (batcher.CheckFlag(tk2dStaticSpriteBatcher.Flags.SortToCamera)) {
 				tk2dCamera tk2dCam = tk2dCamera.CameraForLayer( batcher.gameObject.layer );
@@ -41,6 +58,7 @@ class tk2dStaticSpriteBatcherEditor : Editor
 
 
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+#if !STRIP_PHYSICS_3D && !STRIP_PHYSICS_2D
 			MeshCollider[] childMeshColliders = GetComponentsInChildrenExcludeSelf<MeshCollider>(batcher.transform);
 			BoxCollider[] childBoxColliders = GetComponentsInChildrenExcludeSelf<BoxCollider>(batcher.transform);
 			BoxCollider2D[] childBoxCollider2Ds = GetComponentsInChildrenExcludeSelf<BoxCollider2D>(batcher.transform);
@@ -51,6 +69,7 @@ class tk2dStaticSpriteBatcherEditor : Editor
 				EditorUtility.DisplayDialog("StaticSpriteBatcher", "Error: Can't mix 2D and 3D colliders", "Ok");
 				return;
 			}
+#endif
 #endif
 
 			Dictionary<Transform, int> batchedSpriteLookup = new Dictionary<Transform, int>();
@@ -147,11 +166,12 @@ class tk2dStaticSpriteBatcherEditor : Editor
 			Vector3 inverseScale = new Vector3(1.0f / batcher.scale.x, 1.0f / batcher.scale.y, 1.0f / batcher.scale.z);
 			batcher.transform.localScale = Vector3.Scale( batcher.transform.localScale, inverseScale );
 			batcher.Build();
-			EditorUtility.SetDirty(target);
+			tk2dUtil.SetDirty(target);
 		}
 	}
 
 	static void RestoreBoxColliderSettings( GameObject go, float offset, float extents ) {
+#if !STRIP_PHYSICS_3D
 		BoxCollider boxCollider = go.GetComponent<BoxCollider>();
 		if (boxCollider != null) {
 			Vector3 p = boxCollider.center;
@@ -161,6 +181,7 @@ class tk2dStaticSpriteBatcherEditor : Editor
 			p.z = extents * 2;
 			boxCollider.size = p;
 		}
+#endif
 	}
 	
 	public static void FillBatchedSprite(tk2dBatchedSprite bs, GameObject go) {
@@ -175,12 +196,15 @@ class tk2dStaticSpriteBatcherEditor : Editor
 		bs.baseScale = baseSprite.scale;
 		bs.color = baseSprite.color;
 		bs.renderLayer = baseSprite.SortingOrder;
+#if !STRIP_PHYSICS_3D
 		if (baseSprite.boxCollider != null)
 		{
 			bs.BoxColliderOffsetZ = baseSprite.boxCollider.center.z;
 			bs.BoxColliderExtentZ = baseSprite.boxCollider.size.z * 0.5f;
 		}
-		else {
+		else 
+#endif
+		{
 			bs.BoxColliderOffsetZ = 0.0f;
 			bs.BoxColliderExtentZ = 1.0f;
 		}
@@ -307,6 +331,16 @@ class tk2dStaticSpriteBatcherEditor : Editor
 			}
 			
 			id = 0;
+			bool overrideSortingOrder = false;
+			int overridenSortingOrder = 0;
+#if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+			string overridenSortingLayerName = "";
+			if (batcher.GetComponent<Renderer>()) {
+				overrideSortingOrder = true;
+				overridenSortingOrder = batcher.GetComponent<Renderer>().sortingOrder;
+				overridenSortingLayerName = batcher.GetComponent<Renderer>().sortingLayerName;
+			}
+#endif
 			foreach (var bs in batcher.batchedSprites)
 			{
 				GameObject go = gos[id];
@@ -318,6 +352,10 @@ class tk2dStaticSpriteBatcherEditor : Editor
 					float sy = bs.localScale.y / ((Mathf.Abs (bs.baseScale.y) > Mathf.Epsilon) ? bs.baseScale.y : 1.0f);
 					float sz = bs.localScale.z / ((Mathf.Abs (bs.baseScale.z) > Mathf.Epsilon) ? bs.baseScale.z : 1.0f);
 					go.transform.localScale = new Vector3(sx, sy, sz);
+				}
+
+				if (overrideSortingOrder) {
+					bs.renderLayer = overridenSortingOrder;
 				}
 
 				if (bs.type == tk2dBatchedSprite.Type.TextMesh) {
@@ -350,13 +388,19 @@ class tk2dStaticSpriteBatcherEditor : Editor
 				else {
 					RestoreBatchedSprite(go, bs);
 				}
-				
+
+#if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+				if (go.GetComponent<Renderer>() != null && overrideSortingOrder) {
+					go.GetComponent<Renderer>().sortingLayerName = overridenSortingLayerName;
+				}
+#endif
+
 				++id;
 			}
 			
 			batcher.batchedSprites = null;
 			batcher.Build();
-			EditorUtility.SetDirty(target);
+			tk2dUtil.SetDirty(target);
 
 			batcher.transform.position = batcherPos;
 			batcher.transform.rotation = batcherRotation;
@@ -370,6 +414,23 @@ class tk2dStaticSpriteBatcherEditor : Editor
 
 		MeshFilter meshFilter = batcher.GetComponent<MeshFilter>();
 		MeshRenderer meshRenderer = batcher.GetComponent<MeshRenderer>();
+
+		if (meshRenderer != null) {
+#if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+            string sortingLayerName = tk2dEditorUtility.SortingLayerNamePopup("Sorting Layer", meshRenderer.sortingLayerName);
+            if (sortingLayerName != meshRenderer.sortingLayerName) {
+            	tk2dUndo.RecordObject(meshRenderer, "Sorting Layer");
+            	meshRenderer.sortingLayerName = sortingLayerName;
+            }
+
+			int sortingOrder = EditorGUILayout.IntField("Order In Layer", meshRenderer.sortingOrder);
+			if (sortingOrder != meshRenderer.sortingOrder) {
+            	tk2dUndo.RecordObject(meshRenderer, "Order In Layer");
+            	meshRenderer.sortingOrder = sortingOrder;
+			}
+#endif
+
+		}
 
 		if (meshFilter != null && meshFilter.sharedMesh != null && meshRenderer != null) {
 			GUILayout.Label("Stats", EditorStyles.boldLabel);
@@ -392,7 +453,7 @@ class tk2dStaticSpriteBatcherEditor : Editor
 		}
     }
 	
-    [MenuItem("GameObject/Create Other/tk2d/Static Sprite Batcher", false, 13849)]
+    [MenuItem(tk2dMenu.createBase + "Static Sprite Batcher", false, 13849)]
     static void DoCreateSpriteObject()
     {
 		GameObject go = tk2dEditorUtility.CreateGameObjectInScene("Static Sprite Batcher");

@@ -29,7 +29,7 @@ public static class BuildHandle {
 			int gems = dt.GetInt("Gems");
 			//资源不足，需要增加宝石才行;
 			if (gems > 0){
-				UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 					dt.GetUtfString("msg"), 
 					dt.GetUtfString("title"), 
 					gems.ToString(), 
@@ -47,7 +47,7 @@ public static class BuildHandle {
 	}
 
 	static void OnCreateBuildDialogYes(ISFSObject dt,BuildInfo s = null){
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			CreateBuild (s);
 		}else{
@@ -94,7 +94,7 @@ public static class BuildHandle {
 		//重新计算版面数据;
 		int count = Helper.CalcShopCates(false);
 		//设置商城按钮数量;
-		UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+		UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
 		MoveOpEvent.Instance.gridMap.GetComponent<DrawGrid> ().clearMesh ();
 		MoveOpEvent.Instance.UnDrawBuildPlan (MoveOpEvent.Instance.SelectedBuildInfo);
 		build.buildUI.RefreshBuildBtn ();
@@ -109,7 +109,7 @@ public static class BuildHandle {
 		data.PutInt("y",s.y);
 		data.PutUtfString ("buildingTid",s.tid);
 		data.PutInt ("buildingLevel",1);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_CreateBuilding, false, HandleCreateResponse,s);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_CreateBuilding, false, HandleCreateResponse,s);
 	}
 
 	//取消新建建筑
@@ -118,7 +118,7 @@ public static class BuildHandle {
 			//新建取消;
 			string title = StringFormat.FormatByTid("TID_POPUP_CANCEL_CONSTRUCTION_TITLE");
 			string msg = StringFormat.FormatByTid("TID_POPUP_CANCEL_CONSTRUCTION",new object[]{StringFormat.FormatByTid(s.tid), 50});
-			UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+			UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 				msg,
 				title,
 				"",
@@ -153,7 +153,7 @@ public static class BuildHandle {
 			Helper.SetBuildUpgradeIcon();
 			//设置商城按钮数量;
 			//ScreenUIManage.Instance.SetShopCount (count);
-			UIManager.GetInstance ().GetController<MainInterfaceCtrl>().SetShopCount (count);
+			UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount (count);
 			SendCancelBuildToServer (s.building_id);
 			WorkerManage.Instance.setWorkBuilding(null);
 		}
@@ -163,12 +163,12 @@ public static class BuildHandle {
 		Debug.Log("SendCancelBuildToServer");
 		ISFSObject data = new SFSObject();
 		data.PutLong("building_id", buildId);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_CancelBuilding, false, HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_CancelBuilding, false, HandleResponse);
 	}
 
 	//升级建筑
 	public static void OnUpgradeBuild(BuildInfo s){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.tid_level] as CsvInfo;
 		if (!CheckWookerCount ()) {
 			return;
 		}
@@ -179,7 +179,7 @@ public static class BuildHandle {
 			int gems = dt.GetInt("Gems");
 			//资源不足，需要增加宝石才行;
 			if (gems > 0){
-				UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 					dt.GetUtfString("msg"), 
 					dt.GetUtfString("title"), 
 					gems.ToString(), 
@@ -200,8 +200,8 @@ public static class BuildHandle {
 	}
 
 	static void OnUpgradeBuildDialogYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
-			//BuildInfo s = DataManager.GetInstance().BuildList[dt.GetLong("building_id")] as BuildInfo;
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+			//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			UpgradeBuild (buildInfo);
 		}else{
@@ -212,7 +212,7 @@ public static class BuildHandle {
 
 	static void UpgradeBuild(BuildInfo s)
 	{
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.tid_level] as CsvInfo;
 		ISFSObject dt = Helper.getCostDiffToGems(s.tid_level,1,true);
 		if (s.status != BuildStatus.Normal) {
 			Debug.LogError (s.building_id + " is not in normal status!");
@@ -220,7 +220,7 @@ public static class BuildHandle {
 		}
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);
 		if(msg!=null){
-			UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+			UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 			return;
 		}
 		//扣除用户本地资源;
@@ -241,7 +241,7 @@ public static class BuildHandle {
 		Debug.Log("SendBuildUpgradeToServer");
 		ISFSObject data = new SFSObject();
 		data.PutLong("building_id", s.building_id);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_UpgradeBuilding, false, HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_UpgradeBuilding, false, HandleResponse);
 	}
 
 	//取消升级建筑
@@ -250,7 +250,7 @@ public static class BuildHandle {
 			//新建升级;
 			string title = StringFormat.FormatByTid("TID_POPUP_CANCEL_UPGRADE_TITLE");
 			string msg = StringFormat.FormatByTid("TID_POPUP_CANCEL_UPGRADE",new object[]{StringFormat.FormatByTid(s.tid), 50});
-			UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+			UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 				msg,
 				title,
 				"",
@@ -306,13 +306,13 @@ public static class BuildHandle {
 		}
 		ISFSObject dt = new SFSObject();
 		dt.PutLong("building_id",s.building_id);
-		UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(msg, title, gems.ToString(), PopDialogBtnType.ImageBtn, dt, OnSpeedUpUpgradeBuildDialogYes,true,s);
+		UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(msg, title, gems.ToString(), PopDialogBtnType.ImageBtn, dt, OnSpeedUpUpgradeBuildDialogYes,true,s);
 	}
 
 	static void OnSpeedUpUpgradeBuildDialogYes(ISFSObject dt,BuildInfo s = null){
 		int current_time = Helper.current_time();
 		int gems = CalcHelper.calcTimeToGems(s.end_time - current_time);
-		if (DataManager.GetInstance().userInfo.diamond_count >= gems){
+		if (DataManager.GetInstance.userInfo.diamond_count >= gems){
 			SpeedUpUpgradeBuild (s);
 		}else{
 			//宝石不够;
@@ -339,16 +339,16 @@ public static class BuildHandle {
 		Debug.Log (s.building_id);
 		data.PutLong("id", s.building_id);
 		data.PutInt ("type",0);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_SpeedUP, false, HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_SpeedUP, false, HandleResponse);
 	}
 
 	//对正常建筑用宝石立即升级
 	public static void ImmediateUpgradeBuild(BuildInfo s){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.tid_level] as CsvInfo;
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);		
 		if (msg == null && s.status == BuildStatus.Normal){
 			int gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
-			if (DataManager.GetInstance().userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
 				Helper.SetResource (0,0,0,0,-gems,true);
 				SendBuildUpgradeImmediatelyToServer (s);
 				OnBuildDone (s);
@@ -358,7 +358,7 @@ public static class BuildHandle {
 			}
 		}else{
 			if (msg != null)
-				UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+				UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 		}	
 	}
 
@@ -368,7 +368,7 @@ public static class BuildHandle {
 		Debug.Log (s.building_id);
 		data.PutLong("id", s.building_id);
 		data.PutInt ("type",0);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_ImmediatelyUp, false, HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_ImmediatelyUp, false, HandleResponse);
 	}
 
 	//升级时间结束
@@ -383,11 +383,11 @@ public static class BuildHandle {
 			//比如：level + 1, 更新模型;
 			//s.level = s.level;
 			s.tid_level = s.tid + "_" + s.level;
-			s.csvInfo = CSVManager.GetInstance().csvTable [s.tid_level] as CsvInfo;
+			s.csvInfo = CSVManager.GetInstance.csvTable [s.tid_level] as CsvInfo;
 		} else {
 			s.level = s.level + 1;
 			s.tid_level = s.tid + "_" + s.level;
-			s.csvInfo = CSVManager.GetInstance().csvTable [s.tid_level] as CsvInfo;
+			s.csvInfo = CSVManager.GetInstance.csvTable [s.tid_level] as CsvInfo;
 		}
 		Helper.EXPCollect (s,s.csvInfo.XpGain);
 		AudioPlayer.Instance.PlaySfx("building_finished_01");
@@ -410,7 +410,7 @@ public static class BuildHandle {
 		int count = Helper.CalcShopCates(false);
 		//设置商城按钮数量;
 		//ScreenUIManage.Instance.SetShopCount (count);
-		UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+		UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
 		//关闭所有界面窗口;
 		if (PopWin.current!=null)PopWin.current.CloseTween();
 		//刷新按钮状态;
@@ -426,7 +426,7 @@ public static class BuildHandle {
 		int count = Helper.CalcShopCates(false);
 		//设置商城按钮数量;
 		//ScreenUIManage.Instance.SetShopCount (count);
-		UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+		UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
 		//设置工人工作;
 		WorkerManage.Instance.setWorkBuilding(Helper.getWorkBuilding());
 		//关闭所有界面窗口;
@@ -438,13 +438,13 @@ public static class BuildHandle {
 
 	static bool CheckWookerCount(){
 		long min_b_id = 0;
-		if (DataManager.GetInstance().userInfo.worker_count <= Helper.GetWorkeringCount (ref min_b_id)) {
-			BuildInfo min_s = (BuildInfo)DataManager.GetInstance().buildList [min_b_id];
+		if (DataManager.GetInstance.userInfo.worker_count <= Helper.GetWorkeringCount (ref min_b_id)) {
+			BuildInfo min_s = (BuildInfo)DataManager.GetInstance.buildList [min_b_id];
 			int seconds = min_s.end_time - Helper.current_time ();					
 			int gems_count = CalcHelper.calcTimeToGems (seconds);
 			ISFSObject dt = new SFSObject ();
 			dt.PutLong ("building_id", min_s.building_id);
-			UIManager.GetInstance ().GetComponent<PopMsgCtrl>().ShowDialog (
+			UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog (
 				StringFormat.FormatByTid ("TID_NOT_ENOUGH_WORKERS_HEADER"), 
 				StringFormat.FormatByTid ("TID_NOT_ENOUGH_WORKERS_TEXT"),
 				gems_count.ToString (), 
@@ -466,7 +466,7 @@ public static class BuildHandle {
 		data.PutInt("y",s.y);
 		data.PutInt("regions_id",Globals.regions_id);
 		data.PutLong("building_id", s.building_id);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_MoveBuilding, false, HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_MoveBuilding, false, HandleResponse);
 	}
 
 	//正常建造完成
@@ -474,7 +474,7 @@ public static class BuildHandle {
 		Debug.Log("SendBuildDoneToServer:" + s.building_id);
 		ISFSObject data = new SFSObject();
 		data.PutLong("building_id", s.building_id);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_BuildDone, false, HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_BuildDone, false, HandleResponse);
 	}
 
 	//打印客户返回的code
@@ -491,9 +491,9 @@ public static class BuildHandle {
 		if (dt.GetInt ("code") == 1){
 			Debug.Log ("HandleResponse:" + "{message " + GetMessage (dt.GetInt ("code")) + "},{code " + dt.GetInt ("code") + "}");
 			if (buildInfo != null) {
-				DataManager.GetInstance().buildList.Remove (buildInfo.building_id);
+				DataManager.GetInstance.buildList.Remove (buildInfo.building_id);
 				buildInfo.building_id = dt.GetLong ("building_id");
-				DataManager.GetInstance().buildList [buildInfo.building_id] = buildInfo;
+				DataManager.GetInstance.buildList [buildInfo.building_id] = buildInfo;
 				buildInfo.isWaitForReturnBuildId = false;
 			}
 		}else {

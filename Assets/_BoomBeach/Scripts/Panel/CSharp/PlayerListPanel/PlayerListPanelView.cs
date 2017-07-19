@@ -28,11 +28,11 @@ namespace UI.PlayerListPanel
         public override void Awake()
         {
             m_Trans = transform;
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_btnPlayers = m_Trans.FindChild("#btn_players").GetComponent<Button>();
-            m_btnFriends = m_Trans.FindChild("#btn_friends").GetComponent<Button>();
-            m_gridPlayers = m_Trans.FindChild("#container_players/#grid_players");
-            m_containerPlayers = m_Trans.FindChild("#container_players").gameObject;
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_btnPlayers = m_Trans.Find("#btn_players").GetComponent<Button>();
+            m_btnFriends = m_Trans.Find("#btn_friends").GetComponent<Button>();
+            m_gridPlayers = m_Trans.Find("#container_players/#grid_players");
+            m_containerPlayers = m_Trans.Find("#container_players").gameObject;
 
         }
 

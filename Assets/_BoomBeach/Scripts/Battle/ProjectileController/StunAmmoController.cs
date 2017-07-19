@@ -15,7 +15,7 @@ public class StunAmmoController : ProjectileController {
 	void DoStun(CharInfo charInfo)
 	{
 		//记录回放数据;
-		if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 		{
 			charInfo.StunProjectile = projectileInfo;
 			charInfo.isInStun = true;
@@ -31,7 +31,7 @@ public class StunAmmoController : ProjectileController {
 	void DoStun(BuildInfo buildInfo)
 	{
 		//记录回放数据;
-		if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 		{
 			buildInfo.StunProjectile = projectileInfo;
 			buildInfo.IsInStun = true;
@@ -77,7 +77,7 @@ public class StunAmmoController : ProjectileController {
 		}
 		else
 		{
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				foreach(BuildInfo buildInfo in BattleData.Instance.buildDic.Values)
 				{

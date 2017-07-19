@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // unlit, vertex color, 2 textures, alpha blended
 // cull off
 
@@ -36,7 +38,7 @@ Shader "tk2d/Blend2TexVertexColor"
 
 			struct v2f_vctt
 			{
-				float4 vertex : POSITION;
+				float4 vertex : SV_POSITION;
 				fixed4 color : COLOR;
 				float4 texcoord01 : TEXCOORD0;
 			};
@@ -44,14 +46,14 @@ Shader "tk2d/Blend2TexVertexColor"
 			v2f_vctt vert_vctt(vin_vctt v)
 			{
 				v2f_vctt o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.color = v.color;
 				o.texcoord01.xy = v.texcoord;
 				o.texcoord01.zw = v.texcoord1;
 				return o;
 			}
 
-			fixed4 frag(v2f_vctt i) : COLOR
+			fixed4 frag(v2f_vctt i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.texcoord01.xy) * tex2D(_GradientTex, i.texcoord01.zw) * i.color;
 				return col;
@@ -59,27 +61,5 @@ Shader "tk2d/Blend2TexVertexColor"
 			
 			ENDCG
 		} 
-	}
- 
-	SubShader 
-	{
-		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
-		ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off Fog { Mode Off }
-		LOD 100
-
-		BindChannels 
-		{
-			Bind "Vertex", vertex
-			Bind "TexCoord", texcoord0
-			Bind "TexCoord1", texcoord1
-			Bind "Color", color
-		}
-
-		Pass 
-		{
-			Lighting Off
-			SetTexture [_MainTex] { combine texture * primary } 
-			SetTexture [_GradientTex] { combine texture * previous }	
-		}
 	}
 }

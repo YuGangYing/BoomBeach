@@ -21,9 +21,9 @@ public class DemoAI  {
 
 		//Vector3 dest = new Vector3 (Random.Range(3f,30f),0f,Random.Range(3f,30f));
 
-		int idx = Random.Range (0, DataManager.GetInstance().buildArray.Count);
+		int idx = Random.Range (0, DataManager.GetInstance.buildArray.Count);
 
-		BuildInfo b = DataManager.GetInstance().buildArray [idx];
+		BuildInfo b = DataManager.GetInstance.buildArray [idx];
 
 		Vector3 dest = Globals.GetRandStandPointAroundBuild (b,characterInfo.transform);
 		/*

@@ -44,27 +44,27 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_btnBack = m_Trans.FindChild("#btn_back").GetComponent<Button>();
-            m_txtHealth_num = m_Trans.FindChild("#grid_info/item_title/#txt_health_num").GetComponent<Text>();
-            m_gridInfo = m_Trans.FindChild("#grid_info");
-            m_containerBuildpoint = m_Trans.FindChild("#container_buildpoint").gameObject;
-            m_txtLevel = m_Trans.FindChild("#txt_level").GetComponent<Text>();
-            m_txtInfo = m_Trans.FindChild("#txt_info").GetComponent<Text>();
-            m_txtTime = m_Trans.FindChild("#container_upgrade/#btn_upgrade/#txt_time").GetComponent<Text>();
-            m_btnUpgrade = m_Trans.FindChild("#container_upgrade/#btn_upgrade").GetComponent<Button>();
-            m_txtDiamond = m_Trans.FindChild("#container_upgrade/#container_diamond/#txt_diamond").GetComponent<Text>();
-            m_containerDiamond = m_Trans.FindChild("#container_upgrade/#container_diamond").gameObject;
-            m_btnInstant = m_Trans.FindChild("#container_upgrade/#btn_instant").GetComponent<Button>();
-            m_txtIron = m_Trans.FindChild("#container_upgrade/grid_upgraderesources/#container_iron/#txt_iron").GetComponent<Text>();
-            m_containerIron = m_Trans.FindChild("#container_upgrade/grid_upgraderesources/#container_iron").gameObject;
-            m_txtStone = m_Trans.FindChild("#container_upgrade/grid_upgraderesources/#container_stone/#txt_stone").GetComponent<Text>();
-            m_containerStone = m_Trans.FindChild("#container_upgrade/grid_upgraderesources/#container_stone").gameObject;
-            m_txtWood = m_Trans.FindChild("#container_upgrade/grid_upgraderesources/#container_wood/#txt_wood").GetComponent<Text>();
-            m_containerWood = m_Trans.FindChild("#container_upgrade/grid_upgraderesources/#container_wood").gameObject;
-            m_containerUpgrade = m_Trans.FindChild("#container_upgrade").gameObject;
-            m_containerUnlock = m_Trans.FindChild("#container_unlock").gameObject;
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_btnBack = m_Trans.Find("#btn_back").GetComponent<Button>();
+            m_txtHealth_num = m_Trans.Find("#grid_info/item_title/#txt_health_num").GetComponent<Text>();
+            m_gridInfo = m_Trans.Find("#grid_info");
+            m_containerBuildpoint = m_Trans.Find("#container_buildpoint").gameObject;
+            m_txtLevel = m_Trans.Find("#txt_level").GetComponent<Text>();
+            m_txtInfo = m_Trans.Find("#txt_info").GetComponent<Text>();
+            m_txtTime = m_Trans.Find("#container_upgrade/#btn_upgrade/#txt_time").GetComponent<Text>();
+            m_btnUpgrade = m_Trans.Find("#container_upgrade/#btn_upgrade").GetComponent<Button>();
+            m_txtDiamond = m_Trans.Find("#container_upgrade/#container_diamond/#txt_diamond").GetComponent<Text>();
+            m_containerDiamond = m_Trans.Find("#container_upgrade/#container_diamond").gameObject;
+            m_btnInstant = m_Trans.Find("#container_upgrade/#btn_instant").GetComponent<Button>();
+            m_txtIron = m_Trans.Find("#container_upgrade/grid_upgraderesources/#container_iron/#txt_iron").GetComponent<Text>();
+            m_containerIron = m_Trans.Find("#container_upgrade/grid_upgraderesources/#container_iron").gameObject;
+            m_txtStone = m_Trans.Find("#container_upgrade/grid_upgraderesources/#container_stone/#txt_stone").GetComponent<Text>();
+            m_containerStone = m_Trans.Find("#container_upgrade/grid_upgraderesources/#container_stone").gameObject;
+            m_txtWood = m_Trans.Find("#container_upgrade/grid_upgraderesources/#container_wood/#txt_wood").GetComponent<Text>();
+            m_containerWood = m_Trans.Find("#container_upgrade/grid_upgraderesources/#container_wood").gameObject;
+            m_containerUpgrade = m_Trans.Find("#container_upgrade").gameObject;
+            m_containerUnlock = m_Trans.Find("#container_unlock").gameObject;
 
         }
 

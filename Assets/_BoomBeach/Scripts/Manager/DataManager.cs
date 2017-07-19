@@ -4,10 +4,14 @@ using System;
 using System.Collections.Generic;
 using Sfs2X.Entities.Data;
 using BoomBeach;
+using WWWNetwork;
+using Network;
 
 namespace BoomBeach{
 	
 	public class DataManager : SingleMonoBehaviour<DataManager>{
+
+		public Model model;
 
 		public ISFSObject battleData;//缓存服务器返回的战斗数据
 		public ISFSObject playerData;//服务器缓存的玩家数据
@@ -81,7 +85,7 @@ namespace BoomBeach{
 			set{
 				energyTotal = value;
 				//if(UIManager.Instance ().battleInterfaceCtrl!=null)
-				UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().SetEnergy (energyTotal);
+				UIManager.GetInstance.GetController<BattleInterfaceCtrl>().SetEnergy (energyTotal);
 	            /*
 				//UIManager.Instance().battleInterfaceCtrl
 				if(UIManager.Instance ().battleInterfaceCtrl!=null)
@@ -182,7 +186,7 @@ namespace BoomBeach{
 				
 
 
-					if(CSVManager.GetInstance().island_grid_csv[Globals.islandType.ToString()][a,b]==1)
+					if(CSVManager.GetInstance.island_grid_csv[Globals.islandType.ToString()][a,b]==1)
 					{
 						gridInfo.isInArea = false;
 						gridInfo.cost = Globals.GridBuildCost;
@@ -214,7 +218,7 @@ namespace BoomBeach{
 			}
 			if(buildList!=null)
 			{
-				UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("需删除:"+buildList.Count);
+				UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("需删除:"+buildList.Count);
 				foreach(BuildInfo b in buildList.Values)
 				{
 					BuildInfo.destroyAndCacheBuildInfo(b);
@@ -453,7 +457,7 @@ namespace BoomBeach{
 	            ScreenUIManage.Instance.battleResultWin.HideResultWin ();
 	        */
 
-	        if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY)
+	        if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY)
 			{
 	            gameManager.AddComponent<AITask>();
 	            //GameObject.Find ("GameManage").AddComponent<AITask>();
@@ -560,15 +564,15 @@ namespace BoomBeach{
 		public delegate void OnLoadEnd();
 		public static void HandleLoadEnd(OnLoadEnd onLoadEnd)
 		{
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME||DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance().sceneStatus==SceneStatus.WORLDMAP)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME||DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance.sceneStatus==SceneStatus.WORLDMAP)
 			{
 				AudioPlayer.Instance.PlayMusic("home_music");
 			}
-			else if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			else if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				AudioPlayer.Instance.PlayMusic("combat_planning_music");
 			}
-			else if(DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY)
+			else if(DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY)
 			{
 				AudioPlayer.Instance.PlayMusic("combat_music");
 			}

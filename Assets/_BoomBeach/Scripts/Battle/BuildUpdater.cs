@@ -111,7 +111,7 @@ public class BuildUpdater : MonoBehaviour {
 
 		if (buildInfo.csvInfo.BuildingClass != "Defense"&&buildInfo.csvInfo.BuildingClass != "Misc"&&buildInfo.csvInfo.TID_Type!="TRAPS")return;
 
-		if (DataManager.GetInstance().sceneStatus != SceneStatus.ENEMYBATTLE && DataManager.GetInstance().sceneStatus != SceneStatus.BATTLEREPLAY)
+		if (DataManager.GetInstance.sceneStatus != SceneStatus.ENEMYBATTLE && DataManager.GetInstance.sceneStatus != SceneStatus.BATTLEREPLAY)
 						return;
 
 
@@ -120,7 +120,7 @@ public class BuildUpdater : MonoBehaviour {
 		//以下是指令控制;
 		if(buildInfo.State==AISTATE.STANDING)
 		{
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				buildInfo.buildCtl.CMDFindDest();
 			}

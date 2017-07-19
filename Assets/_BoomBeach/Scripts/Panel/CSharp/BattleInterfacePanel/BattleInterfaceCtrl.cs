@@ -102,7 +102,7 @@ namespace BoomBeach {
         public override void ShowPanel()
         {
             bool isCreate;
-			mBattleInterfacePanelView = UIManager.GetInstance().ShowPanel<BattleInterfacePanelView>(UIManager.UILayerType.Fixed, out isCreate);
+			mBattleInterfacePanelView = UIManager.GetInstance.ShowPanel<BattleInterfacePanelView>(UIManager.UILayerType.Fixed, out isCreate);
             if (isCreate)
             {
                 OnCreatePanel();
@@ -120,10 +120,10 @@ namespace BoomBeach {
 				BattleButtonItem item = new BattleButtonItem ();
 				Button btn = btns [i];
 				item.btn = btn;
-				item.energyCost = btn.transform.FindChild ("txt_energycost").GetComponent<Text>();
-				item.energyCostIcon = btn.transform.FindChild ("img_energycost").GetComponent<Image>();
-				item.troopNum = btn.transform.FindChild ("txt_troopnum").GetComponent<Text>();
-				item.sprite = btn.transform.FindChild ("img_icon").GetComponent<Image>();
+				item.energyCost = btn.transform.Find ("txt_energycost").GetComponent<Text>();
+				item.energyCostIcon = btn.transform.Find ("img_energycost").GetComponent<Image>();
+				item.troopNum = btn.transform.Find ("txt_troopnum").GetComponent<Text>();
+				item.sprite = btn.transform.Find ("img_icon").GetComponent<Image>();
 				btn.onClick.AddListener (SelectTroop);
 				troopList.Add (item);
 			}
@@ -136,8 +136,8 @@ namespace BoomBeach {
 				BattleButtonItem item = new BattleButtonItem ();
 				Button btn = btns [i];
 				item.btn = btn;
-				item.energyCost = btn.transform.FindChild ("txt_energycost").GetComponent<Text>();
-				item.sprite = btn.transform.FindChild ("img_icon").GetComponent<Image>();
+				item.energyCost = btn.transform.Find ("txt_energycost").GetComponent<Text>();
+				item.sprite = btn.transform.Find ("img_icon").GetComponent<Image>();
 				btn.onClick.AddListener (SelectWeapon);
 				weaponList.Add (item);
 			}
@@ -178,8 +178,8 @@ namespace BoomBeach {
 		//查看敌方时切换到攻击场景;
 		public void OnClickAttack()
 		{
-			if (CSVManager.GetInstance().experienceLevelsList.ContainsKey(DataManager.GetInstance().userInfo.exp_level.ToString())){
-				ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
+			if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
+				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
 				//花费;
 				ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
 				int gems = dt.GetInt("Gems");
@@ -203,7 +203,7 @@ namespace BoomBeach {
 
 		// 战斗开始触发
 		private void OnBattleDialogYes(ISFSObject dt,BuildInfo buildInfo = null){
-			if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+			if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 				GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,Globals.LastSceneUserId,Globals.LastSceneRegionsId,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			}else{
 				//宝石不够;
@@ -230,14 +230,14 @@ namespace BoomBeach {
                 Globals.LastSceneUserId = -1;
                 Globals.LastSceneRegionsId = -1;
                 AudioPlayer.Instance.PlayMusic("home_music");
-                GameLoader.Instance.SwitchScene(SceneStatus.WORLDMAP, DataManager.GetInstance().userInfo.id, Globals.LastSceneRegionsId, 0, 0);
+                GameLoader.Instance.SwitchScene(SceneStatus.WORLDMAP, DataManager.GetInstance.userInfo.id, Globals.LastSceneRegionsId, 0, 0);
             }
 
             //已派出的兵与已死亡的兵相等，表示派出的兵全死完或未派兵，直接弹窗;
             if (BattleData.Instance.BattleIsStart && BattleData.Instance.AllocateTrooperList.Count == BattleData.Instance.DeadTrooperList.Count) {
 				if(ScreenUIManage.Instance!=null)
 					ScreenUIManage.Instance.battleResultWin.ShowResultWin();
-				UIManager.GetInstance ().GetController<BattleResultCtrl>().ShowPanel ();
+				UIManager.GetInstance.GetController<BattleResultCtrl>().ShowPanel ();
 			}
 			else
 			{
@@ -263,7 +263,7 @@ namespace BoomBeach {
 		public void OnTroopDeploy(BattleTrooperData data){
 			int index = mTroops.IndexOf (data);
 			BattleButtonItem item = troopList [index];
-			item.sprite.material = ResourceManager.GetInstance().grayMat;
+			item.sprite.material = ResourceManager.GetInstance.grayMat;
 			item.btn.enabled = false;
 		}
 
@@ -276,7 +276,7 @@ namespace BoomBeach {
 					item.btn.gameObject.SetActive (false);
 				} else {
 					item.btn.gameObject.SetActive (true);
-					item.sprite.sprite = ResourceManager.GetInstance ().atlas.avaterSpriteDic [troops [i].tid];
+					item.sprite.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic [troops [i].tid];
 					item.troopNum.text = "x" + troops [i].num;
 					if (troops [i].weaponCost > 0) {
 						item.energyCost.gameObject.SetActive (true);
@@ -305,7 +305,7 @@ namespace BoomBeach {
 					} else {
 						count++;
 						item.btn.gameObject.SetActive (true);
-						item.sprite.sprite = ResourceManager.GetInstance ().atlas.avaterSpriteDic [weapons [i].tid];
+						item.sprite.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic [weapons [i].tid];
 						item.energyCost.text = weapons [i].weaponCost.ToString ();
 					}
 				}
@@ -328,8 +328,8 @@ namespace BoomBeach {
 					btn.gameObject.SetActive (false);
 				} else {
 					btn.gameObject.SetActive (true);
-					btn.transform.FindChild ("Image").GetComponent<Image> ().sprite = ResourceManager.GetInstance ().atlas.avaterSpriteDic [troops [i].tid];
-					btn.transform.FindChild ("Text").GetComponent<Text> ().text = troops [i].num.ToString();
+					btn.transform.Find ("Image").GetComponent<Image> ().sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic [troops [i].tid];
+					btn.transform.Find ("Text").GetComponent<Text> ().text = troops [i].num.ToString();
 				}
 			}
 		}
@@ -353,24 +353,24 @@ namespace BoomBeach {
 			int artifactType = dt.GetInt ("artifact");//0 Piece 1 Ice 2 Fire 3 Dark
 			switch(artifactType){
 			case 0:
-				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["CommonPiece"];
-				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["RarePiece"];
-				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["EpicPiece"];
+				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["CommonPiece"];
+				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["RarePiece"];
+				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["EpicPiece"];
 				break;
 			case 1:
-				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["CommonPieceIce"];
-				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["RarePieceIce"];
-				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["EpicPieceIce"];
+				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["CommonPieceIce"];
+				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["RarePieceIce"];
+				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["EpicPieceIce"];
 				break;
 			case 2:
-				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["CommonPieceFire"];
-				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["RarePieceFire"];
-				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["EpicPieceFire"];
+				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["CommonPieceFire"];
+				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["RarePieceFire"];
+				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["EpicPieceFire"];
 				break;
 			case 3:
-				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["CommonPieceDark"];
-				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["RarePieceDark"];
-				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["EpicPieceDark"];
+				mBattleInterfacePanelView.m_imgSmall.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["CommonPieceDark"];
+				mBattleInterfacePanelView.m_imgMiddle.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["RarePieceDark"];
+				mBattleInterfacePanelView.m_imgBig.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["EpicPieceDark"];
 				break;
 			}
 			mBattleInterfacePanelView.m_txtMedalnumadd.text = "+" + dt.GetInt("pal_reward").ToString();
@@ -378,7 +378,7 @@ namespace BoomBeach {
 		}
 			
 		void InitResources(){
-			UserInfo userInfo = DataManager.GetInstance().userInfo;
+			UserInfo userInfo = DataManager.GetInstance.userInfo;
 
 			mBattleInterfacePanelView.m_txtDiamond.text = userInfo.diamond_count.ToString();
 

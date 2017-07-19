@@ -31,10 +31,10 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_gridCarditems = m_Trans.FindChild("#scroll_carditems/#grid_carditems");
-            m_scrollCarditems = m_Trans.FindChild("#scroll_carditems").gameObject;
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_gridCarditems = m_Trans.Find("#scroll_carditems/#grid_carditems");
+            m_scrollCarditems = m_Trans.Find("#scroll_carditems").gameObject;
 
         }
 

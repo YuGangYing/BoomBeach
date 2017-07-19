@@ -65,10 +65,11 @@ public class tk2dUIItemEditor : Editor
         serializedObject.ApplyModifiedProperties();
         if (GUI.changed || changeOccurred)
         {
-            EditorUtility.SetDirty(btn);
+            tk2dUtil.SetDirty(btn);
+
         }
     }
-
+		
     public static void ArrayProperty(string name, SerializedProperty prop) {
         SerializedProperty localProp = prop.Copy();
         tk2dGuiUtility.LookLikeInspector();
@@ -109,7 +110,7 @@ public class tk2dUIItemEditor : Editor
     }
 
     //creates tk2dUIManager
-    [MenuItem("GameObject/Create Other/tk2d/UI Manager", false, 13950)]
+    [MenuItem(tk2dMenu.createBase + "UI Manager", false, 13950)]
     static void CreateUIManager()
     {
         GameObject go = tk2dEditorUtility.CreateGameObjectInScene("tk2dUIManager");

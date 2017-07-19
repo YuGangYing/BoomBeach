@@ -1,4 +1,6 @@
-﻿Shader "Custom/SeaSimple_small_blend" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/SeaSimple_small_blend" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_ColorTex ("color (RGB)", 2D) = "white" {}
@@ -57,7 +59,7 @@
 //				o.uv.z = o.uv.z*0.5+0.5;
 //				o.uv.z*= o.uv.w;
 				o.uv.xy *= _ColorTex_ST.xy;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
   
 				return o;
 			}

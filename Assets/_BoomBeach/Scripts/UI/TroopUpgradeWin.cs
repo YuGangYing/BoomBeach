@@ -50,7 +50,7 @@ public class TroopUpgradeWin : MonoBehaviour {
 	{
 		this.tidData = tidData;
 		string tid_level = tidData.tid_level;
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable [tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable [tid_level] as CsvInfo;
 
 //		string ShowName = StringFormat.FormatByTid (csvInfo.TID);
 //		string ShowLevel = StringFormat.FormatByTid("TID_LEVEL_NUM",new string[]{csvInfo.Level.ToString()});
@@ -88,7 +88,7 @@ public class TroopUpgradeWin : MonoBehaviour {
 
 		DiamondResourceLabel.text = CalcHelper.calcTimeToGems (tidData.upgradeTime).ToString();
 		GoldResourceLabel.text = tidData.upgradeCost.ToString ();
-		if(tidData.upgradeCost>DataManager.GetInstance().userInfo.gold_count)
+		if(tidData.upgradeCost>DataManager.GetInstance.userInfo.gold_count)
 		{
 			GoldResourceLabel.color = Color.red;
 		}

@@ -115,7 +115,7 @@ public class LandCraft : MonoBehaviour {
 			rightupStands.transform.name = "StandsRIGHTUP";
 		}
 		troopers = transform.GetComponentsInChildren<LandCraftStand> ();
-		if(DataManager.GetInstance().sceneStatus!=SceneStatus.ENEMYBATTLE&&DataManager.GetInstance().sceneStatus!=SceneStatus.BATTLEREPLAY)
+		if(DataManager.GetInstance.sceneStatus!=SceneStatus.ENEMYBATTLE&&DataManager.GetInstance.sceneStatus!=SceneStatus.BATTLEREPLAY)
 		{
 			Animation[] anis = GetComponentsInChildren<Animation> ();
 			for(int i=0;i<anis.Length;i++)

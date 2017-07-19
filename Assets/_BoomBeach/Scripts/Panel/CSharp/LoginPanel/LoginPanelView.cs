@@ -29,12 +29,12 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_inputAccountInputField = m_Trans.FindChild("LoginWindow/#input_AccountInputField").GetComponent<InputField>();
-            m_inputPasswordInputField = m_Trans.FindChild("LoginWindow/#input_PasswordInputField").GetComponent<InputField>();
-            m_containerDropdown = m_Trans.FindChild("LoginWindow/#container_dropdown").gameObject;
-            m_btnLoginButton = m_Trans.FindChild("LoginWindow/#btn_LoginButton").GetComponent<Button>();
-            m_btnTrialButton = m_Trans.FindChild("LoginWindow/#btn_TrialButton").GetComponent<Button>();
-            m_btnRegisterButton = m_Trans.FindChild("LoginWindow/#btn_RegisterButton").GetComponent<Button>();
+            m_inputAccountInputField = m_Trans.Find("LoginWindow/#input_AccountInputField").GetComponent<InputField>();
+            m_inputPasswordInputField = m_Trans.Find("LoginWindow/#input_PasswordInputField").GetComponent<InputField>();
+            m_containerDropdown = m_Trans.Find("LoginWindow/#container_dropdown").gameObject;
+            m_btnLoginButton = m_Trans.Find("LoginWindow/#btn_LoginButton").GetComponent<Button>();
+            m_btnTrialButton = m_Trans.Find("LoginWindow/#btn_TrialButton").GetComponent<Button>();
+            m_btnRegisterButton = m_Trans.Find("LoginWindow/#btn_RegisterButton").GetComponent<Button>();
 
         }
 

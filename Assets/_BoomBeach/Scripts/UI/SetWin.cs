@@ -197,7 +197,7 @@ public class SetWin : MonoBehaviour {
 		//通知服务器;
 		ISFSObject data = new SFSObject();
 		data.PutUtfString("lng", LocalizationCustom.instance.currentLanguage);
-		SFSNetworkManager.Instance.SendRequest(data, "change_lng", false, null);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_CHANGE_LNG, false, null);
 
 		//关闭窗口;
 		if(PopWin.current!=null)PopWin.current.CloseTween();

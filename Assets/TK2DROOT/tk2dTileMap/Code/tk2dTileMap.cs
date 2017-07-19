@@ -140,6 +140,34 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 		}
 	}
 
+#if UNITY_EDITOR
+	void OnEnable() {
+		if (spriteCollection != null && data != null && renderData != null 
+			&& SpriteCollectionInst != null && SpriteCollectionInst.needMaterialInstance) {
+
+			bool needBuild = false;
+			if (layers != null) {
+				foreach (tk2dRuntime.TileMap.Layer layer in layers) {
+					if (layer.spriteChannel != null && layer.spriteChannel.chunks != null) {
+						foreach (tk2dRuntime.TileMap.SpriteChunk chunk in layer.spriteChannel.chunks) {
+							if (chunk.gameObject != null && chunk.gameObject.GetComponent<Renderer>() != null) {
+								if (chunk.gameObject.GetComponent<Renderer>().sharedMaterial == null) {
+									needBuild = true;
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			if (needBuild) {
+				Build(BuildFlags.ForceBuild);
+			}
+		}
+	}
+#endif
+
 	void OnDestroy() {
 		if (layers != null) {
 			foreach (tk2dRuntime.TileMap.Layer layer in layers) {
@@ -227,7 +255,7 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 
 	public void Build(BuildFlags buildFlags)
 	{
-#if UNITY_EDITOR || !UNITY_FLASH
+#if UNITY_EDITOR
 		// Sanitize tilePrefabs input, to avoid branches later
 		if (data != null && spriteCollection != null)
 		{
@@ -285,12 +313,16 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
 			tk2dSpriteDefinition def = SpriteCollectionInst.FirstValidDefinition;
 			if (def != null && def.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics2D) {
+#if !STRIP_PHYSICS_2D
 				ColliderBuilder2D.Build(this, forceBuild);
+#endif
 			}
 			else 
 #endif
 			{
+#if !STRIP_PHYSICS_3D
 				ColliderBuilder3D.Build(this, forceBuild);
+#endif
 			}
 			BuilderUtil.SpawnPrefabs(this, forceBuild);
 		}
@@ -334,7 +366,7 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 			Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(position);
 			x = (localPosition.x - data.tileOrigin.x) / data.tileSize.x;
 			y = (localPosition.y - data.tileOrigin.y) / data.tileSize.y;
-			return (x >= 0 && x <= width && y >= 0 && y <= height);
+			return (x >= 0 && x < width && y >= 0 && y < height);
 		}
 		case tk2dTileMapData.TileType.Isometric:
 		{
@@ -378,7 +410,7 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 				}
 			}
 			
-			return (x >= 0 && x <= width && y >= 0 && y <= height);
+			return (x >= 0 && x < width && y >= 0 && y < height);
 		}
 		}
 		
@@ -568,7 +600,7 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 	public void TouchMesh(Mesh mesh)
 	{
 #if UNITY_EDITOR
-		UnityEditor.EditorUtility.SetDirty(mesh);
+		tk2dUtil.SetDirty(mesh);
 #endif
 	}
 	

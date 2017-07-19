@@ -74,7 +74,7 @@ public class WorldCameraOpEvent : MonoBehaviour {
 		PopUI.closePops (null);
 		PopManage.Instance.ShowEnemyActivityWin(false);
 		*/
-		UIManager.GetInstance ().GetController<IslandPopCtrl>().Close ();
+		UIManager.GetInstance.GetController<IslandPopCtrl>().Close ();
 	}
 
 	//判断是否有：碰到ui层、小岛屿及云层开启按钮;, 有碰到返回: true, 没有碰到返回: false

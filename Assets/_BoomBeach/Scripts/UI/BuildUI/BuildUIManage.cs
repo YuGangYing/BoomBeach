@@ -167,7 +167,7 @@ public class BuildUIManage : MonoBehaviour {
 
 	public void ShowBattleInfo(bool is_show)
 	{
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance().sceneStatus==SceneStatus.FRIENDVIEW)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance.sceneStatus==SceneStatus.FRIENDVIEW)
 			buildBattleInfo.gameObject.SetActive (is_show);
 		else
 			buildBattleInfo.gameObject.SetActive (false);
@@ -176,7 +176,7 @@ public class BuildUIManage : MonoBehaviour {
 	//计算是否显示可升级的牌子;
 	public void BindUpDBrand(bool is_show)
 	{
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME)
 			UpdBrand.gameObject.SetActive (is_show);
 		else
 			UpdBrand.gameObject.SetActive (false);
@@ -348,24 +348,24 @@ public class BuildUIManage : MonoBehaviour {
 		Debug.Log("OnDownBtnClick:" + btn.buildInfo.name + ";type:" + btn.Type.ToString());
 		//DownButtons[0].OnClick
 		if (btn.Type == BuildButtonType.INFO){
-			UIManager.GetInstance().GetController<BuildDetailCtrl>().ShowInfo(btn.buildInfo);
+			UIManager.GetInstance.GetController<BuildDetailCtrl>().ShowInfo(btn.buildInfo);
 			//PopManage.Instance.ShowBuildInfo(btn.buildInfo);
 		}else if (btn.Type == BuildButtonType.REMOVE){
 			btn.buildInfo.OnRemoval(btn.buildInfo);
 		}else if (btn.Type == BuildButtonType.UPGRADE){
 			//PopManage.Instance.ShowBuildUpgrade(btn.buildInfo);
-			UIManager.GetInstance().GetController<BuildDetailCtrl>().ShowUpgrade (btn.buildInfo);
+			UIManager.GetInstance.GetController<BuildDetailCtrl>().ShowUpgrade (btn.buildInfo);
 		}else if (btn.Type == BuildButtonType.RESEARCH){
 			//PopManage.Instance.ShowResearchWin();
-			UIManager.GetInstance().GetController<ResearchCtrl>().ShowPanel();
+			UIManager.GetInstance.GetController<ResearchCtrl>().ShowPanel();
         }
         else if (btn.Type == BuildButtonType.TRAIN){
 			Globals.currentTrainBuildInfo = btn.buildInfo;
 			//PopManage.Instance.ShowTroopTrainWin();
-			UIManager.GetInstance().GetController<TroopTrainCtrl>().ShowTroop();
+			UIManager.GetInstance.GetController<TroopTrainCtrl>().ShowTroop();
 		}else if (btn.Type == BuildButtonType.BUILD){
 			//PopManage.Instance.ShowCreateStatueWin(btn.buildInfo);
-			UIManager.GetInstance().GetController<ArtifactCtrl>().ShowArtifactPanel(btn.buildInfo);
+			UIManager.GetInstance.GetController<ArtifactCtrl>().ShowArtifactPanel(btn.buildInfo);
         }
         else if (btn.Type == BuildButtonType.COLLECT){
 			CollectHandle.Collect(btn.buildInfo);
@@ -563,7 +563,7 @@ public class BuildUIManage : MonoBehaviour {
 			else if(buildInfo.status==BuildStatus.Research)
 			{
 				TimeBarIco.atlas = PartEmitObj.Instance.avatarAtlas;
-				CsvInfo csv = CSVManager.GetInstance().csvTable[buildInfo.status_tid_level] as CsvInfo;
+				CsvInfo csv = CSVManager.GetInstance.csvTable[buildInfo.status_tid_level] as CsvInfo;
 				TimeBarIco.spriteName = csv.TID;
 			}
 			else if(buildInfo.status==BuildStatus.Train)
@@ -655,7 +655,7 @@ public class BuildUIManage : MonoBehaviour {
 			else if(buildInfo.status==BuildStatus.Research)
 			{
 				PopInstantIco.atlas = PartEmitObj.Instance.avatarAtlas;
-				CsvInfo csv = CSVManager.GetInstance().csvTable[buildInfo.status_tid_level] as CsvInfo;
+				CsvInfo csv = CSVManager.GetInstance.csvTable[buildInfo.status_tid_level] as CsvInfo;
 				PopInstantIco.spriteName = csv.TID;
 			}
 			else if(buildInfo.status==BuildStatus.Train)
@@ -739,7 +739,7 @@ public class BuildUIManage : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (DataManager.GetInstance().sceneStatus != SceneStatus.HOME&&DataManager.GetInstance().sceneStatus != SceneStatus.HOMERESOURCE)
+		if (DataManager.GetInstance.sceneStatus != SceneStatus.HOME&&DataManager.GetInstance.sceneStatus != SceneStatus.HOMERESOURCE)
 						return;
 		if (!Globals.IsSceneLoaded)
 						return;
@@ -792,7 +792,7 @@ public class BuildUIManage : MonoBehaviour {
 			}else if(buildInfo.status==BuildStatus.Normal)
 			{
 				//BuildUIManage uiManage = buildInfo.GetComponent<BuildUIManage>();
-				if(DataManager.GetInstance().sceneStatus == SceneStatus.HOME&&!buildInfo.isSelected)
+				if(DataManager.GetInstance.sceneStatus == SceneStatus.HOME&&!buildInfo.isSelected)
 				{
 					string res_ico = "";
 

@@ -10,7 +10,7 @@ public class BattleSceneUI : MonoBehaviour {
 	public static List<BattleSceneUI> BattleSceneUIS;
 	public static void SetBattleUI()
 	{
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE||DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE||DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY)
 		{		
 			if(BattleSceneUIS!=null)
 			foreach(BattleSceneUI battleSceneUI in BattleSceneUIS)

@@ -31,8 +31,17 @@ public class tk2dTileMapDemoPlayer : MonoBehaviour {
 		textMeshLabel.text = "instructions";
 		textMeshLabel.Commit();
 
-		if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer ||
-			Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.OSXWebPlayer || Application.platform == RuntimePlatform.OSXDashboardPlayer) {
+		bool isWebPlayer = false;
+		#if !UNITY_5_4_OR_NEWER
+		isWebPlayer  = Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.OSXWebPlayer;
+		#endif
+
+		if (Application.platform == RuntimePlatform.WindowsEditor || 
+			Application.platform == RuntimePlatform.WindowsPlayer || 
+			Application.platform == RuntimePlatform.OSXEditor || 
+			Application.platform == RuntimePlatform.OSXPlayer || 
+			Application.platform == RuntimePlatform.OSXDashboardPlayer ||
+			isWebPlayer) {
 			textMesh.text = "LEFT ARROW / RIGHT ARROW";
 		}
 		else {
@@ -86,14 +95,18 @@ public class tk2dTileMapDemoPlayer : MonoBehaviour {
 	void FixedUpdate () {
 		if (AllowAddForce && moveX != 0) {
 			forceWait = addForceLimit;
-			if (GetComponent<Rigidbody>() != null) {
-				GetComponent<Rigidbody>().AddForce(new Vector3(moveX * amount, amount, 0) * Time.deltaTime, ForceMode.Impulse);
-				GetComponent<Rigidbody>().AddTorque(new Vector3(0,0,-moveX * torque) * Time.deltaTime, ForceMode.Impulse);
+			Rigidbody rigidbody = GetComponent<Rigidbody>();
+#if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+			Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+#endif
+			if (rigidbody != null) {
+				rigidbody.AddForce(new Vector3(moveX * amount, amount, 0) * Time.deltaTime, ForceMode.Impulse);
+				rigidbody.AddTorque(new Vector3(0,0,-moveX * torque) * Time.deltaTime, ForceMode.Impulse);
 			}
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
-			else if (GetComponent<Rigidbody2D>() != null) {
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(moveX * amount, amount) * Time.deltaTime * 50);
-				GetComponent<Rigidbody2D>().AddTorque(-moveX * torque * Time.deltaTime * 20);
+			else if (rigidbody2D != null) {
+				rigidbody2D.AddForce(new Vector2(moveX * amount, amount) * Time.deltaTime * 50);
+				rigidbody2D.AddTorque(-moveX * torque * Time.deltaTime * 20);
 			}
 #endif
 			moveX = 0;

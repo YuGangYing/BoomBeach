@@ -48,7 +48,7 @@ public class PopManage : MonoBehaviour {
 	}
 
 	public void ShowMsg(string msg){
-        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 	}
 
 	public BuildButton addBuildButton(BuildButtonType btnType,BuildInfo buildInfo){
@@ -114,7 +114,7 @@ public class PopManage : MonoBehaviour {
 		BuildUIManage uiManage = buildInfo.GetComponent<BuildUIManage> ();
 		if(buildInfo.isSelected)
 		{
-//			CsvInfo csvInfo = CSVManager.GetInstance().csvTable [buildInfo.tid_level] as CsvInfo;
+//			CsvInfo csvInfo = CSVManager.GetInstance.csvTable [buildInfo.tid_level] as CsvInfo;
 			//设置名称;
 			uiManage.SetName (buildInfo.ShowName);// StringFormat.FormatByTid(csvInfo.TID));
 			uiManage.SetLevel (buildInfo.ShowLevelName);// StringFormat.FormatByTid("TID_LEVEL_NUM",new string[]{buildInfo.level.ToString()}));
@@ -419,30 +419,30 @@ public class PopManage : MonoBehaviour {
 		if (SureTitle == null){
 			SureTitle = LocalizationCustom.instance.Get("TID_BUTTON_OKAY");
 		}
-		YesBtn.FindChild("BtnTitle").GetComponent<UILabel>().text = SureTitle;
-		ConfirmBtn.FindChild("BtnTitle").GetComponent<UILabel>().text = SureTitle;
-		ImageBtn.FindChild("BtnTitle").GetComponent<UILabel>().text = SureTitle;
+		YesBtn.Find("BtnTitle").GetComponent<UILabel>().text = SureTitle;
+		ConfirmBtn.Find("BtnTitle").GetComponent<UILabel>().text = SureTitle;
+		ImageBtn.Find("BtnTitle").GetComponent<UILabel>().text = SureTitle;
 		
 		
 		if (CancelTitel == null){
 			CancelTitel = LocalizationCustom.instance.Get("TID_BUTTON_CANCEL");
 		}
-		NoBtn.FindChild("BtnTitle").GetComponent<UILabel>().text = CancelTitel;
+		NoBtn.Find("BtnTitle").GetComponent<UILabel>().text = CancelTitel;
 
 		//绑定取消事件;
 		List<EventDelegate> onCancelDelegate = new List<EventDelegate> ();
 		onCancelDelegate.Add (new EventDelegate(this,"onCancelDialog"));		
-		NoBtn.FindChild("BtnBg").GetComponent<UIButton> ().onClick = onCancelDelegate;
+		NoBtn.Find("BtnBg").GetComponent<UIButton> ().onClick = onCancelDelegate;
 
 		//绑定确定事件;
 		List<EventDelegate> onSureDelegate = new List<EventDelegate> ();
 		onSureDelegate.Add (new EventDelegate(this,"onSureDialog"));		
-		YesBtn.FindChild("BtnBg").GetComponent<UIButton> ().onClick = onSureDelegate;
-		ConfirmBtn.FindChild("BtnBg").GetComponent<UIButton> ().onClick = onSureDelegate;
-		ImageBtn.FindChild("BtnBg").GetComponent<UIButton> ().onClick = onSureDelegate;
+		YesBtn.Find("BtnBg").GetComponent<UIButton> ().onClick = onSureDelegate;
+		ConfirmBtn.Find("BtnBg").GetComponent<UIButton> ().onClick = onSureDelegate;
+		ImageBtn.Find("BtnBg").GetComponent<UIButton> ().onClick = onSureDelegate;
 
 		//图标;
-		ImageBtn.FindChild("BtnIco").GetComponent<UISprite>().spriteName = ImageName;
+		ImageBtn.Find("BtnIco").GetComponent<UISprite>().spriteName = ImageName;
 
 
 
@@ -608,7 +608,7 @@ public class PopManage : MonoBehaviour {
 		currentWinContent = TroopInfoWin;
 		currentWinContent.gameObject.SetActive (true);
 
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable [tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable [tid_level] as CsvInfo;
 		
 		string ShowName = StringFormat.FormatByTid (csvInfo.TID);
 
@@ -640,7 +640,7 @@ public class PopManage : MonoBehaviour {
 		currentWinContent = TroopUpgradeWin;
 		currentWinContent.gameObject.SetActive (true);
 		
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable [tidData.tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable [tidData.tid_level] as CsvInfo;
 
 		string ShowName = StringFormat.FormatByTid (csvInfo.TID);
 		popWin.Title = StringFormat.FormatByTid ("TID_UPGRADE_TITLE",new System.Object[]{ShowName,csvInfo.Level+1});
@@ -666,7 +666,7 @@ public class PopManage : MonoBehaviour {
 		currentWinContent.gameObject.SetActive (true);
 
 		if (buildInfo.troops_tid != null && buildInfo.troops_tid != "" && buildInfo.troops_num > 0){
-			//CsvInfo troopCsv = CSVManager.GetInstance().csvTable[buildInfo.status_tid_level] as CsvInfo;
+			//CsvInfo troopCsv = CSVManager.GetInstance.csvTable[buildInfo.status_tid_level] as CsvInfo;
 			popWin.Title = LocalizationCustom.instance.Get ("TID_POPUP_TRAIN_TITLE");
 
 			popWin.Title = popWin.Title + "【" + LocalizationCustom.instance.Get (buildInfo.troops_tid) + "x" + buildInfo.troops_num.ToString() + "】";
@@ -786,7 +786,7 @@ public class PopManage : MonoBehaviour {
 		currentWinContent = HelpAndSupportWin;
 		currentWinContent.gameObject.SetActive (true);
 
-		Transform WinTop = HelpAndSupportWin.parent.parent.FindChild("WinTop");
+		Transform WinTop = HelpAndSupportWin.parent.parent.Find("WinTop");
 		UIAnchor[] anchors = WinTop.GetComponentsInChildren<UIAnchor>(true);
 		//Debug.Log(anchors.Length);
 		for(int i=0;i<anchors.Length;i++)

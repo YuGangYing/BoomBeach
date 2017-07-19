@@ -22,7 +22,7 @@ public class BazookaAmmoController : ProjectileController {
 	{
 		if(trail!=null)
 		{
-			trail.transform.parent = SpawnManager.GetInstance().bulletContainer;
+			trail.transform.parent = SpawnManager.GetInstance.bulletContainer;
 			trail.GetComponent<ParticleEmitter>().emit = false;
 		}
 

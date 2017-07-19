@@ -10,7 +10,7 @@ public class HeavyController :TrooperController {
 	/// 检测是否开始攻击;
 	/// </summary>
 	public override bool CheckBeginAttack()	{
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 		{
 			if(charInfo.AttackBuildInfo!=null&&(charInfo.Position - charInfo.AttackDest).magnitude<= charInfo.MaxAttackRange+charInfo.AttackBuildInfo.GridCount/2f )
 			{							
@@ -22,7 +22,7 @@ public class HeavyController :TrooperController {
 				//if(charInfo.path!=null)
 				//	charInfo.path.Clear();
 				//行走结束，上传路径结点(重机枪兵需重写，不用上传，等攻击过程中检测成立后上传);
-				//if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
+				//if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
 				//	BattleData.Instance.BattleCommondQueue.Enqueue(charInfo.walkListReplayData.ToStringArray());
 				
 				return true;
@@ -40,7 +40,7 @@ public class HeavyController :TrooperController {
 						attackTimeCounter = 0; //攻击计时器归零;
 
 						//行走结束，上传路径结点(重机枪兵需重写，不用上传，等攻击过程中检测成立后上传);
-						if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
+						if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
 							BattleData.Instance.BattleCommondQueue.Enqueue(charInfo.walkListReplayData);
 
 						CMDFindDest(); //重新查找目标;
@@ -126,7 +126,7 @@ public class HeavyController :TrooperController {
 					charInfo.path.Clear();
 
 				//行走结束，上传路径结点;
-				if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
+				if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
 					BattleData.Instance.BattleCommondQueue.Enqueue(charInfo.walkListReplayData);
 				
 			}
@@ -240,7 +240,7 @@ public class HeavyController :TrooperController {
 			{
 				PathFinderNode node = charInfo.path[0];
 				//开始往录像节点中放入行进过的格子;
-				if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+				if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 				{
 					charInfo.walkListReplayData.walkList.add(node);
 				}
@@ -250,7 +250,7 @@ public class HeavyController :TrooperController {
 			{
 				//行走到目的地，但却未能触发战斗，重新寻找目标;
 				//行走结束，上传路径结点;
-				if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
+				if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
 					BattleData.Instance.BattleCommondQueue.Enqueue(charInfo.walkListReplayData);
 				
 				if(BattleData.Instance.BattleIsEnd)

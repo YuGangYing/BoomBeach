@@ -264,14 +264,14 @@ public class CardItem : MonoBehaviour {
 
 
 				//先移除正在：创建中的建筑物(只会有一个);
-				foreach(BuildInfo s in DataManager.GetInstance().buildList.Values){
+				foreach(BuildInfo s in DataManager.GetInstance.buildList.Values){
 					if (s.status == BuildStatus.Create){
-						if (DataManager.GetInstance().buildList.ContainsKey(s.building_id)){
-							DataManager.GetInstance().buildList.Remove(s.building_id);
+						if (DataManager.GetInstance.buildList.ContainsKey(s.building_id)){
+							DataManager.GetInstance.buildList.Remove(s.building_id);
 						}
-						if(DataManager.GetInstance().buildArray.Contains(s))
+						if(DataManager.GetInstance.buildArray.Contains(s))
 						{
-							DataManager.GetInstance().buildArray.Remove(s);
+							DataManager.GetInstance.buildArray.Remove(s);
 						}
 						//building_id = s.building_id;
 						//清空占用格子;

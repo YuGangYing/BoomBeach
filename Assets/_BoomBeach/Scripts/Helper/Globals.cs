@@ -152,7 +152,7 @@ public static class Globals{
 		set{
 			energyTotal = value;
 			//if(UIManager.Instance ().battleInterfaceCtrl!=null)
-			UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().SetEnergy (energyTotal);
+			UIManager.GetInstance.GetController<BattleInterfaceCtrl>().SetEnergy (energyTotal);
             /*
 			//UIManager.Instance().battleInterfaceCtrl
 			if(UIManager.Instance ().battleInterfaceCtrl!=null)
@@ -250,7 +250,7 @@ public static class Globals{
 			
 
 
-				if(CSVManager.GetInstance().island_grid_csv[Globals.islandType.ToString()][a,b]==1)
+				if(CSVManager.GetInstance.island_grid_csv[Globals.islandType.ToString()][a,b]==1)
 				{
 					gridInfo.isInArea = false;
 					gridInfo.cost = Globals.GridBuildCost;
@@ -280,16 +280,16 @@ public static class Globals{
 			MoveOpEvent.Instance.SelectedBuildInfo.transform.Find("UI/UIS").gameObject.SetActive(true);
 			MoveOpEvent.Instance.UnSelectBuild();
 		}
-		if(DataManager.GetInstance().buildList!=null)
+		if(DataManager.GetInstance.buildList!=null)
 		{
-			UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("需删除:"+DataManager.GetInstance().buildList.Count);
-			foreach(BuildInfo b in DataManager.GetInstance().buildList.Values)
+			UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("需删除:"+DataManager.GetInstance.buildList.Count);
+			foreach(BuildInfo b in DataManager.GetInstance.buildList.Values)
 			{
 				BuildInfo.destroyAndCacheBuildInfo(b);
 			}
 			/*
 			int iii = 0;
-			foreach(BuildInfo b in DataManager.GetInstance().BuildList.Values)
+			foreach(BuildInfo b in DataManager.GetInstance.BuildList.Values)
 			{
 				if(!b.gameObject.activeSelf)
 					iii++;
@@ -304,7 +304,7 @@ public static class Globals{
 			if(rs!=null)GameObject.Destroy(rs.gameObject);
 		}
 		ResourceShip.ResourceShips = new List<ResourceShip> ();
-		DataManager.GetInstance().buildList = new Hashtable ();
+		DataManager.GetInstance.buildList = new Hashtable ();
 		if(BattleData.Instance!=null&&BattleData.Instance.flags!=null)
 		{
 			while(BattleData.Instance.flags.Count>0)
@@ -522,7 +522,7 @@ public static class Globals{
             ScreenUIManage.Instance.battleResultWin.HideResultWin ();
         */
 
-        if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY)
+        if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY)
 		{
             gameManager.AddComponent<AITask>();
             //GameObject.Find ("GameManage").AddComponent<AITask>();
@@ -632,15 +632,15 @@ public static class Globals{
 	public delegate void OnLoadEnd();
 	public static void HandleLoadEnd(OnLoadEnd onLoadEnd)
 	{
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME||DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance().sceneStatus==SceneStatus.WORLDMAP)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME||DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance.sceneStatus==SceneStatus.WORLDMAP)
 		{
 			AudioPlayer.Instance.PlayMusic("home_music");
 		}
-		else if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+		else if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 		{
 			AudioPlayer.Instance.PlayMusic("combat_planning_music");
 		}
-		else if(DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY)
+		else if(DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY)
 		{
 			AudioPlayer.Instance.PlayMusic("combat_music");
 		}

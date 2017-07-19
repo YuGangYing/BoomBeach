@@ -1,4 +1,6 @@
-﻿Shader "Custom/SeaWave" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/SeaWave" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_WaveP("wave: x= height,y=speed,z=size",vector) = (1,1,1,1)
@@ -42,7 +44,7 @@
 // 				half mm =  clamp(o.uv.z,0,1) ;
  				half mm =   o.uv.z*0.5+0.5; 
 				o.uv.z = mm *cc*dd;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				return o;
 			}
 			half4 frag(v2f i) : COLOR

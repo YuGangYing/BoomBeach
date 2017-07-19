@@ -1,4 +1,6 @@
-﻿Shader "Custom/SeaSimple" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/SeaSimple" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_ColorTex ("color (RGB)", 2D) = "white" {}
@@ -48,7 +50,7 @@
 				
 				v.vertex.z += o.uv.z*_WaveP.x;
 				o.uv.z = o.uv.z*0.5+0.5;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 
 				half4 scrPos = ComputeScreenPos(o.pos);
 				scrPos.xyz/=scrPos.w;

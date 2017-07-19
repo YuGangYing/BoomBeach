@@ -64,7 +64,7 @@ namespace BoomBeach
                     for (int i = 0; i < images.Length; i++)
                     {
                         if(images[i].name != "icon_info")
-                            images[i].material = ResourceManager.GetInstance().grayMat;
+                            images[i].material = ResourceManager.GetInstance.grayMat;
                         //images[i].transform.localPosition = new Vector3(images[i].transform.localPosition.x, images[i].transform.localPosition.y, 0.1f);
                     }
                 //}
@@ -82,10 +82,10 @@ namespace BoomBeach
                 //}
                 ele.GetComponent<Button>().enabled = false;
                 //GetComponent<UIButton>().enabled = false;
-                ele.FindChild("txt_corn").gameObject.SetActive(false);
-                ele.FindChild("icon_corn").gameObject.SetActive(false);
-                ele.FindChild("txt_reason").gameObject.SetActive(true);
-                ele.FindChild("txt_reason").GetComponent<Text>().text = tid.hasUpgrade;
+                ele.Find("txt_corn").gameObject.SetActive(false);
+                ele.Find("icon_corn").gameObject.SetActive(false);
+                ele.Find("txt_reason").gameObject.SetActive(true);
+                ele.Find("txt_reason").GetComponent<Text>().text = tid.hasUpgrade;
                 //transform.Find("price").gameObject.SetActive(false);
                 //transform.Find("tip").gameObject.SetActive(true);
                 //transform.Find("tip").GetComponent<UILabel>().text = tid.hasUpgrade;
@@ -102,10 +102,10 @@ namespace BoomBeach
                 btn.enabled = true;
                 btn.onClick.RemoveAllListeners();
                 btn.onClick.AddListener(Upgrade);
-                ele.FindChild("txt_corn").gameObject.SetActive(true);
-                ele.FindChild("icon_corn").gameObject.SetActive(true);
-                ele.FindChild("txt_reason").gameObject.SetActive(false);
-                ele.FindChild("txt_corn").GetComponent<Text>().text = tid.upgradeCost.ToString();
+                ele.Find("txt_corn").gameObject.SetActive(true);
+                ele.Find("icon_corn").gameObject.SetActive(true);
+                ele.Find("txt_reason").gameObject.SetActive(false);
+                ele.Find("txt_corn").GetComponent<Text>().text = tid.upgradeCost.ToString();
                 Image[] images = ele.GetComponentsInChildren<Image>();
                 for (int i = 0; i < images.Length; i++)
                 {
@@ -124,15 +124,15 @@ namespace BoomBeach
                 transform.Find("avatar").GetComponent<UISprite>().color = Color.white;
                 **/
 
-                if (tid.upgradeCost > DataManager.GetInstance().userInfo.gold_count)
-                    ele.FindChild("txt_corn").GetComponent<Text>().color = Color.red;
+                if (tid.upgradeCost > DataManager.GetInstance.userInfo.gold_count)
+                    ele.Find("txt_corn").GetComponent<Text>().color = Color.red;
                 else
-                    ele.FindChild("txt_corn").GetComponent<Text>().color = Color.white;
+                    ele.Find("txt_corn").GetComponent<Text>().color = Color.white;
                 //transform.Find("Sprite").gameObject.SetActive(true);
             }
 
-            ele.FindChild("icon_head").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[tid.tid];
-            Button infoBtn = ele.FindChild("icon_info").GetComponent<Button>();
+            ele.Find("icon_head").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[tid.tid];
+            Button infoBtn = ele.Find("icon_info").GetComponent<Button>();
             infoBtn.onClick.RemoveAllListeners();
             infoBtn.onClick.AddListener(ShowResearchInfo);
 

@@ -33,16 +33,16 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_btnBack = m_Trans.FindChild("#btn_back").GetComponent<Button>();
-            m_gridArmy = m_Trans.FindChild("#container_troop/#grid_army");
-            m_containerTroop = m_Trans.FindChild("#container_troop").gameObject;
-            m_imgBigicon = m_Trans.FindChild("#container_changetroop/#img_bigicon").GetComponent<Image>();
-            m_imgSmallicon = m_Trans.FindChild("#container_changetroop/Image/#img_smallicon").GetComponent<Image>();
-            m_txtNum = m_Trans.FindChild("#container_changetroop/Image/#txt_num").GetComponent<Text>();
-            m_btnChangetroop = m_Trans.FindChild("#container_changetroop/#btn_changetroop").GetComponent<Button>();
-            m_containerChangetroop = m_Trans.FindChild("#container_changetroop").gameObject;
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_btnBack = m_Trans.Find("#btn_back").GetComponent<Button>();
+            m_gridArmy = m_Trans.Find("#container_troop/#grid_army");
+            m_containerTroop = m_Trans.Find("#container_troop").gameObject;
+            m_imgBigicon = m_Trans.Find("#container_changetroop/#img_bigicon").GetComponent<Image>();
+            m_imgSmallicon = m_Trans.Find("#container_changetroop/Image/#img_smallicon").GetComponent<Image>();
+            m_txtNum = m_Trans.Find("#container_changetroop/Image/#txt_num").GetComponent<Text>();
+            m_btnChangetroop = m_Trans.Find("#container_changetroop/#btn_changetroop").GetComponent<Button>();
+            m_containerChangetroop = m_Trans.Find("#container_changetroop").gameObject;
 
         }
 

@@ -21,7 +21,7 @@ public class TrapController:BuildController {
 	public override void CMDFindDest()
 	{
 		//仅真实攻击时才寻找攻击目标，回放时由回放数据列中获取;
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 		{
 
 			findDestTimer+=Time.deltaTime;
@@ -40,7 +40,7 @@ public class TrapController:BuildController {
 						   buildInfo.AttackCharInfo.Id!=charInfo.Id)
 						{
 							//记录回放数据;
-							if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+							if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 							{
 								ReplayNodeData rnd = new ReplayNodeData();
 								rnd.SelfID = buildInfo.BattleID;

@@ -24,7 +24,7 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_containerPoppoint = m_Trans.FindChild("#container_poppoint").gameObject;
+            m_containerPoppoint = m_Trans.Find("#container_poppoint").gameObject;
 
         }
 

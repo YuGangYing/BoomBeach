@@ -85,7 +85,7 @@ public class BuildController {
 			{
 				buildInfo.CurrentHitPoint = 0f;
 				//记录回放数据;
-				if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+				if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 				{
 					ReplayNodeData rnd = new ReplayNodeData();
 					rnd.SelfID = buildInfo.BattleID;
@@ -109,7 +109,7 @@ public class BuildController {
                         //主堡消灭，直接弹窗;
                         if (ScreenUIManage.Instance != null) 
 							ScreenUIManage.Instance.battleResultWin.ShowResultWin();
-						UIManager.GetInstance ().GetController<BattleResultCtrl>().ShowPanel ();
+						UIManager.GetInstance.GetController<BattleResultCtrl>().ShowPanel ();
 					}
 					//将攻击日志发送到服务器;
 					//Helper.SendAttackLog(false);
@@ -278,7 +278,7 @@ public class BuildController {
 	public virtual void CMDFindDest()
 	{
 		//仅真实攻击时才寻找攻击目标，回放时由回放数据列中获取;
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 		{
 
 			findDestTimer+=Time.deltaTime;
@@ -297,7 +297,7 @@ public class BuildController {
 						   buildInfo.AttackCharInfo.Id!=charInfo.Id)
 						{
 							//记录回放数据;
-							if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+							if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 							{
 								ReplayNodeData rnd = new ReplayNodeData();
 								rnd.SelfID = buildInfo.BattleID;

@@ -32,15 +32,15 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_containerIslandpopbox = m_Trans.FindChild("#container_islandpopbox").gameObject;
-            m_containerIslandpopbox1 = m_Trans.FindChild("#container_islandpopbox1").gameObject;
-            m_containerIslandpopbox11 = m_Trans.FindChild("#container_islandpopbox11").gameObject;
-            m_containerIslandpopbox2 = m_Trans.FindChild("#container_islandpopbox2").gameObject;
-            m_containerIslandpopbox21 = m_Trans.FindChild("#container_islandpopbox21").gameObject;
-            m_containerIslandpopbox22 = m_Trans.FindChild("#container_islandpopbox22").gameObject;
-            m_containerIslandpopbox3 = m_Trans.FindChild("#container_islandpopbox3").gameObject;
-            m_containerIslandpopbox31 = m_Trans.FindChild("#container_islandpopbox31").gameObject;
-            m_containerIslandpopbox32 = m_Trans.FindChild("#container_islandpopbox32").gameObject;
+            m_containerIslandpopbox = m_Trans.Find("#container_islandpopbox").gameObject;
+            m_containerIslandpopbox1 = m_Trans.Find("#container_islandpopbox1").gameObject;
+            m_containerIslandpopbox11 = m_Trans.Find("#container_islandpopbox11").gameObject;
+            m_containerIslandpopbox2 = m_Trans.Find("#container_islandpopbox2").gameObject;
+            m_containerIslandpopbox21 = m_Trans.Find("#container_islandpopbox21").gameObject;
+            m_containerIslandpopbox22 = m_Trans.Find("#container_islandpopbox22").gameObject;
+            m_containerIslandpopbox3 = m_Trans.Find("#container_islandpopbox3").gameObject;
+            m_containerIslandpopbox31 = m_Trans.Find("#container_islandpopbox31").gameObject;
+            m_containerIslandpopbox32 = m_Trans.Find("#container_islandpopbox32").gameObject;
 
         }
 

@@ -95,6 +95,7 @@ public class tk2dUITextInput : MonoBehaviour
 #if TOUCH_SCREEN_KEYBOARD
     private TouchScreenKeyboard keyboard = null;
 #endif
+	private bool useTouchScreenKeyboard = false;
 
     private bool listenForKeyboardText = false;
 
@@ -121,7 +122,7 @@ public class tk2dUITextInput : MonoBehaviour
                 selectionBtn.sendMessageTarget = value;
             
                 #if UNITY_EDITOR
-                    UnityEditor.EditorUtility.SetDirty(selectionBtn);
+                    tk2dUtil.SetDirty(selectionBtn);
                 #endif
             }
         }
@@ -163,6 +164,16 @@ public class tk2dUITextInput : MonoBehaviour
 
     void Awake()
     {
+#if TOUCH_SCREEN_KEYBOARD
+		useTouchScreenKeyboard =   Application.platform == RuntimePlatform.IPhonePlayer 
+								|| Application.platform == RuntimePlatform.Android 
+#if !UNITY_5_3_OR_NEWER
+								|| Application.platform == RuntimePlatform.WP8Player;
+#else
+								;
+#endif
+#endif
+
         SetState();
         ShowDisplayText();
     }
@@ -200,7 +211,7 @@ public class tk2dUITextInput : MonoBehaviour
         if (tk2dUIManager.Instance__NoCreate != null)
         {
             tk2dUIManager.Instance.OnAnyPress -= AnyPress;
-            if (listenForKeyboardText)
+			if (!useTouchScreenKeyboard && listenForKeyboardText)
             {
                 tk2dUIManager.Instance.OnInputUpdate -= ListenForKeyboardTextUpdate;
             }
@@ -252,11 +263,14 @@ public class tk2dUITextInput : MonoBehaviour
         inputLabel.text = modifiedText;
         inputLabel.Commit();
 
-        while (inputLabel.GetComponent<Renderer>().bounds.extents.x * 2 > fieldLength)
+		float actualLabelWidth = inputLabel.GetComponent<Renderer>().bounds.size.x / inputLabel.transform.lossyScale.x;
+        while (actualLabelWidth > fieldLength)
         {
             modifiedText=modifiedText.Substring(1, modifiedText.Length - 1);
             inputLabel.text = modifiedText;
             inputLabel.Commit();
+
+			actualLabelWidth = inputLabel.GetComponent<Renderer>().bounds.size.x / inputLabel.transform.lossyScale.x;
         }
 
         if (modifiedText.Length==0 && !listenForKeyboardText)
@@ -299,18 +313,32 @@ public class tk2dUITextInput : MonoBehaviour
             }
         }
 
+#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
+        inputStr = keyboard.text;
+        if(!inputStr.Equals(text)) {
+            newText = inputStr;
+            change = true;
+        }
+#endif
         if (change)
         {
             Text = newText;
-            if (OnTextChange != null) { OnTextChange(this); }
+			NotifyTextChange();
 
-            if (SendMessageTarget != null && SendMessageOnTextChangeMethodName.Length > 0)
-            {
-                SendMessageTarget.SendMessage( SendMessageOnTextChangeMethodName, this, SendMessageOptions.RequireReceiver );
-            }
         }
     }
 
+	void NotifyTextChange()
+	{
+		if (OnTextChange != null)
+		{
+			OnTextChange(this);
+		}
+		if (SendMessageTarget != null && SendMessageOnTextChangeMethodName.Length > 0)
+		{
+			SendMessageTarget.SendMessage(SendMessageOnTextChangeMethodName, this, SendMessageOptions.RequireReceiver);
+		}
+	}
 
     private void InputSelected()
     {
@@ -319,14 +347,13 @@ public class tk2dUITextInput : MonoBehaviour
             HideDisplayText();
         }
         isSelected = true;
-        if (!listenForKeyboardText)
+		if (!useTouchScreenKeyboard && !listenForKeyboardText)
         {
             tk2dUIManager.Instance.OnInputUpdate += ListenForKeyboardTextUpdate;
         }
         listenForKeyboardText = true;
         SetState();
         SetCursorPosition();
-
 
 #if TOUCH_SCREEN_KEYBOARD
         if (Application.platform != RuntimePlatform.WindowsEditor &&
@@ -336,7 +363,7 @@ public class tk2dUITextInput : MonoBehaviour
 #else
             TouchScreenKeyboard.hideInput = true;
 #endif
-            keyboard = TouchScreenKeyboard.Open(text, TouchScreenKeyboardType.Default, false, false, false, false);
+			keyboard = TouchScreenKeyboard.Open(text, TouchScreenKeyboardType.Default, false, false, isPasswordField, false);
             StartCoroutine(TouchScreenKeyboardLoop());
         }
 #endif
@@ -347,13 +374,23 @@ public class tk2dUITextInput : MonoBehaviour
     {
         while (keyboard != null && !keyboard.done && keyboard.active)
         {
-            Text = keyboard.text;
+			bool needChange = Text != keyboard.text;
+			if (needChange)
+			{
+	            Text = keyboard.text;
+				NotifyTextChange();
+			}
             yield return null;
         }
 
         if (keyboard != null)
         {
-            Text = keyboard.text;
+			bool needChange = Text != keyboard.text;
+			if (needChange)
+			{
+	            Text = keyboard.text;
+				NotifyTextChange();
+			}
         }
 
         if (isSelected)
@@ -370,7 +407,7 @@ public class tk2dUITextInput : MonoBehaviour
             ShowDisplayText();
         }
         isSelected = false;
-        if (listenForKeyboardText)
+		if (!useTouchScreenKeyboard && listenForKeyboardText)
         {
             tk2dUIManager.Instance.OnInputUpdate -= ListenForKeyboardTextUpdate;
         }
@@ -417,18 +454,20 @@ public class tk2dUITextInput : MonoBehaviour
         if (text.EndsWith(" "))
         {
             tk2dFontChar chr;
-            if (inputLabel.font.useDictionary)
+            if (inputLabel.font.inst.useDictionary)
             {
-                chr = inputLabel.font.charDict[' '];
+                chr = inputLabel.font.inst.charDict[' '];
             }
             else
             {
-                chr = inputLabel.font.chars[' '];
+                chr = inputLabel.font.inst.chars[' '];
             }
 
             cursorOffset += chr.advance * inputLabel.scale.x/2;
         }
-        cursor.transform.localPosition = new Vector3(inputLabel.transform.localPosition.x + (inputLabel.GetComponent<Renderer>().bounds.extents.x + cursorOffset) * multiplier, cursor.transform.localPosition.y, cursor.transform.localPosition.z);
+
+		float renderBoundsRight = inputLabel.GetComponent<Renderer>().bounds.extents.x / gameObject.transform.lossyScale.x;
+		cursor.transform.localPosition = new Vector3(inputLabel.transform.localPosition.x + (renderBoundsRight + cursorOffset) * multiplier, cursor.transform.localPosition.y, cursor.transform.localPosition.z);
     }
 
     private void ShowDisplayText()

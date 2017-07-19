@@ -48,13 +48,13 @@ public class tk2dCameraAnchorEditor : Editor
 				&& _target.gameObject.name == GetAnchorPointName(prevAnchorPoint)) {
 				UpdateAnchorName( _target );
 			}
-			EditorUtility.SetDirty(_target);
+			tk2dUtil.SetDirty(_target);
 		}
 	}
 
 
 	// Create tk2dCamera menu item
-    [MenuItem("GameObject/Create Other/tk2d/Camera Anchor", false, 14906)]
+    [MenuItem(tk2dMenu.createBase + "Camera Anchor", false, 14906)]
     static void DoCreateCameraAnchorObject()
 	{
 		if (Selection.activeGameObject == null || Selection.activeGameObject.GetComponent<Camera>() == null) {

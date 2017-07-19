@@ -66,11 +66,11 @@ public class WorldBtnEvent : MonoBehaviour {
 		//Vector3 scPoint = worldCamera.WorldToScreenPoint(touchPosition);
 		string regions_name = sender.name;
 
-		Regions rs = CSVManager.GetInstance().regionsList[regions_name] as Regions;
+		Regions rs = CSVManager.GetInstance.regionsList[regions_name] as Regions;
 		if (rs.sending == false){
             if (ScreenUIManage.Instance != null)
                 ScreenUIManage.Instance.ShowPopWorld(null,touchPosition,true,4,false,rs);
-			UIManager.GetInstance().GetController<IslandPopCtrl>().ShowCloudPop(rs, touchPosition);
+			UIManager.GetInstance.GetController<IslandPopCtrl>().ShowCloudPop(rs, touchPosition);
 			//regions_name = "r0";
 
 

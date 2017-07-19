@@ -190,8 +190,8 @@ public class JSONObjectTester : MonoBehaviour {
 
 			if (index < npccsv.Length){
 
-				Transform Characters = SpawnManager.GetInstance ().characterContainer;
-				Transform Buildings  = BuildManager.GetInstance().buildContainer;
+				Transform Characters = SpawnManager.GetInstance .characterContainer;
+				Transform Buildings  = BuildManager.GetInstance.buildContainer;
 
 				Globals.Init ();
 
@@ -286,7 +286,7 @@ public class JSONObjectTester : MonoBehaviour {
 			if (buildObject.ContainsKey(data)){
 				string tid = buildObject.GetString(data);
 				string tid_level = tid + "_" + lvl.ToString();
-				CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+				CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 
 				sql += "insert into fanwe_user_grid(building_id,user_id,regions_id,tid,level,status,x,y,w_h,cur_hitpoints,cur_hitpoints2,hitpoints) values (";
 
@@ -351,7 +351,7 @@ public class JSONObjectTester : MonoBehaviour {
 				ISFSObject item = new SFSObject();
 				string tid = buildObject.GetString(data);
 				string tid_level = tid + "_" + lvl.ToString();
-				CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+				CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 				item.PutUtfString("tid",tid);
 				item.PutInt("level",lvl);
 				item.PutInt("status",0);

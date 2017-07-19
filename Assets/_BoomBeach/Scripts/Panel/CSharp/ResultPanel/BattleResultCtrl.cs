@@ -21,7 +21,7 @@ namespace BoomBeach
                 OnCreatePanel();
             }
 			UIMgr.GetController<BattleInterfaceCtrl>().Close ();
-			InitReward (DataManager.GetInstance ().battleData);
+			InitReward (DataManager.GetInstance.battleData);
 			UIMgr.GetController<MaskCtrl>().ShowPanel(null);
         }
 
@@ -53,31 +53,31 @@ namespace BoomBeach
 				if (dt.GetInt ("loot_gold") > 0) {
 					mResultPanelView.m_containerRewardgold.SetActive (true);
 					int count = dt.GetInt ("loot_gold") + (int)(dt.GetInt ("loot_gold") * loot_boot / 100f);
-					mResultPanelView.m_containerRewardgold.transform.FindChild ("Text").GetComponent<Text>().text = count.ToString();
+					mResultPanelView.m_containerRewardgold.transform.Find ("Text").GetComponent<Text>().text = count.ToString();
 					resourceCount++;
 				}
 				if (dt.GetInt("loot_wood") > 0) {
 					mResultPanelView.m_containerRewardwood.SetActive (true);
 							int count = dt.GetInt ("loot_wood") + (int)(dt.GetInt ("loot_wood") * loot_boot / 100f);
-					mResultPanelView.m_containerRewardwood.transform.FindChild ("Text").GetComponent<Text>().text = count.ToString();
+					mResultPanelView.m_containerRewardwood.transform.Find ("Text").GetComponent<Text>().text = count.ToString();
 					resourceCount++;
 				}
 				if (dt.GetInt("loot_stone") > 0) {
 					mResultPanelView.m_containerRewardstone.SetActive (true);
 									int count = dt.GetInt ("loot_stone") + (int)(dt.GetInt ("loot_stone") * loot_boot / 100f);
-					mResultPanelView.m_containerRewardstone.transform.FindChild ("Text").GetComponent<Text>().text = count.ToString();
+					mResultPanelView.m_containerRewardstone.transform.Find ("Text").GetComponent<Text>().text = count.ToString();
 					resourceCount++;
 				}
 				if (dt.GetInt("loot_iron") > 0) {
 					mResultPanelView.m_containerRewardiron.SetActive (true);
 					int count = dt.GetInt ("loot_iron") + (int)(dt.GetInt ("loot_iron") * loot_boot / 100f);
-					mResultPanelView.m_containerRewardiron.transform.FindChild ("Text").GetComponent<Text>().text = count.ToString();
+					mResultPanelView.m_containerRewardiron.transform.Find ("Text").GetComponent<Text>().text = count.ToString();
 					resourceCount++;
 				}
 				int medal = dt.GetInt ("pal_reward") + dt.GetInt ("add_reward");
 				if (medal > 0) {
 					mResultPanelView.m_containerRewardmedal.SetActive (true);
-					mResultPanelView.m_containerRewardmedal.transform.FindChild ("Text").GetComponent<Text>().text = medal.ToString();
+					mResultPanelView.m_containerRewardmedal.transform.Find ("Text").GetComponent<Text>().text = medal.ToString();
 					resourceCount++;
 				}
 				//Artifacts TODO 需要定义一下
@@ -101,7 +101,7 @@ namespace BoomBeach
 					break;
 				} else {
 					deadTroopItems [i].gameObject.SetActive (true);
-					deadTroopItems [i].transform.FindChild ("Image").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[k];
+					deadTroopItems [i].transform.Find ("Image").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[k];
 					deadTroopItems [i].transform.Find ("Text").GetComponent<Text> ().text = deadList [k].ToString ();
 				}
 				i++;
@@ -142,10 +142,10 @@ namespace BoomBeach
 			is_server_return = true;
 			if (is_server_return){
 				if (BattleData.Instance.BattleIsSuccess){
-					UserRegions ur = DataManager.GetInstance().userRegionsList[Globals.LastSceneRegionsId] as UserRegions;
+					UserRegions ur = DataManager.GetInstance.userRegionsList[Globals.LastSceneRegionsId] as UserRegions;
 					if (ur != null && (ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE")){
 						//攻击胜利，如果是资源岛屿的话,则重新返回到该资源岛屿;
-						GameLoader.Instance.SwitchScene(SceneStatus.HOMERESOURCE,DataManager.GetInstance().userInfo.id,Globals.LastSceneRegionsId,0,0);
+						GameLoader.Instance.SwitchScene(SceneStatus.HOMERESOURCE,DataManager.GetInstance.userInfo.id,Globals.LastSceneRegionsId,0,0);
 					}else{
 						Globals.LastSceneUserId = -1;
 						Globals.LastSceneRegionsId = -1;

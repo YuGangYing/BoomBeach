@@ -580,6 +580,8 @@ public class tk2dCamera : MonoBehaviour
 		float right = pixelWidth + offset.x, top = pixelHeight + offset.y;
 		Vector2 nativeResolutionOffset = Vector2.zero;
 
+		bool usingLegacyViewportClipping = false;
+
 		// Correct for viewport clipping rendering
 		// Coordinates in subrect are "native" pixels, but origin is from the extrema of screen
 		if (this.viewportClippingEnabled && this.InheritConfig != null) {
@@ -588,6 +590,7 @@ public class tk2dCamera : MonoBehaviour
 			Vector4 sr = new Vector4((int)this.viewportRegion.x, (int)this.viewportRegion.y,
 									 (int)this.viewportRegion.z, (int)this.viewportRegion.w);
 
+			usingLegacyViewportClipping = true;
 	
 			float viewportLeft = -offset.x / pixelWidth + sr.x / vw;
 			float viewportBottom = -offset.y / pixelHeight + sr.y / vh;
@@ -649,11 +652,15 @@ public class tk2dCamera : MonoBehaviour
 
 		float zoomScale = 1.0f / ZoomFactor;
 
-		// Only need the half texel offset on PC/D3D
+		// Only need the half texel offset on PC/D3D, when not running in d3d11 mode
+		bool isWebPlayer = false;
+		#if !UNITY_5_4_OR_NEWER
+		isWebPlayer = Application.platform == RuntimePlatform.WindowsWebPlayer;
+		#endif
 		bool needHalfTexelOffset = (Application.platform == RuntimePlatform.WindowsPlayer ||
-						   			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+									isWebPlayer ||
 						   			Application.platform == RuntimePlatform.WindowsEditor);
-		float halfTexel = (halfTexelOffset && needHalfTexelOffset) ? 0.5f : 0.0f;
+		float halfTexel = (halfTexelOffset && needHalfTexelOffset && SystemInfo.graphicsShaderLevel < 40) ? 0.5f : 0.0f;
 
 		float orthoSize = settings.cameraSettings.orthographicSize;
 		switch (settings.cameraSettings.orthographicType) {
@@ -663,6 +670,16 @@ public class tk2dCamera : MonoBehaviour
 			case tk2dCameraSettings.OrthographicType.PixelsPerMeter:
 				orthoSize = 1.0f / settings.cameraSettings.orthographicPixelsPerMeter;
 				break;
+		}
+
+		// Fixup for clipping
+		if (!usingLegacyViewportClipping) {
+			float clipWidth = Mathf.Min(UnityCamera.rect.width, 1.0f - UnityCamera.rect.x);
+			float clipHeight = Mathf.Min(UnityCamera.rect.height, 1.0f - UnityCamera.rect.y);
+			if (clipWidth > 0 && clipHeight > 0) {
+				scale.x /= clipWidth;
+				scale.y /= clipHeight;
+			}
 		}
 
 		float s = orthoSize * zoomScale;
@@ -776,7 +793,10 @@ public class tk2dCamera : MonoBehaviour
 
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_1)
 			// Windows phone?
-			if (Application.platform == RuntimePlatform.WP8Player &&
+			if (
+#if !UNITY_5_3_OR_NEWER
+				Application.platform == RuntimePlatform.WP8Player &&
+#endif
 			    (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)) {
 				float angle = (Screen.orientation == ScreenOrientation.LandscapeRight) ? 90.0f : -90.0f;
 				Matrix4x4 m2 = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, angle), Vector3.one);

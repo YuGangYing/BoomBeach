@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/tk2d/EditorUtility" 
 {
 	SubShader
@@ -25,7 +27,7 @@ Shader "Hidden/tk2d/EditorUtility"
 
 			struct v2f_vct
 			{
-				float4 vertex : POSITION;
+				float4 vertex : SV_POSITION;
 				float2 texcoord : TEXCOORD0;
 				float2 w : TEXCOORD1;
 			};
@@ -33,13 +35,13 @@ Shader "Hidden/tk2d/EditorUtility"
 			v2f_vct vert_vct(vin_vct v)
 			{
 				v2f_vct o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.texcoord = v.texcoord;
 				o.w = mul(UNITY_MATRIX_MV, v.vertex).xy;
 				return o;
 			}
 
-			fixed4 frag_mult(v2f_vct i) : COLOR
+			fixed4 frag_mult(v2f_vct i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.texcoord) * _Tint;
 				if (i.w.x < _Clip.x || i.w.x > _Clip.z || i.w.y < _Clip.y || i.w.y > _Clip.w) col.a = 0;

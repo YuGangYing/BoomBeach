@@ -49,7 +49,7 @@ public class FocusFireAmmoController : ProjectileController {
 			}
 
 			FocusFireProjectile = this.projectileInfo;
-			if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE&&!BattleData.Instance.BattleIsEnd)
+			if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE&&!BattleData.Instance.BattleIsEnd)
 			foreach(CharInfo charInfo in BattleData.Instance.AllocateTrooperList)
 			{
 				DoFocus(charInfo);		
@@ -70,7 +70,7 @@ public class FocusFireAmmoController : ProjectileController {
 		}
 		else
 		{
-			if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE&&!BattleData.Instance.BattleIsEnd)
+			if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE&&!BattleData.Instance.BattleIsEnd)
 			foreach(CharInfo charInfo in BattleData.Instance.AllocateTrooperList)
 			{
 				if(charInfo.AttackState!=AISTATE.ATTACKING&&charInfo.State!=AISTATE.FINDINGDEST)

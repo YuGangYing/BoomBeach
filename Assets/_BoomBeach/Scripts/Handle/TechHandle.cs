@@ -6,7 +6,7 @@ using BoomBeach;
 public static class ResearchHandle {
 	//升级科技
 	public static void OnResearch(BuildInfo s,string tid_level){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);
 		if (msg == null && s.status == BuildStatus.Normal){
 			ISFSObject dt = Helper.getCostDiffToGems(tid_level,1,true);
@@ -15,7 +15,7 @@ public static class ResearchHandle {
 			int gems = dt.GetInt("Gems");
 			//资源不足，需要增加宝石才行;
 			if (gems > 0){
-				UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 					dt.GetUtfString("msg"), 
 					dt.GetUtfString("title"), 
 					gems.ToString(), 
@@ -36,7 +36,7 @@ public static class ResearchHandle {
 	}
 
 	static void OnDialogUpgradeTechYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			//BuildInfo s = Globals.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			string tid_level = dt.GetUtfString("tid_level");
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
@@ -49,7 +49,7 @@ public static class ResearchHandle {
 
 	static void UpgradeTech(BuildInfo s,string tid_level){
 		Debug.Log ("UpgradeTech:" + tid_level);
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 		ISFSObject dt = Helper.getCostDiffToGems(tid_level,1,true);
 		if (s.status != BuildStatus.Normal) {
 			Debug.LogError (s.building_id + " is not in normal status!");
@@ -57,7 +57,7 @@ public static class ResearchHandle {
 		}
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);
 		if(msg!=null){
-			UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+			UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 			return;
 		}
 		s.start_time = Helper.current_time();
@@ -78,7 +78,7 @@ public static class ResearchHandle {
 		ISFSObject data = new SFSObject();
 		Debug.Log (tid);
 		data.PutUtfString("soldierTid", tid); 
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_UpgradeTrooper, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_UpgradeTrooper, false, BuildHandle.HandleResponse);
 	}
 
 	static void SendTechUpgradeToServer(string tid){
@@ -86,18 +86,18 @@ public static class ResearchHandle {
 		ISFSObject data = new SFSObject();
 		Debug.Log (tid);
 		data.PutUtfString("spellTid", tid); 
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_UpgradeTech, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_UpgradeTech, false, BuildHandle.HandleResponse);
 	}
 
 	//对科技立即升级
 	public static void OnImmediateResearch(string mTid_level){
 		Debug.Log ("mTid_level:" + mTid_level);
 		BuildInfo buildInfo = Helper.getBuildInfoByTid("TID_BUILDING_LABORATORY");
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[mTid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[mTid_level] as CsvInfo;
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);		
 		if (msg == null && buildInfo.status == BuildStatus.Normal){
 			int gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
-			if (DataManager.GetInstance().userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
 				buildInfo.status_tid_level = mTid_level;
 				if (csvInfo.TID_Type == Helper.TID_TYPE_CHARACTERS) {
 					SendTrooperUpgradeImmediatelyToServer (csvInfo.TID);
@@ -113,7 +113,7 @@ public static class ResearchHandle {
 			}
 		}else{
 			if (msg != null)
-				UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+				UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 		}			
 	}
 
@@ -123,7 +123,7 @@ public static class ResearchHandle {
 		Debug.Log (tid);
 		data.PutUtfString("tid", tid);
 		data.PutInt ("type",1);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_ImmediatelyUp, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_ImmediatelyUp, false, BuildHandle.HandleResponse);
 	}
 
 	static void SendTechUpgradeImmediatelyToServer(string tid){
@@ -132,22 +132,22 @@ public static class ResearchHandle {
 		Debug.Log (tid);
 		data.PutUtfString("tid", tid); 
 		data.PutInt ("type",2);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_ImmediatelyUp, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_ImmediatelyUp, false, BuildHandle.HandleResponse);
 	}
 
 	//加速升级科技
 	public static void OnSpeedUpResearch(BuildInfo s){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 		int gems = CalcHelper.calcTimeToGems(s.end_time - Helper.current_time());
 		s.status = BuildStatus.Normal;
 		if (gems > 0) {
-			if(DataManager.GetInstance().userInfo.diamond_count < gems){
+			if(DataManager.GetInstance.userInfo.diamond_count < gems){
 				PopManage.Instance.ShowNeedGemsDialog ();
 			}else {
 				string title = StringFormat.FormatByTid("TID_POPUP_HEADER_ABOUT_TO_SPEED_UP_RESEARCH");
 				string msg = StringFormat.FormatByTid("TID_POPUP_SPEED_UP_RESEARCH",new object[]{gems,StringFormat.FormatByTid(csvInfo.TID)});
 				ISFSObject dt = new SFSObject ();
-				UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 					msg, 
 					title, 
 					gems.ToString(), 
@@ -162,7 +162,7 @@ public static class ResearchHandle {
 	}
 
 	static void OnDialogSpeedUpResearchYes(ISFSObject dt,BuildInfo s=null){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 		int gems = CalcHelper.calcTimeToGems(s.end_time - Helper.current_time());
 		Helper.SetResource (0,0,0,0,-gems);
 		if (csvInfo.TID_Type == Helper.TID_TYPE_CHARACTERS) {
@@ -179,7 +179,7 @@ public static class ResearchHandle {
 		Debug.Log (tid);
 		data.PutUtfString("tid", tid);
 		data.PutInt ("type",2);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_SpeedUP, false,  BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_SpeedUP, false,  BuildHandle.HandleResponse);
 	}
 
 	static void SendTrooperUpgradeSpeedUpToServer(string tid){
@@ -188,17 +188,17 @@ public static class ResearchHandle {
 		Debug.Log (tid);
 		data.PutUtfString("tid", tid);
 		data.PutInt ("type",1);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_SpeedUP, false,  BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_SpeedUP, false,  BuildHandle.HandleResponse);
 	}
 
 	//取消科技升级
 	public static void OnCancelResearch(BuildInfo s){
 		Debug.Log ("CancelTechUpgrade");
 		if (s.status == BuildStatus.Research){
-			CsvInfo csv = CSVManager.GetInstance().csvTable [s.status_tid_level] as CsvInfo;
+			CsvInfo csv = CSVManager.GetInstance.csvTable [s.status_tid_level] as CsvInfo;
 			string title = StringFormat.FormatByTid("TID_POPUP_CANCEL_UPGRADE_TITLE");
 			string msg = StringFormat.FormatByTid("TID_POPUP_CANCEL_UPGRADE",new object[]{StringFormat.FormatByTid(csv.TID), 50});
-			UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+			UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
 				msg,
 				title,
 				"",
@@ -217,7 +217,7 @@ public static class ResearchHandle {
 		s.emitter.Emit (count,s.transform.position,PartType.Gold,gold);
 		s.buildUI.RefreshBuildBtn ();
 		s.status = BuildStatus.Normal;
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 		if (csvInfo.TID_Type == Helper.TID_TYPE_CHARACTERS) {
 			SendCancelSoilderToServer (csvInfo.TID);
 		} else {
@@ -229,21 +229,21 @@ public static class ResearchHandle {
 		Debug.Log("SendCancelTechToServer");
 		ISFSObject data = new SFSObject();
 		data.PutUtfString("tid", tid);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_CancelTech, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_CancelTech, false, BuildHandle.HandleResponse);
 	}
 
 	static void SendCancelSoilderToServer(string tid){
 		Debug.Log("SendCancelSoilderToServer");
 		ISFSObject data = new SFSObject();
 		data.PutUtfString("tid", tid);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_CancelSoilder, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_CancelSoilder, false, BuildHandle.HandleResponse);
 	}
 
 	static void OnTechOrTrooperUpgradeDone(BuildInfo s){
 		s.status = BuildStatus.Normal;//-1:客户端准备创建(建筑物会出现：取消,确定 按钮)
 		string research_tid_level = s.status_tid_level;
-		CsvInfo csv = CSVManager.GetInstance().csvTable[research_tid_level] as CsvInfo;
-		DataManager.GetInstance().researchLevel [csv.TID] = csv.Level + 1;
+		CsvInfo csv = CSVManager.GetInstance.csvTable[research_tid_level] as CsvInfo;
+		DataManager.GetInstance.researchLevel [csv.TID] = csv.Level + 1;
 		Helper.EXPCollect (s,csv.XpGain);
 		s.buildUI.RefreshBuildBtn ();
 		AudioPlayer.Instance.PlaySfx("xp_gain_06");
@@ -253,7 +253,7 @@ public static class ResearchHandle {
 		Debug.Log ("SendTechDoneToServer");
 		ISFSObject data = new SFSObject ();
 		data.PutUtfString ("tid",tid);
-		SFSNetworkManager.Instance.SendRequest (data,SFSNetworkManager.CMD_TechUpgradeDone,false,BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest (data,ApiConstant.CMD_TechUpgradeDone,false,BuildHandle.HandleResponse);
 	}
 
 	public static void TechUpdate(BuildInfo s){

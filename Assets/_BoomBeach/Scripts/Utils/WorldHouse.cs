@@ -50,13 +50,13 @@ public class WorldHouse : MonoBehaviour {
 					ISFSObject data = new SFSObject();
 					data.PutInt("id",ur.id);
 					data.PutInt("regions_id",ur.regions_id);
-					SFSNetworkManager.Instance.SendRequest(data, "collect_treasure", false, HandleCollectTreasureResponse);
+					SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_COLLECT_TREASURE, false, HandleCollectTreasureResponse);
 				}
 			}else{
 				
 				//show_type;1:go home; 2:Scout,Attack; 3:Scout,Attack,Find; 4:Explore; 5:Production per hour;
 				int show_type = 0;
-				if (ur.capture_id == DataManager.GetInstance().userInfo.id){
+				if (ur.capture_id == DataManager.GetInstance.userInfo.id){
 					if (ur.regions_id == 0 || ur.regions_id == 1 || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){
 						show_type = 1;
 					}else{
@@ -78,7 +78,7 @@ public class WorldHouse : MonoBehaviour {
 				
 				if (show_type > 0){
 					Vector3 scPoint = worldCamera.WorldToScreenPoint(transform.position);
-					UIManager.GetInstance().GetController<IslandPopCtrl>().ShowIslandPop(ur, scPoint);
+					UIManager.GetInstance.GetController<IslandPopCtrl>().ShowIslandPop(ur, scPoint);
 					//Debug.Log("dddd");
 					bool isup = scPoint.y > Screen.height / 2;
 					if (!isup){
@@ -125,7 +125,7 @@ public class WorldHouse : MonoBehaviour {
 
 				//show_type;1:go home; 2:Scout,Attack; 3:Scout,Attack,Find; 4:Explore; 5:Production per hour;
 				int show_type = 0;
-				if (ur.capture_id == DataManager.GetInstance().userInfo.id){
+				if (ur.capture_id == DataManager.GetInstance.userInfo.id){
 					if (ur.regions_id == 0 || ur.regions_id == 1 || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){
 						show_type = 1;
 					}else{
@@ -166,7 +166,7 @@ public class WorldHouse : MonoBehaviour {
 
 		ur.sending = false;
 
-		Transform house_sprite = ur.worldHouse.gameObject.transform.FindChild("house_sprite");
+		Transform house_sprite = ur.worldHouse.gameObject.transform.Find("house_sprite");
 
 		Vector3 pos = WorldBtnEvent.Instance.uiCamera.ScreenToWorldPoint(worldCamera.WorldToScreenPoint(house_sprite.position));
 		pos = new Vector3(pos.x,pos.y,0f);
@@ -187,10 +187,10 @@ public class WorldHouse : MonoBehaviour {
 		//tk2dUIItem.SendMessageOnClickMethodName = "OnClick";
 		sigh_sprite.gameObject.SetActive(false);
 
-		//Debug.Log("ur.capture_id:" + ur.capture_id + ";DataManager.GetInstance().userInfo.id:" + DataManager.GetInstance().userInfo.id);
+		//Debug.Log("ur.capture_id:" + ur.capture_id + ";DataManager.GetInstance.userInfo.id:" + DataManager.GetInstance.userInfo.id);
 		//Debug.Log("ur.res_tid:" + ur.res_tid + ";ur.is_npc:" + ur.is_npc + ";ur.regions_id:" + ur.regions_id);
 
-		if (ur.capture_id == DataManager.GetInstance().userInfo.id){
+		if (ur.capture_id == DataManager.GetInstance.userInfo.id){
 			//被自己占领,要显示：蓝色图片;
 			top_sprite.SetSprite(top_sprite.GetSpriteIdByName("BlueCircle"));
 			level_sprite.SetSprite(level_sprite.GetSpriteIdByName("SmallBlueCircle"));
@@ -222,7 +222,7 @@ public class WorldHouse : MonoBehaviour {
 						house_sprite.SetSprite(house_sprite.GetSpriteIdByName("Headquarters"));
 						type_sprite.SetSprite(type_sprite.GetSpriteIdByName("BluePerson"));
 						//name.Text = StringFormat.FormatByTid("TID_YOU");
-						level.text = DataManager.GetInstance().userInfo.exp_level.ToString();
+						level.text = DataManager.GetInstance.userInfo.exp_level.ToString();
 					}else{
 						//name.gameObject.SetActive(false);
 						top_sprite.gameObject.SetActive(false);
@@ -281,7 +281,7 @@ public class WorldHouse : MonoBehaviour {
 
 			if (ur.is_npc == 0 && Helper.current_time() - ur.capture_time > Globals.FindNewOpponentTime){
 				//默认22小时，可更新一次(只能更新比自己级别高的或资源岛屿;
-				//if (ur.capture_level > DataManager.GetInstance().userInfo.exp_level || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){						
+				//if (ur.capture_level > DataManager.GetInstance.userInfo.exp_level || ur.res_tid == "TID_BUILDING_STONE_QUARRY" || ur.res_tid == "TID_BUILDING_WOODCUTTER" || ur.res_tid == "TID_BUILDING_METAL_MINE"){						
 				sigh_sprite.gameObject.SetActive(true);			
 				//}
 			}

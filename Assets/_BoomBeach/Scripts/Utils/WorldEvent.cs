@@ -113,8 +113,8 @@ public class WorldEvent : MonoBehaviour {
 			if (eai.regions_type == 5 || eai.regions_type == 6){
 				
 				//title_label.text = StringFormat.FormatByTid("TID_YOU_LOST_OUTPOST");
-				if (DataManager.GetInstance().userRegionsList.ContainsKey(eai.regions_id)){
-					UserRegions ur = DataManager.GetInstance().userRegionsList[eai.regions_id] as UserRegions;
+				if (DataManager.GetInstance.userRegionsList.ContainsKey(eai.regions_id)){
+					UserRegions ur = DataManager.GetInstance.userRegionsList[eai.regions_id] as UserRegions;
 					
 					bottom_panel.gameObject.SetActive(true);
 					deployed_panel.gameObject.SetActive(false);
@@ -392,10 +392,10 @@ public class WorldEvent : MonoBehaviour {
 	
 	public void OnAttack(){
 		//Debug.Log("OnAttack");
-		if (CSVManager.GetInstance().experienceLevelsList.ContainsKey(DataManager.GetInstance().userInfo.exp_level.ToString())){
+		if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){
 			WorldCameraOpEvent.Instance.ClosePop();
 			
-			ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
+			ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
 			//花费;
 			//Debug.Log(el.AttackCost);
 			ISFSObject dt = Helper.getCostDiffToGems("",3,true,el.AttackCost);
@@ -450,7 +450,7 @@ public class WorldEvent : MonoBehaviour {
 			ur.sending = true;
 			ISFSObject data = new SFSObject();
 			data.PutInt("regions_id",ur.regions_id);		
-			SFSNetworkManager.Instance.SendRequest(data, "update_user_regions", false, HandleUpdateUserRegionsResponse);
+			SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_UPDATE_USER_REGIONS, false, HandleUpdateUserRegionsResponse);
 		}
 	}
 	
@@ -463,7 +463,7 @@ public class WorldEvent : MonoBehaviour {
 		
 		ur.ISFSObjectToBean(obj);
 		
-		DataManager.GetInstance().userRegionsList[ur.regions_id] = ur;
+		DataManager.GetInstance.userRegionsList[ur.regions_id] = ur;
 		
 		ur.worldHouse.initData(ur,ur.worldHouse.worldCamera);
 		
@@ -474,7 +474,7 @@ public class WorldEvent : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			GameLoader.Instance.SwitchScene(SceneStatus.ENEMYBATTLE,ur.capture_id,ur.regions_id,dt.GetInt("Gold"),dt.GetInt("Gems"));
 			//GameLoader.Instance.StartBattle(dt.GetInt("Gold"),dt.GetInt("Gems"),0,0);
 		}else{
@@ -517,7 +517,7 @@ public class WorldEvent : MonoBehaviour {
 				data.PutUtfString("regions_name",rs.Name);
 				data.PutInt("Gold",rs.ExplorationCost);
 				data.PutInt("Gems",0);
-				SFSNetworkManager.Instance.SendRequest(data, "explore", false, HandleExploreResponse);
+				SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_EXPLORE, false, HandleExploreResponse);
 				
 				Helper.SetResource(-rs.ExplorationCost,0,0,0,0,true);
 			}
@@ -529,14 +529,14 @@ public class WorldEvent : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			rs.sending = true;
 			rs.send_sprite.SetActive(true);
 			ISFSObject data = new SFSObject();
 			data.PutUtfString("regions_name",rs.Name);
 			data.PutInt("Gold",dt.GetInt("Gold"));
 			data.PutInt("Gems",dt.GetInt("Gems"));
-			SFSNetworkManager.Instance.SendRequest(data, "explore", false, HandleExploreResponse);
+			SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_EXPLORE, false, HandleExploreResponse);
 			
 			Helper.SetResource(-dt.GetInt("Gold"),0,0,0,-dt.GetInt("Gems"),true);
 			
@@ -554,7 +554,7 @@ public class WorldEvent : MonoBehaviour {
 		WorldCameraOpEvent.Instance.ClosePop();
 		
 		string regions_name = dt.GetUtfString("regions_name");
-		Regions rs2 = CSVManager.GetInstance().regionsList[regions_name] as Regions;
+		Regions rs2 = CSVManager.GetInstance.regionsList[regions_name] as Regions;
 		//regions_name
 		
 		rs2.sending = false;
@@ -573,7 +573,7 @@ public class WorldEvent : MonoBehaviour {
 			
 			UserRegions ur = new UserRegions();
 			ur.ISFSObjectToBean(obj);
-			DataManager.GetInstance().userRegionsList[ur.regions_id] = ur;
+			DataManager.GetInstance.userRegionsList[ur.regions_id] = ur;
 			
 			GameObject islandHouse = Instantiate(ResourceCache.load("UI/islandHouse")) as GameObject;
 			Transform house_pos = House.Find(ur.regions_id.ToString());

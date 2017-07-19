@@ -27,7 +27,7 @@ public class AchievementsWin : MonoBehaviour {
 			isInit = true;
 		}
 
-		if (CSVManager.GetInstance().achievementsList.Count == 0){
+		if (CSVManager.GetInstance.achievementsList.Count == 0){
 			//主堡，金币库升级完，树，石头移除完 也需要重新刷新一下;
 			ISFSObject data = new SFSObject();
 			SFSNetworkManager.Instance.SendRequest(data, "user_achievements", false, HandleResponse);
@@ -45,10 +45,10 @@ public class AchievementsWin : MonoBehaviour {
 		int select_index = 0;
 
 		int i = 0;
-		foreach(AchievementItem item in CSVManager.GetInstance().achievementsList.Values){
+		foreach(AchievementItem item in CSVManager.GetInstance.achievementsList.Values){
 			
 			
-			Transform achievement = GridList.FindChild(item.TID);
+			Transform achievement = GridList.Find(item.TID);
 			
 			GameObject player = null;
 			

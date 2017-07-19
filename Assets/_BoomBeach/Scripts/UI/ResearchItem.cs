@@ -49,7 +49,7 @@ public class ResearchItem : MonoBehaviour {
 			transform.Find("price").GetComponent<UILabel>().text = TidData.upgradeCost.ToString();
 			transform.Find("bg").GetComponent<UISprite>().color = Color.white;
 			transform.Find("avatar").GetComponent<UISprite>().color = Color.white;
-			if(TidData.upgradeCost>DataManager.GetInstance().userInfo.gold_count)
+			if(TidData.upgradeCost>DataManager.GetInstance.userInfo.gold_count)
 				transform.Find("price").GetComponent<UILabel>().color = Color.red;
 			else
 				transform.Find("price").GetComponent<UILabel>().color = Color.white;

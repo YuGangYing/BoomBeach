@@ -8,8 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b78d6060eadde4394ed1d0ba2b8c97, type: 1}
+  m_Script: {fileID: 11500000, guid: 55b78d6060eadde4394ed1d0ba2b8c97, type: 3}
   m_Name: TilemapdemoEditorData
+  m_EditorClassIdentifier: 
   editMode: 3
   brushColor: {r: 1, g: 1, b: 1, a: 1}
   brushRadius: 1

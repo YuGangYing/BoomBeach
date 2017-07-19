@@ -27,6 +27,10 @@ public class tk2dCameraEditor : Editor
 		new Preset("iOS/iPhone 5 Wide", 1136, 640, 1.777777778f),
 		new Preset("iOS/iPhone 4 Tall", 640, 960),
 		new Preset("iOS/iPhone 4 Wide", 960, 640),
+		new Preset("iOS/iPhone 6 Tall", 750, 1334),
+		new Preset("iOS/iPhone 6 Wide", 1334, 750),
+		new Preset("iOS/iPhone 6+ Tall", 1080, 1920),
+		new Preset("iOS/iPhone 6+ Wide", 1920, 1080),
 		new Preset("iOS/iPad Tall", 768, 1024),
 		new Preset("iOS/iPad Wide", 1024, 768),
 		new Preset("iOS/iPad 3 Tall", 1536, 2048),
@@ -122,6 +126,8 @@ public class tk2dCameraEditor : Editor
 
 			bool isPerspective = _target.SettingsRoot.CameraSettings.projection == tk2dCameraSettings.ProjectionType.Perspective;
 
+			tk2dGuiUtility.InfoBox("Anchored viewport clipping is a legacy feature which will be removed in a future version of 2D Toolkit.\n", tk2dGuiUtility.WarningLevel.Warning);
+
 			EditorGUILayout.LabelField("Anchored Viewport Clipping", EditorStyles.boldLabel);
 			EditorGUI.indentLevel++;
 			if (_target.InheritConfig == null || isPerspective) {
@@ -154,11 +160,11 @@ public class tk2dCameraEditor : Editor
 		if (GUI.changed)
 		{
 			_target.UpdateCameraMatrix();
-			EditorUtility.SetDirty(target);
+			tk2dUtil.SetDirty(target);
 			tk2dCameraAnchor[] allAlignmentObjects = GameObject.FindObjectsOfType(typeof(tk2dCameraAnchor)) as tk2dCameraAnchor[];
 			foreach (var v in allAlignmentObjects)
 			{
-				EditorUtility.SetDirty(v);
+				tk2dUtil.SetDirty(v);
 			}
 		}
 		
@@ -374,8 +380,8 @@ public class tk2dCameraEditor : Editor
 		if (transparencySortMode != inheritedSettings.transparencySortMode) {
 			inheritedSettings.transparencySortMode = transparencySortMode;
 			target.GetComponent<Camera>().transparencySortMode = transparencySortMode; // Change immediately in the editor
-			EditorUtility.SetDirty(target);
-			EditorUtility.SetDirty(target.GetComponent<Camera>());
+			tk2dUtil.SetDirty(target);
+			tk2dUtil.SetDirty(target.GetComponent<Camera>());
 		}
 	}
 
@@ -620,7 +626,7 @@ public class tk2dCameraEditor : Editor
 
 
 	// Create tk2dCamera menu item
-    [MenuItem("GameObject/Create Other/tk2d/Camera", false, 14905)]
+    [MenuItem(tk2dMenu.createBase + "Camera", false, 14905)]
     static void DoCreateCameraObject()
 	{
 		bool setAsMain = (Camera.main == null);
@@ -646,7 +652,11 @@ public class tk2dCameraEditor : Editor
 		camera.hideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
 		tk2dCamera newCamera = go.AddComponent<tk2dCamera>();
 		newCamera.version = 1;
+#if (UNITY_3_5 || UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9)
+		go.AddComponent("FlareLayer");
+#else
 		go.AddComponent<FlareLayer>();
+#endif
 		go.AddComponent<GUILayer>();
 		if (Object.FindObjectsOfType(typeof(AudioListener)).Length == 0) {
 			go.AddComponent<AudioListener>();

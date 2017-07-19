@@ -36,19 +36,19 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_containerRewardmedal = m_Trans.FindChild("#container_reward/#container_rewardmedal").gameObject;
-            m_containerRewardgold = m_Trans.FindChild("#container_reward/#container_rewardgold").gameObject;
-            m_containerRewardwood = m_Trans.FindChild("#container_reward/#container_rewardwood").gameObject;
-            m_containerRewardstone = m_Trans.FindChild("#container_reward/#container_rewardstone").gameObject;
-            m_containerRewardiron = m_Trans.FindChild("#container_reward/#container_rewardiron").gameObject;
-            m_containerRewardpiece = m_Trans.FindChild("#container_reward/#container_rewardpiece").gameObject;
-            m_containerReward = m_Trans.FindChild("#container_reward").gameObject;
-            m_containerTroop = m_Trans.FindChild("#container_troop").gameObject;
-            m_btnReturn = m_Trans.FindChild("#btn_return").GetComponent<Button>();
-            m_txtReward = m_Trans.FindChild("#txt_reward").GetComponent<Text>();
-            m_txtTroop = m_Trans.FindChild("#txt_troop").GetComponent<Text>();
-            m_txtBattlefail = m_Trans.FindChild("#txt_battlefail").GetComponent<Text>();
-            m_txtBattlewin = m_Trans.FindChild("#txt_battlewin").GetComponent<Text>();
+            m_containerRewardmedal = m_Trans.Find("#container_reward/#container_rewardmedal").gameObject;
+            m_containerRewardgold = m_Trans.Find("#container_reward/#container_rewardgold").gameObject;
+            m_containerRewardwood = m_Trans.Find("#container_reward/#container_rewardwood").gameObject;
+            m_containerRewardstone = m_Trans.Find("#container_reward/#container_rewardstone").gameObject;
+            m_containerRewardiron = m_Trans.Find("#container_reward/#container_rewardiron").gameObject;
+            m_containerRewardpiece = m_Trans.Find("#container_reward/#container_rewardpiece").gameObject;
+            m_containerReward = m_Trans.Find("#container_reward").gameObject;
+            m_containerTroop = m_Trans.Find("#container_troop").gameObject;
+            m_btnReturn = m_Trans.Find("#btn_return").GetComponent<Button>();
+            m_txtReward = m_Trans.Find("#txt_reward").GetComponent<Text>();
+            m_txtTroop = m_Trans.Find("#txt_troop").GetComponent<Text>();
+            m_txtBattlefail = m_Trans.Find("#txt_battlefail").GetComponent<Text>();
+            m_txtBattlewin = m_Trans.Find("#txt_battlewin").GetComponent<Text>();
 
         }
 

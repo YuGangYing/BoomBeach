@@ -29,7 +29,7 @@ namespace BoomBeach {
 		public override void ShowPanel()
         {
             bool isCreate;
-            mMainInterfacePanelView = UIManager.GetInstance().ShowPanel<MainInterfacePanelView>(UIManager.UILayerType.Fixed, out isCreate);
+            mMainInterfacePanelView = UIManager.GetInstance.ShowPanel<MainInterfacePanelView>(UIManager.UILayerType.Fixed, out isCreate);
             if (isCreate)
             {
                 OnCreatePanel();
@@ -148,20 +148,20 @@ namespace BoomBeach {
             data.GoldProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_HOUSING");
             data.GoldProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_HOUSING");
             data.GoldProduce = data.GoldProduceFromHome + data.GoldProduceFromVillage;
-            data.GoldStorageCapacity = DataManager.GetInstance().userInfo.max_gold_count;
+            data.GoldStorageCapacity = DataManager.GetInstance.userInfo.max_gold_count;
             BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
             int prot_num = 0;
             if (vault != null)
             {
                 //金币;
-                if (DataManager.GetInstance().userInfo.gold_count < vault.csvInfo.MaxStoredResourceGold)
+                if (DataManager.GetInstance.userInfo.gold_count < vault.csvInfo.MaxStoredResourceGold)
                 {
-                    prot_num = DataManager.GetInstance().userInfo.gold_count;
+                    prot_num = DataManager.GetInstance.userInfo.gold_count;
                 }
                 else
                 {
                     //被保护的资源;
-                    prot_num = (int)((DataManager.GetInstance().userInfo.gold_count - vault.csvInfo.MaxStoredResourceGold) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceGold;
+                    prot_num = (int)((DataManager.GetInstance.userInfo.gold_count - vault.csvInfo.MaxStoredResourceGold) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceGold;
                 }
             }
            data.GoldProtected = prot_num;//
@@ -213,16 +213,16 @@ namespace BoomBeach {
 			data.WoodProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_WOODCUTTER");
 			data.WoodProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_WOODCUTTER");
 			data.WoodProduce = data.WoodProduceFromHome + data.WoodProduceFromVillage;
-			data.WoodStorageCapacity = DataManager.GetInstance().userInfo.max_stone_count;
+			data.WoodStorageCapacity = DataManager.GetInstance.userInfo.max_stone_count;
 
 			BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 			int prot_num = 0;
 			if (vault != null){
-				if (DataManager.GetInstance().userInfo.wood_count < vault.csvInfo.MaxStoredResourceWood){
-					prot_num = DataManager.GetInstance().userInfo.wood_count;
+				if (DataManager.GetInstance.userInfo.wood_count < vault.csvInfo.MaxStoredResourceWood){
+					prot_num = DataManager.GetInstance.userInfo.wood_count;
 				}else{
 					//被保护的资源;
-					prot_num = (int)((DataManager.GetInstance().userInfo.wood_count - vault.csvInfo.MaxStoredResourceWood) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceWood;
+					prot_num = (int)((DataManager.GetInstance.userInfo.wood_count - vault.csvInfo.MaxStoredResourceWood) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceWood;
 				}
 			}		
 			data.WoodProtected = prot_num;//
@@ -282,16 +282,16 @@ namespace BoomBeach {
 			data.StoneProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_STONE_QUARRY");
 			data.StoneProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_STONE_QUARRY");
 			data.StoneProduce = data.StoneProduceFromHome + data.StoneProduceFromVillage;
-			data.StoneStorageCapacity = DataManager.GetInstance().userInfo.max_stone_count;
+			data.StoneStorageCapacity = DataManager.GetInstance.userInfo.max_stone_count;
 
 			BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 			int prot_num = 0;
 			if (vault != null){
-				if (DataManager.GetInstance().userInfo.stone_count < vault.csvInfo.MaxStoredResourceStone){
-					prot_num = DataManager.GetInstance().userInfo.stone_count;
+				if (DataManager.GetInstance.userInfo.stone_count < vault.csvInfo.MaxStoredResourceStone){
+					prot_num = DataManager.GetInstance.userInfo.stone_count;
 				}else{
 					//被保护的资源;
-					prot_num = (int)((DataManager.GetInstance().userInfo.stone_count - vault.csvInfo.MaxStoredResourceStone) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceStone;
+					prot_num = (int)((DataManager.GetInstance.userInfo.stone_count - vault.csvInfo.MaxStoredResourceStone) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceStone;
 				}
 			}		
 			data.StoneProtected = prot_num;//
@@ -351,16 +351,16 @@ namespace BoomBeach {
 			data.IronProduceFromHome = Helper.ResPerHourByBase("TID_BUILDING_METAL_MINE");
 			data.IronProduceFromVillage = Helper.ResPerHourByIsland("TID_BUILDING_METAL_MINE");
 			data.IronProduce =data.IronProduceFromHome + data.IronProduceFromVillage;
-			data.IronStorageCapacity = DataManager.GetInstance().userInfo.max_iron_count;
+			data.IronStorageCapacity = DataManager.GetInstance.userInfo.max_iron_count;
 
 			BuildInfo vault = Helper.getBuildInfoByTid("TID_BUILDING_VAULT");
 			int prot_num = 0;
 			if (vault != null){
-				if (DataManager.GetInstance().userInfo.iron_count < vault.csvInfo.MaxStoredResourceIron){
-					prot_num = DataManager.GetInstance().userInfo.iron_count;
+				if (DataManager.GetInstance.userInfo.iron_count < vault.csvInfo.MaxStoredResourceIron){
+					prot_num = DataManager.GetInstance.userInfo.iron_count;
 				}else{
 					//被保护的资源;
-					prot_num = (int)((DataManager.GetInstance().userInfo.iron_count - vault.csvInfo.MaxStoredResourceIron) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceIron;
+					prot_num = (int)((DataManager.GetInstance.userInfo.iron_count - vault.csvInfo.MaxStoredResourceIron) * vault.csvInfo.ResourceProtectionPercent * 0.01) + vault.csvInfo.MaxStoredResourceIron;
 				}
 			}		
 			data.IronProtected = prot_num;//
@@ -425,7 +425,7 @@ namespace BoomBeach {
 		void OnWorldBtnClick()
 		{
 
-			if (DataManager.GetInstance().sceneStatus == SceneStatus.WORLDMAP)
+			if (DataManager.GetInstance.sceneStatus == SceneStatus.WORLDMAP)
             {
                 GameLoader.Instance.SwitchScene(SceneStatus.HOME);
             }

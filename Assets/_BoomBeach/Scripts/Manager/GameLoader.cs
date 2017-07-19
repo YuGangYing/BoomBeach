@@ -39,7 +39,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 	}
 	//切换场景相机;
 	private void SwitchSceneCamera(SceneStatus sceneStatus, bool has_net){
-		DataManager.GetInstance().sceneStatus = sceneStatus;
+		DataManager.GetInstance.sceneStatus = sceneStatus;
 		if (has_net == false){
 			SwitchSceneCameraInc();
 		}else{
@@ -51,7 +51,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 
 	//切换场景相机;
 	private void SwitchSceneCameraInc(){
-		if (DataManager.GetInstance().sceneStatus == SceneStatus.WORLDMAP){
+		if (DataManager.GetInstance.sceneStatus == SceneStatus.WORLDMAP){
 			main.SetActive (false);
 			world.SetActive (true);
 			CameraOpEvent.Instance.Status = false;
@@ -82,10 +82,10 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			//Debug.Log("SwitchSceneCamera2:" + sceneStatus.ToString());
 			Globals.SetSceneUI ();
 		}
-		if (DataManager.GetInstance().sceneStatus == SceneStatus.WORLDMAP || DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYVIEW){
+		if (DataManager.GetInstance.sceneStatus == SceneStatus.WORLDMAP || DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYVIEW){
 			//
-			if (CSVManager.GetInstance().experienceLevelsList.ContainsKey(DataManager.GetInstance().userInfo.exp_level.ToString())){				
-				ExperienceLevels el = CSVManager.GetInstance().experienceLevelsList[DataManager.GetInstance().userInfo.exp_level.ToString()] as ExperienceLevels;
+			if (CSVManager.GetInstance.experienceLevelsList.ContainsKey(DataManager.GetInstance.userInfo.exp_level.ToString())){				
+				ExperienceLevels el = CSVManager.GetInstance.experienceLevelsList[DataManager.GetInstance.userInfo.exp_level.ToString()] as ExperienceLevels;
 				int SearchCost = (int) (el.AttackCost * Globals.SearchCostFactor);
 				if(ScreenUIManage.Instance!=null) ScreenUIManage.Instance.FindGoldLabel.text = SearchCost.ToString();
                 if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.AttackGoldLabel.text = el.AttackCost.ToString(); 
@@ -101,10 +101,10 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 	public void SwitchScene(SceneStatus sceneStatus,int user_id = 0, int regions_id = 0,int attack_cost=0, int gems=0, int attack_id = 0,int attack_type = 2){
 		MoveOpEvent.Instance.ResetBuild();//释放选中建筑
 		if (sceneStatus == SceneStatus.HOME || sceneStatus == SceneStatus.HOMERESOURCE){
-			UIManager.GetInstance ().GetController<MainInterfaceCtrl>().ShowHome ();
-            UIManager.GetInstance().GetController<BattleInterfaceCtrl>().Close();
+			UIManager.GetInstance.GetController<MainInterfaceCtrl>().ShowHome ();
+            UIManager.GetInstance.GetController<BattleInterfaceCtrl>().Close();
             if (user_id == 0){
-				user_id = DataManager.GetInstance().userInfo.id;
+				user_id = DataManager.GetInstance.userInfo.id;
                 //user_id = (int)GameFacade.Instance().ModelMgr.GetModel<Models.CharacterDataModel>().G_MainCharacterData.charid;
 			}
 			if (regions_id == 1){
@@ -122,8 +122,8 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		}else if (sceneStatus == SceneStatus.WORLDMAP){
 			//直接切换场景，不加载数据;
 			SwitchSceneCamera(sceneStatus,false);
-			UIManager.GetInstance ().GetController<MainInterfaceCtrl>().ShowWorld ();
-            UIManager.GetInstance().GetController<BattleInterfaceCtrl>().Close();
+			UIManager.GetInstance.GetController<MainInterfaceCtrl>().ShowWorld ();
+            UIManager.GetInstance.GetController<BattleInterfaceCtrl>().Close();
         }
         else if (sceneStatus == SceneStatus.ENEMYVIEW || sceneStatus == SceneStatus.FRIENDVIEW){
 			//敌方查看场景;
@@ -141,7 +141,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			switchSceneStatus = sceneStatus;
 			//需要从服务器上加载数据;
 			LoadBattle(attack_cost,gems,user_id,0,regions_id);
-			UIManager.GetInstance().GetController<MainInterfaceCtrl>().Close();
+			UIManager.GetInstance.GetController<MainInterfaceCtrl>().Close();
         }
         else if (sceneStatus == SceneStatus.BATTLEREPLAY){
 			//保存场景状态;
@@ -197,7 +197,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
         else {
             //从服务器上读取数据
 			Debug.Log ("RequestUserInfo");
-            SFSNetworkManager.Instance.SendRequest(data, "getUserInfo", false, OnResponsHomeInfo);
+			SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_USERINFO, false, OnResponsHomeInfo);
         }
     }
 	
@@ -226,8 +226,8 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 
 	void LoadHomeData()
 	{
-        DataManager.GetInstance().sceneStatus = switchSceneStatus;
-		DataManager.GetInstance().playerData = dt;//保存玩家服务器数据
+        DataManager.GetInstance.sceneStatus = switchSceneStatus;
+		DataManager.GetInstance.playerData = dt;//保存玩家服务器数据
         SwitchSceneCameraInc();
 		ISFSObject user_info = dt.GetSFSObject ("userResource");
         if (dt.ContainsKey("upgrade_list")){
@@ -237,10 +237,10 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		}
 		if (user_info!=null)//获取用户相关配置列表
         {
-			DataManager.GetInstance().userInfo.ISFSObjectToBean(user_info);
+			DataManager.GetInstance.userInfo.ISFSObjectToBean(user_info);
 			//SFSDebug.Log (user_info);
-			mUserInfo = DataManager.GetInstance().userInfo;
-			DataManager.GetInstance().userInfo.worker_count = 1;
+			mUserInfo = DataManager.GetInstance.userInfo;
+			DataManager.GetInstance.userInfo.worker_count = 1;
 			//Globals.islandType = (IslandType)user_info.GetInt("island_type");
 			Globals.islandType = IslandType.playerbase;//TODO
 			#region 1.获取用户建筑数据
@@ -257,14 +257,14 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			#endregion
 
 			#region 2.获取用户科技等级
-			DataManager.GetInstance().researchLevel.Clear();
+			DataManager.GetInstance.researchLevel.Clear();
 			ISFSArray user_characters = user_info.GetSFSArray ("user_characters");
 			ISFSArray user_spells = user_info.GetSFSArray ("user_spells");
 			if(user_characters!=null){
 				for (int i = 0; i < user_characters.Size(); i++)
 				{
 					ISFSObject obj = user_characters.GetSFSObject(i);
-					DataManager.GetInstance().researchLevel[obj.GetUtfString("tid")] = obj.GetInt("level");
+					DataManager.GetInstance.researchLevel[obj.GetUtfString("tid")] = obj.GetInt("level");
 					SFSDebug.Log (obj);
 				}
 			}
@@ -272,7 +272,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				for (int i = 0; i < user_spells.Size(); i++)
 				{
 					ISFSObject obj = user_spells.GetSFSObject(i);
-					DataManager.GetInstance().researchLevel[obj.GetUtfString("tid")] = obj.GetInt("level");
+					DataManager.GetInstance.researchLevel[obj.GetUtfString("tid")] = obj.GetInt("level");
 					SFSDebug.Log (obj);
 				}
 			}
@@ -280,14 +280,14 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 
 			#region 3.获取用户已经打开的地图
 			if (user_info.ContainsKey("user_regions")){
-				DataManager.GetInstance().userRegionsList.Clear();
+				DataManager.GetInstance.userRegionsList.Clear();
 				ISFSArray user_npcs = user_info.GetSFSArray("user_regions");
 				for (int i = 0; i < user_npcs.Size(); i++)
 				{
 					ISFSObject obj = user_npcs.GetSFSObject(i);
 					UserRegions ur = new UserRegions();
 					ur.ISFSObjectToBean(obj);
-					//CSVMananger.GetInstance().userRegionsList[ur.regions_id] = ur;
+					//CSVMananger.GetInstance.userRegionsList[ur.regions_id] = ur;
 					//Globals.troopsLevel[obj.GetUtfString("tid")] = obj.GetInt("level");
 					SFSDebug.Log (obj);
 				}
@@ -296,13 +296,13 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 					ISFSObject obj = user_regions.GetSFSObject(i);
 					UserRegions ur = new UserRegions();
 					ur.ISFSObjectToBean(obj);
-					CSVMananger.GetInstance().userRegionsList[ur.regions_id] = ur;
+					CSVMananger.GetInstance.userRegionsList[ur.regions_id] = ur;
 				}	*/	
 			}
 			#endregion 
 		}
         Globals.Init ();
-		Globals.LastSceneUserId = DataManager.GetInstance().userInfo.id;//最后加载的场景用户id;
+		Globals.LastSceneUserId = DataManager.GetInstance.userInfo.id;//最后加载的场景用户id;
 		Globals.LastSceneRegionsId = dt.GetInt("regions_id");//最后一次加载的岛屿id;
 
 		//不重复处理被攻击列表数据;
@@ -336,10 +336,10 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			}
 		}
         //资源岛
-        if (DataManager.GetInstance().sceneStatus == SceneStatus.HOMERESOURCE){
+        if (DataManager.GetInstance.sceneStatus == SceneStatus.HOMERESOURCE){
 			EnemyNameAndResource enar = ScreenUIManage.Instance.enemyNameAndResource;
-			enar.UserName = DataManager.GetInstance().userInfo.user_name;
-			enar.UserLevel = DataManager.GetInstance().userInfo.exp_level.ToString();
+			enar.UserName = DataManager.GetInstance.userInfo.user_name;
+			enar.UserLevel = DataManager.GetInstance.userInfo.exp_level.ToString();
 		}
 		//判断是否开启wap支付;
 		//Globals.is_wap_pay = dt.GetInt("is_wap_pay") == 1;
@@ -364,15 +364,15 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		}else{
 			//TID_NO_TROOPS = You need to train some troops first.
 			if (sync_error == 2){
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NO_TROOPS"));
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NO_TROOPS"));
 			}else{
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
 			}
 		}
 	}
 	
 	void HandleBattleResponse3(){
-		DataManager.GetInstance().sceneStatus = switchSceneStatus;
+		DataManager.GetInstance.sceneStatus = switchSceneStatus;
 		SwitchSceneCameraInc();
 		HandleBattleResponse2(this.dt);
 	}
@@ -384,7 +384,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		//Debug.Log(dt.GetDump());
 		//Globals.battleData = dt;
 
-		DataManager.GetInstance ().battleData = dt;
+		DataManager.GetInstance.battleData = dt;
 
 		int sync_error = dt.GetInt("sync_error");
 		if (sync_error == 0){
@@ -405,14 +405,14 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			ISFSObject user = dt.GetSFSObject("userResource");
 			Globals.islandType = (IslandType)user.GetInt("island_type");
 			Globals.Init ();
-			//if (DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY || DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE){
+			//if (DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY || DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE){
 				BattleData.Init();//用于上传和回放的数据
 			//}
 			Globals.LastSceneUserId = user.GetInt("id");//最后加载的场景用户id;
 			Globals.LastSceneRegionsId = dt.GetInt("regions_id");//最后加载的d岛屿id;
 
             /*
-			if (DataManager.GetInstance().sceneStatus == SceneStatus.FRIENDVIEW || DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE || DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYVIEW){
+			if (DataManager.GetInstance.sceneStatus == SceneStatus.FRIENDVIEW || DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE || DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYVIEW){
                 if (ScreenUIManage.Instance != null)
                 {
                     EnemyNameAndResource enar = ScreenUIManage.Instance.enemyNameAndResource;
@@ -422,7 +422,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			}
             */
 
-			if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE || DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYVIEW){
+			if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE || DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYVIEW){
 				
 				/*
 				if (ScreenUIManage.Instance != null)
@@ -482,41 +482,41 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				//List<BattleTrooperData> trooperData = new List<BattleTrooperData>();
 				//trooperData.Add();
 				//初始化战斗ui
-				if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYVIEW){
+				if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYVIEW){
                     //Debug.Log(Globals.BattleTrooperList.Count);
                     if (ScreenUIManage.Instance != null) 
 						ScreenUIManage.Instance.enemyViewTrooperList.InitTrooper(Globals.battleTrooperList);
 
-					UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().ShowBattleView (dt);
+					UIManager.GetInstance.GetController<BattleInterfaceCtrl>().ShowBattleView (dt);
 
-					UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().ShowViewTroops (Globals.battleTrooperList);
+					UIManager.GetInstance.GetController<BattleInterfaceCtrl>().ShowViewTroops (Globals.battleTrooperList);
 				}
-				if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE){
+				if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE){
                     //初始化军队
                     if (ScreenUIManage.Instance != null) 
 						ScreenUIManage.Instance.battleTrooperList.InitTrooper(Globals.battleTrooperList);
                     //ScreenUIManage.Instance.battleWeaponList.totalWeapon = Globals.EnergyTotal;
                     if (ScreenUIManage.Instance != null) 
-						ScreenUIManage.Instance.battleWeaponList.InitTrooper(DataManager.GetInstance().battleEnergyList);
+						ScreenUIManage.Instance.battleWeaponList.InitTrooper(DataManager.GetInstance.battleEnergyList);
 
 
-					UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().ShowBattle (dt);
-					UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().SetEnergy (Globals.EnergyTotal);
-					UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().ShowTroops (Globals.battleTrooperList);
-					UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().ShowWeapons (DataManager.GetInstance().battleEnergyList);
+					UIManager.GetInstance.GetController<BattleInterfaceCtrl>().ShowBattle (dt);
+					UIManager.GetInstance.GetController<BattleInterfaceCtrl>().SetEnergy (Globals.EnergyTotal);
+					UIManager.GetInstance.GetController<BattleInterfaceCtrl>().ShowTroops (Globals.battleTrooperList);
+					UIManager.GetInstance.GetController<BattleInterfaceCtrl>().ShowWeapons (DataManager.GetInstance.battleEnergyList);
 				}
 			}
 
-			UIManager.GetInstance ().GetController<MainInterfaceCtrl>().Close ();
+			UIManager.GetInstance.GetController<MainInterfaceCtrl>().Close ();
 			
 			initStep = 0;
 			isStart = true;
 		}else{
 			//TID_NO_TROOPS = You need to train some troops first.
 			if (sync_error == 2){
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NO_TROOPS"));
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NO_TROOPS"));
 			}else{
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
 			}
 		}
 	}
@@ -532,15 +532,15 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		}else{
 			//TID_NO_TROOPS = You need to train some troops first.
 			if (sync_error == 2){
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NO_TROOPS"));
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NO_TROOPS"));
 			}else{
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
 			}
 		}
 	}
 	
 	void HandleBattleReplayResponse3(){
-		DataManager.GetInstance().sceneStatus = switchSceneStatus;
+		DataManager.GetInstance.sceneStatus = switchSceneStatus;
 		SwitchSceneCameraInc();
 		HandleBattleReplayResponse2(this.dt);
 	}
@@ -620,7 +620,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			InitBattleTrooper(troops_list,troops_level);
 
             if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.battleTrooperList.InitTrooper(Globals.battleTrooperList);
-            if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.battleWeaponList.InitTrooper(DataManager.GetInstance().battleEnergyList);	
+            if (ScreenUIManage.Instance != null) ScreenUIManage.Instance.battleWeaponList.InitTrooper(DataManager.GetInstance.battleEnergyList);	
 
 			ByteArray attack_replay_bytes = dt.GetByteArray("attack_replay");
 			if (attack_replay_bytes != null){
@@ -677,7 +677,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			initStep = 0;
 			isStart = true;
 		}else{
-            UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
+            UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("sync_error:" + sync_error);
 		}
 	}
 	//当切换场景时，先保证一份当前军队数据到公共变量中;
@@ -705,7 +705,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				//Debug.Log("btd.LANDING_SHIP_TID_LEVEL:" + btd.LANDING_SHIP_TID_LEVEL);
 				//Debug.Log("btd.TID_LEVEL:" + btd.TID_LEVEL);
 
-				CsvInfo csvInfo = CSVManager.GetInstance().csvTable[btd.tidLevel] as CsvInfo;
+				CsvInfo csvInfo = CSVManager.GetInstance.csvTable[btd.tidLevel] as CsvInfo;
 				btd.csvInfo = csvInfo;
 				btd.num = troops_num;
 				if (btd.tid == "TID_TANK"){
@@ -734,12 +734,12 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 		//BuildInfo s = Helper.getBuildInfoByTid("TID_BUILDING_GUNSHIP");
 		//Globals.EnergyTotal = s.csvInfo.StartingEnergy + Helper.getArtifactBoost(s.csvInfo.StartingEnergy,ArtifactType.BoostGunshipEnergy);
 		
-		CsvInfo csvGunship = CSVManager.GetInstance().csvTable["TID_BUILDING_GUNSHIP_" + DataManager.GetInstance().userInfo.gunship_level.ToString()] as CsvInfo;
+		CsvInfo csvGunship = CSVManager.GetInstance.csvTable["TID_BUILDING_GUNSHIP_" + DataManager.GetInstance.userInfo.gunship_level.ToString()] as CsvInfo;
 		Globals.EnergyTotal = csvGunship.StartingEnergy + getArtifactBoost(csvGunship.StartingEnergy,ArtifactType.BoostGunshipEnergy,troops_list);
 		
 		
 		//当前可以使用的能量弹类型;
-		DataManager.GetInstance().battleEnergyList.Clear();
+		DataManager.GetInstance.battleEnergyList.Clear();
 		
 		List<string> tid_list = new List<string>();
 		tid_list.Add("TID_ARTILLERY");
@@ -755,9 +755,9 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			int level = getTidMaxLevel(tid,1,troops_level);
 			string tid_level = tid + "_" + level;
 			//Debug.Log("tid_level:" + tid_level);
-			CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+			CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 			
-			if (csvInfo.UnlockTownHallLevel <= DataManager.GetInstance().userInfo.town_hall_level){
+			if (csvInfo.UnlockTownHallLevel <= DataManager.GetInstance.userInfo.town_hall_level){
 				BattleTrooperData btd = new BattleTrooperData();
 				btd.csvInfo = csvInfo;
 				btd.building_id = 0;
@@ -783,7 +783,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 					btd.id = 6;
 				}
 				
-				DataManager.GetInstance().battleEnergyList.Add(btd);
+				DataManager.GetInstance.battleEnergyList.Add(btd);
 			}
 		}
 	}
@@ -822,9 +822,9 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 	private int buildSize;
 	private void InitBuildings(){
 		
-		Transform characters  = SpawnManager.GetInstance().characterContainer;
+		Transform characters  = SpawnManager.GetInstance.characterContainer;
 		//Transform buildings  = Globals.buildContainer;
-		Transform bullets = SpawnManager.GetInstance().bulletContainer;
+		Transform bullets = SpawnManager.GetInstance.bulletContainer;
 
 		if(initStep == 0)//第零阶段，清空旧数据
 		{
@@ -858,7 +858,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 					if (buildingList.Count <= 0 || useTime / 10000 > 50) break;
                     ISFSObject item = buildingList.GetSFSObject(0);
                     buildingList.RemoveElementAt(0);
-                    if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+                    if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
                     {
 						string tid = item.GetUtfString("tid");
 						//战斗场景不加载敌人炮舰和登陆艇
@@ -917,11 +917,11 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			//Debug.Log ("ba");
 
 			//初始化工人
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME||DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance().sceneStatus==SceneStatus.FRIENDVIEW||DataManager.GetInstance().sceneStatus==SceneStatus.HOMERESOURCE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME||DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance.sceneStatus==SceneStatus.FRIENDVIEW||DataManager.GetInstance.sceneStatus==SceneStatus.HOMERESOURCE)
 			{
 				if(!WorkerManage.Instance.isInit&&!WorkerManage.Instance.isIniting)//初始化工人相关
 				{
-					if(DataManager.GetInstance().sceneStatus==SceneStatus.HOMERESOURCE)//如果是己方资源场景，则只分配5个工人
+					if(DataManager.GetInstance.sceneStatus==SceneStatus.HOMERESOURCE)//如果是己方资源场景，则只分配5个工人
 						WorkerManage.Instance.workerCount = 5;
 					else
 						WorkerManage.Instance.workerCount = 15;//否则分配15个工人
@@ -938,9 +938,9 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				initStep++;
 			}
 		}else if(initStep == 3){
-			if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY)
+			if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY)
 			{
-				foreach(BuildInfo buildInfo in DataManager.GetInstance().buildList.Values){						
+				foreach(BuildInfo buildInfo in DataManager.GetInstance.buildList.Values){						
 					buildInfo.BattleHitpoint = buildInfo.csvInfo.Hitpoints + Helper.getArtifactBoost(buildInfo.csvInfo.Hitpoints,ArtifactType.BoostBuildingHP);					
 					buildInfo.BattleDamage = buildInfo.csvInfo.Damage + Helper.getArtifactBoost(buildInfo.csvInfo.Damage,ArtifactType.BoostBuildingDamage);
 					buildInfo.BattleInit(); 
@@ -968,7 +968,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				}
 			}
 			//实例化战斗中的登陆舰炮舰和军队
-			if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY){
+			if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE||DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY){
 				for(int i = 0; i < Globals.battleTrooperList.Count; i ++){
 					BattleTrooperData btd  = Globals.battleTrooperList[i];
 					BattleController.InitShipAndTrooper(btd);//实例化登陆舰
@@ -976,12 +976,12 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				BattleController.InitShipAndTrooper(null); //实例化战舰，
 			}
 
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME)
 			{
 				//初始化用户地图数据;
 				Helper.HandleWolrdMap();
                 if (ScreenUIManage.Instance != null)
-                    ScreenUIManage.Instance.data.UserName = DataManager.GetInstance().userInfo.user_name;
+                    ScreenUIManage.Instance.data.UserName = DataManager.GetInstance.userInfo.user_name;
                 if (ScreenUIManage.Instance != null) 
 					ScreenUIManage.Instance.UpdateUserName();
 				//设置每个建筑物上面的，升级提示标识;
@@ -990,7 +990,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				int count = Helper.CalcShopCates(false);
 				//设置商城按钮数量;
 				//ScreenUIManage.Instance.SetShopCount (count);
-				UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+				UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
                 //将资源分配到各仓库中;
                 Helper.autoAllocGoldStored(0);
 				Helper.autoAllocWoodStored(0);
@@ -1004,7 +1004,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 			isStart = false;
 			Globals.IsSceneLoaded = true;
 
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME)//创建资源回收小船
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME)//创建资源回收小船
 			{
 				if (Helper.getCollectNumByIsland(PartType.Gold) > 0)		
 					ResourceShip.CreateShip(PartType.Gold);
@@ -1019,28 +1019,28 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 					ResourceShip.CreateShip(PartType.Stone);
 			}
 
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				//攻击数据检查;
 				Helper.SendAttackCheck();
 			}
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY)
 			{
 
 			}
 			//屏幕显示debug
-            UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("需创建:" + buildSize);
-            UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop("已创建:" + DataManager.GetInstance().buildList.Count);
+            UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("需创建:" + buildSize);
+            UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop("已创建:" + DataManager.GetInstance.buildList.Count);
             
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME||DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance().sceneStatus==SceneStatus.WORLDMAP)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME||DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYVIEW||DataManager.GetInstance.sceneStatus==SceneStatus.WORLDMAP)
 			{
 				AudioPlayer.Instance.PlayMusic("home_music");
 			}
-			else if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			else if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				AudioPlayer.Instance.PlayMusic("combat_planning_music");
 			}
-			else if(DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY)
+			else if(DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY)
 			{
 				AudioPlayer.Instance.PlayMusic("combat_music");
 			}
@@ -1074,7 +1074,7 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				}else{
 					msg = StringFormat.FormatByTid("TID_NEW_BUILDING_ON_OUTPOST",new object[]{StringFormat.FormatByTid(tid)});
 				}
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 				upgradeList.RemoveElementAt(0);
 			}
 		}

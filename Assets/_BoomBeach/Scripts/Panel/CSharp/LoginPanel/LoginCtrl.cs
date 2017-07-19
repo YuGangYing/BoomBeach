@@ -25,7 +25,7 @@ namespace BoomBeach {
 		public override void ShowPanel()
         {
             bool isCreate;
-            mLoginPanelView = UIManager.GetInstance().ShowPanel<LoginPanelView>(UIManager.UILayerType.Fixed,out isCreate);
+            mLoginPanelView = UIManager.GetInstance.ShowPanel<LoginPanelView>(UIManager.UILayerType.Fixed,out isCreate);
             if (isCreate)
             {
                 OnCreatePanel();
@@ -149,10 +149,10 @@ namespace BoomBeach {
 						//创建新帐户失败!;
 						if (type_reg == 3){
 							//用户已经存在;
-							UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_USER_NAME_EXIST"));
+							UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_USER_NAME_EXIST"));
 						}else{
 							//TID_ERROR_MESSAGE_REG_ERROR = 创建新帐户失败!
-							UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_REG_ERROR"));
+							UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_REG_ERROR"));
 						}
 					}				
 				}else if ("1".Equals(code)){
@@ -194,11 +194,11 @@ namespace BoomBeach {
 					//loginBox.gameObject.SetActive(false);
 				}else{
 					String msg = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_ERROR");
-					UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+					UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 				}			
 			}else{
 				String msg = LocalizationCustom.instance.Get("TID_ERROR_MESSAGE_LOGIN_ERROR");
-				UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+				UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 			}	
 		}
     }

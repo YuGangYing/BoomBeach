@@ -39,22 +39,22 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
-            m_btnBack = m_Trans.FindChild("#btn_back").GetComponent<Button>();
-            m_gridInfo = m_Trans.FindChild("#grid_info");
-            m_imgBigicon = m_Trans.FindChild("#img_bigicon").GetComponent<Image>();
-            m_txtLevel = m_Trans.FindChild("#txt_level").GetComponent<Text>();
-            m_txtInfotitle = m_Trans.FindChild("#txt_infotitle").GetComponent<Text>();
-            m_txtInfo = m_Trans.FindChild("#txt_info").GetComponent<Text>();
-            m_txtTime = m_Trans.FindChild("#container_upgrade/#btn_upgrade/#txt_time").GetComponent<Text>();
-            m_btnUpgrade = m_Trans.FindChild("#container_upgrade/#btn_upgrade").GetComponent<Button>();
-            m_txtGold = m_Trans.FindChild("#container_upgrade/#container_gold/#txt_gold").GetComponent<Text>();
-            m_containerGold = m_Trans.FindChild("#container_upgrade/#container_gold").gameObject;
-            m_txtDiamond = m_Trans.FindChild("#container_upgrade/#container_diamond/#txt_diamond").GetComponent<Text>();
-            m_containerDiamond = m_Trans.FindChild("#container_upgrade/#container_diamond").gameObject;
-            m_btnInstant = m_Trans.FindChild("#container_upgrade/#btn_instant").GetComponent<Button>();
-            m_containerUpgrade = m_Trans.FindChild("#container_upgrade").gameObject;
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
+            m_btnBack = m_Trans.Find("#btn_back").GetComponent<Button>();
+            m_gridInfo = m_Trans.Find("#grid_info");
+            m_imgBigicon = m_Trans.Find("#img_bigicon").GetComponent<Image>();
+            m_txtLevel = m_Trans.Find("#txt_level").GetComponent<Text>();
+            m_txtInfotitle = m_Trans.Find("#txt_infotitle").GetComponent<Text>();
+            m_txtInfo = m_Trans.Find("#txt_info").GetComponent<Text>();
+            m_txtTime = m_Trans.Find("#container_upgrade/#btn_upgrade/#txt_time").GetComponent<Text>();
+            m_btnUpgrade = m_Trans.Find("#container_upgrade/#btn_upgrade").GetComponent<Button>();
+            m_txtGold = m_Trans.Find("#container_upgrade/#container_gold/#txt_gold").GetComponent<Text>();
+            m_containerGold = m_Trans.Find("#container_upgrade/#container_gold").gameObject;
+            m_txtDiamond = m_Trans.Find("#container_upgrade/#container_diamond/#txt_diamond").GetComponent<Text>();
+            m_containerDiamond = m_Trans.Find("#container_upgrade/#container_diamond").gameObject;
+            m_btnInstant = m_Trans.Find("#container_upgrade/#btn_instant").GetComponent<Button>();
+            m_containerUpgrade = m_Trans.Find("#container_upgrade").gameObject;
 
         }
 

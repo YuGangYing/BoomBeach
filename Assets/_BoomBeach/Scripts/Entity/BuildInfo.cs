@@ -209,7 +209,7 @@ public class BuildInfo : MonoBehaviour {
 	}
 
 	void Update(){
-		if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME) {
+		if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME) {
 			if (status == BuildStatus.Upgrade || status == BuildStatus.New) {
 				BuildHandle.BuildUpdate (this);
 			}
@@ -618,11 +618,11 @@ public class BuildInfo : MonoBehaviour {
 		}
 		
 		//新建的，也加入建筑物列表中，注：在取消新建时,需要移除;
-		if (DataManager.GetInstance().buildList.ContainsKey(building_id)){
-			DataManager.GetInstance().buildList.Remove(building_id);
+		if (DataManager.GetInstance.buildList.ContainsKey(building_id)){
+			DataManager.GetInstance.buildList.Remove(building_id);
 		}
-		if(DataManager.GetInstance().buildArray.Contains(this))
-			DataManager.GetInstance().buildArray.Remove(this);
+		if(DataManager.GetInstance.buildArray.Contains(this))
+			DataManager.GetInstance.buildArray.Remove(this);
 
 		if(csvInfo.TID=="TID_BUILDING_LANDING_SHIP")
 		{
@@ -640,15 +640,15 @@ public class BuildInfo : MonoBehaviour {
 	public bool CheckWookerCount(){
 		//获得忙碌的工人数;building_id最快完工的building_id;
 		long min_b_id = 0;
-		if (DataManager.GetInstance().userInfo.worker_count <= Helper.GetWorkeringCount(ref min_b_id)){
-			BuildInfo min_s = (BuildInfo)DataManager.GetInstance().buildList[min_b_id];
+		if (DataManager.GetInstance.userInfo.worker_count <= Helper.GetWorkeringCount(ref min_b_id)){
+			BuildInfo min_s = (BuildInfo)DataManager.GetInstance.buildList[min_b_id];
 			
 			int seconds = min_s.end_time - Helper.current_time();					
 			int gems_count = CalcHelper.calcTimeToGems(seconds);				
 			
 			ISFSObject dt = new SFSObject();
 			dt.PutLong("building_id",min_s.building_id);
-			UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+			UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
                 StringFormat.FormatByTid("TID_NOT_ENOUGH_WORKERS_HEADER"), 
                 StringFormat.FormatByTid("TID_NOT_ENOUGH_WORKERS_TEXT"),
                 gems_count.ToString(), 
@@ -729,7 +729,7 @@ public class BuildInfo : MonoBehaviour {
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
 		
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			//BuildHandle.CreateBuild (dt.GetInt("Wood"),dt.GetInt("Stone"),dt.GetInt("Iron"),dt.GetInt("Gems"),this);
 			//NewBuildToServer(dt.GetInt("Wood"),dt.GetInt("Stone"),dt.GetInt("Iron"),dt.GetInt("Gems"));
@@ -751,7 +751,7 @@ public class BuildInfo : MonoBehaviour {
 		//bool has_removal = true;
 		string title = "";
 		string msg = "";
-		CsvInfo csvData = (CsvInfo)CSVManager.GetInstance().csvTable[s.tid_level];
+		CsvInfo csvData = (CsvInfo)CSVManager.GetInstance.csvTable[s.tid_level];
 		if (csvData.TID_Type == "OBSTACLES"){
 			//TID_POPUP_CLEAR_OBSTACLE_TITLE Remove <item>?
 			//TID_POPUP_CLEAR_OBSTACLE Remove <item> and gain:
@@ -762,8 +762,8 @@ public class BuildInfo : MonoBehaviour {
 			msg = StringFormat.FormatByTid("TID_POPUP_CLEAR_OBSTACLE",new object[]{StringFormat.FormatByTid(s.tid)});
 			msg = msg + " " + csvData.LootCount.ToString() + " " + StringFormat.FormatByTid(Helper.GetNameToTid(csvData.LootResource));
 			//msg = "TID_POPUP_CLEAR_OBSTACLE";
-			Debug.Log("DataManager.GetInstance().userInfo.town_hall_level:" + DataManager.GetInstance().userInfo.town_hall_level + ";csvData.RequiredTownHallLevel:" + csvData.RequiredTownHallLevel);
-			if (DataManager.GetInstance().userInfo.town_hall_level < csvData.RequiredTownHallLevel){
+			Debug.Log("DataManager.GetInstance.userInfo.town_hall_level:" + DataManager.GetInstance.userInfo.town_hall_level + ";csvData.RequiredTownHallLevel:" + csvData.RequiredTownHallLevel);
+			if (DataManager.GetInstance.userInfo.town_hall_level < csvData.RequiredTownHallLevel){
 				
 				msg = StringFormat.FormatByTid("TID_CAN_NOT_CLEAR_OBSTACLE",new object[]{csvData.RequiredTownHallLevel});
 				PopManage.Instance.ShowMsg(msg);
@@ -774,7 +774,7 @@ public class BuildInfo : MonoBehaviour {
 				dt.PutLong("building_id",s.building_id);
                 //TODO
                 //移除障碍物
-                UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+                UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
                    msg,
                    title,
                    "",
@@ -803,11 +803,11 @@ public class BuildInfo : MonoBehaviour {
 		}else if (csvData.BuildingClass == "Artifact" || (s.tid == "TID_BUILDING_ARTIFACT_WORKSHOP" && s.hasStatue())){
 
 			if (csvData.BuildingClass != "Artifact"){
-				csvData = CSVManager.GetInstance().csvTable [s.status_tid_level] as CsvInfo;
+				csvData = CSVManager.GetInstance.csvTable [s.status_tid_level] as CsvInfo;
 			}
 
 			string artiact_tid_level = Helper.BuildTIDToArtifactTID(csvData.TID) + "_1";
-			CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance().csvTable[artiact_tid_level];
+			CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance.csvTable[artiact_tid_level];
 
 			//TID_POPUP_HEADER_ABOUT_TO_SCRAP_ARTIFACT Reclaim statue?
 			//TID_POPUP_ABOUT_TO_SCRAP_ARTIFACT Reclaiming the statue will destroy it and give you <number> <resource>.
@@ -818,7 +818,7 @@ public class BuildInfo : MonoBehaviour {
 			dt.PutLong("building_id",s.building_id);
 			dt.PutInt("Gems",0);
 
-            UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+            UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
                 msg,
                 title,
                 "",
@@ -870,7 +870,7 @@ public class BuildInfo : MonoBehaviour {
 		
 		//int gems = dt.GetInt("Gems");
 		
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			RemovalBuildToLocal(dt);
 		}else{
 			//宝石不够;
@@ -885,7 +885,7 @@ public class BuildInfo : MonoBehaviour {
 	
 	public void RemovalBuildToLocal(ISFSObject dt){
 		//Debug.Log(dt.GetDump());
-		BuildInfo s = DataManager.GetInstance().buildList[dt.GetLong("building_id")] as BuildInfo;
+		BuildInfo s = DataManager.GetInstance.buildList[dt.GetLong("building_id")] as BuildInfo;
 
 		if (s.tid_type == "OBSTACLES"){
 			//ISFSObject dt2 = Helper.getCostDiffToGems(s.tid_level,true,true);
@@ -915,12 +915,12 @@ public class BuildInfo : MonoBehaviour {
 			if (s.csvInfo.BuildingClass == "Artifact"){
 				artiact_tid = s.csvInfo.TID;
 			}else{
-				CsvInfo csvInfo = CSVManager.GetInstance().csvTable [s.status_tid_level] as CsvInfo;
+				CsvInfo csvInfo = CSVManager.GetInstance.csvTable [s.status_tid_level] as CsvInfo;
 				artiact_tid = csvInfo.TID;
 			}
 
 			string artiact_tid_level = Helper.BuildTIDToArtifactTID(artiact_tid) + "_1";
-			CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance().csvTable[artiact_tid_level];
+			CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance.csvTable[artiact_tid_level];
 
 			Helper.setResourceCount(csvArtiact.SellResource,csvArtiact.SellResourceAmount,false,false);
 
@@ -955,7 +955,7 @@ public class BuildInfo : MonoBehaviour {
 			data.PutInt("current_time",current_time);		
 			//花费;
 			data.PutLong("building_id", s.building_id);		
-			SFSNetworkManager.Instance.SendRequest(data, "removal", false, null);
+			SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_RemoveBuilding, false, null);
 			//重新设置，所有建筑物的升级提醒标识;
 			Helper.SetBuildUpgradeIcon();
 
@@ -963,7 +963,7 @@ public class BuildInfo : MonoBehaviour {
 			int count = Helper.CalcShopCates(false);
 			//设置商城按钮数量;
 			//ScreenUIManage.Instance.SetShopCount (count);
-            UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+            UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
 
             if (s.tid_type == "OBSTACLES" || s.csvInfo.BuildingClass == "Artifact"){
 
@@ -981,19 +981,19 @@ public class BuildInfo : MonoBehaviour {
 					}else if (LootResource == "TID_WOOD"){
 						//Helper.SetResource(0,s.csvInfo.LootCount,0,0,0,true);
 						partType = PartType.Wood;
-						max_num = DataManager.GetInstance().userInfo.max_wood_count;
+						max_num = DataManager.GetInstance.userInfo.max_wood_count;
 					}else if (LootResource == "TID_STONE"){
 						//Helper.SetResource(0,0,s.csvInfo.LootCount,0,0,true);
 						partType = PartType.Stone;
-						max_num = DataManager.GetInstance().userInfo.max_stone_count;
+						max_num = DataManager.GetInstance.userInfo.max_stone_count;
 					}else if (LootResource == "TID_METAL"){
 						//Helper.SetResource(0,0,0,s.csvInfo.LootCount,0,true);
 						partType = PartType.Iron;
-						max_num = DataManager.GetInstance().userInfo.max_iron_count;
+						max_num = DataManager.GetInstance.userInfo.max_iron_count;
 					}else if (LootResource == "TID_GOLD"){
 						//Helper.SetResource(s.csvInfo.LootCount,0,0,0,0,true);
 						partType = PartType.Gold;
-						max_num = DataManager.GetInstance().userInfo.max_gold_count;
+						max_num = DataManager.GetInstance.userInfo.max_gold_count;
 					}
 					
 					
@@ -1070,7 +1070,7 @@ public class BuildInfo : MonoBehaviour {
 
                     string artiact_tid = s.csvInfo.TID;
 					string artiact_tid_level = Helper.BuildTIDToArtifactTID(artiact_tid) + "_1";
-					CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance().csvTable[artiact_tid_level];
+					CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance.csvTable[artiact_tid_level];
 					
 					Helper.SetResourceCount(csvArtiact.SellResource,csvArtiact.SellResourceAmount,false,false);
 
@@ -1080,10 +1080,10 @@ public class BuildInfo : MonoBehaviour {
 				//清空TID_BUILDING_ARTIFACT_WORKSHOP 中的神像;
 
 				string artiact_tid = "";
-				CsvInfo csvInfo = CSVManager.GetInstance().csvTable [s.status_tid_level] as CsvInfo;
+				CsvInfo csvInfo = CSVManager.GetInstance.csvTable [s.status_tid_level] as CsvInfo;
 				artiact_tid = csvInfo.TID;								
 				string artiact_tid_level = Helper.BuildTIDToArtifactTID(artiact_tid) + "_1";
-				CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance().csvTable[artiact_tid_level];
+				CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance.csvTable[artiact_tid_level];
 				
 				Helper.SetResourceCount(csvArtiact.SellResource,csvArtiact.SellResourceAmount,false,false);
 
@@ -1227,7 +1227,7 @@ TID_STOP	Stop
 			ISFSObject dt = new SFSObject();
 			dt.PutLong("building_id",s.building_id);
 
-            UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(
+            UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(
                 msg,
                 title,
                 "",
@@ -1258,7 +1258,7 @@ TID_STOP	Stop
 	private void onDialogCancelYes(ISFSObject dt,BuildInfo buildInfo = null){
 		//Debug.Log("onDialogCancelYes");
 		//OnCancelCreate();
-		//BuildInfo s = DataManager.GetInstance().BuildList[dt.GetLong("building_id")] as BuildInfo;
+		//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 		//if (s.status == BuildStatus.New)
 			//BuildHandle.CancelCreateBuild (s);
 		//else if (s.status == BuildStatus.Upgrade)
@@ -1269,7 +1269,7 @@ TID_STOP	Stop
 	private void onDialogCancelNo(ISFSObject dt){
 		//Debug.Log("onDialogCancelNo");
 		//OnCancelCreate();
-		BuildInfo s = DataManager.GetInstance().buildList[dt.GetLong("building_id")] as BuildInfo;
+		BuildInfo s = DataManager.GetInstance.buildList[dt.GetLong("building_id")] as BuildInfo;
 		s.buildUI.RefreshBuildBtn ();
 		//PopManage.Instance.RefreshBuildBtn(s);
 	}
@@ -1344,16 +1344,16 @@ TID_STOP	Stop
 			if (s.status == BuildStatus.CreateStatue){
 				//生产神像取消;全部返还;
 				//bc.piece
-				CsvInfo csvInfo = (CsvInfo)CSVManager.GetInstance().csvTable[s.status_tid_level];
+				CsvInfo csvInfo = (CsvInfo)CSVManager.GetInstance.csvTable[s.status_tid_level];
 				if (csvInfo.TID == "TID_BUILDING_ARTIFACT1"){
 					//Common Artifact;
-					DataManager.GetInstance().userInfo.common_piece += bc.piece;
+					DataManager.GetInstance.userInfo.common_piece += bc.piece;
 				}else if (csvInfo.TID == "TID_BUILDING_ARTIFACT2"){
 					//Rare Artifact;
-					DataManager.GetInstance().userInfo.rare_piece += bc.piece;
+					DataManager.GetInstance.userInfo.rare_piece += bc.piece;
 				}else if (csvInfo.TID == "TID_BUILDING_ARTIFACT3"){
 					//Epic Artifact;
-					DataManager.GetInstance().userInfo.epic_piece += bc.piece;
+					DataManager.GetInstance.userInfo.epic_piece += bc.piece;
 				}
 
 				s.status_tid_level = null;
@@ -1364,7 +1364,7 @@ TID_STOP	Stop
 					int collect_num = bc.gold;
 					if (collect_num > 0){
 						
-						int max_num = DataManager.GetInstance().userInfo.max_gold_count;
+						int max_num = DataManager.GetInstance.userInfo.max_gold_count;
 						
 						
 						//collect_num = max_num;
@@ -1425,7 +1425,7 @@ TID_STOP	Stop
 				int count = Helper.CalcShopCates(false);
 				//设置商城按钮数量;
 				//ScreenUIManage.Instance.SetShopCount (count);
-                UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+                UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
             }
             else{
 				status = BuildStatus.Normal;//-1:客户端准备创建(建筑物会出现：取消,确定 按钮)
@@ -1441,7 +1441,7 @@ TID_STOP	Stop
 				int count = Helper.CalcShopCates(false);
 				//设置商城按钮数量;
 				//ScreenUIManage.Instance.SetShopCount (count);
-                UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+                UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
             }
 
 			WorkerManage.Instance.setWorkBuilding(null);
@@ -1486,7 +1486,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				msg = StringFormat.FormatByTid("TID_POPUP_SPEED_UP_UPGRADE",new object[]{ gems,StringFormat.FormatByTid(s.tid) });
 			}else if (s.status == BuildStatus.Research){
 				title = StringFormat.FormatByTid("TID_POPUP_HEADER_ABOUT_TO_SPEED_UP_RESEARCH");
-				CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+				CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 				msg = StringFormat.FormatByTid("TID_POPUP_SPEED_UP_RESEARCH",new object[]{gems,StringFormat.FormatByTid(csvInfo.TID)});
 				Debug.Log (msg);
 			}else if (s.status == BuildStatus.CreateStatue){
@@ -1503,7 +1503,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			dt.PutLong("building_id",s.building_id);
             //UIManager.Instance().msgCtrl.ShowPopWithDiamond(title,msg, gems.ToString(), s.building_id);
 
-			UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(msg, title, gems.ToString(), PopDialogBtnType.ImageBtn, dt, onDialogFinishYes,true,s);
+			UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(msg, title, gems.ToString(), PopDialogBtnType.ImageBtn, dt, onDialogFinishYes,true,s);
 
 			/*
             PopManage.Instance.ShowDialog(
@@ -1526,7 +1526,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	}
 
 	private void onDialogFinishNo(ISFSObject dt){
-		BuildInfo s = DataManager.GetInstance().buildList[dt.GetLong("building_id")] as BuildInfo;
+		BuildInfo s = DataManager.GetInstance.buildList[dt.GetLong("building_id")] as BuildInfo;
 		//刷新按钮状态;
 		s.buildUI.RefreshBuildBtn ();
 		//PopManage.Instance.RefreshBuildBtn(s);
@@ -1535,11 +1535,11 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	private void onDialogFinishYes(ISFSObject dt,BuildInfo s){
 		//Debug.Log("onDialogFinishYes");
 		//OnCancelCreate();
-		//BuildInfo s = DataManager.GetInstance().BuildList[buildInfo.b] as BuildInfo;
+		//BuildInfo s = DataManager.GetInstance.BuildList[buildInfo.b] as BuildInfo;
 
 		if(s.isWaitForReturnBuildId){
 			string msg = StringFormat.FormatByTid("TID_ERROR_MESSAGE_WAITFORNETRETURN");
-			UIManager.GetInstance ().GetController<NormalMsgCtrl>().ShowPop (msg);
+			UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop (msg);
 			return;
 		}
 		if(s.status == BuildStatus.New || s.status == BuildStatus.Upgrade){
@@ -1556,7 +1556,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			int gems = CalcHelper.calcTimeToGems(s.end_time - current_time);
 			//Debug.Log("current_time:" + current_time + ";s.end_time:" + s.end_time + ";seconds:" + (current_time - s.end_time) + ";gems:" + gems);
 		
-			if (DataManager.GetInstance().userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
 				FinishBuildToServer(s,current_time, gems);
 			}else{
 				//宝石不够;
@@ -1587,7 +1587,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				else
 					status_tid_level = s.tid_level;
 			}			
-			CsvInfo csvInfo = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+			CsvInfo csvInfo = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 			if (gems == 0){
 				if (is_instant){
 					gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
@@ -1626,7 +1626,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
                     data.PutLong("id", s.building_id);	
 					Debug.Log (s.building_id);
 					data.PutInt ("type",0);//0 building 1 troop 2 spell;
-					SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_SpeedUP, false, s.HandleResponse);
+					SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_SpeedUP, false, s.HandleResponse);
 
                     int exp_count = 0;
 					if (s.status == BuildStatus.New){
@@ -1640,7 +1640,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 						//军队等级加1;
 						//Debug.Log(csvInfo.TID + ";" + Helper.getTidMaxLevel(csvInfo.TID,1));
 
-						DataManager.GetInstance().researchLevel[csvInfo.TID] = (int)(Helper.getTidMaxLevel(csvInfo.TID,1) + 1);						
+						DataManager.GetInstance.researchLevel[csvInfo.TID] = (int)(Helper.getTidMaxLevel(csvInfo.TID,1) + 1);						
 					}
 					
 					//生产兵，立即完成,需要增加兵的数据;
@@ -1654,7 +1654,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 							//剩于时间/每个兵生产所需时间 = 还剩可生成的兵数;
 							int num = Mathf.CeilToInt(LeftOnTime*1f / (train_time*1f));
 							
-							CsvInfo csvTroops = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+							CsvInfo csvTroops = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 							//最大可装兵数量=总容量 除以 单个兵容量;
 							int max_num = (int)(s.csvInfo.HousingSpace / csvTroops.HousingSpace);
 							
@@ -1673,7 +1673,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 						//比如：level + 1, 更新模型;
 						s.level = s.level + 1;
 						s.tid_level = s.tid + "_" + s.level;
-						s.csvInfo = CSVManager.GetInstance().csvTable[s.tid_level] as CsvInfo;
+						s.csvInfo = CSVManager.GetInstance.csvTable[s.tid_level] as CsvInfo;
 						//计算经验值;还是取下个级别的XpGain
 						exp_count = s.csvInfo.XpGain;//CalcHelper.calcTimeToExp(Helper.getUpgradeTime(s.tid_level));
 					}	
@@ -1729,7 +1729,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			int count = Helper.CalcShopCates(false);
 			//设置商城按钮数量;
 			//ScreenUIManage.Instance.SetShopCount (count);
-            UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+            UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
 
             //关闭所有界面窗口;
             if (PopWin.current!=null)PopWin.current.CloseTween();
@@ -1748,7 +1748,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 		
 		string tid_level = tid + "_" + level;
 		
-		CsvInfo csvData = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+		CsvInfo csvData = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 
 		string buildSpritePath = "Model/Build3d/"+csvData.ExportName;
 
@@ -1841,8 +1841,8 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 
 				string tid_level = tid + "_" + level;
 				
-				CsvInfo csvData = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
-				CsvInfo Lv1CsvData = CSVManager.GetInstance().csvTable[tid+"_1"] as CsvInfo;
+				CsvInfo csvData = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
+				CsvInfo Lv1CsvData = CSVManager.GetInstance.csvTable[tid+"_1"] as CsvInfo;
 
 				string buildSpPath = "Model/Build/" + csvData.ExportName+"_sp";
 				string buildSpritePath = "Model/Build/" + csvData.ExportName;
@@ -1912,7 +1912,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	//升级只有2种，建筑物升级与军队（兵，兵器，地雷）;
 	//当status_tid_level有值时，升级军队;反之升级建筑物;
 	public void OnUpgradeBuild(BuildInfo s){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[s.tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[s.tid_level] as CsvInfo;
 		if ("BUILDING".Equals(csvInfo.TID_Type) && CheckWookerCount() == false){			
 			return;
 		};
@@ -1924,7 +1924,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			//资源不足，需要增加宝石才行;
 			if (gems > 0){
                 //UIManager.Instance().msgCtrl.ShowPopWithDiamond1(dt.GetUtfString("title"), dt.GetUtfString("msg"), gems.ToString(), dt, s.building_id);
-                UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(dt.GetUtfString("msg"), dt.GetUtfString("title"), gems.ToString(), PopDialogBtnType.ImageBtn, dt, OnDialogUpgradeBuildYes);
+                UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(dt.GetUtfString("msg"), dt.GetUtfString("title"), gems.ToString(), PopDialogBtnType.ImageBtn, dt, OnDialogUpgradeBuildYes);
                 /**
 				PopManage.Instance.ShowDialog(
 					dt.GetUtfString("msg"),
@@ -1950,8 +1950,8 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	}
 	
 	private void OnDialogUpgradeBuildYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
-			//BuildInfo s = DataManager.GetInstance().BuildList[dt.GetLong("building_id")] as BuildInfo;
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+			//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			//string status_tid_level = dt.GetUtfString("status_tid_level");
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			//UpgradeBuildToServer(s,status_tid_level, dt.GetInt("Gold"),dt.GetInt("Wood"),dt.GetInt("Stone"),dt.GetInt("Iron"),dt.GetInt("Gems"));
@@ -1963,7 +1963,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	}
 
 	public void OnUpgradeTech(BuildInfo s,string tid_level){
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);
 		if (msg == null && s.status == BuildStatus.Normal){
 			ISFSObject dt = Helper.getCostDiffToGems(tid_level,1,true);
@@ -1972,7 +1972,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			int gems = dt.GetInt("Gems");
 			//资源不足，需要增加宝石才行;
 			if (gems > 0){
-				UIManager.GetInstance().GetComponent<PopMsgCtrl>().ShowDialog(dt.GetUtfString("msg"), dt.GetUtfString("title"), gems.ToString(), PopDialogBtnType.ImageBtn, dt, OnDialogUpgradeTechYes,true,s);
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog(dt.GetUtfString("msg"), dt.GetUtfString("title"), gems.ToString(), PopDialogBtnType.ImageBtn, dt, OnDialogUpgradeTechYes,true,s);
 			}
 			else{
 				AudioPlayer.Instance.PlaySfx("building_construct_07");
@@ -1984,8 +1984,8 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	}
 
 	private void OnDialogUpgradeTechYes(ISFSObject dt,BuildInfo buildInfo = null){
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
-			//BuildInfo s = DataManager.GetInstance().BuildList[dt.GetLong("building_id")] as BuildInfo;
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+			//BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			//string tid_level = dt.GetUtfString("tid_level");
 			AudioPlayer.Instance.PlaySfx("building_construct_07");
 			//UpgradeBuildToServer(s,status_tid_level, dt.GetInt("Gold"),dt.GetInt("Wood"),dt.GetInt("Stone"),dt.GetInt("Iron"),dt.GetInt("Gems"));
@@ -2005,7 +2005,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			status_tid_level = s.tid_level;
 		}
 		
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 
 		string msg = null;
 		if (s.tid == "TID_BUILDING_ARTIFACT_WORKSHOP" && csvInfo.BuildingClass == "Artifact"){
@@ -2075,13 +2075,13 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			int count = Helper.CalcShopCates(false);
 			//设置商城按钮数量;
 			//ScreenUIManage.Instance.SetShopCount (count);
-            UIManager.GetInstance().GetController<MainInterfaceCtrl>().SetShopCount(count);
+            UIManager.GetInstance.GetController<MainInterfaceCtrl>().SetShopCount(count);
 
             //设置工人工作;
             WorkerManage.Instance.setWorkBuilding(Helper.getWorkBuilding());
 		}else{
 			if (msg != null){
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 			}
 		}
 
@@ -2102,14 +2102,14 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 		if (status_tid_level == null || status_tid_level == ""){
 			status_tid_level = s.tid_level;
 		}
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 		if ("BUILDING".Equals(csvInfo.TID_Type) && CheckWookerCount() == false){			
 			return;
 		}
 		string msg = Helper.CheckHasUpgrade(csvInfo.TID, csvInfo.Level);		
 		if (msg == null && s.status == BuildStatus.Normal){
 			int gems = Helper.GetUpgradeInstant(csvInfo.TID_Level);
-			if (DataManager.GetInstance().userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
 				s.status_tid_level = status_tid_level;
 				BuildHandle.ImmediateUpgradeBuild (s);
 				//FinishBuildToServer(s,0, gems, true, status_tid_level);					
@@ -2119,7 +2119,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			}
 		}else{
 			if (msg != null)
-                UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+                UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 		}			
 	}
 
@@ -2161,19 +2161,19 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				int max_num = 0;
 				if(res_type=="Gold")
 				{
-					max_num = DataManager.GetInstance().userInfo.max_gold_count;
+					max_num = DataManager.GetInstance.userInfo.max_gold_count;
 				}
 				else if(res_type=="Wood")
 				{
-					max_num = DataManager.GetInstance().userInfo.max_wood_count;
+					max_num = DataManager.GetInstance.userInfo.max_wood_count;
 				}
 				else if(res_type=="Stone")
 				{
-					max_num = DataManager.GetInstance().userInfo.max_stone_count;
+					max_num = DataManager.GetInstance.userInfo.max_stone_count;
 				}
 				else if(res_type=="Iron")
 				{
-					max_num = DataManager.GetInstance().userInfo.max_iron_count;
+					max_num = DataManager.GetInstance.userInfo.max_iron_count;
 				}
 				//collect_num = max_num;
 				int c = 0;
@@ -2216,7 +2216,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				data.PutInt("collect_num",collect_num);			
 				data.PutInt("collect_time",collect_time);
 				data.PutLong("building_id", s.building_id);
-				SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_Collect, false, s.HandleResponse);
+				SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_Collect, false, s.HandleResponse);
                 if(s.buildUIManage!=null)
 				    s.buildUIManage.SetCollectShader(true);
                 if (s.buildUI != null)
@@ -2278,8 +2278,8 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	private void onDialogTrainYes(ISFSObject dt,BuildInfo buildInfo = null){
 		//Debug.Log("onDialogYes");
 		//Debug.Log(dt.GetDump());
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
-			BuildInfo s = DataManager.GetInstance().BuildList[dt.GetLong("building_id")] as BuildInfo;
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
+			BuildInfo s = DataManager.GetInstance.BuildList[dt.GetLong("building_id")] as BuildInfo;
 			//Debug.Log(dt.GetDump());
 			StartTrainToServer(s,dt.GetUtfString("status_tid_level"), dt.GetInt("train_time"), dt.GetInt("Gold"),dt.GetInt("Gems"));
 		}else{
@@ -2298,7 +2298,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				//负数时，退还差价;
 				int collect_num = -gold;
 				if (collect_num > 0){
-					int max_num = DataManager.GetInstance().userInfo.max_gold_count;
+					int max_num = DataManager.GetInstance.userInfo.max_gold_count;
 					int c = 0;
 					if(max_num>0)
 					{
@@ -2316,7 +2316,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 			}
 			//Debug.Log("status_tid_level:" + status_tid_level);
 
-			CsvInfo csvInfo = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+			CsvInfo csvInfo = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 
 			s.start_time = Helper.current_time();
 			s.troops_start_time = s.start_time;
@@ -2397,7 +2397,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	public bool hasStatue(){
 		//Debug.Log(status.ToString() + ";tid:" + tid + ";status_tid_level:" + status_tid_level + ";artifact_type:" + artifact_type.ToString() + ";artifact_boost:" + artifact_boost);
 		if (status == BuildStatus.Normal && tid == "TID_BUILDING_ARTIFACT_WORKSHOP" && status_tid_level != "" && status_tid_level != null){
-			CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+			CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 			return csvArtiact.BuildingClass == "Artifact";
 		}else{
 			return false;
@@ -2409,7 +2409,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 		if (hasStatue()){
 			int artifact_num = Helper.GetArtifactNum();
 			if (artifact_num < csvInfo.ArtifactCapacity){
-				CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+				CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 				string tid_artifact = "TID_BUILDING_ARTIFACT3";
 				if (csvArtiact.ArtifactType == 1){
 					tid_artifact = "TID_BUILDING_ARTIFACT3";
@@ -2456,7 +2456,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 		
 		if (s.status == BuildStatus.Normal){
 					
-			CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+			CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 			
 			int artifact_num = Helper.GetArtifactNum();
 			//if (hasStatue()){
@@ -2482,29 +2482,29 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 
 
 					if (status_tid_level == "TID_BUILDING_ARTIFACT1_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT2_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT3_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT1_ICE_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES_ICE"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES_ICE"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT2_ICE_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES_ICE"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES_ICE"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT3_ICE_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES_ICE"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES_ICE"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT1_FIRE_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES_FIRE"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES_FIRE"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT2_FIRE_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES_FIRE"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES_FIRE"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT3_FIRE_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES_FIRE"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES_FIRE"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT1_DARK_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES_DARK"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_COMMON_ARTIFACT_PIECES_DARK"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT2_DARK_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES_DARK"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_RARE_ARTIFACT_PIECES_DARK"));
 					}else if (status_tid_level == "TID_BUILDING_ARTIFACT3_DARK_1"){
-                        UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES_DARK"));
+                        UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(StringFormat.FormatByTid("TID_NOT_ENOUGH_EPIC_ARTIFACT_PIECES_DARK"));
 					}
 
 
@@ -2543,7 +2543,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	{
 		IsDead = false;
 		CurrentHitPoint = BattleHitpoint;
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY){
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY){
 			//取从服务端下载回来的值;
 			BattleID = GameLoader.Instance.BattleIDList[this.building_id];
 		}else{
@@ -2722,11 +2722,11 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	public static BuildInfo loadFromBuildInfoCache(string tid_level)
 	{
 		BuildInfo buildInfo = null;
-		if(DataManager.GetInstance().buildObjectPrefabList.ContainsKey(tid_level))
+		if(DataManager.GetInstance.buildObjectPrefabList.ContainsKey(tid_level))
 		{
-			if(DataManager.GetInstance().buildObjectPrefabList[tid_level]!=null&&DataManager.GetInstance().buildObjectPrefabList[tid_level].Count>0)
+			if(DataManager.GetInstance.buildObjectPrefabList[tid_level]!=null&&DataManager.GetInstance.buildObjectPrefabList[tid_level].Count>0)
 			{
-				buildInfo = DataManager.GetInstance().buildObjectPrefabList[tid_level].Dequeue();
+				buildInfo = DataManager.GetInstance.buildObjectPrefabList[tid_level].Dequeue();
 				if(buildInfo!=null)
 				{
 					buildInfo.gameObject.SetActive(true);
@@ -2779,17 +2779,17 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 	{
 		if(b!=null)
 		{
-			if(!DataManager.GetInstance().buildObjectPrefabList.ContainsKey(b.tid_level))
+			if(!DataManager.GetInstance.buildObjectPrefabList.ContainsKey(b.tid_level))
 			{
 				Queue<BuildInfo> objQueue = new Queue<BuildInfo>();
 				objQueue.Enqueue(b);
-				DataManager.GetInstance().buildObjectPrefabList.Add(b.tid_level,objQueue);
+				DataManager.GetInstance.buildObjectPrefabList.Add(b.tid_level,objQueue);
 			}
 			else
 			{
-				if(DataManager.GetInstance().buildObjectPrefabList[b.tid_level]==null)
-					DataManager.GetInstance().buildObjectPrefabList[b.tid_level] = new Queue<BuildInfo>();
-				DataManager.GetInstance().buildObjectPrefabList[b.tid_level].Enqueue(b);
+				if(DataManager.GetInstance.buildObjectPrefabList[b.tid_level]==null)
+					DataManager.GetInstance.buildObjectPrefabList[b.tid_level] = new Queue<BuildInfo>();
+				DataManager.GetInstance.buildObjectPrefabList[b.tid_level].Enqueue(b);
 			}
 			b.gameObject.SetActive (false);
 		}

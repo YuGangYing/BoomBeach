@@ -24,7 +24,7 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_btnMask = m_Trans.FindChild("#btn_mask").GetComponent<Button>();
+            m_btnMask = m_Trans.Find("#btn_mask").GetComponent<Button>();
         }
 
         // Update is called once per frame

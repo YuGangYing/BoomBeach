@@ -30,13 +30,13 @@ namespace BoomBeach
         public override void Awake()
         {
             m_Trans = transform;
-            m_txtTitle = m_Trans.FindChild("#txt_title").GetComponent<Text>();
-            m_txtConfirm = m_Trans.FindChild("#btn_confirm/#txt_confirm").GetComponent<Text>();
-            m_containerDiamond = m_Trans.FindChild("#btn_confirm/#container_diamond").gameObject;
-            m_txtDiamond = m_Trans.FindChild("#btn_confirm/#txt_diamond").GetComponent<Text>();
-            m_btnConfirm = m_Trans.FindChild("#btn_confirm").GetComponent<Button>();
-            m_txtMsg = m_Trans.FindChild("#txt_msg").GetComponent<Text>();
-            m_btnClose = m_Trans.FindChild("#btn_close").GetComponent<Button>();
+            m_txtTitle = m_Trans.Find("#txt_title").GetComponent<Text>();
+            m_txtConfirm = m_Trans.Find("#btn_confirm/#txt_confirm").GetComponent<Text>();
+            m_containerDiamond = m_Trans.Find("#btn_confirm/#container_diamond").gameObject;
+            m_txtDiamond = m_Trans.Find("#btn_confirm/#txt_diamond").GetComponent<Text>();
+            m_btnConfirm = m_Trans.Find("#btn_confirm").GetComponent<Button>();
+            m_txtMsg = m_Trans.Find("#txt_msg").GetComponent<Text>();
+            m_btnClose = m_Trans.Find("#btn_close").GetComponent<Button>();
 
         }
 

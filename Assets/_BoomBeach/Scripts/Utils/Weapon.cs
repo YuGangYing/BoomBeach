@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour {
 	private float TimeSpan = 0f;
 	void Update () 
 	{
-		if(isRandRoll&&!isRolling&&DataManager.GetInstance().sceneStatus!=SceneStatus.ENEMYBATTLE&&DataManager.GetInstance().sceneStatus!=SceneStatus.BATTLEREPLAY)
+		if(isRandRoll&&!isRolling&&DataManager.GetInstance.sceneStatus!=SceneStatus.ENEMYBATTLE&&DataManager.GetInstance.sceneStatus!=SceneStatus.BATTLEREPLAY)
 		RandRoll ();
 
 		if(isRolling)
@@ -58,7 +58,7 @@ public class Weapon : MonoBehaviour {
 				{
 					if(onAim!=null)
 					{
-						if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE || DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY)
+						if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE || DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY)
 						onAim();					
 					}
 					isRolling = false;

@@ -35,7 +35,7 @@ public class NormalMsgCtrl : BaseCtrl
 
     void OnCreatePanel()
     {
-        mItemPrefab = mNormalPanelView.m_containerPoppoint.transform.FindChild("item").gameObject;
+        mItemPrefab = mNormalPanelView.m_containerPoppoint.transform.Find("item").gameObject;
        
     }
 

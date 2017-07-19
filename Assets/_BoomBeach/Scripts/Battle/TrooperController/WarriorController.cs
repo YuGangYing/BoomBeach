@@ -8,7 +8,7 @@ public class WarriorController :TrooperController {
 	/// 检测是否开始攻击;
 	/// </summary>
 	public override bool CheckBeginAttack()	{
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 		{
 
 			//战士检测点为寻路目标点;
@@ -21,7 +21,7 @@ public class WarriorController :TrooperController {
 				CMDStand ();
 
 				//行走结束，上传路径结点(重机枪兵需重写，不用上传，等攻击过程中检测成立后上传);
-				if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
+				if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
 					BattleData.Instance.BattleCommondQueue.Enqueue(charInfo.walkListReplayData);
 				
 				return true;
@@ -37,7 +37,7 @@ public class WarriorController :TrooperController {
 						attackTimeCounter = 0; //攻击计时器归零;
 
 						//行走结束，上传路径结点(重机枪兵需重写，不用上传，等攻击过程中检测成立后上传);
-						if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
+						if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE&&charInfo.walkListReplayData!=null)
 							BattleData.Instance.BattleCommondQueue.Enqueue(charInfo.walkListReplayData);					
 					
 						CMDFindDest(); //重新查找目标;

@@ -58,7 +58,7 @@ public class TroopDetailCtrl : BaseCtrl
         mTroopDetailPanelView.m_containerUpgrade.SetActive(true);
 		mTroopDetailPanelView.m_txtDiamond.text = Helper.GetUpgradeInstant (tidData.tid_level).ToString();
         mTroopDetailPanelView.m_txtGold.text = tidData.upgradeCost.ToString();
-        if (tidData.upgradeCost > DataManager.GetInstance().userInfo.gold_count)
+        if (tidData.upgradeCost > DataManager.GetInstance.userInfo.gold_count)
         {
             mTroopDetailPanelView.m_txtGold.color = Color.red;
         }
@@ -72,7 +72,7 @@ public class TroopDetailCtrl : BaseCtrl
     public void BindData(string tid_level,bool isUpgrade)
     {
 
-        CsvInfo csvInfo = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+        CsvInfo csvInfo = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
         string ShowName = StringFormat.FormatByTid(csvInfo.TID);
         string ShowLevel = StringFormat.FormatByTid("TID_LEVEL_NUM", new string[] { csvInfo.Level.ToString() });
         string Description = StringFormat.FormatByTid(csvInfo.InfoTID);
@@ -97,18 +97,18 @@ public class TroopDetailCtrl : BaseCtrl
         {
             GameObject propertyItem = mTroops[i].gameObject;
             propertyItem.SetActive(true);
-            propertyItem.transform.FindChild("txt_name").GetComponent<Text>().text = info.showName;
+            propertyItem.transform.Find("txt_name").GetComponent<Text>().text = info.showName;
             Sprite sprite;
-            if (info.spriteName!=null && ResourceManager.GetInstance().atlas.commonSpriteDic.TryGetValue(info.spriteName, out sprite))
+            if (info.spriteName!=null && ResourceManager.GetInstance.atlas.commonSpriteDic.TryGetValue(info.spriteName, out sprite))
             {
-                propertyItem.transform.FindChild("img").gameObject.SetActive(true);
-                propertyItem.transform.FindChild("img").GetComponent<Image>().sprite = sprite;
+                propertyItem.transform.Find("img").gameObject.SetActive(true);
+                propertyItem.transform.Find("img").GetComponent<Image>().sprite = sprite;
             }
             else
             {
-                propertyItem.transform.FindChild("img").gameObject.SetActive(false);
+                propertyItem.transform.Find("img").gameObject.SetActive(false);
             }
-            propertyItem.transform.FindChild("txt_num").GetComponent<Text>().text = info.value;
+            propertyItem.transform.Find("txt_num").GetComponent<Text>().text = info.value;
            // propertyItem.transform.Find("Added").gameObject.SetActive(true);
            // propertyItem.transform.Find("Upgrade").gameObject.SetActive(false);
             propertyItem.transform.Find("txt_add_num").GetComponent<Text>().text = info.bonus_value;
@@ -125,12 +125,12 @@ public class TroopDetailCtrl : BaseCtrl
        
         if (csvInfo.TID_Type == "CHARACTERS")
         {
-            mTroopDetailPanelView.m_imgBigicon.sprite = ResourceManager.GetInstance().atlas.avaterFullSpriteDic[csvInfo.TID];
+            mTroopDetailPanelView.m_imgBigicon.sprite = ResourceManager.GetInstance.atlas.avaterFullSpriteDic[csvInfo.TID];
             mTroopDetailPanelView.m_imgBigicon.transform.localScale = Vector3.one;
         }
         else
         {
-            mTroopDetailPanelView.m_imgBigicon.sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic [csvInfo.TID];
+            mTroopDetailPanelView.m_imgBigicon.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic [csvInfo.TID];
             mTroopDetailPanelView.m_imgBigicon.transform.localScale = Vector3.one ;
         }
         mTroopDetailPanelView.m_containerUpgrade.SetActive(false);

@@ -86,7 +86,7 @@ public static class CollectHandle {
 		data.PutInt("collect_num",collect_num);			
 		data.PutInt("collect_time",collect_time);
 		data.PutLong("building_id", s.building_id);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_Collect, false,BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_Collect, false,BuildHandle.HandleResponse);
 	}
 
 }

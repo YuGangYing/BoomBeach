@@ -9,7 +9,7 @@ namespace BoomBeach{
 			if(s.status != BuildStatus.Normal){
 				return;
 			}
-			CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+			CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 			int artifact_num = Helper.GetArtifactNum();
 			BuildCost bc = Helper.GetBuildCost(status_tid_level);
 			string msg = null;
@@ -21,7 +21,7 @@ namespace BoomBeach{
 				}
 			}
 			if(msg != null){
-				UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(msg);
+				UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(msg);
 				return;
 			}
 			Helper.SetResourceCount (bc.piece_type, -bc.piece, false, true);
@@ -46,7 +46,7 @@ namespace BoomBeach{
 		//取消创建神像
 		public static void OnCancelCreateStatus(BuildInfo s){
 			string status_tid_level = s.status_tid_level;
-			CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[status_tid_level] as CsvInfo;
+			CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[status_tid_level] as CsvInfo;
 			int artifact_num = Helper.GetArtifactNum();
 			BuildCost bc = Helper.GetBuildCost(status_tid_level);
 			Helper.SetResourceCount (bc.piece_type, bc.piece, false, true);
@@ -62,7 +62,7 @@ namespace BoomBeach{
 		//判断，当前建筑物上，是否有存在，还未 部署 神像;
 		static bool HasStatue(BuildInfo s){
 			if (s.status == BuildStatus.Normal && s.tid == "TID_BUILDING_ARTIFACT_WORKSHOP" && s.status_tid_level != "" && s.status_tid_level != null){
-				CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+				CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 				return csvArtiact.BuildingClass == "Artifact";
 			}else{
 				return false;
@@ -74,7 +74,7 @@ namespace BoomBeach{
 			if (HasStatue(s)){
 				int artifact_num = Helper.GetArtifactNum();
 				if (artifact_num < s.csvInfo.ArtifactCapacity){
-					CsvInfo csvArtiact = CSVManager.GetInstance().csvTable[s.status_tid_level] as CsvInfo;
+					CsvInfo csvArtiact = CSVManager.GetInstance.csvTable[s.status_tid_level] as CsvInfo;
 					string tid_artifact = "TID_BUILDING_ARTIFACT3";
 					if (csvArtiact.ArtifactType == 1){
 						tid_artifact = "TID_BUILDING_ARTIFACT3";

@@ -34,23 +34,23 @@ namespace BoomBeach
             Debug.Log(PlayerPrefs.GetInt("MusicSwitch", 0));
             if (PlayerPrefs.GetInt("MusicSwitch", 0) == 0)
             {
-                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["OrangeButtonBg"];
+                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["OrangeButtonBg"];
                 mSettingPanelView.m_txtMusic.text = LocalizationCustom.instance.Get("TID_SETTINGS_OFF");
             }
             else
             {
-                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["GreenButtonBg"];
+                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["GreenButtonBg"];
                 mSettingPanelView.m_txtMusic.text = LocalizationCustom.instance.Get("TID_SETTINGS_ON");
             }
 
             if (PlayerPrefs.GetInt("SoundEffectSwitch", 0) == 0)
             {
-                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["OrangeButtonBg"];
+                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["OrangeButtonBg"];
                 mSettingPanelView.m_txtSound.text = LocalizationCustom.instance.Get("TID_SETTINGS_OFF");
             }
             else
             {
-                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["GreenButtonBg"];
+                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["GreenButtonBg"];
                 mSettingPanelView.m_txtSound.text = LocalizationCustom.instance.Get("TID_SETTINGS_ON");
             }
         }
@@ -78,7 +78,7 @@ namespace BoomBeach
             {
                 PlayerPrefs.SetInt("MusicSwitch",0);
 
-                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["OrangeButtonBg"];
+                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["OrangeButtonBg"];
                 mSettingPanelView.m_txtMusic.text = LocalizationCustom.instance.Get("TID_SETTINGS_OFF");
                 AudioPlayer.Instance.IsPlayMusic = false;
 
@@ -87,7 +87,7 @@ namespace BoomBeach
             else
             {
                 PlayerPrefs.SetInt("MusicSwitch", 1);
-                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["GreenButtonBg"];
+                mSettingPanelView.m_btnMusic.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["GreenButtonBg"];
                 mSettingPanelView.m_txtMusic.text = LocalizationCustom.instance.Get("TID_SETTINGS_ON");
                 AudioPlayer.Instance.IsPlayMusic = true;
                 //Audio_music.play();
@@ -102,7 +102,7 @@ namespace BoomBeach
             {
                 PlayerPrefs.SetInt("SoundEffectSwitch", 0);
 
-                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["OrangeButtonBg"];
+                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["OrangeButtonBg"];
                 mSettingPanelView.m_txtSound.text = LocalizationCustom.instance.Get("TID_SETTINGS_OFF");
                 AudioPlayer.Instance.IsPlaySfx = false;
             }
@@ -110,7 +110,7 @@ namespace BoomBeach
             {
                 PlayerPrefs.SetInt("SoundEffectSwitch",1);
 
-                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["GreenButtonBg"];
+                mSettingPanelView.m_btnSound.GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["GreenButtonBg"];
                 mSettingPanelView.m_txtSound.text = LocalizationCustom.instance.Get("TID_SETTINGS_ON");
                 AudioPlayer.Instance.IsPlaySfx = true;
             }

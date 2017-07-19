@@ -43,7 +43,7 @@ public class ManageStatueBox : MonoBehaviour {
 
 	public void BindData(BuildInfo buildInfo)
 	{
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable [buildInfo.status_tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable [buildInfo.status_tid_level] as CsvInfo;
 		string name = StringFormat.FormatByTid ("TID_COMPLETED_ARTIFACT", new object[]{StringFormat.FormatByTid (csvInfo.TID)});
 		DispName.text = name;
 
@@ -54,7 +54,7 @@ public class ManageStatueBox : MonoBehaviour {
 		DeployVal.text = StringFormat.FormatByTid(InfoTID,new string[]{buildInfo.artifact_boost.ToString()});
 
 		string artiact_tid_level = Helper.BuildTIDToArtifactTID(csvInfo.TID) + "_1";
-		CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance().csvTable[artiact_tid_level];
+		CsvInfo csvArtiact = (CsvInfo)CSVManager.GetInstance.csvTable[artiact_tid_level];
 
 		ReclaimVal.text = " x " + csvArtiact.SellResourceAmount.ToString();
 		ReclaimCrystle.spriteName = csvArtiact.SellResource;

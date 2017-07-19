@@ -164,7 +164,7 @@ public class EffectController : MonoBehaviour {
 			Object prefab = ResourceCache.load(path);
 			if(prefab==null)return null;
 			GameObject effectObj = GameObject.Instantiate(prefab) as GameObject;
-			effectObj.transform.parent = SpawnManager.GetInstance().bulletContainer;
+			effectObj.transform.parent = SpawnManager.GetInstance.bulletContainer;
 			effect = effectObj.GetComponent<EffectController>();			
 		}
 		if(lifetime>0)

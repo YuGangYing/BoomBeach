@@ -47,8 +47,8 @@ namespace BoomBeach
                     {
                         GameObject unlockItemObj = mBuildDetailPanelView.m_containerUnlock.transform.GetChild(k).gameObject;
                         unlockItemObj.SetActive(true);
-                        unlockItemObj.transform.FindChild("Image").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[tid.tid];
-                        unlockItemObj.transform.FindChild("Text").GetComponent<Text>().text = tid.value;
+                        unlockItemObj.transform.Find("Image").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[tid.tid];
+                        unlockItemObj.transform.Find("Text").GetComponent<Text>().text = tid.value;
                         /**
                         UnlockItem item = unlockItemObj.GetComponent<UnlockItem>();
                         item.Name = tid.showName;
@@ -83,7 +83,7 @@ namespace BoomBeach
                 {
                     mBuildDetailPanelView.m_containerWood.SetActive(true);
                     mBuildDetailPanelView.m_txtWood.text = buildCost.wood.ToString();
-                    if (buildCost.wood > DataManager.GetInstance().userInfo.wood_count)
+                    if (buildCost.wood > DataManager.GetInstance.userInfo.wood_count)
                     {
                         mBuildDetailPanelView.m_txtWood.color = Color.red;
                     }
@@ -101,7 +101,7 @@ namespace BoomBeach
                 {
                     mBuildDetailPanelView.m_containerStone.SetActive(true);
                     mBuildDetailPanelView.m_txtStone.text = buildCost.stone.ToString();
-                    if (buildCost.stone > DataManager.GetInstance().userInfo.stone_count)
+                    if (buildCost.stone > DataManager.GetInstance.userInfo.stone_count)
                     {
                         mBuildDetailPanelView.m_txtStone.color = Color.red;
                     }
@@ -119,7 +119,7 @@ namespace BoomBeach
                 {
                     mBuildDetailPanelView.m_containerIron.SetActive(true);
                     mBuildDetailPanelView.m_txtIron.text = buildCost.iron.ToString();
-                    if (buildCost.iron > DataManager.GetInstance().userInfo.iron_count)
+                    if (buildCost.iron > DataManager.GetInstance.userInfo.iron_count)
                     {
                         mBuildDetailPanelView.m_txtIron.color = Color.red;
                     }
@@ -219,16 +219,16 @@ namespace BoomBeach
             foreach (string key in propertyList.Keys)
             {
                 //infos[i].transform.FindChild();
-                infos[k].transform.FindChild("txt_name").GetComponent<Text>().text = propertyList[key].showName;
-                infos[k].transform.FindChild("img").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic[propertyList[key].spriteName];
-                infos[k].transform.FindChild("txt_num").GetComponent<Text>().text = propertyList[key].value;
+                infos[k].transform.Find("txt_name").GetComponent<Text>().text = propertyList[key].showName;
+                infos[k].transform.Find("img").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic[propertyList[key].spriteName];
+                infos[k].transform.Find("txt_num").GetComponent<Text>().text = propertyList[key].value;
                 if (isUpgrade)
                 {
-                    infos[k].transform.FindChild("txt_add_num").GetComponent<Text>().text = propertyList[key].upgrade_value;
+                    infos[k].transform.Find("txt_add_num").GetComponent<Text>().text = propertyList[key].upgrade_value;
                 }
                 else
                 {
-                    infos[k].transform.FindChild("txt_add_num").GetComponent<Text>().text = propertyList[key].bonus_value;
+                    infos[k].transform.Find("txt_add_num").GetComponent<Text>().text = propertyList[key].bonus_value;
                 }
                 infos[k].gameObject.SetActive(true);
                 k++;
@@ -248,8 +248,8 @@ namespace BoomBeach
         {
             Transform BuildModel = mBuildDetailPanelView.m_containerBuildpoint.transform;
             //创建模形;
-            if (BuildModel.FindChild("model") != null)
-                Destroy(BuildModel.FindChild("model").gameObject);
+            if (BuildModel.Find("model") != null)
+                Destroy(BuildModel.Find("model").gameObject);
             if (buildInfo.csvInfo.BuildingClass == "Artifact")
             {
                 Helper.CreateArtifactUI(BuildModel, buildInfo.tid_level, buildInfo.artifact_type);

@@ -1,0 +1,11 @@
+{"user_info":
+{"id":"1","device_id":"xxxxxxxxx","user_name":"空手道断水流大师兄","town_hall_level":"1","laboratory_level":"1","gunship_level":"1","vault_level":"1","common_piece":"0","rare_piece":"0","epic_piece":"0",
+"common_piece_ice":"0","rare_piece_ice":"0","epic_piece_ice":"0","common_piece_fire":"0","rare_piece_fire":"0","epic_piece_fire":"0","common_piece_dark":"0","rare_piece_dark":"0","epic_piece_dark":"0",
+"gold_count":"10000","wood_count":"10000","stone_count":"","iron_count":"0","diamond_count":"50","max_gold_count":"10000","max_wood_count":"10000","max_stone_count":"0","max_iron_count":"0","reward_count":"0",
+"exp_count":"0","exp_level":"1","worker_count":"1"},
+"building_info":[
+{"id":"1","user_id":"1","build_type":"1","level":"1","status":"1","start_time":"1","end_time":"1","pos_x":"1","pos_y":"1"}
+
+
+]
+}

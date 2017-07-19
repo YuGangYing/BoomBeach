@@ -18,7 +18,7 @@ public static class TrainHandle {
 			int gems = dt.GetInt("Gems");
 			//资源不足，需要增加宝石才行;
 			if (gems > 0){
-				UIManager.GetInstance ().GetComponent<PopMsgCtrl>().ShowDialog (
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog (
 					dt.GetUtfString ("msg"),
 					dt.GetUtfString ("title"),
 					gems.ToString (),
@@ -32,7 +32,7 @@ public static class TrainHandle {
 	}
 
 	static void OnDialogTrainYes(ISFSObject dt,BuildInfo s = null){
-		if (DataManager.GetInstance().userInfo.diamond_count >= dt.GetInt("Gems")){
+		if (DataManager.GetInstance.userInfo.diamond_count >= dt.GetInt("Gems")){
 			Train (s,dt.GetUtfString("train_tid"),dt.GetInt("train_time"),dt.GetInt("Gold"),dt.GetInt("Gem"));
 		}else{
 			//宝石不够;
@@ -49,7 +49,7 @@ public static class TrainHandle {
 				//负数时，退还差价;
 				int collect_num = -gold;
 				if (collect_num > 0) {
-					int max_num = DataManager.GetInstance().userInfo.max_gold_count;
+					int max_num = DataManager.GetInstance.userInfo.max_gold_count;
 					int c = 0;
 					if (max_num > 0) {
 						c = Mathf.CeilToInt (collect_num * 100f / max_num);
@@ -66,7 +66,7 @@ public static class TrainHandle {
 					Helper.SetBuildUpgradeIcon();
 				}
 			}
-			CsvInfo csvInfo = CSVManager.GetInstance().csvTable[train_tid] as CsvInfo;
+			CsvInfo csvInfo = CSVManager.GetInstance.csvTable[train_tid] as CsvInfo;
 			s.start_time = Helper.current_time();
 			s.troops_start_time = s.start_time;
 			s.end_time = s.start_time + train_time;		
@@ -95,7 +95,7 @@ public static class TrainHandle {
 				string title = StringFormat.FormatByTid("TID_POPUP_HEADER_ABOUT_TO_SPEED_UP_ALL_TROOP_TRAIN");
 				string msg = StringFormat.FormatByTid("TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING",new object[]{gems});
 				ISFSObject dt = new SFSObject ();
-				UIManager.GetInstance ().GetComponent<PopMsgCtrl>().ShowDialog (
+				UIManager.GetInstance.GetComponent<PopMsgCtrl>().ShowDialog (
 					msg,
 					title,
 					gems.ToString (),
@@ -110,7 +110,7 @@ public static class TrainHandle {
 		if (s.status == BuildStatus.Train) {
 			int current_time = Helper.current_time ();
 			int gems = CalcHelper.calcTimeToGems (s.end_time - current_time);
-			if (DataManager.GetInstance().userInfo.diamond_count >= gems){
+			if (DataManager.GetInstance.userInfo.diamond_count >= gems){
 				Helper.SetResource (0, 0, 0, 0, -gems, true);
 				SendTrainSpeedUpToServer (s);
 				TrainTroops(s,s.end_time);//时间决定数量
@@ -144,34 +144,34 @@ public static class TrainHandle {
 		ISFSObject data = new SFSObject();
 		data.PutLong("building_id", building_id);
 		data.PutUtfString ("createSoldierTid",tid);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_Train, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_Train, false, BuildHandle.HandleResponse);
 	}
 
 	public static void SendTrainAllToServer(){
 		Debug.Log("SendTrainAllToServer");
 		ISFSObject data = new SFSObject();
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_TrainAll, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_TrainAll, false, BuildHandle.HandleResponse);
 	}
 
 	public static void SendTrainSpeedUpToServer(BuildInfo s){
 		Debug.Log("SendTrainSpeedUpToServer");
 		ISFSObject data = new SFSObject();
 		data.PutLong("id", s.building_id);
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_SpeedUPTrain, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_SpeedUPTrain, false, BuildHandle.HandleResponse);
 		//SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_SpeedUPTrain, false, HandleResponse);                                                                        nse);
 	}
 
 	public static void SendTrainSpeedUpAllToServer(){
 		Debug.Log ("SendTrainSpeedUpAllToServer");
 		ISFSObject data = new SFSObject();
-		SFSNetworkManager.Instance.SendRequest(data, SFSNetworkManager.CMD_SpeedUPTrainAll, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data, ApiConstant.CMD_SpeedUPTrainAll, false, BuildHandle.HandleResponse);
 	}
 
 	public static void SendCancelTrainToServer(BuildInfo s){
 		Debug.Log("SendCancelTrainToServer");
 		ISFSObject data = new SFSObject();
 		data.PutLong("building_id", s.building_id);
-		SFSNetworkManager.Instance.SendRequest(data,SFSNetworkManager.CMD_CancelTraining, false, BuildHandle.HandleResponse);
+		SFSNetworkManager.Instance.SendRequest(data,ApiConstant.CMD_CancelTraining, false, BuildHandle.HandleResponse);
 	}
 
 	//返回军队生产数量;
@@ -187,7 +187,7 @@ public static class TrainHandle {
 			troops_num = Mathf.FloorToInt((current_time - s.troops_start_time) / train_time);
 			if (troops_num > 0){
 				int max_space = s.csvInfo.HousingSpace;
-				CsvInfo csvData = (CsvInfo)CSVManager.GetInstance().csvTable[s.status_tid_level];
+				CsvInfo csvData = (CsvInfo)CSVManager.GetInstance.csvTable[s.status_tid_level];
 				int max_troops_num = Mathf.FloorToInt(max_space / csvData.HousingSpace);
 				//不能大于最大容量;
 				if (s.troops_num + troops_num > max_troops_num){

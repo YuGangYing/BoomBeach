@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// Hideous 眉berclass to work around Unity not supporting inheritence
+// Hideous überclass to work around Unity not supporting inheritence
 [System.Serializable]
 public class tk2dBatchedSprite
 {
@@ -187,10 +187,27 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		Build();
 	}
 	
+#if UNITY_EDITOR
+	private void OnEnable() {
+		if (GetComponent<Renderer>() != null && batchedSprites != null) {
+			bool needBuild = false;
+			foreach (Material m in GetComponent<Renderer>().sharedMaterials) {
+				if (m == null) {
+					needBuild = true;
+					break;
+				}
+			}
+			if (needBuild) {
+				ForceBuild();
+			}
+		}
+	}
+#endif
+
 	// Sanitize data, returns true if needs rebuild
 	bool UpgradeData()
 	{
-		if (version == CURRENT_VERSION) {
+		if (version == CURRENT_VERSION ) {
 			return false;
 		}
 		
@@ -235,7 +252,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		version = CURRENT_VERSION;
 
 #if UNITY_EDITOR
-		UnityEditor.EditorUtility.SetDirty(this);
+		tk2dUtil.SetDirty(this);
 #endif
 		
 		return true;
@@ -646,6 +663,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		GetComponent<Renderer>().sharedMaterials = materials.ToArray();
 	}
 
+#if !STRIP_PHYSICS_3D && !STRIP_PHYSICS_2D
 	void BuildPhysicsMesh()
 	{
 		// Check if the Generate Colliders flag is cleared
@@ -1015,6 +1033,15 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		
 		meshCollider.sharedMesh = colliderMesh;
 	}
+
+#else
+
+	void BuildPhysicsMesh()
+	{
+		Debug.Log("tk2dStaticSpriteBatcher - Unsupported");
+	}
+
+#endif
 	
 	public bool UsesSpriteCollection(tk2dSpriteCollectionData spriteCollection)
 	{

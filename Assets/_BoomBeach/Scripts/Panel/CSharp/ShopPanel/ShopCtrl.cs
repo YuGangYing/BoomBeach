@@ -33,7 +33,7 @@ namespace BoomBeach {
             mShopPanelView.m_btnSurport.onClick.AddListener(ShowSurport);
             LayoutElement[] eles = mShopPanelView.m_gridResourcecarditems.GetComponentsInChildren<LayoutElement>(true);
             for (int i=0;i<eles.Length;i++) {
-                Button btn = eles[i].transform.FindChild("Button").GetComponent<Button>();
+                Button btn = eles[i].transform.Find("Button").GetComponent<Button>();
                 btn.onClick.AddListener(OnCardItemClick);
                 cardItems.Add(btn.gameObject);
             }
@@ -41,12 +41,12 @@ namespace BoomBeach {
 
         void DeselectTabBtn(Button btn)
         {
-            btn.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+            btn.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
         }
 
         void SelectTabBtn(Button btn)
         {
-            btn.transform.FindChild("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            btn.transform.Find("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
         }
 
         void ShowResource()
@@ -118,37 +118,37 @@ namespace BoomBeach {
             GameObject go = EventSystem.current.currentSelectedGameObject;
             Close();
             CloseMask();
-            Debug.Log(go.transform.FindChild("img_item"));
+            Debug.Log(go.transform.Find("img_item"));
         }
 
 
         void SetItem(LayoutElement ele,string tid)
         {
-            Button button = ele.transform.FindChild("Button").GetComponent<Button>();
+            Button button = ele.transform.Find("Button").GetComponent<Button>();
             button.onClick.AddListener(OnShopItemClick);
-            Image image = ele.transform.FindChild("Button/img_item").GetComponent<Image>();
-			Sprite sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[tid];
+            Image image = ele.transform.Find("Button/img_item").GetComponent<Image>();
+			Sprite sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[tid];
             image.sprite = sprite;
         }
 
         //绑定数据;
         public void BindData(LayoutElement ele,ShopItem shopItem)
         {
-            Button button = ele.transform.FindChild("Button").GetComponent<Button>();
-            Text disablemsg = ele.transform.FindChild("Button/item_disablemsg").GetComponent<Text>();
-            GameObject resourceBox = ele.transform.FindChild("Button/container_resourcebox").gameObject;
-            Text buildName = ele.transform.FindChild("Button/item_name").GetComponent<Text>();
-            Text buildDisc = ele.transform.FindChild("Button/item_disc").GetComponent<Text>();
-            Text buildTime = ele.transform.FindChild("Button/container_resourcebox/txt_builttime").GetComponent<Text>();
-            Text buildCount = ele.transform.FindChild("Button/container_resourcebox/txt_build").GetComponent<Text>();
-            Image buildImg = ele.transform.FindChild("Button/img_item").GetComponent<Image>(); 
+            Button button = ele.transform.Find("Button").GetComponent<Button>();
+            Text disablemsg = ele.transform.Find("Button/item_disablemsg").GetComponent<Text>();
+            GameObject resourceBox = ele.transform.Find("Button/container_resourcebox").gameObject;
+            Text buildName = ele.transform.Find("Button/item_name").GetComponent<Text>();
+            Text buildDisc = ele.transform.Find("Button/item_disc").GetComponent<Text>();
+            Text buildTime = ele.transform.Find("Button/container_resourcebox/txt_builttime").GetComponent<Text>();
+            Text buildCount = ele.transform.Find("Button/container_resourcebox/txt_build").GetComponent<Text>();
+            Image buildImg = ele.transform.Find("Button/img_item").GetComponent<Image>(); 
 
             if (shopItem.isEnabled)
             {
                 disablemsg.gameObject.SetActive(false);
                 resourceBox.SetActive(true);
 
-                Transform resourceLayout = ele.transform.FindChild("Button/container_resourcebox/container_resource");
+                Transform resourceLayout = ele.transform.Find("Button/container_resourcebox/container_resource");
                
                 //LayoutElement[] resourceEles = resourceLayout.GetComponentsInChildren<LayoutElement>();
                 for (int i = 0; i < resourceLayout.childCount ; i++)
@@ -161,17 +161,17 @@ namespace BoomBeach {
                     if (sc.CostType == ShopCostType.Wood)
                     {
                         resourceLayout.GetChild(0).gameObject.SetActive(true);
-                        resourceLayout.GetChild(0).transform.FindChild("txt_resource").GetComponent<Text>().text = sc.CostAmount;
+                        resourceLayout.GetChild(0).transform.Find("txt_resource").GetComponent<Text>().text = sc.CostAmount;
                     }
                     else if (sc.CostType == ShopCostType.Stone)
                     {
                         resourceLayout.GetChild(1).gameObject.SetActive(true);
-                        resourceLayout.GetChild(1).transform.FindChild("txt_resource").GetComponent<Text>().text = sc.CostAmount;
+                        resourceLayout.GetChild(1).transform.Find("txt_resource").GetComponent<Text>().text = sc.CostAmount;
                     }
                     else if (sc.CostType == ShopCostType.Iron)
                     {
                         resourceLayout.GetChild(2).gameObject.SetActive(true);
-                        resourceLayout.GetChild(2).transform.FindChild("txt_resource").GetComponent<Text>().text = sc.CostAmount;
+                        resourceLayout.GetChild(2).transform.Find("txt_resource").GetComponent<Text>().text = sc.CostAmount;
                     }
                 }
 
@@ -191,7 +191,7 @@ namespace BoomBeach {
                 Image[] images = ele.GetComponentsInChildren<Image>();
                 for (int i = 0; i < images.Length; i++)
                 {
-                    images[i].material = ResourceManager.GetInstance().grayMat;
+                    images[i].material = ResourceManager.GetInstance.grayMat;
                     button.enabled = false;
                     //images[i].transform.localPosition = new Vector3(images[i].transform.localPosition.x, images[i].transform.localPosition.y, 0.1f);
                 }
@@ -225,7 +225,7 @@ namespace BoomBeach {
             {
                 buildCount.text = "0 / 0";
             }
-            buildImg.sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[shopItem.tid];
+            buildImg.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[shopItem.tid];
 
 
 
@@ -283,17 +283,17 @@ namespace BoomBeach {
             //if (PopPanel.current != null)
             //   PopPanel.current.CloseTween();
             //先移除正在：创建中的建筑物(只会有一个);
-	            foreach (BuildInfo s in DataManager.GetInstance().buildList.Values)
+	            foreach (BuildInfo s in DataManager.GetInstance.buildList.Values)
 	            {
 	                if (s.status == BuildStatus.Create)
 	                {
-	                    if (DataManager.GetInstance().buildList.ContainsKey(s.building_id))
+	                    if (DataManager.GetInstance.buildList.ContainsKey(s.building_id))
 	                    {
-	                        DataManager.GetInstance().buildList.Remove(s.building_id);
+	                        DataManager.GetInstance.buildList.Remove(s.building_id);
 	                    }
-	                    if (DataManager.GetInstance().buildArray.Contains(s))
+	                    if (DataManager.GetInstance.buildArray.Contains(s))
 	                    {
-	                        DataManager.GetInstance().buildArray.Remove(s);
+	                        DataManager.GetInstance.buildArray.Remove(s);
 	                    }
 	                    //building_id = s.building_id;
 	                    //清空占用格子;

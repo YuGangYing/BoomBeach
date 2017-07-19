@@ -82,7 +82,7 @@ public class MoveOpEvent : MonoBehaviour {
 	            text = GameObject.Find("GUI Text").GetComponent<GUIText>();
 	        }
 	        int gc = (int)System.GC.GetTotalMemory(true) / 1000000;
-	        int memory = (int)Profiler.GetTotalAllocatedMemory() / 1000000;
+	        int memory = (int)UnityEngine.Profiling.Profiler.GetTotalAllocatedMemory() / 1000000;
 	        text.text = "FPS:" + ((int)(1 / Time.deltaTime)).ToString() + ";GC:" + gc + ";Memory:" + memory;
 		}
 		#endif
@@ -166,7 +166,7 @@ public class MoveOpEvent : MonoBehaviour {
 	//一直执行;
 	void OnDrag(Vector3 touchPosition)
 	{
-        if (DataManager.GetInstance().sceneStatus != SceneStatus.HOME && DataManager.GetInstance().sceneStatus != SceneStatus.HOMERESOURCE)
+        if (DataManager.GetInstance.sceneStatus != SceneStatus.HOME && DataManager.GetInstance.sceneStatus != SceneStatus.HOMERESOURCE)
         {
             return;
         }
@@ -225,7 +225,7 @@ public class MoveOpEvent : MonoBehaviour {
 			if (SelectedBuildInfo != null && isHoverBuild (SelectedBuildInfo,worldPosition)) 
 			{
 				SelectedBuildInfo.isGrap = true;
-				if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME||DataManager.GetInstance().sceneStatus==SceneStatus.HOMERESOURCE)
+				if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME||DataManager.GetInstance.sceneStatus==SceneStatus.HOMERESOURCE)
 				{
 					CameraOpEvent.Instance.Status = false;	
 				}
@@ -257,12 +257,12 @@ public class MoveOpEvent : MonoBehaviour {
 		{
 			CameraOpEvent.Instance.Inertance();
 		}
-		if (DataManager.GetInstance().sceneStatus == SceneStatus.BATTLEREPLAY) 
+		if (DataManager.GetInstance.sceneStatus == SceneStatus.BATTLEREPLAY) 
 		{
 			isSenceOp = false;
 			return;
 		}
-		else if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+		else if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 		{
             
 			if(isSenceOp)
@@ -355,7 +355,7 @@ public class MoveOpEvent : MonoBehaviour {
 									clickBuild = build3D;
 								else
 									clickBuild = gridInfo.buildInfo;
-								if(DataManager.GetInstance().sceneStatus==SceneStatus.HOME)
+								if(DataManager.GetInstance.sceneStatus==SceneStatus.HOME)
 								{
 									
 									//0:可以采集;1:可以采集，并可以显示图标; 2:采集器已满;3:储存器容量已满,无法再放下;
@@ -434,7 +434,7 @@ public class MoveOpEvent : MonoBehaviour {
 			//修改by hc,2014.1.21，增加3d建筑不显示部份UI;
 			if(!buildInfo.is3D&&buildInfo.csvInfo.TID_Type!="OBSTACLES")
 			{
-                if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME || DataManager.GetInstance().sceneStatus == SceneStatus.HOMERESOURCE)
+                if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME || DataManager.GetInstance.sceneStatus == SceneStatus.HOMERESOURCE)
                 {
                     if (buildInfo.buildUIManage != null)
                     {

@@ -68,35 +68,35 @@ public class CrystleResource : MonoBehaviour {
 		
 		if (artifact_type == 1){
 			a_type = "";
-			common_piece = DataManager.GetInstance().userInfo.common_piece;
-			rare_piece = DataManager.GetInstance().userInfo.rare_piece;
-			epic_piece = DataManager.GetInstance().userInfo.epic_piece;
+			common_piece = DataManager.GetInstance.userInfo.common_piece;
+			rare_piece = DataManager.GetInstance.userInfo.rare_piece;
+			epic_piece = DataManager.GetInstance.userInfo.epic_piece;
 
 
 		}else if (artifact_type == 2){
 			a_type = "_ICE";
-			common_piece = DataManager.GetInstance().userInfo.common_piece_ice;
-			rare_piece = DataManager.GetInstance().userInfo.rare_piece_ice;
-			epic_piece = DataManager.GetInstance().userInfo.epic_piece_ice;
+			common_piece = DataManager.GetInstance.userInfo.common_piece_ice;
+			rare_piece = DataManager.GetInstance.userInfo.rare_piece_ice;
+			epic_piece = DataManager.GetInstance.userInfo.epic_piece_ice;
 		}else if (artifact_type == 3){
 			a_type = "_FIRE";
-			common_piece = DataManager.GetInstance().userInfo.common_piece_fire;
-			rare_piece = DataManager.GetInstance().userInfo.rare_piece_fire;
-			epic_piece = DataManager.GetInstance().userInfo.epic_piece_fire;
+			common_piece = DataManager.GetInstance.userInfo.common_piece_fire;
+			rare_piece = DataManager.GetInstance.userInfo.rare_piece_fire;
+			epic_piece = DataManager.GetInstance.userInfo.epic_piece_fire;
 		}else if (artifact_type == 4){
 			a_type = "_DARK";
-			common_piece = DataManager.GetInstance().userInfo.common_piece_dark;
-			rare_piece = DataManager.GetInstance().userInfo.rare_piece_dark;
-			epic_piece = DataManager.GetInstance().userInfo.epic_piece_dark;
+			common_piece = DataManager.GetInstance.userInfo.common_piece_dark;
+			rare_piece = DataManager.GetInstance.userInfo.rare_piece_dark;
+			epic_piece = DataManager.GetInstance.userInfo.epic_piece_dark;
 		}
 
-		CsvInfo csvArtiact1 = (CsvInfo)CSVManager.GetInstance().csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT1" + a_type) + "_1"];
+		CsvInfo csvArtiact1 = (CsvInfo)CSVManager.GetInstance.csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT1" + a_type) + "_1"];
 		SpritePiece1.spriteName = csvArtiact1.PieceResource;
 
-		CsvInfo csvArtiact2 = (CsvInfo)CSVManager.GetInstance().csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT2" + a_type) + "_1"];
+		CsvInfo csvArtiact2 = (CsvInfo)CSVManager.GetInstance.csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT2" + a_type) + "_1"];
 		SpritePiece2.spriteName = csvArtiact2.PieceResource;
 
-		CsvInfo csvArtiact3 = (CsvInfo)CSVManager.GetInstance().csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT3" + a_type) + "_1"];
+		CsvInfo csvArtiact3 = (CsvInfo)CSVManager.GetInstance.csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT3" + a_type) + "_1"];
 		SpritePiece3.spriteName = csvArtiact3.PieceResource;
 
 

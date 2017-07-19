@@ -12,7 +12,7 @@ public class Test : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.H)) {
             TextAsset buildings = Resources.Load<TextAsset>(@"csv/buildings");
-            Helper.loadcsv(buildings, CSVManager.GetInstance().csvTable, "BUILDING", true, false);
+            Helper.loadcsv(buildings, CSVManager.GetInstance.csvTable, "BUILDING", true, false);
         }
 	}
 }

@@ -74,7 +74,7 @@ public class BattleController:MonoBehaviour {
 			return true;
 		else
 		{
-			UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_CAN_NOT_USE_ABILITY_ON_TILE"));
+			UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_CAN_NOT_USE_ABILITY_ON_TILE"));
             //MessageManage.Instance.ShowMessage(LocalizationCustom.instance.Get("TID_CAN_NOT_USE_ABILITY_ON_TILE"));
 			return false;
 		}
@@ -107,13 +107,13 @@ public class BattleController:MonoBehaviour {
 		if (btd == null)return;
 		//检查是否可以使用
 		if (btd.weaponCost > Globals.EnergyTotal) {
-			UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().CannotFire ();
+			UIManager.GetInstance.GetController<BattleInterfaceCtrl>().CannotFire ();
 			return;
 		}
 		if(btd.building_id==0)
 		{
 			//武器;
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				if(IsClickInGameArea(worldPosition))
 				{
@@ -137,7 +137,7 @@ public class BattleController:MonoBehaviour {
 		}
 		else
 		{
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				BeachData beachData = IsClickInLandArea(touchPosition);
 				if(beachData!=null)
@@ -165,7 +165,7 @@ public class BattleController:MonoBehaviour {
 						lcc.state = AISTATE.MOVING;
 						lcc.Locate ();
 						landCraft.gameObject.SetActive (true);
-						UIManager.GetInstance ().GetController<BattleInterfaceCtrl>().OnTroopDeploy (btd);
+						UIManager.GetInstance.GetController<BattleInterfaceCtrl>().OnTroopDeploy (btd);
 						Globals.EnergyTotal-=btd.weaponCost;
 						/*
 						int length = BattleTrooperList.Instance.BattleItems.Count;
@@ -189,7 +189,7 @@ public class BattleController:MonoBehaviour {
 						BattleData.Instance.BattleCommondQueue.Enqueue(rnd);
 						//产生旗子;
 						GameObject flag = Instantiate(ResourceCache.load("Model/flag")) as GameObject;
-						flag.transform.parent = BuildManager.GetInstance().buildContainer;
+						flag.transform.parent = BuildManager.GetInstance.buildContainer;
 						flag.transform.position = Globals.GetRandPointInCircle(worldPosition,1f);
 						flag.transform.localScale = Vector3.one;
 						Destroy (flag,10);
@@ -201,7 +201,7 @@ public class BattleController:MonoBehaviour {
 				}
 				else
 				{
-					UIManager.GetInstance().GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_INVALID_PLACEMENT"));
+					UIManager.GetInstance.GetController<NormalMsgCtrl>().ShowPop(LocalizationCustom.instance.Get("TID_INVALID_PLACEMENT"));
 				}
 			}
 		}
@@ -234,7 +234,7 @@ public class BattleController:MonoBehaviour {
 			tid_level = "TID_BUILDING_GUNSHIP_1";
 		else
 			tid_level = btd.landingShipTidLevel;
-		CsvInfo csvData = CSVManager.GetInstance().csvTable[tid_level] as CsvInfo;
+		CsvInfo csvData = CSVManager.GetInstance.csvTable[tid_level] as CsvInfo;
 		string buildLayoutPath = "";
 		string buildSpritePath = "";
 		if(csvData.TID=="TID_BUILDING_LANDING_SHIP")
@@ -255,7 +255,7 @@ public class BattleController:MonoBehaviour {
 		buildSpriteInstance.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
 		buildSpriteInstance.transform.localPosition = Vector3.zero; 
 		buildSpriteInstance.transform.name = "BuildMain";
-		buildLayoutInstance.transform.parent = SpawnManager.GetInstance ().characterContainer;
+		buildLayoutInstance.transform.parent = SpawnManager.GetInstance.characterContainer;
 		
 		BuildInfo buildInfo = buildLayoutInstance.GetComponent<BuildInfo>();
 		buildInfo.buildSpritePath = buildSpritePath;
@@ -265,7 +265,7 @@ public class BattleController:MonoBehaviour {
 			lc.Init();	
 			//lc.direct = BattleData.Instance.beachDirect; 不在初始化时指定，改为由海滩数据指定，在出兵时指定;
 			lc.btd = btd;
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.BATTLEREPLAY){
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.BATTLEREPLAY){
 				//取从服务端下载回来的值;
 				lc.btd.id = GameLoader.Instance.GunboatBattleIDList[lc.btd.building_id];
 			}else{
@@ -374,7 +374,7 @@ public class BattleController:MonoBehaviour {
 
 	void Update()
 	{
-		if(DataManager.GetInstance().sceneStatus!=SceneStatus.ENEMYBATTLE && DataManager.GetInstance().sceneStatus!=SceneStatus.BATTLEREPLAY)
+		if(DataManager.GetInstance.sceneStatus!=SceneStatus.ENEMYBATTLE && DataManager.GetInstance.sceneStatus!=SceneStatus.BATTLEREPLAY)
 			return;
 
 
@@ -385,11 +385,11 @@ public class BattleController:MonoBehaviour {
 			{
 				BattleData.Instance.AllTrooperRetreat = true;
 				//调试用，该行代码将放在兵的撤退控制中，全部撤完，显示;
-				if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+				if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 				{
 					if(ScreenUIManage.Instance!=null) 
 						ScreenUIManage.Instance.battleResultWin.ShowResultWin();
-					UIManager.GetInstance ().GetController<BattleResultCtrl>().ShowPanel ();
+					UIManager.GetInstance.GetController<BattleResultCtrl>().ShowPanel ();
 				}
 			}
 			if(BattleData.Instance.BattleIsSuccess)
@@ -455,15 +455,15 @@ public class BattleController:MonoBehaviour {
 					charInfo.AttackState = AISTATE.STANDING;
 					charInfo.State = AISTATE.STANDING;
 				}
-				if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE) {
+				if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE) {
 					//倒计时结束，直接弹窗;
 					if (ScreenUIManage.Instance != null)
 						ScreenUIManage.Instance.battleResultWin.ShowResultWin();//TODO
-					UIManager.GetInstance ().GetController<BattleResultCtrl>().ShowPanel ();
+					UIManager.GetInstance.GetController<BattleResultCtrl>().ShowPanel ();
 				} 
 			}
 
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
 				if(replayQueue==null)replayQueue = new Queue<ReplayNodeData>();
 				while(BattleData.Instance.BattleCommondQueue.Count>0)
@@ -489,7 +489,7 @@ public class BattleController:MonoBehaviour {
 		}
 		else
 		{
-			if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+			if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 			{
                 if (ScreenUIManage.Instance != null)
                     ScreenUIManage.Instance.CountDownLabel.text = LocalizationCustom.instance.Get("TID_BATTLE_START_TIME");

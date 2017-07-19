@@ -96,57 +96,57 @@ namespace BoomBeach {
         //加载所有子UI对象
         void LoadSubUIs()
         {
-            NameAndLevel = transform.FindChild("UI/UIS/NameAndLevel");
+            NameAndLevel = transform.Find("UI/UIS/NameAndLevel");
 
-            NameLabel = NameAndLevel.FindChild("Name").GetComponent<Text>();
-            LevelLabel = NameAndLevel.FindChild("Level").GetComponent<Text>();
+            NameLabel = NameAndLevel.Find("Name").GetComponent<Text>();
+            LevelLabel = NameAndLevel.Find("Level").GetComponent<Text>();
 
-            PopDownPanel1 = transform.FindChild("UI/UIS/PopDownPanel1");
-            Panel1Btn1 = PopDownPanel1.FindChild("Btn1").GetComponent<Button>();
+            PopDownPanel1 = transform.Find("UI/UIS/PopDownPanel1");
+            Panel1Btn1 = PopDownPanel1.Find("Btn1").GetComponent<Button>();
 
-            PopDownPanel2 = transform.FindChild("UI/UIS/PopDownPanel2");
-            Panel2Btn1 = PopDownPanel2.FindChild("Btn1").GetComponent<Button>();
-            Panel2Btn2 = PopDownPanel2.FindChild("Btn2").GetComponent<Button>();
+            PopDownPanel2 = transform.Find("UI/UIS/PopDownPanel2");
+            Panel2Btn1 = PopDownPanel2.Find("Btn1").GetComponent<Button>();
+            Panel2Btn2 = PopDownPanel2.Find("Btn2").GetComponent<Button>();
 
-            PopDownPanel3 = transform.FindChild("UI/UIS/PopDownPanel3");
-            Panel3Btn1 = PopDownPanel3.FindChild("Btn1").GetComponent<Button>();
-            Panel3Btn2 = PopDownPanel3.FindChild("Btn2").GetComponent<Button>();
-            Panel3Btn3 = PopDownPanel3.FindChild("Btn3").GetComponent<Button>();
+            PopDownPanel3 = transform.Find("UI/UIS/PopDownPanel3");
+            Panel3Btn1 = PopDownPanel3.Find("Btn1").GetComponent<Button>();
+            Panel3Btn2 = PopDownPanel3.Find("Btn2").GetComponent<Button>();
+            Panel3Btn3 = PopDownPanel3.Find("Btn3").GetComponent<Button>();
 
-            PopInstant = transform.FindChild("UI/UIS/PopInstant");
-            PopInstantCancel = PopInstant.FindChild("Btn1").GetComponent<Button>();
-            PopInstantOk = PopInstant.FindChild("Btn2").GetComponent<Button>();
-            PopInstantIco = PopInstant.FindChild("TimeBar/IcoBg/Sprite").GetComponent<Image>();
-            PopInstantBar = PopInstant.FindChild("TimeBar/Barbg").GetComponent<Slider>();
-            PopInstantLabel = PopInstant.FindChild("TimeBar/Label").GetComponent<Text>();
-            PopInstantDiamondLabel = PopInstant.FindChild("Btn2/Label").GetComponent<Text>();
+            PopInstant = transform.Find("UI/UIS/PopInstant");
+            PopInstantCancel = PopInstant.Find("Btn1").GetComponent<Button>();
+            PopInstantOk = PopInstant.Find("Btn2").GetComponent<Button>();
+            PopInstantIco = PopInstant.Find("TimeBar/IcoBg/Sprite").GetComponent<Image>();
+            PopInstantBar = PopInstant.Find("TimeBar/Barbg").GetComponent<Slider>();
+            PopInstantLabel = PopInstant.Find("TimeBar/Label").GetComponent<Text>();
+            PopInstantDiamondLabel = PopInstant.Find("Btn2/Label").GetComponent<Text>();
 
-            PopResource = transform.FindChild("UI/UIS/PopResource");
+            PopResource = transform.Find("UI/UIS/PopResource");
 
-            PopResourceArrow = PopResource.FindChild("arrow").GetComponent<Image>();
+            PopResourceArrow = PopResource.Find("arrow").GetComponent<Image>();
             PopResourceBox = PopResource.GetComponent<Image>();
-            PopResourceIco = PopResource.FindChild("Sprite").GetComponent<Image>();
+            PopResourceIco = PopResource.Find("Sprite").GetComponent<Image>();
             PopResourceBtn = PopResource.GetComponent<Button>();
             PopResourceBtn.onClick.AddListener(OnClickCollect);
 
-            PopUpPanel = transform.FindChild("UI/PopUpPanel");
+            PopUpPanel = transform.Find("UI/PopUpPanel");
 
-            PopUpCancel = PopUpPanel.FindChild("CancelBtn").GetComponent<Button>();
-            PopUpOk = PopUpPanel.FindChild("OkBtn").GetComponent<Button>();
+            PopUpCancel = PopUpPanel.Find("CancelBtn").GetComponent<Button>();
+            PopUpOk = PopUpPanel.Find("OkBtn").GetComponent<Button>();
 
-            TimeBar = transform.FindChild("UI/UIS/TimeBar");
-            timeSlider = TimeBar.FindChild("Barbg").GetComponent<Slider>();
-            TimeBarIco = TimeBar.FindChild("IcoBg/Sprite").GetComponent<Image>();
-            TimeBarBar = TimeBar.FindChild("Barbg/bar").GetComponent<Image>();
-            TimeBarLabel = TimeBar.FindChild("Label").GetComponent<Text>();
+            TimeBar = transform.Find("UI/UIS/TimeBar");
+            timeSlider = TimeBar.Find("Barbg").GetComponent<Slider>();
+            TimeBarIco = TimeBar.Find("IcoBg/Sprite").GetComponent<Image>();
+            TimeBarBar = TimeBar.Find("Barbg/bar").GetComponent<Image>();
+            TimeBarLabel = TimeBar.Find("Label").GetComponent<Text>();
 
-            HealthBar = transform.FindChild("UI/UIS/HealthBar");
+            HealthBar = transform.Find("UI/UIS/HealthBar");
             //if (HealthBar != null)
-                healthBarSlider = HealthBar.FindChild("Barbg").GetComponent<Slider>();
-            XuXianBox = transform.FindChild("UI/UIS/XuXianBox");
-            XuXianLabel = XuXianBox.FindChild("Label").GetComponent<Text>();
-            BuildArrows = transform.FindChild("UI/Arrows");
-            UpdBrand = transform.FindChild("UpdBrand");
+                healthBarSlider = HealthBar.Find("Barbg").GetComponent<Slider>();
+            XuXianBox = transform.Find("UI/UIS/XuXianBox");
+            XuXianLabel = XuXianBox.Find("Label").GetComponent<Text>();
+            BuildArrows = transform.Find("UI/Arrows");
+            UpdBrand = transform.Find("UpdBrand");
 
             buildInfo = GetComponent<BuildInfo>();
             GrayShader = Shader.Find("MyShader/GrayShader");
@@ -161,7 +161,7 @@ namespace BoomBeach {
             }
             if (!Application.isPlaying)
                 return;
-            if (DataManager.GetInstance().sceneStatus != SceneStatus.HOME && DataManager.GetInstance().sceneStatus != SceneStatus.HOMERESOURCE)
+            if (DataManager.GetInstance.sceneStatus != SceneStatus.HOME && DataManager.GetInstance.sceneStatus != SceneStatus.HOMERESOURCE)
                 return;
             if (!Globals.IsSceneLoaded)
                 return;
@@ -227,7 +227,7 @@ namespace BoomBeach {
                 else if (buildInfo.status == BuildStatus.Normal)
                 {
                     //BuildUIManage uiManage = buildInfo.GetComponent<BuildUIManage>();
-                    if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME && !buildInfo.isSelected)
+                    if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME && !buildInfo.isSelected)
                     {
                         string res_ico = "";
 
@@ -325,7 +325,7 @@ namespace BoomBeach {
 
         public void ShowBattleInfo(bool is_show)
         {
-            if (DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYVIEW || DataManager.GetInstance().sceneStatus == SceneStatus.FRIENDVIEW)
+            if (DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYVIEW || DataManager.GetInstance.sceneStatus == SceneStatus.FRIENDVIEW)
                 buildBattleInfo.gameObject.SetActive(is_show);
             else
                 buildBattleInfo.gameObject.SetActive(false);
@@ -334,7 +334,7 @@ namespace BoomBeach {
         //计算是否显示可升级的牌子;
         public void BindUpDBrand(bool is_show)
         {
-            if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME)
+            if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME)
                 UpdBrand.gameObject.SetActive(is_show);
             else
                 UpdBrand.gameObject.SetActive(false);
@@ -506,7 +506,7 @@ namespace BoomBeach {
             //DownButtons[0].OnClick
             if (btn.Type == BuildButtonType.INFO)
             {
-				UIManager.GetInstance().GetController<BuildDetailCtrl>().ShowInfo(btn.buildInfo);
+				UIManager.GetInstance.GetController<BuildDetailCtrl>().ShowInfo(btn.buildInfo);
                 //PopManage.Instance.ShowBuildInfo(btn.buildInfo);
             }
             else if (btn.Type == BuildButtonType.REMOVE)
@@ -516,23 +516,23 @@ namespace BoomBeach {
             else if (btn.Type == BuildButtonType.UPGRADE)
             {
                 //PopManage.Instance.ShowBuildUpgrade(btn.buildInfo);
-				UIManager.GetInstance().GetController<BuildDetailCtrl>().ShowUpgrade(btn.buildInfo);
+				UIManager.GetInstance.GetController<BuildDetailCtrl>().ShowUpgrade(btn.buildInfo);
             }
             else if (btn.Type == BuildButtonType.RESEARCH)
             {
                 //PopManage.Instance.ShowResearchWin();
-				UIManager.GetInstance().GetController<ResearchCtrl>().ShowPanel();
+				UIManager.GetInstance.GetController<ResearchCtrl>().ShowPanel();
             }
             else if (btn.Type == BuildButtonType.TRAIN)
             {
                 Globals.currentTrainBuildInfo = btn.buildInfo;
                 //PopManage.Instance.ShowTroopTrainWin();
-				UIManager.GetInstance().GetController<TroopTrainCtrl>().ShowTroop();
+				UIManager.GetInstance.GetController<TroopTrainCtrl>().ShowTroop();
             }
             else if (btn.Type == BuildButtonType.BUILD)
             {
                 //PopManage.Instance.ShowCreateStatueWin(btn.buildInfo);
-				UIManager.GetInstance().GetController<ArtifactCtrl>().ShowArtifactPanel(btn.buildInfo);
+				UIManager.GetInstance.GetController<ArtifactCtrl>().ShowArtifactPanel(btn.buildInfo);
             }
             else if (btn.Type == BuildButtonType.COLLECT)
             {
@@ -548,7 +548,7 @@ namespace BoomBeach {
             {
                 Image ico_sprite = DownButtonsUI[i].transform.Find("Image").GetComponent<Image>();
 
-                ico_sprite.sprite= ResourceManager.GetInstance().atlas.commonSpriteDic[DownButtons[i].IcoName];
+                ico_sprite.sprite= ResourceManager.GetInstance.atlas.commonSpriteDic[DownButtons[i].IcoName];
                 //ico_sprite.MakePixelPerfect();
                 //ico_sprite.transform.localScale = Vector3.one * 1.2f;
                 //DownButtonsUI[i].onClick = DownButtons[i].OnClick;
@@ -631,7 +631,7 @@ namespace BoomBeach {
             //bool isFull = false;   //该值另行传入;
             if (IsShow)
             {
-                PopResourceIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic[spriteName];
+                PopResourceIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic[spriteName];
                 //PopResourceIco.MakePixelPerfect();
                 //PopResourceIco.transform.localScale = Vector3.one * 0.5f;
                 PopResourceBtn.onClick.RemoveAllListeners();
@@ -685,28 +685,28 @@ namespace BoomBeach {
                 if (buildInfo.status == BuildStatus.New || buildInfo.status == BuildStatus.CreateStatue)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.uiAtlas;
-                    TimeBarIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["BuidSmallIco"];
+                    TimeBarIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["BuidSmallIco"];
                 }
                 else if (buildInfo.status == BuildStatus.Upgrade)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.uiAtlas;
-                    TimeBarIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["UpgradeSmallIco"];
+                    TimeBarIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["UpgradeSmallIco"];
                 }
                 else if (buildInfo.status == BuildStatus.Removal)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.uiAtlas;
-                    TimeBarIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["RemoveSmallIco"];
+                    TimeBarIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["RemoveSmallIco"];
                 }
                 else if (buildInfo.status == BuildStatus.Research)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.avatarAtlas;
-                    CsvInfo csv = CSVManager.GetInstance().csvTable[buildInfo.status_tid_level] as CsvInfo;
-					TimeBarIco.sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[csv.TID];
+                    CsvInfo csv = CSVManager.GetInstance.csvTable[buildInfo.status_tid_level] as CsvInfo;
+					TimeBarIco.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[csv.TID];
                 }
                 else if (buildInfo.status == BuildStatus.Train)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.avatarAtlas;
-					TimeBarIco.sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[buildInfo.troops_tid];
+					TimeBarIco.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[buildInfo.troops_tid];
                 }
             }
             if (buildInfo.end_time > buildInfo.start_time)
@@ -813,28 +813,28 @@ namespace BoomBeach {
                 if (buildInfo.status == BuildStatus.New || buildInfo.status == BuildStatus.CreateStatue)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.uiAtlas;
-					PopInstantIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["BuidSmallIco"];
+					PopInstantIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["BuidSmallIco"];
                 }
                 else if (buildInfo.status == BuildStatus.Upgrade)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.uiAtlas;
-					PopInstantIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["UpgradeSmallIco"];
+					PopInstantIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["UpgradeSmallIco"];
                 }
                 else if (buildInfo.status == BuildStatus.Removal)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.uiAtlas;
-					PopInstantIco.sprite = ResourceManager.GetInstance().atlas.commonSpriteDic["RemoveSmallIco"];
+					PopInstantIco.sprite = ResourceManager.GetInstance.atlas.commonSpriteDic["RemoveSmallIco"];
                 }
                 else if (buildInfo.status == BuildStatus.Research)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.avatarAtlas;
-                    CsvInfo csv = CSVManager.GetInstance().csvTable[buildInfo.status_tid_level] as CsvInfo;
-					PopInstantIco.sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[csv.TID];
+                    CsvInfo csv = CSVManager.GetInstance.csvTable[buildInfo.status_tid_level] as CsvInfo;
+					PopInstantIco.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[csv.TID];
                 }
                 else if (buildInfo.status == BuildStatus.Train)
                 {
                     //TimeBarIco.atlas = PartEmitObj.Instance.avatarAtlas;
-					PopInstantIco.sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[buildInfo.troops_tid];
+					PopInstantIco.sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[buildInfo.troops_tid];
                 }
 
             }
@@ -922,7 +922,7 @@ namespace BoomBeach {
         {
             if (buildInfo.isSelected)
             {
-                //CsvInfo csvInfo = CSVManager.GetInstance().csvTable[buildInfo.tid_level] as CsvInfo;
+                //CsvInfo csvInfo = CSVManager.GetInstance.csvTable[buildInfo.tid_level] as CsvInfo;
                 //设置名称;
                 SetName(buildInfo.ShowName);// StringFormat.FormatByTid(csvInfo.TID));
                 SetLevel(buildInfo.ShowLevelName);// StringFormat.FormatByTid("TID_LEVEL_NUM",new string[]{buildInfo.level.ToString()}));
@@ -943,7 +943,7 @@ namespace BoomBeach {
                     ShowBattleInfo(true);
                 }
 
-                if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME || DataManager.GetInstance().sceneStatus == SceneStatus.HOMERESOURCE)
+                if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME || DataManager.GetInstance.sceneStatus == SceneStatus.HOMERESOURCE)
                 {
                     if (buildInfo.status == BuildStatus.New
                         || buildInfo.status == BuildStatus.Upgrade
@@ -978,7 +978,7 @@ namespace BoomBeach {
                     {
                         //2 信息, 移除;
                         buttons.Add(addBuildButton(BuildButtonType.INFO, buildInfo));
-                        if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME)
+                        if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME)
                             buttons.Add(addBuildButton(BuildButtonType.REMOVE, buildInfo));
 
                     }
@@ -988,7 +988,7 @@ namespace BoomBeach {
                         {
                             buttons.Add(addBuildButton(BuildButtonType.INFO, buildInfo));
 
-                            if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME)
+                            if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME)
                             {
                                 if (Helper.checkHasNextLevel(buildInfo))
                                 {
@@ -1022,12 +1022,12 @@ namespace BoomBeach {
                         {
                             //2 信息, 移除;
                             buttons.Add(addBuildButton(BuildButtonType.INFO, buildInfo));
-                            if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME)
+                            if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME)
                                 buttons.Add(addBuildButton(BuildButtonType.REMOVE, buildInfo));
                         }
                     }
 
-                    if (DataManager.GetInstance().sceneStatus != SceneStatus.ENEMYVIEW && DataManager.GetInstance().sceneStatus != SceneStatus.ENEMYBATTLE && DataManager.GetInstance().sceneStatus != SceneStatus.BATTLEREPLAY && DataManager.GetInstance().sceneStatus != SceneStatus.FRIENDVIEW)
+                    if (DataManager.GetInstance.sceneStatus != SceneStatus.ENEMYVIEW && DataManager.GetInstance.sceneStatus != SceneStatus.ENEMYBATTLE && DataManager.GetInstance.sceneStatus != SceneStatus.BATTLEREPLAY && DataManager.GetInstance.sceneStatus != SceneStatus.FRIENDVIEW)
                     {
                         if (buildInfo.buildUIManage != null)
                             buildInfo.buildUIManage.PopDownButtons(buttons);
@@ -1052,7 +1052,7 @@ namespace BoomBeach {
                         ShowTimeBar(false);
                     }
 
-                    if (DataManager.GetInstance().sceneStatus == SceneStatus.HOME || DataManager.GetInstance().sceneStatus == SceneStatus.HOMERESOURCE)
+                    if (DataManager.GetInstance.sceneStatus == SceneStatus.HOME || DataManager.GetInstance.sceneStatus == SceneStatus.HOMERESOURCE)
                     {
                         if (buildInfo.status == BuildStatus.New
                            || buildInfo.status == BuildStatus.Upgrade

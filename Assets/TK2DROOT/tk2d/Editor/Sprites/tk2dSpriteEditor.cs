@@ -19,7 +19,9 @@ class tk2dSpriteEditor : Editor
 
     public void OnSceneGUI()
     {
-		if (tk2dPreferences.inst.enableSpriteHandles == false) return;
+		if (tk2dPreferences.inst.enableSpriteHandles == false || !tk2dEditorUtility.IsEditable(target)) {
+			return;
+		}
 
     	tk2dSprite spr = (tk2dSprite)target;
 		var sprite = spr.CurrentSprite;
@@ -45,7 +47,7 @@ class tk2dSpriteEditor : Editor
 				tk2dUndo.RecordObjects(new Object[] {t, spr}, "Resize");
 				spr.ReshapeBounds(new Vector3(resizeRect.xMin, resizeRect.yMin) - new Vector3(localRect.xMin, localRect.yMin),
 					new Vector3(resizeRect.xMax, resizeRect.yMax) - new Vector3(localRect.xMax, localRect.yMax));
-				EditorUtility.SetDirty(spr);
+				tk2dUtil.SetDirty(spr);
 			}
 		}
 		// Rotate handles
@@ -68,7 +70,7 @@ class tk2dSpriteEditor : Editor
     	tk2dSceneHelper.HandleMoveSprites(t, localRect);
 
     	if (GUI.changed) {
-    		EditorUtility.SetDirty(target);
+    		tk2dUtil.SetDirty(target);
     	}
 	}
 
@@ -114,7 +116,7 @@ class tk2dSpriteEditor : Editor
 		foreach (tk2dBaseSprite s in targetSprites) {
 			s.SetSprite(spriteCollection, spriteId);
 			s.EditMode__CreateCollider();
-			EditorUtility.SetDirty(s);
+			tk2dUtil.SetDirty(s);
 		}
 	}
 	tk2dSpriteGuiUtility.SpriteChangedCallback _spriteChangedCallbackInstance = null;
@@ -290,7 +292,7 @@ class tk2dSpriteEditor : Editor
 			foreach (tk2dBaseSprite sprite in targetSprites) {
 			if (PrefabUtility.GetPrefabType(sprite) == PrefabType.Prefab)
 				needUpdatePrefabs = true;
-				EditorUtility.SetDirty(sprite);
+				tk2dUtil.SetDirty(sprite);
 			}
 		}
 		
@@ -418,13 +420,17 @@ class tk2dSpriteEditor : Editor
 				if (boxCollider != null) {
 					DestroyImmediate(boxCollider);
 				}
+#if !STRIP_PHYSICS_3D
 				sprite.boxCollider = null;
+#endif
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
+#if !STRIP_PHYSICS_2D
 				var boxCollider2D = sprite.GetComponent<BoxCollider2D>();
 				if (boxCollider2D != null) {
 					DestroyImmediate(boxCollider2D);
 				}
 				sprite.boxCollider2D = null;
+#endif
 #endif
 			}
 		}
@@ -478,7 +484,7 @@ class tk2dSpriteEditor : Editor
 		});	
 	}
 
-    [MenuItem("GameObject/Create Other/tk2d/Sprite", false, 12900)]
+	[MenuItem(tk2dMenu.createBase + "Sprite", false, 1290)]
     static void DoCreateSpriteObject()
     {
     	tk2dSpriteGuiUtility.GetSpriteCollectionAndCreate( (sprColl) => {

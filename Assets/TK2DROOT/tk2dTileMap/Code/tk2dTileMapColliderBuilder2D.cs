@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR || !UNITY_FLASH
+#if UNITY_EDITOR && !STRIP_PHYSICS_2D
 
 namespace tk2dRuntime.TileMap
 {
@@ -190,6 +190,7 @@ namespace tk2dRuntime.TileMap
 					else if (spriteData.colliderType == tk2dSpriteDefinition.ColliderType.Mesh)
 					{
 						foreach (tk2dCollider2DData dat in spriteData.edgeCollider2D) {
+							baseVertexIndex = verts.Count;
 							foreach (Vector2 pos in dat.points) {
 								verts.Add( BuilderUtil.ApplySpriteVertexTileFlags(tileMap, spriteData, pos, flipH, flipV, rot90) + currentPos );
 							}
@@ -208,6 +209,7 @@ namespace tk2dRuntime.TileMap
 							}
 						}
 						foreach (tk2dCollider2DData dat in spriteData.polygonCollider2D) {
+							baseVertexIndex = verts.Count;
 							foreach (Vector2 pos in dat.points) {
 								verts.Add( BuilderUtil.ApplySpriteVertexTileFlags(tileMap, spriteData, pos, flipH, flipV, rot90) + currentPos );
 							}

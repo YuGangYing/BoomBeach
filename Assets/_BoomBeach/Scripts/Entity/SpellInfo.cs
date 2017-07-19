@@ -23,7 +23,7 @@ public class SpellInfo : MonoBehaviour {
 		bwi.weaponCost = btd.weaponCost; //更新UI;
 		*/
 		Globals.EnergyTotal -= currentCost; //扣除消耗;
-		UIManager.GetInstance().GetController<BattleInterfaceCtrl>().UpdateWeaponCost(btd);
+		UIManager.GetInstance.GetController<BattleInterfaceCtrl>().UpdateWeaponCost(btd);
 
         /*
 		if(btd.uiItem.isDisabled)
@@ -59,7 +59,7 @@ public class SpellInfo : MonoBehaviour {
 		else
 			EffectController.PlayEffect("Model/Effect/deployring",attackPoint);
 
-		if(DataManager.GetInstance().sceneStatus==SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus==SceneStatus.ENEMYBATTLE)
 		{
 			//开始录像;
 			ReplayNodeData rnd = new ReplayNodeData();
@@ -83,7 +83,7 @@ public class SpellInfo : MonoBehaviour {
                     //炮弹打完，且兵也都消死了，直接弹窗;
                     if (ScreenUIManage.Instance != null) 
 						ScreenUIManage.Instance.battleResultWin.ShowResultWin();
-					UIManager.GetInstance ().GetController<BattleResultCtrl>().ShowPanel ();
+					UIManager.GetInstance.GetController<BattleResultCtrl>().ShowPanel ();
 				}
 			}
 		}

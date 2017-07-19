@@ -13,10 +13,10 @@ namespace BoomBeach{
 
         void Start()
 	    {
-			UIManager.GetInstance ().AddCtroller<LoginCtrl> ();
-			UIManager.GetInstance ().AddCtroller<NormalMsgCtrl> ();
-			UIManager.GetInstance ().AddCtroller<PopMsgCtrl> ();
-			UIManager.GetInstance ().AddCtroller<MaskCtrl> ();
+			UIManager.GetInstance.AddCtroller<LoginCtrl> ();
+			UIManager.GetInstance.AddCtroller<NormalMsgCtrl> ();
+			UIManager.GetInstance.AddCtroller<PopMsgCtrl> ();
+			UIManager.GetInstance.AddCtroller<MaskCtrl> ();
 	        StartCoroutine(_PlayMusic());
 	    }
 
@@ -25,7 +25,13 @@ namespace BoomBeach{
 	        yield return new WaitForSeconds(0.6f);
 	        AudioPlayer.Instance.PlaySfx("supercell_jingle");
 			yield return new WaitForSeconds(1f);
-			SFSNetworkManager.Instance.ConnectToServer (string.Empty);
+			WWWNetwork.SigninAPI api = new WWWNetwork.SigninAPI ();
+			api.Send ((WWW www) => {
+				string text = www.text;
+//				text = text.Replace("\\","");
+//				Debug.Log(text);
+				JsonUtility.FromJsonOverwrite(text,DataManager.GetInstance.model);
+			});
 	    }
 
 	}

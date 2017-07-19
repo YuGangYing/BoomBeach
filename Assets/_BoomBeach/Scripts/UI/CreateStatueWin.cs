@@ -84,7 +84,7 @@ public class CreateStatueWin : MonoBehaviour {
 			createStatueList.transform.gameObject.SetActive(false);
 			manageStatueBox.BindData (buildInfo);
 
-			CsvInfo csvArtiact = CSVManager.GetInstance().csvTable [buildInfo.status_tid_level] as CsvInfo;
+			CsvInfo csvArtiact = CSVManager.GetInstance.csvTable [buildInfo.status_tid_level] as CsvInfo;
 			crystleResource.BindData (csvArtiact.ArtifactType);
 		}
 		else

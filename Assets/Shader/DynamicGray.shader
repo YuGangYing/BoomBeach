@@ -1,4 +1,6 @@
-﻿// unlit, vertex colour, alpha blended
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// unlit, vertex colour, alpha blended
 // cull off
 
 Shader "MyShader/DynamicGray" 
@@ -54,7 +56,7 @@ Shader "MyShader/DynamicGray"
 				v2f vert (appdata_t v)
 				{
 					v2f o;
-					o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+					o.vertex = UnityObjectToClipPos(v.vertex);
 					o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
 					o.color = v.color;
 					return o;

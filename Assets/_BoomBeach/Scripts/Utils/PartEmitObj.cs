@@ -30,11 +30,11 @@ public class PartEmitObj : MonoBehaviour {
 
     void Start()
 	{
-		UICamera = UIManager.GetInstance ().cameraUI;
+		UICamera = UIManager.GetInstance.cameraUI;
 		//CityController.SingleTon().cameraUI;
 
 
-        MainInterfacePanelView panel = UIManager.GetInstance().GetPanel<MainInterfacePanelView>("MainInterfacePanel");
+        MainInterfacePanelView panel = UIManager.GetInstance.GetPanel<MainInterfacePanelView>("MainInterfacePanel");
         GoldIco = panel.m_btnGold.transform;
         WoodIco = panel.m_btnWood.transform;
         StoneIco = panel.m_btnStone.transform;

@@ -59,8 +59,8 @@ public class WorkerInfo:MonoBehaviour {
 		if(wcmd==WorkerCMD.NORMAL)
 		{
 			//寻找任意建筑的随机周边点;
-			int idx = Random.Range (0, DataManager.GetInstance().buildArray.Count);			
-			BuildInfo b = DataManager.GetInstance().buildArray [idx];			
+			int idx = Random.Range (0, DataManager.GetInstance.buildArray.Count);			
+			BuildInfo b = DataManager.GetInstance.buildArray [idx];			
 			Dest = Globals.GetRandStandPointAroundBuild (b,transform);
 		}
 		else if(wcmd == WorkerCMD.WORK)

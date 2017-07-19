@@ -14,14 +14,14 @@ public static class ResourceUtility
     public static BuildCost getUpgradeCost(string tid_level)
     {
         BuildCost bc = new BuildCost();
-        CsvInfo csvData = (CsvInfo)CSVManager.GetInstance().csvTable[tid_level];
+        CsvInfo csvData = (CsvInfo)CSVManager.GetInstance.csvTable[tid_level];
         if ("BUILDING".Equals(csvData.TID_Type))
         {
             //需要取下一级里面的,时间级金额;
             string tid_next_level = csvData.TID + "_" + (csvData.Level + 1);
-            if (CSVManager.GetInstance().csvTable.ContainsKey(tid_next_level))
+            if (CSVManager.GetInstance.csvTable.ContainsKey(tid_next_level))
             {
-                CsvInfo csvNext = (CsvInfo)CSVManager.GetInstance().csvTable[tid_next_level];
+                CsvInfo csvNext = (CsvInfo)CSVManager.GetInstance.csvTable[tid_next_level];
                 bc.stone = csvNext.BuildCostStone;
                 bc.wood = csvNext.BuildCostWood;
                 bc.iron = csvNext.BuildCostIron;

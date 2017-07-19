@@ -33,69 +33,69 @@ public class ArtifactCtrl : BaseCtrl
 
     void ShowGreen()
     {
-        int common = DataManager.GetInstance().userInfo.common_piece;
-        int rare = DataManager.GetInstance().userInfo.rare_piece;
-        int epic = DataManager.GetInstance().userInfo.epic_piece;
+        int common = DataManager.GetInstance.userInfo.common_piece;
+        int rare = DataManager.GetInstance.userInfo.rare_piece;
+        int epic = DataManager.GetInstance.userInfo.epic_piece;
         string a_type = "";
-        mArtifactPanelView.m_btnGreen.transform.FindChild("Back").GetComponent<Image>().color = new Color(1,1, 1, 1);
-        mArtifactPanelView.m_btnBlue.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnRed.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnDeepp.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnGreen.transform.Find("Back").GetComponent<Image>().color = new Color(1,1, 1, 1);
+        mArtifactPanelView.m_btnBlue.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnRed.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnDeepp.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
         ShowArtiactSprite(a_type, common, rare, epic);
     }
 
     void ShowBlue()
     {
-        int common = DataManager.GetInstance().userInfo.common_piece_ice;
-        int rare = DataManager.GetInstance().userInfo.rare_piece_ice;
-        int epic = DataManager.GetInstance().userInfo.epic_piece_ice;
+        int common = DataManager.GetInstance.userInfo.common_piece_ice;
+        int rare = DataManager.GetInstance.userInfo.rare_piece_ice;
+        int epic = DataManager.GetInstance.userInfo.epic_piece_ice;
         string a_type = "_ICE";
-        mArtifactPanelView.m_btnGreen.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1); 
-        mArtifactPanelView.m_btnBlue.transform.FindChild("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
-        mArtifactPanelView.m_btnRed.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnDeepp.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnGreen.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1); 
+        mArtifactPanelView.m_btnBlue.transform.Find("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        mArtifactPanelView.m_btnRed.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnDeepp.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
         ShowArtiactSprite(a_type, common, rare, epic);
     }
 
     void ShowRed()
     {
-        int common = DataManager.GetInstance().userInfo.common_piece_fire;
-        int rare = DataManager.GetInstance().userInfo.rare_piece_fire;
-        int epic = DataManager.GetInstance().userInfo.epic_piece_fire;
+        int common = DataManager.GetInstance.userInfo.common_piece_fire;
+        int rare = DataManager.GetInstance.userInfo.rare_piece_fire;
+        int epic = DataManager.GetInstance.userInfo.epic_piece_fire;
         string a_type = "_FIRE";
-        mArtifactPanelView.m_btnGreen.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnBlue.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnRed.transform.FindChild("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
-        mArtifactPanelView.m_btnDeepp.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnGreen.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnBlue.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnRed.transform.Find("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        mArtifactPanelView.m_btnDeepp.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
         ShowArtiactSprite(a_type, common, rare, epic);
     }
 
     void ShowDark()
     {
-        int common = DataManager.GetInstance().userInfo.common_piece_dark;
-        int rare = DataManager.GetInstance().userInfo.rare_piece_dark;
-        int epic = DataManager.GetInstance().userInfo.epic_piece_dark;
+        int common = DataManager.GetInstance.userInfo.common_piece_dark;
+        int rare = DataManager.GetInstance.userInfo.rare_piece_dark;
+        int epic = DataManager.GetInstance.userInfo.epic_piece_dark;
         string a_type = "_DARK";
-        mArtifactPanelView.m_btnGreen.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnBlue.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnRed.transform.FindChild("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
-        mArtifactPanelView.m_btnDeepp.transform.FindChild("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        mArtifactPanelView.m_btnGreen.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnBlue.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnRed.transform.Find("Back").GetComponent<Image>().color = new Color(81f / 255, 186f / 255, 245f / 255, 1);
+        mArtifactPanelView.m_btnDeepp.transform.Find("Back").GetComponent<Image>().color = new Color(1, 1, 1, 1);
         ShowArtiactSprite(a_type, common, rare, epic);
     }
 
     void ShowArtiactSprite(string a_type,int common, int rare, int epic)
     {
-        CsvInfo csvArtiact1 = (CsvInfo)CSVManager.GetInstance().csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT1" + a_type) + "_1"];
-        items[0].FindChild("Button/img_icon").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic[csvArtiact1.PieceResource];
-        items[0].FindChild("Button/txt_count").GetComponent<Text>().color = common >= 7 ? Color.white : Color.red;
+        CsvInfo csvArtiact1 = (CsvInfo)CSVManager.GetInstance.csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT1" + a_type) + "_1"];
+        items[0].Find("Button/img_icon").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic[csvArtiact1.PieceResource];
+        items[0].Find("Button/txt_count").GetComponent<Text>().color = common >= 7 ? Color.white : Color.red;
 
-        CsvInfo csvArtiact2 = (CsvInfo)CSVManager.GetInstance().csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT2" + a_type) + "_1"];
-        items[1].FindChild("Button/img_icon").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic[csvArtiact2.PieceResource];
-        items[1].FindChild("Button/txt_count").GetComponent<Text>().color = rare >= 7 ? Color.white : Color.red;
+        CsvInfo csvArtiact2 = (CsvInfo)CSVManager.GetInstance.csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT2" + a_type) + "_1"];
+        items[1].Find("Button/img_icon").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic[csvArtiact2.PieceResource];
+        items[1].Find("Button/txt_count").GetComponent<Text>().color = rare >= 7 ? Color.white : Color.red;
 
-        CsvInfo csvArtiact3 = (CsvInfo)CSVManager.GetInstance().csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT3" + a_type) + "_1"];
-        items[2].FindChild("Button/img_icon").GetComponent<Image>().sprite = ResourceManager.GetInstance().atlas.commonSpriteDic[csvArtiact3.PieceResource];
-        items[2].FindChild("Button/txt_count").GetComponent<Text>().color = epic >= 7 ? Color.white : Color.red;
+        CsvInfo csvArtiact3 = (CsvInfo)CSVManager.GetInstance.csvTable[Helper.BuildTIDToArtifactTID("TID_BUILDING_ARTIFACT3" + a_type) + "_1"];
+        items[2].Find("Button/img_icon").GetComponent<Image>().sprite = ResourceManager.GetInstance.atlas.commonSpriteDic[csvArtiact3.PieceResource];
+        items[2].Find("Button/txt_count").GetComponent<Text>().color = epic >= 7 ? Color.white : Color.red;
         Helper.CreateArtifactUI(items[0].Find("Button/itempoint"), "TID_BUILDING_ARTIFACT1" + a_type + "_1");
         Helper.CreateArtifactUI(items[1].Find("Button/itempoint"), "TID_BUILDING_ARTIFACT2" + a_type + "_1");
         Helper.CreateArtifactUI(items[2].Find("Button/itempoint"), "TID_BUILDING_ARTIFACT3" + a_type + "_1");
@@ -109,18 +109,18 @@ public class ArtifactCtrl : BaseCtrl
             currentAmount += 1;
         }
         mArtifactPanelView.m_txtTotalinfo.text = StringFormat.FormatByTid("TID_ARTIFACT_CAPACITY_LIMIT", new object[] { currentAmount, buildInfo.csvInfo.ArtifactCapacity });
-        mArtifactPanelView.m_gridUsercrystal.GetChild(0).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.common_piece.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(1).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.rare_piece.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(2).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.epic_piece.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(3).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.common_piece_ice.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(4).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.rare_piece_ice.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(5).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.epic_piece_ice.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(6).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.common_piece_fire.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(7).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.rare_piece_fire.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(8).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.epic_piece_fire.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(9).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.common_piece_dark.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(10).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.rare_piece_dark.ToString();
-        mArtifactPanelView.m_gridUsercrystal.GetChild(11).FindChild("txt_num").GetComponent<Text>().text = DataManager.GetInstance().userInfo.epic_piece_dark.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(0).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.common_piece.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(1).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.rare_piece.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(2).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.epic_piece.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(3).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.common_piece_ice.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(4).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.rare_piece_ice.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(5).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.epic_piece_ice.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(6).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.common_piece_fire.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(7).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.rare_piece_fire.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(8).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.epic_piece_fire.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(9).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.common_piece_dark.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(10).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.rare_piece_dark.ToString();
+        mArtifactPanelView.m_gridUsercrystal.GetChild(11).Find("txt_num").GetComponent<Text>().text = DataManager.GetInstance.userInfo.epic_piece_dark.ToString();
     }
 
 

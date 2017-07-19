@@ -34,9 +34,9 @@ public class TroopTrainCtrl : BaseCtrl
         BuildInfo buildInfo = Globals.currentTrainBuildInfo;
         mTroopTrainPanelView.m_txtTitle.text = LocalizationCustom.instance.Get("TID_POPUP_CHANGE_TRAIN_TITLE");
         mTroopTrainPanelView.m_txtNum.text = buildInfo.troops_num.ToString();
-        Sprite sprite = ResourceManager.GetInstance().atlas.avaterFullSpriteDic[buildInfo.troops_tid];
+        Sprite sprite = ResourceManager.GetInstance.atlas.avaterFullSpriteDic[buildInfo.troops_tid];
         mTroopTrainPanelView.m_imgBigicon.sprite = sprite;
-        sprite = ResourceManager.GetInstance().atlas.avaterSpriteDic[buildInfo.troops_tid];
+        sprite = ResourceManager.GetInstance.atlas.avaterSpriteDic[buildInfo.troops_tid];
         mTroopTrainPanelView.m_imgSmallicon.sprite = sprite;
     }
 
@@ -72,13 +72,13 @@ public class TroopTrainCtrl : BaseCtrl
         {
             //可以训练;
             
-            trans.FindChild("container_info").gameObject.SetActive(true);
-            trans.FindChild("container_info/txt_num").GetComponent<Text>().text = tidData.trainNum.ToString() + "X";
-            trans.FindChild("txt_reason").gameObject.SetActive(false);
-            Text goldText = trans.FindChild("container_info/txt_corn").GetComponent<Text>();
+            trans.Find("container_info").gameObject.SetActive(true);
+            trans.Find("container_info/txt_num").GetComponent<Text>().text = tidData.trainNum.ToString() + "X";
+            trans.Find("txt_reason").gameObject.SetActive(false);
+            Text goldText = trans.Find("container_info/txt_corn").GetComponent<Text>();
             //trans.Find("Reason").gameObject.SetActive(false);
             goldText.text = tidData.trainCost.ToString();
-            if (tidData.trainCost > DataManager.GetInstance().userInfo.gold_count)
+            if (tidData.trainCost > DataManager.GetInstance.userInfo.gold_count)
             {
                 goldText.color = Color.red;
             }
@@ -107,7 +107,7 @@ public class TroopTrainCtrl : BaseCtrl
                 Image[] images = ele.GetComponentsInChildren<Image>();
                 for (int i = 0; i < images.Length; i++)
                 {
-                    images[i].material = ResourceManager.GetInstance().grayMat;
+                    images[i].material = ResourceManager.GetInstance.grayMat;
 
                 }
             }
@@ -122,12 +122,12 @@ public class TroopTrainCtrl : BaseCtrl
             }
             Button btn = ele.GetComponent<Button>();
             btn.enabled = true;
-            trans.FindChild("container_info").gameObject.SetActive(false);
-            trans.FindChild("txt_reason").gameObject.SetActive(true);
-            trans.FindChild("txt_reason").GetComponent<Text>().text = tidData.hasTrain;
+            trans.Find("container_info").gameObject.SetActive(false);
+            trans.Find("txt_reason").gameObject.SetActive(true);
+            trans.Find("txt_reason").GetComponent<Text>().text = tidData.hasTrain;
         }
-        Sprite sprite = ResourceManager.GetInstance().atlas.avaterFullSpriteDic[tidData.tid];
-        trans.FindChild("icon_head").GetComponent<Image>().sprite = sprite;
+        Sprite sprite = ResourceManager.GetInstance.atlas.avaterFullSpriteDic[tidData.tid];
+        trans.Find("icon_head").GetComponent<Image>().sprite = sprite;
         Button infoBtn = trans.Find("icon_info").GetComponent<Button>(); 
         infoBtn.onClick.AddListener(OnShowTroopInfo);
     }
@@ -173,7 +173,7 @@ public class TroopTrainCtrl : BaseCtrl
         for (int i=0;i< mTroops.Count;i++)
         {
             mTroops[i].GetComponent<Button>().onClick.AddListener(OnTrain);
-            mTroops[i].transform.FindChild("icon_info").GetComponent<Button>().onClick.AddListener(OnShowTroopInfo);
+            mTroops[i].transform.Find("icon_info").GetComponent<Button>().onClick.AddListener(OnShowTroopInfo);
         }
         mTroopTrainPanelView.m_btnChangetroop.onClick.AddListener(ShowTroopDatas);
     }

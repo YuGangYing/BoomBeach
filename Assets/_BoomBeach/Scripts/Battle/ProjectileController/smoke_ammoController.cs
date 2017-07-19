@@ -17,7 +17,7 @@ public class smoke_ammoController : ProjectileController {
 	void DoSmoke(CharInfo charInfo)
 	{
 		//记录回放数据;
-		if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 		{
 			charInfo.SmokeProjectile = projectileInfo;
 
@@ -37,7 +37,7 @@ public class smoke_ammoController : ProjectileController {
 	void FreeSmoke(CharInfo charInfo)
 	{
 		//记录回放数据;
-		if(DataManager.GetInstance().sceneStatus == SceneStatus.ENEMYBATTLE)
+		if(DataManager.GetInstance.sceneStatus == SceneStatus.ENEMYBATTLE)
 		{
 			if(charInfo.isInSmoke&&charInfo.SmokeProjectile==projectileInfo)
 			{

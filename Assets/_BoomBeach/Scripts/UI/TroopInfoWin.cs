@@ -45,7 +45,7 @@ public class TroopInfoWin : MonoBehaviour {
 	public void BindTroopInfoWin(string tid_level)
 	{
 
-		CsvInfo csvInfo = CSVManager.GetInstance().csvTable [tid_level] as CsvInfo;
+		CsvInfo csvInfo = CSVManager.GetInstance.csvTable [tid_level] as CsvInfo;
 
 //		string ShowName = StringFormat.FormatByTid (csvInfo.TID);
 		string ShowLevel = StringFormat.FormatByTid("TID_LEVEL_NUM",new string[]{csvInfo.Level.ToString()});

@@ -18,7 +18,7 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>{
 
 	public void Init(){
 		Helper.initNameToTid();
-		CSVManager.GetInstance().csvTable.Clear();
+		CSVManager.GetInstance.csvTable.Clear();
 
 		//TextAsset achievements = Resources.Load<TextAsset>(@"csv/achievements");
 		TextAsset artifact_bonuses = Resources.Load<TextAsset>(@"csv/artifact_bonuses");
@@ -40,32 +40,32 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>{
 
 		Helper.LoadIsLandCsv(island_grid);
 
-		Helper.loadcsv(experience_levels,CSVManager.GetInstance().experienceLevelsList,"ExperienceLevels", false,false);
+		Helper.loadcsv(experience_levels,CSVManager.GetInstance.experienceLevelsList,"ExperienceLevels", false,false);
 
-		Helper.loadcsv(regions,CSVManager.GetInstance().regionsList,"REGIONS", false,false);
+		Helper.loadcsv(regions,CSVManager.GetInstance.regionsList,"REGIONS", false,false);
 
-		Helper.loadcsv(buildings,CSVManager.GetInstance().csvTable,"BUILDING", true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
-		Helper.loadcsv(townhall_levels,CSVManager.GetInstance().csvTable,"BUILDING",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
+		Helper.loadcsv(buildings,CSVManager.GetInstance.csvTable,"BUILDING", true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
+		Helper.loadcsv(townhall_levels,CSVManager.GetInstance.csvTable,"BUILDING",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
 
-		Helper.loadcsv(characters,CSVManager.GetInstance().csvTable,"CHARACTERS",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
-		Helper.loadcsv(decos,CSVManager.GetInstance().csvTable,"DECOS",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
-		Helper.loadcsv(obstacles,CSVManager.GetInstance().csvTable,"OBSTACLES",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
-		Helper.loadcsv(spells,CSVManager.GetInstance().csvTable,"SPELLS",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
-		Helper.loadcsv(traps,CSVManager.GetInstance().csvTable,"TRAPS",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
+		Helper.loadcsv(characters,CSVManager.GetInstance.csvTable,"CHARACTERS",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
+		Helper.loadcsv(decos,CSVManager.GetInstance.csvTable,"DECOS",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
+		Helper.loadcsv(obstacles,CSVManager.GetInstance.csvTable,"OBSTACLES",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
+		Helper.loadcsv(spells,CSVManager.GetInstance.csvTable,"SPELLS",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
+		Helper.loadcsv(traps,CSVManager.GetInstance.csvTable,"TRAPS",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
 
 		//artifacts与buildings中的3个Artifact需要注意区分与关联;
-		Helper.loadcsv(artifacts,CSVManager.GetInstance().csvTable,"ARTIFACTS",true,false);//没有TID，这个需要补TID，把name转为tid
+		Helper.loadcsv(artifacts,CSVManager.GetInstance.csvTable,"ARTIFACTS",true,false);//没有TID，这个需要补TID，把name转为tid
 
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
-		Helper.loadcsv(artifact_bonuses,CSVManager.GetInstance().csvTable,"ARTIFACT_BONUSES",true,false);
-		//Debug.Log(CSVManager.GetInstance().csvTable.Count);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
+		Helper.loadcsv(artifact_bonuses,CSVManager.GetInstance.csvTable,"ARTIFACT_BONUSES",true,false);
+		//Debug.Log(CSVManager.GetInstance.csvTable.Count);
 
 		Globals.projectileData.Clear();
 		Hashtable ProjectilesList = new Hashtable();

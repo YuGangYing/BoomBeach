@@ -16,7 +16,7 @@ namespace BoomBeach{
 				transform.Find("Reason").gameObject.SetActive(false);
 				UILabel goldLabel = transform.Find("TrainIcos/goldLabel").GetComponent<UILabel>();
 				goldLabel.text = TidData.trainCost.ToString();
-				if(TidData.trainCost>DataManager.GetInstance().userInfo.gold_count)
+				if(TidData.trainCost>DataManager.GetInstance.userInfo.gold_count)
 				{
 					goldLabel.color = Color.red;
 				}
