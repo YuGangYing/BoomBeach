@@ -117,7 +117,9 @@ public class GameLoader : SingleMonoBehaviour<GameLoader> {
 				//保存场景状态;
 				switchSceneStatus = sceneStatus;
 				//需要从服务器上加载数据;
-				LoadHome(regions_id);
+//				LoadHome(regions_id);
+				MainManager.GetInstance.LoadSceneStatus (SceneStatus.HOME);
+
 			}
 		}else if (sceneStatus == SceneStatus.WORLDMAP){
 			//直接切换场景，不加载数据;

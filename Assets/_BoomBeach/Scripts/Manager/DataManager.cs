@@ -135,26 +135,21 @@ namespace BoomBeach{
 		//全局变量初始化;
 		public void Init()
 		{
-			
-
-
-
-
 			Globals.IsSceneLoaded = false;
 			//初始化士兵与建筑的容器;
 			//Globals.buildContainer = GameObject.Find ("PBuilds").transform;
 			//Globals.characterContainer = GameObject.Find ("PCharacters").transform;
 			//Globals.bulletContainer = GameObject.Find ("PBullets").transform;
-	        if (Islands.Instance.useType)
+			if (Islands.GetInstance.useType)
 			{
-				Globals.islandType = Islands.Instance.type;
+				Globals.islandType = Islands.GetInstance.type;
 				Debug.Log("user island by test");
 			}
-			for(int i=0;i<Islands.Instance.islands.Length;i++)
+			for(int i=0;i<Islands.GetInstance.islands.Length;i++)
 			{
-				if(Islands.Instance.islands[i].type==Globals.islandType)
+				if(Islands.GetInstance.islands[i].type==Globals.islandType)
 				{
-				    GameObject mineLand = Islands.Instance.islands[i].gameObject;
+				    GameObject mineLand = Islands.GetInstance.islands[i].gameObject;
 
 	                mineLand.SetActive(true);
 	                Globals.SceneIsland = mineLand;
@@ -163,7 +158,7 @@ namespace BoomBeach{
 				}
 				else
 				{
-					Islands.Instance.islands[i].gameObject.SetActive(false);
+					Islands.GetInstance.islands[i].gameObject.SetActive(false);
 				}
 			}
 
@@ -186,7 +181,7 @@ namespace BoomBeach{
 				
 
 
-					if(CSVManager.GetInstance.island_grid_csv[Globals.islandType.ToString()][a,b]==1)
+					if(CSVManager.GetInstance.islandGridsDic[Globals.islandType.ToString()][a,b]==1)
 					{
 						gridInfo.isInArea = false;
 						gridInfo.cost = Globals.GridBuildCost;

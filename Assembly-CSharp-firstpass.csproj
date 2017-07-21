@@ -189,8 +189,8 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\goodies\PackedTextMesh.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
-     <None Include="Assets\Resources\csv\buildings.txt" />
      <None Include="Assets\_BoomBeach\Templates\C#PanelView.txt" />
+     <None Include="Assets\Resources\csv\buildings.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\Blend2TexVertexColor.shader" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\BuildInfoPanel.txt" />
@@ -263,7 +263,6 @@
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\TroopInfoPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.0.6 f6.txt" />
-     <None Include="Assets\Resources\csv\islandgrid.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
@@ -342,7 +341,6 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\MainInterfacePanel.txt" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\TroopTrainPanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\CSV\Editor\CSVScriptTemplate.txt" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\MaskPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
@@ -432,6 +430,9 @@
  </Reference>
  <Reference Include="Pathfinding.Poly2Tri">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+ </Reference>
+ <Reference Include="CSV">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/Plugins/CSV.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/Plugins/Newtonsoft.Json.dll</HintPath>

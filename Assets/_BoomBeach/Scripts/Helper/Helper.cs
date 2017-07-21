@@ -1128,22 +1128,11 @@ public class Helper: MonoBehaviour {
 	//加载岛的不可通行区配置;
 	public static void LoadIsLandCsv(TextAsset textFile){
 		if (textFile == null) return;
-		if (CSVManager.GetInstance.island_grid_csv != null)
-			CSVManager.GetInstance.island_grid_csv.Clear ();
+		if (CSVManager.GetInstance.islandGridsDic != null)
+			CSVManager.GetInstance.islandGridsDic.Clear ();
 		else
-			CSVManager.GetInstance.island_grid_csv = new Dictionary<string, int[,]> ();
-
+			CSVManager.GetInstance.islandGridsDic = new Dictionary<string, int[,]> ();
 		string[] lineArray  = textFile.text.Split("\n"[0]);	
-		//string[] FieldNames = lineArray[0].Trim().Replace("\"","").Split(","[0]);
-		/*
-layout/small_a.level
-layout/small_b.level
-layout/mainland_a.level
-layout/mainland_b.level
-layout/med_a.level
-layout/playerbase.level
-layout/enemybase.level
-*/
 		String last_island_name = null;
 		int[,] grid = null;//new int[40,40];
 		for (int i = 1; i < lineArray.Length; i ++){			
@@ -1152,7 +1141,7 @@ layout/enemybase.level
 			if (last_island_name != island_name){
 				last_island_name = island_name;
 				grid = new int[Globals.GridTotal,Globals.GridTotal];
-				CSVManager.GetInstance.island_grid_csv.Add(island_name,grid);
+				CSVManager.GetInstance.islandGridsDic.Add(island_name,grid);
 			}
 
 			int x =  int.Parse(valueStrings[1].Trim());

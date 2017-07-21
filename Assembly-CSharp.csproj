@@ -486,7 +486,23 @@
      <Compile Include="Assets\_BoomBeach\Scripts\Building\BuildingData.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Building\building.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\CSVFileReader.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\CSVManager.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\CSVParser.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\CSVReader.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\VersionCSV.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\BaseCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\GeneralCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\IslandGridCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MBuildingCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MCharacterCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MCharacterMotionCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MGiftItemCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MPRCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MProductCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MVoiceCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MVoiceCollageFrameCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MVoicePlayConditionCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\VersionCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Constant\GameConstant.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Constant\PathConstant.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Constant\SystemConstant.cs" />
@@ -546,6 +562,7 @@
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\UnLockTid.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\UserRegions.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Entity\WorkerInfo.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\File\FileManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Handle\BuildHandle.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Handle\CollectHandle.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Handle\StatusHandle.cs" />
@@ -561,7 +578,6 @@
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\BuildManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\CSVManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\DataManager.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\Manager\FileManager.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\GameFacade.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\GameLoader.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Manager\Initialize.cs" />
@@ -702,7 +718,9 @@
      <Compile Include="Assets\_BoomBeach\Scripts\UI\UnlockItem.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Utility\AutoDestroy.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Utility\FPSCounter.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Utility\MethodExtensionForComponent.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Utility\ResourceUtility.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\Utility\StringColor.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Utility\SysConfig.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Utility\SysConfigKeys.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\Utils\Atlas.cs" />
@@ -842,8 +860,8 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\goodies\PackedTextMesh.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
-     <None Include="Assets\Resources\csv\buildings.txt" />
      <None Include="Assets\_BoomBeach\Templates\C#PanelView.txt" />
+     <None Include="Assets\Resources\csv\buildings.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\Blend2TexVertexColor.shader" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\BuildInfoPanel.txt" />
@@ -916,7 +934,6 @@
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\TroopInfoPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.0.6 f6.txt" />
-     <None Include="Assets\Resources\csv\islandgrid.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
@@ -995,7 +1012,6 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\MainInterfacePanel.txt" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\TroopTrainPanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\CSV\Editor\CSVScriptTemplate.txt" />
      <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\MaskPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
@@ -1085,6 +1101,9 @@
  </Reference>
  <Reference Include="Pathfinding.Poly2Tri">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/AstarPathfindingProject/Plugins/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+ </Reference>
+ <Reference Include="CSV">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/Plugins/CSV.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/Plugins/Newtonsoft.Json.dll</HintPath>

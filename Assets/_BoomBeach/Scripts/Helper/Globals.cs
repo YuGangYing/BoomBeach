@@ -209,16 +209,16 @@ public static class Globals{
 		//Globals.buildContainer = GameObject.Find ("PBuilds").transform;
 		//Globals.characterContainer = GameObject.Find ("PCharacters").transform;
 		//Globals.bulletContainer = GameObject.Find ("PBullets").transform;
-        if (Islands.Instance.useType)
+		if (Islands.GetInstance.useType)
 		{
-			Globals.islandType = Islands.Instance.type;
+			Globals.islandType = Islands.GetInstance.type;
 			Debug.Log("user island by test");
 		}
-		for(int i=0;i<Islands.Instance.islands.Length;i++)
+		for(int i=0;i<Islands.GetInstance.islands.Length;i++)
 		{
-			if(Islands.Instance.islands[i].type==Globals.islandType)
+			if(Islands.GetInstance.islands[i].type==Globals.islandType)
 			{
-			    GameObject mineLand = Islands.Instance.islands[i].gameObject;
+				GameObject mineLand = Islands.GetInstance.islands[i].gameObject;
 
                 mineLand.SetActive(true);
                 Globals.SceneIsland = mineLand;
@@ -227,13 +227,12 @@ public static class Globals{
 			}
 			else
 			{
-				Islands.Instance.islands[i].gameObject.SetActive(false);
+				Islands.GetInstance.islands[i].gameObject.SetActive(false);
 			}
 		}
 
 		//初始化a星矩阵;
 		mMatrix = new byte[64, 64]; 
-
 		//初始化格子;
 		Globals.GridArray = new GridInfo[Globals.GridTotal, Globals.GridTotal];
 		for (int a=0; a<Globals.GridTotal; a++) 
@@ -247,17 +246,11 @@ public static class Globals{
 				gridInfo.standPoint = new Vector3((float)a+0.5f,0f,(float)b+0.5f);
 				gridInfo.isInArea = true;
 				gridInfo.cost = Globals.GridEmptyCost;
-			
-
-
-				if(CSVManager.GetInstance.island_grid_csv[Globals.islandType.ToString()][a,b]==1)
+				if(CSVManager.GetInstance.islandGridsDic[Globals.islandType.ToString()][a,b]==1)
 				{
 					gridInfo.isInArea = false;
 					gridInfo.cost = Globals.GridBuildCost;
 				}
-
-
-
 				Globals.GridArray[a,b] = gridInfo; 
 			}
 		}		

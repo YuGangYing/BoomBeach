@@ -7,16 +7,19 @@ using System.Text.RegularExpressions;
 
 namespace BattleFramework.Data
 {
-	//根据CSV文件表头和模板生成数据类
 	//Support type: int,float,string,bool,List<int>,Vector3
 	public class CreateClassFromCSV : EditorWindow
 	{
-		string csvDirection = @"Assets/Resources/csv";
-		string classFilePath = @"Assets/Scripts/Data/Entity";
+		string csvDirection = @"Assets/CSV";
+
+		string classFilePath = @"Assets/Scripts/common/csv/entity";
+
+		string jsonFilePath = @"Assets/Json";
+
 		//string tempatePath = @"Assets/Scripts/csv/Editor/CSVScriptTemplate";
 
 		static CreateClassFromCSV csvWin;
-		[MenuItem("Data/Csv To Class")]
+		//[MenuItem("Tools/CSV Mananger")]
 		static void AddWindow ()
 		{
 			//CreateClassFromCSV csvWin = EditorWindow.GetWindowWithRect<CreateClassFromCSV>(new Rect(new Vector2(Screen.width/2 - 400,Screen.height/2 - 300) , new Vector2(800,600)),false,"CSV To Class",true);
@@ -116,20 +119,41 @@ namespace BattleFramework.Data
 
 			GUI.color = Color.white;
 			GUILayout.BeginHorizontal ();
-			if (GUILayout.Button ("Create",GUILayout.Width(100))) {
+//			if (GUILayout.Button ("CreateClass",GUILayout.Width(100))) {
+//				//DirectoryInfo dir = new DirectoryInfo (csvDirection);
+//				//filePaths = dir.GetFiles ("*.csv");
+//				//if (filePaths != null) {
+//					//foreach (FileInfo file in filePaths) {
+//					//	Create (file);
+//					//}
+//					//格式化生成DataCenter
+//					//CreateDataCenter (filePaths);
+//				//}
+//				int count = 0;
+//				foreach(CSVData data in mCSVDatas){
+//					if (data.isSelect) {
+//						Create (data.path);
+//						count++;
+//					}
+//				}
+//				Debug.Log ("==================================");
+//				Debug.Log (count + " class has bean created!");
+//				Debug.Log ("==================================");
+//				csvWin.Close ();
+//			}
+			if (GUILayout.Button ("CoverToJson",GUILayout.Width(100))) {
 				//DirectoryInfo dir = new DirectoryInfo (csvDirection);
 				//filePaths = dir.GetFiles ("*.csv");
 				//if (filePaths != null) {
-					//foreach (FileInfo file in filePaths) {
-					//	Create (file);
-					//}
-					//格式化生成DataCenter
-					//CreateDataCenter (filePaths);
+				//foreach (FileInfo file in filePaths) {
+				//	Create (file);
+				//}
+				//CreateDataCenter (filePaths);
 				//}
 				int count = 0;
 				foreach(CSVData data in mCSVDatas){
 					if (data.isSelect) {
-						Create (data.path);
+						CoverToJson (data.path);
 						count++;
 					}
 				}
@@ -148,22 +172,78 @@ namespace BattleFramework.Data
 					data.isSelect = false;
 				}
 			}
+
+			if (GUILayout.Button ("Test",GUILayout.Width(100))) {
+				TestJson ();
+			}
+
+
 			GUILayout.EndHorizontal ();
+		}
+
+		string GetClassName(string path){
+			int index = path.LastIndexOf("/");
+			string className = path.Replace (".csv","");
+			if(index!=-1){
+				className = path.Substring(index + 1).Replace (".csv","");
+			}
+			string head = className.Substring (0, 1).ToUpper ();
+			string body = className.Substring (1, className.Length - 1);
+			className = head + body;
+			return className;
+		}
+
+		void CoverToJson(string path){
+			int index = path.LastIndexOf("/");
+			string realName = path.Replace (".csv","");
+			if(index!=-1){
+				realName = path.Substring(index + 1).Replace (".csv","");
+			}
+			List<Dictionary<string,object>> datas = CSVFileReader.Read (path);
+			string fileName = jsonFilePath + "/" + realName + ".json";
+			if (!Directory.Exists (jsonFilePath)) {
+				Directory.CreateDirectory (jsonFilePath);
+			}
+			if (File.Exists (fileName)) {
+				Debug.Log ("Delete " + fileName);
+				File.Delete (fileName);
+			}
+			StreamWriter file = new StreamWriter (fileName, false);
+			file.WriteLine ("{\"data\":[");
+			int j = 0;
+			foreach(Dictionary<string,object> data in datas){
+
+				file.Write ("{");
+				int i = 0;
+				foreach(string key in data.Keys){
+					file.Write ("\"" + key + "\"" + ":" + "\"" + data[key] + "\"");
+					i++;
+					if(i<data.Keys.Count)
+						file.Write (",");
+				}
+
+				j++;
+				if (j < datas.Count) {
+					file.Write ("}");
+					file.WriteLine (",");
+				} else {
+					file.WriteLine ("}");
+				}
+
+			}
+			file.WriteLine ("]}");
+			file.Flush ();
+			file.Close ();
+			AssetDatabase.ImportAsset (fileName);
 		}
 
 		void Create (string path)
 		{
 
 			string fileName = path;
-			int index = fileName.LastIndexOf("/");
-			string className = fileName.Replace (".csv","");
-			if(index!=-1){
-				className = fileName.Substring(index + 1).Replace (".csv","");
-			}
-			string head = className.Substring (0, 1).ToUpper ();
-			string body = className.Substring (1, className.Length - 1);
-			className = head + body;
-			fileName = classFilePath + "/" + head + body + ".cs";
+//			int index = fileName.LastIndexOf("/");
+			string className = GetClassName (path);
+			fileName = classFilePath + "/" + className + ".cs";
 			Debug.Log ("fileName: " + fileName + ";" + "className: " + className);
 			if (!Directory.Exists (classFilePath)) {
 				Directory.CreateDirectory (classFilePath);
@@ -190,7 +270,7 @@ namespace BattleFramework.Data
             //string resourcesPath = "CSV/" + fileInfo.Name.Replace(".csv","");
 			//file.WriteLine ("        public static string u = \"" + path.Replace(".csv","") + "\";");
 			file.WriteLine ("        public static string[] columnNameArray = new string[" + csvFile.listColumnName.Count + "];");
-			file.WriteLine ("        public static List<" + className + "> LoadDatas(TextAsset text){");
+			file.WriteLine ("        public static List<" + className + "> LoadDatas(string text){");
 			file.WriteLine ("            CSVFileReader csvFile = new CSVFileReader();");
 			//file.WriteLine ("            csvFile.Open(Resources.Load<TextAsset>(csvFilePath));");
 			file.WriteLine ("            csvFile.Open(text);");
@@ -286,7 +366,6 @@ namespace BattleFramework.Data
 			file.WriteLine ("        }");
 
             /**
-			//添加根据ID查询的方法  
 			file.WriteLine ("  ");
 			file.WriteLine ("        public static " + className + " GetByID (int id,List<" + className + "> data)");
 			file.WriteLine ("        {");
@@ -304,16 +383,23 @@ namespace BattleFramework.Data
 				file.WriteLine (fields [i]);
 			}
 
-			//添加根据ID查询的方法  
-
 			file.WriteLine ("    }");
+
+			file.WriteLine ("    [System.Serializable]");
+			file.WriteLine ("    public class " + className + "_Josn" + " {");
+			file.WriteLine ("        public List<" + className + ">  data;");
+			file.WriteLine ("    }");
+
 			file.WriteLine ("}");
+
+
+
 			file.Flush ();
 			file.Close ();
 			AssetDatabase.ImportAsset (fileName);
 			Debug.Log ("Create " + fileName);
 		}
-		/*生成DataCenter 功能
+		/*
 		void CreateDataCenter (FileInfo[] filePathsAll)
 		{
 			StreamWriter file = new StreamWriter (dataCenterFilePath, false);
@@ -337,7 +423,7 @@ namespace BattleFramework.Data
 				string body = className.Substring (1, className.Length - 1);
 
 				string classNameLower = "list_" + head + body;
-				string classNameUpper = head + body;  //类名
+				string classNameUpper = head + body;  
 				file.WriteLine ("        public List<" + classNameUpper + "> list_" + classNameUpper + ";");
 			}
 			file.WriteLine ("  ");
@@ -372,7 +458,7 @@ namespace BattleFramework.Data
 				string body = className.Substring (1, className.Length - 1);
 				
 				string classNameLowerList = "list_" + head + body;
-				string classNameUpper = head + body;  //类名
+				string classNameUpper = head + body;  
 				file.WriteLine ("            " + classNameLowerList + " = " + classNameUpper + ".LoadDatas ();");
 			}
 			file.WriteLine ("        }");
@@ -389,7 +475,7 @@ namespace BattleFramework.Data
 				string body = className.Substring (1, className.Length - 1);
 				
 				string classNameLowerList = "list_" + head + body;
-				string classNameUpper = head + body;  //类名
+				string classNameUpper = head + body;  
 				file.WriteLine ("  ");
 				file.WriteLine ("//" + classNameUpper + "-----------------------------------------");
 				file.WriteLine ("        public " + classNameUpper + " CSV_" + classNameUpper + " (int id)");
@@ -412,6 +498,16 @@ namespace BattleFramework.Data
 			Debug.Log ("//get id  ITEM");
 		}
 		*/
+
+		void TestJson(){
+			string realName = "m_flower";
+			string fileName = jsonFilePath + "/" + realName + ".json";
+			string str = FileManager.ReadString (fileName);
+			Debug.Log (str);
+//			FlowerJson json = JsonUtility.FromJson<FlowerJson> (str);
+		}
+
+
 	}
 
 
