@@ -8,12 +8,16 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>
 {
 
 	private const string CSV_ISLANDGRID = @"m_island_grid";
-	private const string CSV_BUILDING = @"m_building";
+	private const string CSV_UNIT = @"m_unit";
 
 	private CsvContext mCsvContext;
 
-	public List<IslandGridCSVStructure> islandGridList;
+	public List<MIslandGridCSVStructure> islandGridList;
 	public Dictionary<string,int[,]> islandGridsDic;
+
+	public List<MUnitCSVStructure> unitList;
+	public Dictionary<int,MUnitCSVStructure> unitIdDic;
+	public Dictionary<string,MUnitCSVStructure> unitTidDic;
 
 	void LoadCSV ()
 	{
@@ -34,24 +38,29 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>
 	//加载岛的不可通行区配置;
 	void LoadIslandGrid ()
 	{
-		islandGridList = CreateCSVList<IslandGridCSVStructure> (CSV_ISLANDGRID);
+		islandGridList = CreateCSVList<MIslandGridCSVStructure> (CSV_ISLANDGRID);
 		islandGridsDic = new Dictionary<string, int[,]> ();
 		string last_island_name = null;
 		int[,] grid = null;//new int[40,40];
 		for (int i = 1; i < islandGridList.Count; i++) {			
 
-			if (islandGridsDic.ContainsKey (islandGridList[i].name)) {
-				islandGridsDic.Add (islandGridList[i].name, new int[GRID_TOTAL, GRID_TOTAL]);
+			if (islandGridsDic.ContainsKey (islandGridList [i].name)) {
+				islandGridsDic.Add (islandGridList [i].name, new int[GRID_TOTAL, GRID_TOTAL]);
 			}
-			int x = int.Parse (islandGridList[i].x.Trim ());
-			int y = int.Parse (islandGridList[i].y.Trim ());
-			islandGridsDic [islandGridList[i].name] [x, y] = 1;
+			int x = int.Parse (islandGridList [i].x.Trim ());
+			int y = int.Parse (islandGridList [i].y.Trim ());
+			islandGridsDic [islandGridList [i].name] [x, y] = 1;
 		}
 	}
 
-
-	void LoadBuilding(){
-	
+	void LoadUnit ()
+	{
+		unitList = CreateCSVList<MUnitCSVStructure> (CSV_UNIT);
+		unitIdDic = GetDictionary<MUnitCSVStructure> (unitList);
+		unitTidDic = new Dictionary<string, MUnitCSVStructure> ();
+		for (int i = 0; i < unitList.Count; i++) {
+			unitTidDic.Add (unitList[i].tid,unitList[i]);
+		}
 	}
 
 	public List<T> CreateCSVList<T> (string csvname) where T:BaseCSVStructure, new()
@@ -80,7 +89,7 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>
 	//经验列表;;ExperienceLevels；name 为key即：经验等级;
 	public Hashtable achievementsList = new Hashtable ();
 	//成孰数据;
-//	public Dictionary<string,int[,]> islandGridsDic = new Dictionary<string,int[,]> ();
+	//	public Dictionary<string,int[,]> islandGridsDic = new Dictionary<string,int[,]> ();
 	public Hashtable csvTable = new Hashtable ();
 	//以tid_level 为索引,CsvInfo为类;
 

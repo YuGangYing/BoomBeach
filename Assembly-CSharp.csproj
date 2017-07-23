@@ -492,13 +492,15 @@
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\VersionCSV.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\BaseCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\GeneralCSVStructure.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\IslandGridCSVStructure.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MBuildingCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MCharacterCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MCharacterMotionCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MGiftItemCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MIslandGridCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MPRCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MProduceUnitCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MProductCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MSkillCSVStructure.cs" />
+     <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MUnitCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MVoiceCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MVoiceCollageFrameCSVStructure.cs" />
      <Compile Include="Assets\_BoomBeach\Scripts\CSV\structure\MVoicePlayConditionCSVStructure.cs" />

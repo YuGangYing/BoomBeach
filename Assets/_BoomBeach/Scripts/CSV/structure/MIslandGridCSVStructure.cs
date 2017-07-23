@@ -4,7 +4,7 @@ using UnityEngine;
 using CSV;
 
 [System.Serializable]
-public class IslandGridCSVStructure : BaseCSVStructure {
+public class MIslandGridCSVStructure : BaseCSVStructure {
 
 	[CsvColumn (CanBeNull = true)]
 	public string name{ get; set;}
