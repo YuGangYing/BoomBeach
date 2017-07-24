@@ -39,3 +39,8 @@
 /Users/yingyugang/BoomBeach/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/yingyugang/BoomBeach/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/yingyugang/BoomBeach/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/yingyugang/BoomBeach/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/yingyugang/BoomBeach/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/yingyugang/BoomBeach/obj/Debug/Assembly-CSharp.dll
+/Users/yingyugang/BoomBeach/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/yingyugang/BoomBeach/Temp/bin/Debug/CSV.dll

@@ -201,6 +201,7 @@
      <Compile Include="Assets\SceneManager\Editor\SMSceneListDragSource.cs" />
      <Compile Include="Assets\SceneManager\Editor\SMSceneListDropTarget.cs" />
      <Compile Include="Assets\SceneManager\Editor\SMSceneRenderer.cs" />
+     <Compile Include="Assets\Scripts\CSV\Editor\CreateClassFromCSV.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Editor\Camera\tk2dCameraAnchorEditor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Editor\Camera\tk2dCameraEditor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Editor\Fonts\tk2dFontBuilder.cs" />
@@ -294,8 +295,7 @@
      <Compile Include="Assets\TK2DROOT\tk2dUI\Editor\Core\tk2dUIMaskEditor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2dUI\Editor\Core\tk2dUIMethodBindingHelper.cs" />
      <Compile Include="Assets\TK2DROOT\tk2dUI\Editor\Core\tk2dUISpriteAnimatorEditor.cs" />
-     <Compile Include="Assets\_BoomBeach\Scripts\CSV\Editor\CreateClassFromCSV.cs" />
-     <Compile Include="Assets\_BoomBeach\ThirdParty\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
+     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
      <None Include="Assets\NGUI\ReadMe - 3.9.2.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Resources\csv\artifact_bonuses.txt" />
@@ -305,42 +305,42 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (SoftClip).shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\PopMsgPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\PopMsgPanel.txt" />
      <None Include="Assets\Resources\message.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\BuildDetailPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\BuildDetailPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\ThirdParty\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Shader\GrayUGUI.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\Templates\C#PanelView.txt" />
+     <None Include="Assets\Scripts\UGUI\Templates\C#PanelView.txt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitSolidVertexColor.shader" />
      <None Include="Assets\sea resources\Shader\SeaSimple_small.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\TroopDetailPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\TroopDetailPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\DOTween\DOTween50.xml" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\ResearchPanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\MaskPanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\IslandPopPanel.txt" />
+     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\ResearchPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\MaskPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\IslandPopPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Shader\waterfall.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
-     <None Include="Assets\_BoomBeach\Templates\LuaXmlData.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\Templates\LuaBinder.txt" />
+     <None Include="Assets\Templates\LuaXmlData.txt" />
+     <None Include="Assets\Scripts\UGUI\Templates\LuaBinder.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
      <None Include="Assets\Shader\GridBuildPlan.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\SolidVertexColor.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\ConscribelPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\ConscribelPanel.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
      <None Include="Assets\Resources\csv\projectiles.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
@@ -350,7 +350,7 @@
      <None Include="Assets\Resources\csv\npcs.txt" />
      <None Include="Assets\SceneManager\Resources\Shader\SMTilesEffect.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\TeamListPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\TeamListPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
      <None Include="Assets\Shader\ProjectileAddtiveGroundShader.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI\Shaders\DepthMask.shader" />
@@ -358,23 +358,23 @@
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\Templates\LuaXmlData.txt" />
+     <None Include="Assets\Scripts\UGUI\Templates\LuaXmlData.txt" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Resources\database.txt" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\MsgPanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\ResearchPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\MsgPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\ResearchPanel.txt" />
      <None Include="Assets\Shader\BuildBottomShader.shader" />
      <None Include="Assets\Shader\DynamicGray (AlphaClip).shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\Poly2Tri\Poly2TriLicense.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\Config.txt" />
+     <None Include="Assets\Scripts\UGUI\Config.txt" />
      <None Include="Assets\Shader\BuildGroundShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
      <None Include="Assets\Shader\GridBuildLine.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (AlphaClip) .shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\BattleInterfacePanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\ShopPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\BattleInterfacePanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\ShopPanel.txt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitPremulVertexColor.shader" />
      <None Include="Assets\Resources\csv\globals.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />
@@ -390,17 +390,17 @@
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
      <None Include="Assets\SceneManager\Resources\Shader\SMTetrisEffect.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\AchivementPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\AchivementPanel.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (AlphaClip).shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\goodies\PackedTextMesh.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
-     <None Include="Assets\_BoomBeach\Templates\C#PanelView.txt" />
+     <None Include="Assets\Templates\C#PanelView.txt" />
      <None Include="Assets\Resources\csv\buildings.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\Blend2TexVertexColor.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\BuildInfoPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\BuildInfoPanel.txt" />
      <None Include="Assets\Shader\DebugGridLine.shader" />
      <None Include="Assets\Resources\csv\decos.txt" />
      <None Include="Assets\Resources\csv\spells.txt" />
@@ -410,21 +410,21 @@
      <None Include="Assets\Resources\csv\regions.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (AlphaClip).shader" />
      <None Include="Assets\TK2DROOT\tk2dUI\Shaders\DepthMaskSolid.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\LoginPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\LoginPanel.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (AlphaClip).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\CardPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\CardPanel.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Dark\Fonts\Nunito24.fnt" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\Shader\WorldOcean.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
-     <None Include="Assets\_BoomBeach\Resources\Localization\Chinese.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\Templates\LuaPanelView.txt" />
+     <None Include="Assets\BoomBeach\Resources\Localization\Chinese.txt" />
+     <None Include="Assets\Scripts\UGUI\Templates\LuaPanelView.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
      <None Include="Assets\sea resources\SeaWave.shader" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\DemiLib\DemiLib.xml" />
+     <None Include="Assets\ThirdParty\Demigiant\DemiLib\DemiLib.xml" />
      <None Include="Assets\AstarPathfindingProject\Plugins\dependencies.txt" />
      <None Include="Assets\SceneManager\Resources\Shader\SMPixelateEffect.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
@@ -445,12 +445,12 @@
      <None Include="Assets\Shader\BoomBeachOceanShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\SettingPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\SettingPanel.txt" />
      <None Include="Assets\Shader\ProjectileShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\resources\BlendVertexColor.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\CardItemPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\CardItemPanel.txt" />
      <None Include="Assets\Resources\csv\townhall_levels.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
@@ -467,21 +467,21 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Dynamic Font.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\TroopInfoPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\TroopInfoPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.0.6 f6.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\ThirdParty\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Shader\UI-Default-Gray.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\PlayerListPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\PlayerListPanel.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Example8_PathTypes\SquareShader.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\BattleInterfacePanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\BattleInterfacePanel.txt" />
      <None Include="Assets\AstarPathfindingProject\Readme.txt" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
      <None Include="Assets\NGUI\Examples\Other\English.txt" />
@@ -491,11 +491,11 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
      <None Include="Assets\SceneManager\CHANGES.txt" />
-     <None Include="Assets\_BoomBeach\Resources\Localization\English.txt" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\BoomBeach\Resources\Localization\English.txt" />
+     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\CutoutVertexColor.shader" />
-     <None Include="Assets\_BoomBeach\Resources\Configs\SysConfig\BaseConfig.txt" />
+     <None Include="Assets\BoomBeach\Resources\Configs\SysConfig\BaseConfig.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\TK2DROOT\tk2d_demo\demobmfont\test.fnt" />
      <None Include="Assets\SceneManager\Resources\Shader\SMCartoonEffect.shader" />
@@ -511,7 +511,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\NormalMsgPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\NormalMsgPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\Resources\csv\characters.txt" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Font\OldSansBlack\OldSansBlack.fnt" />
@@ -530,15 +530,15 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\Resources\local_test_data.txt" />
-     <None Include="Assets\_BoomBeach\Configs\Xml_Config_Editor.xml" />
+     <None Include="Assets\Configs\Xml_Config_Editor.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Dark\Fonts\Nunito32.fnt" />
      <None Include="Assets\AstarPathfindingProject\Plugins\JsonFx\Readme.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\ArtifactPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\ArtifactPanel.txt" />
      <None Include="Assets\SceneManager\Resources\Shader\SMNewspaperEffect.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\ResearchDetailPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\ResearchDetailPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
@@ -546,42 +546,42 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\MainInterfacePanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\TroopTrainPanel.txt" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\MaskPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\MainInterfacePanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\TroopTrainPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\MaskPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\Lua\LoginPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\Lua\LoginPanel.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\Shader\BuildTopShader.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\ResultPanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\ResultPanel.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\Shader\BuildRingShader.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
-     <None Include="Assets\_BoomBeach\Scripts\UGUI\PanelData\CSharp\MainInterfacePanel.txt" />
+     <None Include="Assets\Scripts\UGUI\PanelData\CSharp\MainInterfacePanel.txt" />
      <None Include="Assets\Shader\Ocean.shader" />
      <None Include="Assets\Shader\Unlit-Alpha.shader" />
      <None Include="Assets\Shader\DynamicGray (SoftClip).shader" />
-     <None Include="Assets\_BoomBeach\ThirdParty\Demigiant\readme_DOTweenPro.txt" />
+     <None Include="Assets\ThirdParty\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\Shader\GridLine.shader" />
      <None Include="Assets\Shader\ProjectileAddtiveShader.shader" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (SoftClip).shader" />
-     <None Include="Assets\_BoomBeach\Templates\LuaBinder.txt" />
+     <None Include="Assets\Templates\LuaBinder.txt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />
      <None Include="Assets\AstarPathfindingProject\link.xml" />
      <None Include="Assets\Resources\csv\achievements.txt" />
      <None Include="Assets\Resources\csv\liberated_income.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
-     <None Include="Assets\_BoomBeach\Templates\LuaPanelView.txt" />
+     <None Include="Assets\Templates\LuaPanelView.txt" />
      <None Include="Assets\TK2DROOT\tk2d_demo\democameradata\source\democamerafont.fnt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="UnityEditor.Advertisements">
@@ -650,33 +650,6 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="DemiLib">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DemiLib/DemiLib.dll</HintPath>
- </Reference>
- <Reference Include="DemiEditor">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DemiLib/Editor/DemiEditor.dll</HintPath>
- </Reference>
- <Reference Include="DOTween">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTween/DOTween.dll</HintPath>
- </Reference>
- <Reference Include="DOTween43">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTween/DOTween43.dll</HintPath>
- </Reference>
- <Reference Include="DOTween46">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTween/DOTween46.dll</HintPath>
- </Reference>
- <Reference Include="DOTween50">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTween/DOTween50.dll</HintPath>
- </Reference>
- <Reference Include="DOTweenEditor">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
- </Reference>
- <Reference Include="DOTweenPro">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
- </Reference>
- <Reference Include="DOTweenProEditor">
- <HintPath>/Users/yingyugang/BoomBeach/Assets/_BoomBeach/ThirdParty/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
- </Reference>
  <Reference Include="Pathfinding.ClipperLib">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/AstarPathfindingProject/Plugins/Clipper/Pathfinding.ClipperLib.dll</HintPath>
  </Reference>
@@ -727,6 +700,33 @@
  </Reference>
  <Reference Include="tk2dSkin">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/TK2DROOT/tk2d/Editor/tk2dSkin.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenProEditor">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiEditor">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DemiLib/Editor/DemiEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Users/yingyugang/BoomBeach/Assets/ThirdParty/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity5.6.2f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

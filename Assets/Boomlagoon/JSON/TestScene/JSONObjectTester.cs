@@ -195,7 +195,7 @@ public class JSONObjectTester : MonoBehaviour {
 
 				Globals.Init ();
 
-				WorkerManage.Instance.ClearWorkers();
+				WorkerManager.GetInstance.ClearWorkers();
 				//Globals.LandCrafts = new ArrayList();//.Clear();
 				//清空旧数据;
 				while(Characters.childCount > 0){
