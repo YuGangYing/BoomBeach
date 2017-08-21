@@ -72,7 +72,7 @@ public class Artifact : MonoBehaviour {
 	public void removeArtifact(string SellResource)
 	{
 		Debug.Log (SellResource);
-		GameObject crystlePartObj = Instantiate(ResourceCache.load ("UI/CrystlePart")) as GameObject;
+		GameObject crystlePartObj = Instantiate(ResourceCache.Load ("UI/CrystlePart")) as GameObject;
 		crystlePart = crystlePartObj.transform;
 		crystlePart.parent = transform;
 		crystlePart.name = "crystle";

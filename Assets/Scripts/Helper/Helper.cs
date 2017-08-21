@@ -3447,11 +3447,7 @@ public class Helper: MonoBehaviour {
             //创建模型（新）
             if (buildInfo == null)
             {
-                bbm.CreateBuildGo(out buildInfo, new BuildParam()
-                {
-                    tid_level = tid_level,
-                    tid = tid
-                });
+				bbm.CreateBuildGo(out buildInfo, tid_level);
             }
             //初始化建筑（新）
             bbm.InitBuilding(ref buildInfo, new BuildParam()
@@ -4386,7 +4382,7 @@ public class Helper: MonoBehaviour {
 
 
 		
-		GameObject buildSpriteInstance = Instantiate(ResourceCache.load(buildSpritePath)) as GameObject;
+		GameObject buildSpriteInstance = Instantiate(ResourceCache.Load(buildSpritePath)) as GameObject;
 		
 		Artifact artifact = buildSpriteInstance.transform.GetComponentInChildren<Artifact>();
 		if(artifact!=null)
@@ -4483,7 +4479,7 @@ public class Helper: MonoBehaviour {
 					Transform obj = house_pos.Find("islandHouse");
 					GameObject islandHouse = null;
 					if (obj == null){
-						islandHouse = Instantiate(ResourceCache.load("UI/islandHouse")) as GameObject;
+						islandHouse = Instantiate(ResourceCache.Load("UI/islandHouse")) as GameObject;
 						islandHouse.name = "islandHouse";
 					}else{
 						islandHouse = obj.gameObject;
@@ -4553,7 +4549,7 @@ public class Helper: MonoBehaviour {
 					//Debug.Log(r.desc);
 					GameObject Explore = r.Explore;
 					if (Explore == null){
-						Explore = Instantiate(ResourceCache.load("UI/Explore")) as GameObject;
+						Explore = Instantiate(ResourceCache.Load("UI/Explore")) as GameObject;
 						Explore.name = "Explore";
 						r.Explore = Explore;
 					}

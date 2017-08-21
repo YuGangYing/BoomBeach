@@ -90,25 +90,25 @@ public class LandCraft : MonoBehaviour {
 			DestroyImmediate (rightStands);
 		if(rightupStands!=null)
 			DestroyImmediate (rightupStands);
-		if(ResourceCache.load(buildInfo.buildSpritePath+"_trooper_UP")!=null)
+		if(ResourceCache.Load(buildInfo.buildSpritePath+"_trooper_UP")!=null)
 		{
-			upStands = Instantiate(ResourceCache.load(buildInfo.buildSpritePath+"_trooper_UP")) as GameObject;
+			upStands = Instantiate(ResourceCache.Load(buildInfo.buildSpritePath+"_trooper_UP")) as GameObject;
 			upStands.transform.parent = transform.Find("TroopersStand");
 			upStands.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
 			upStands.transform.localPosition = Vector3.zero; 
 			upStands.transform.name = "StandsUP";
 		}
-		if(ResourceCache.load(buildInfo.buildSpritePath+"_trooper_RIGHT")!=null)
+		if(ResourceCache.Load(buildInfo.buildSpritePath+"_trooper_RIGHT")!=null)
 		{
-			rightStands = Instantiate(ResourceCache.load(buildInfo.buildSpritePath+"_trooper_RIGHT")) as GameObject;
+			rightStands = Instantiate(ResourceCache.Load(buildInfo.buildSpritePath+"_trooper_RIGHT")) as GameObject;
 			rightStands.transform.parent = transform.Find("TroopersStand");
 			rightStands.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
 			rightStands.transform.localPosition = Vector3.zero; 
 			rightStands.transform.name = "StandsRIGHT";
 		}
-		if(ResourceCache.load(buildInfo.buildSpritePath+"_trooper_RIGHTUP")!=null)
+		if(ResourceCache.Load(buildInfo.buildSpritePath+"_trooper_RIGHTUP")!=null)
 		{
-			rightupStands = Instantiate(ResourceCache.load(buildInfo.buildSpritePath+"_trooper_RIGHTUP")) as GameObject;
+			rightupStands = Instantiate(ResourceCache.Load(buildInfo.buildSpritePath+"_trooper_RIGHTUP")) as GameObject;
 			rightupStands.transform.parent = transform.Find("TroopersStand");
 			rightupStands.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
 			rightupStands.transform.localPosition = Vector3.zero; 
@@ -225,27 +225,27 @@ public class LandCraft : MonoBehaviour {
 		if(trooperType == TrooperType.Heavy)
 		{
 			trooperStands = heavys;
-			trooperPrefab = ResourceCache.load("Model/Character/heavys") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/heavys") as GameObject;
 		}
 		else if(trooperType == TrooperType.Rifleman)
 		{
 			trooperStands = riflemans;
-			trooperPrefab = ResourceCache.load("Model/Character/rifleman") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/rifleman") as GameObject;
 		}
 		else if(trooperType == TrooperType.Tank)
 		{
 			trooperStands = tanks;
-			trooperPrefab = ResourceCache.load("Model/Character/tank") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/tank") as GameObject;
 		}
 		else if(trooperType == TrooperType.Warrior)
 		{
 			trooperStands = warriors;
-			trooperPrefab = ResourceCache.load("Model/Character/warrior") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/warrior") as GameObject;
 		}
 		else if(trooperType == TrooperType.Zooka)
 		{
 			trooperStands = zookas;
-			trooperPrefab = ResourceCache.load("Model/Character/zooka") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/zooka") as GameObject;
 		}
 		Debug.Log ("num:"+num);
 		for(int i=0;i<num;i++)
@@ -302,23 +302,23 @@ public class LandCraft : MonoBehaviour {
 		GameObject trooperPrefab = null;
 		if(trooperType == TrooperType.Heavy)
 		{
-			trooperPrefab = ResourceCache.load("Model/Character/heavys") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/heavys") as GameObject;
 		}
 		else if(trooperType == TrooperType.Rifleman)
 		{
-			trooperPrefab = ResourceCache.load("Model/Character/rifleman") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/rifleman") as GameObject;
 		}
 		else if(trooperType == TrooperType.Tank)
 		{
-			trooperPrefab = ResourceCache.load("Model/Character/tank") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/tank") as GameObject;
 		}
 		else if(trooperType == TrooperType.Warrior)
 		{
-			trooperPrefab = ResourceCache.load("Model/Character/warrior") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/warrior") as GameObject;
 		}
 		else if(trooperType == TrooperType.Zooka)
 		{
-			trooperPrefab = ResourceCache.load("Model/Character/zooka") as GameObject;
+			trooperPrefab = ResourceCache.Load("Model/Character/zooka") as GameObject;
 		}
 		
 		for(int i=0;i<btd.num;i++)

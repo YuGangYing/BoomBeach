@@ -39,10 +39,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +345,8 @@
      <Compile Include="Assets\Scripts\AI\AStar\IPathFinder.cs" />
      <Compile Include="Assets\Scripts\AI\AStar\PathFinderFast.cs" />
      <Compile Include="Assets\Scripts\AI\AStar\PriorityQueueB.cs" />
+     <Compile Include="Assets\Scripts\AssetBundle\Test.cs" />
+     <Compile Include="Assets\Scripts\AssetBundle\TestAB.cs" />
      <Compile Include="Assets\Scripts\Battle\AITask.cs" />
      <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
      <Compile Include="Assets\Scripts\Battle\BattleData.cs" />
@@ -390,6 +392,7 @@
      <Compile Include="Assets\Scripts\Battle\TrooperUpdater.cs" />
      <Compile Include="Assets\Scripts\Battle\UnitController.cs" />
      <Compile Include="Assets\Scripts\Battle\WalkList.cs" />
+     <Compile Include="Assets\Scripts\Building\BuildGridManager.cs" />
      <Compile Include="Assets\Scripts\Building\BuildManager.cs" />
      <Compile Include="Assets\Scripts\Building\BuildModel.cs" />
      <Compile Include="Assets\Scripts\Building\BuildingData.cs" />
@@ -1051,28 +1054,28 @@
      <None Include="Assets\TK2DROOT\tk2d_demo\democameradata\source\democamerafont.fnt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
- <HintPath>/Applications/Unity5.6.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <HintPath>/Applications/Unity5.6.2f1-1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.ClipperLib">
  <HintPath>/Users/yingyugang/BoomBeach/Assets/AstarPathfindingProject/Plugins/Clipper/Pathfinding.ClipperLib.dll</HintPath>

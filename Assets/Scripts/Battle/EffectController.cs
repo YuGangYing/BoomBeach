@@ -161,7 +161,7 @@ public class EffectController : MonoBehaviour {
 		
 		if(effect==null)
 		{
-			Object prefab = ResourceCache.load(path);
+			Object prefab = ResourceCache.Load(path);
 			if(prefab==null)return null;
 			GameObject effectObj = GameObject.Instantiate(prefab) as GameObject;
 			effectObj.transform.parent = SpawnManager.GetInstance.bulletContainer;

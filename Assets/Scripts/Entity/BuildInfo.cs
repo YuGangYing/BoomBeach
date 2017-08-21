@@ -106,6 +106,7 @@ public class BuildInfo : MonoBehaviour {
 	public List<BuildInfo> frontBuilds;
 
 	public CsvInfo csvInfo;
+	public MUnitCSVStructure buildingInfo;
 
 	public string buildSpritePath;
 	
@@ -1094,7 +1095,7 @@ public class BuildInfo : MonoBehaviour {
 
 				//Debug.Log("csvArtiact.SellResource:" + csvArtiact.SellResource);
 				//播放动画;
-				crystlePartObj = Instantiate(ResourceCache.load ("UI/CrystlePart")) as GameObject;
+				crystlePartObj = Instantiate(ResourceCache.Load ("UI/CrystlePart")) as GameObject;
 				Transform crystlePart = crystlePartObj.transform;
 				crystlePart.parent = s.transform.Find("buildPos/BuildMain");
 				crystlePart.name = "crystle";
@@ -1755,7 +1756,7 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 		GameObject buildSpriteInstance = null;		
 
 
-		buildSpriteInstance = Instantiate(ResourceCache.load(buildSpritePath)) as GameObject;
+		buildSpriteInstance = Instantiate(ResourceCache.Load(buildSpritePath)) as GameObject;
 
 		
 		
@@ -1851,27 +1852,27 @@ TID_POPUP_SPEED_UP_ALL_TROOP_TRAINING = Do you want to finish the loading of all
 				GameObject buildSpriteInstance = null;
 
 
-				if(ResourceCache.load(buildSpritePath)==null)
+				if(ResourceCache.Load(buildSpritePath)==null)
 				{
 					buildSpritePath = "Model/Build/" + Lv1CsvData.ExportName;
 					buildSpPath = "Model/Build/" + Lv1CsvData.ExportName+"_sp";
 				}
 				
-				if(ResourceCache.load(buildSpritePath)==null)
+				if(ResourceCache.Load(buildSpritePath)==null)
 				{
 					buildSpritePath = "Model/Build/housing_lvl1";
 					buildSpPath = "Model/Build/housing_lvl1_sp";
 				}
 				
-				if(ResourceCache.load(buildSpPath)==null)
+				if(ResourceCache.Load(buildSpPath)==null)
 				{
 					buildSpPath = "Model/Build/" + Lv1CsvData.ExportName+"_sp";
 				}
 
 				
 
-				buildSpriteInstance = Instantiate(ResourceCache.load(buildSpritePath)) as GameObject;
-				buildSpInstance = Instantiate(ResourceCache.load(buildSpPath)) as GameObject;
+				buildSpriteInstance = Instantiate(ResourceCache.Load(buildSpritePath)) as GameObject;
+				buildSpInstance = Instantiate(ResourceCache.Load(buildSpPath)) as GameObject;
 				
 
 				buildSpriteInstance.transform.parent = transform.Find ("buildPos");

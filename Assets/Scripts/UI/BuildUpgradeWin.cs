@@ -280,12 +280,12 @@ public class BuildUpgradeWin : MonoBehaviour {
 		string buildSpritePath = "Model/"+modelPath+"/" + csvData.ExportName;
 
 
-		if(ResourceCache.load(buildSpritePath)==null)
+		if(ResourceCache.Load(buildSpritePath)==null)
 		{
 			buildSpritePath = "Model/"+modelPath+"/" + Lv1CsvData.ExportName;
 		}
 		
-		if(ResourceCache.load(buildSpritePath)==null)
+		if(ResourceCache.Load(buildSpritePath)==null)
 		{
 			buildSpritePath = "Model/Build/housing_lvl1";
 		}
@@ -293,7 +293,7 @@ public class BuildUpgradeWin : MonoBehaviour {
 
 
 
-		GameObject buildModel = Instantiate (ResourceCache.load(buildSpritePath)) as GameObject;
+		GameObject buildModel = Instantiate (ResourceCache.Load(buildSpritePath)) as GameObject;
 
 		buildModel.transform.parent = BuildModel;
 		buildModel.transform.localPosition = Vector3.zero;

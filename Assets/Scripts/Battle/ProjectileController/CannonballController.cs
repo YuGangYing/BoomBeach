@@ -29,7 +29,7 @@ public class CannonballController : ProjectileController {
 
 		if(projectileInfo.projectileData.ParticleEmitter!="")
 		{
-			trail = GameObject.Instantiate(ResourceCache.load("Model/Trail/"+projectileInfo.projectileData.ParticleEmitter)) as GameObject;
+			trail = GameObject.Instantiate(ResourceCache.Load("Model/Trail/"+projectileInfo.projectileData.ParticleEmitter)) as GameObject;
 			trail.transform.parent = projectileInfo.transform;
 			trail.transform.localPosition = Vector3.zero;
 		}

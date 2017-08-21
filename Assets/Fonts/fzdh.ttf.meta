@@ -1,14 +1,20 @@
 fileFormatVersion: 2
 guid: a8c4a4c59b6d36c46b454e7dc392d755
 TrueTypeFontImporter:
-  serializedVersion: 2
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontName: FZZhengHeiS-EB-GB
+  fontNames:
+  - FZZhengHeiS-EB-GB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 573c921e87b04c745902b89df2594f0a, type: 3}
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
+  assetBundleName: font_fzdh
+  assetBundleVariant: assetbundle

@@ -14,6 +14,10 @@ public static class FileManager
         return Directory.Exists(path);
     }
 
+	public static void CreateDirectory(string path){
+		Directory.CreateDirectory (path);
+	}
+
     public static void WriteAllBytes(string filePath, byte[] bytes)
     {
         try

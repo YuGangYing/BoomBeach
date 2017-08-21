@@ -16,6 +16,7 @@ public static class PathConstant
 	public const string CSV_PATH = "CSV/";
 
 	public const string ASSETBUNDLES = "AssetBundles";
+	public const string MANIFEST = "AssetBundleManifest";
 	private const string AB_PATH = "AB/";
 	private const string ASSETBUNDLES_PATH = "AssetBundles/";
 	private const string IMAGE_PATH = "DownloadImages/";
@@ -25,6 +26,18 @@ public static class PathConstant
 	private const string RESOURCES_PATH = "Resources/";
 	private const string VERSION_PATH = "Version/";
 	private const string ID_PATH = "ID/";
+
+	private const string ANDROID_AB_DIRECTORY = "Assetbundles/android/";
+	private const string IOS_AB_DIRECTORY = "Assetbundles/ios/";
+	private const string STANDARD_AB_DIRECTORY = "Assetbundles/standard/";
+	private const string WEB_AB_DIRECTORY = "Assetbundles/web/";
+
+	private const string ANDROID_MANIFEST = "android";
+	private const string IOS_MANIFEST = "ios";
+	private const string STANDARD_MANIFEST = "standard";
+	private const string WEB_MANIFEST = "web";
+
+
 
 	public static string SERVER_PATH =
 		#if DEVELOP
@@ -75,9 +88,43 @@ public static class PathConstant
 		}
 	}
 
+	static string CLIENT_AB_DIRECTORY{
+		get {
+			#if UNITY_ANDROID
+			return ANDROID_AB_DIRECTORY;
+			#elif UNITY_IOS
+			return IOS_AB_DIRECTORY;
+			#elif UNITY_STANDALONE
+			return STANDARD_AB_DIRECTORY;
+			#elif UNITY_WEBGL
+			return WEB_AB_DIRECTORY;
+			#endif
+		}
+	}
+
+	static string CLIENT_MANIFEST{
+		get {
+			#if UNITY_ANDROID
+			return ANDROID_MANIFEST;
+			#elif UNITY_IOS
+			return IOS_MANIFEST;
+			#elif UNITY_STANDALONE
+			return STANDARD_MANIFEST;
+			#elif UNITY_WEBGL
+			return WEB_MANIFEST;
+			#endif
+		}
+	}
+
 	public static string CLIENT_AB_PATH {
 		get {
-			return Path.Combine (CLIENT_PATH, AB_PATH);
+			return Path.Combine(CLIENT_PATH,CLIENT_AB_DIRECTORY);
+		}
+	}
+
+	public static string CLIENT_MANIFEST_PATH{
+		get{
+			return Path.Combine(CLIENT_AB_PATH,CLIENT_MANIFEST);
 		}
 	}
 

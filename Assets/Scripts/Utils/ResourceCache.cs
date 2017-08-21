@@ -6,8 +6,9 @@ public class ResourceCache : MonoBehaviour {
 
 	private static Dictionary<string,Object> objectCache = new Dictionary<string, Object>();
 
-	public static Object load(string path)
+	public static Object Load(string path)
 	{
+		Debug.Log (path);
 		if(objectCache.ContainsKey(path))
 		{
 			return objectCache[path];

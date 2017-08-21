@@ -62,8 +62,8 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>
 		unitIdDic = GetDictionary<MUnitCSVStructure> (unitList);
 		unitTidLevelDic = new Dictionary<string, MUnitCSVStructure> ();
 		for (int i = 0; i < unitList.Count; i++) {
-			if(!unitTidLevelDic.ContainsKey(unitList [i].tid + "_" + unitList [i].level)){
-				unitTidLevelDic.Add (unitList [i].tid + "_" + unitList [i].level, unitList [i]);
+			if(!unitTidLevelDic.ContainsKey(unitList [i].tid.Trim() + "_" + unitList [i].level)){
+				unitTidLevelDic.Add (unitList [i].tid.Trim() + "_" + unitList [i].level, unitList [i]);
 			}
 		}
 	}
@@ -88,11 +88,19 @@ public class CSVManager : SingleMonoBehaviour<CSVManager>
 		return dic;
 	}
 
+	public MUnitCSVStructure GetUnit(string tid_level){
+		MUnitCSVStructure unit = null;
+		if(unitTidLevelDic.ContainsKey(tid_level)){
+			unit = unitTidLevelDic[tid_level];
+		}
+		return unit;
+	}
+
 	public MUnitCSVStructure GetUnit (string tid, int level)
 	{
 		MUnitCSVStructure unit = null;
-		unitTidLevelDic.TryGetValue (tid + "_" + level, out unit);
-		return unit;
+		string tid_level = tid.Trim () + "_" + level;
+		return GetUnit (tid_level);
 	}
 
 	public int[,] GetGrid(string gridName){

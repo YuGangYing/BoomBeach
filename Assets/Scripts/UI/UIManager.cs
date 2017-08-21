@@ -59,8 +59,6 @@ namespace BoomBeach
 			Helper.UpdateResUI ("All", false);
 		}
 
-
-
 		public T AddCtroller<T>() where T : BaseCtrl
         {
 			if (!ctrls.ContainsKey (typeof(T).FullName)) {
@@ -224,7 +222,7 @@ namespace BoomBeach
             }
             else
             {
-                GameObject prefab = ResourceManager.GetInstance.LoadLocalPanelPrefab(panelStr);
+				GameObject prefab = ResourceManager.GetInstance.LoadUIPrefab(panelStr);
                 panelGo = Instantiate<GameObject>(prefab);
                 m_panels.Add(panelStr, panelGo);
 				panelGo.transform.SetParent(m_uiLayers[type].transform);

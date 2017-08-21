@@ -1,9 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Test/Script/DebugGrid.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Constant/GameConstant.cs">
     <Files>
-      <File FileName="Assets/Test/Script/DebugGrid.cs" Line="22" Column="37" />
-      <File FileName="Assets/Scripts/Utils/MoveOpEvent.cs" Line="525" Column="14" />
+      <File FileName="Assets/Scripts/Entity/BaseEntity.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Building/BuildManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Utils/MoveOpEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CSV/CSVManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/BoomBeach/Resources/CSV/m_unit.csv" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Constant/GameConstant.cs" Line="65" Column="11" />
+      <File FileName="Assets/Scripts/Entity/BuildInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helper/Helper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helper/Globals.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Building/BuildGridManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Battle/BattleController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Battle/TrooperController/HeavyController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Battle/TrooperController/TrooperController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Entity/SpellInfo.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

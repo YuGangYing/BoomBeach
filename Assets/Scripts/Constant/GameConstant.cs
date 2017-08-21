@@ -115,6 +115,21 @@ public static class GameConstant
 	public const string TID_SMOKE_SCREEN = "TID_SMOKE_SCREEN";
 	#endregion
 
+	public const string TID_CATEGORY_TOWNHALL = "TownHall";
+
+	public const string TID_CATEGORY_RESOURCE = "Resource";
+
+	public const string TID_CATEGORY_MISC = "Misc";
+
+	public const string TID_CATEGORY_ARMY = "Army";
+
+	public const string TID_CATEGORY_NPC = "Npc";
+
+	public const string TID_CATEGORY_DEFENSE = "Defense";
+
+	public const string TID_CATEGORY_COMMAND_CENTER = "Command Center";
+
+	public const string TID_CATEGORY_ARTIFACT = "Artifact";
 
 }
 

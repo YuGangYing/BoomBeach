@@ -188,7 +188,7 @@ public class BattleController:MonoBehaviour {
 						rnd.DestZ = worldPosition.z;
 						BattleData.Instance.BattleCommondQueue.Enqueue(rnd);
 						//产生旗子;
-						GameObject flag = Instantiate(ResourceCache.load("Model/flag")) as GameObject;
+						GameObject flag = Instantiate(ResourceCache.Load("Model/flag")) as GameObject;
 						flag.transform.parent = BuildManager.GetInstance.buildContainer;
 						flag.transform.position = Globals.GetRandPointInCircle(worldPosition,1f);
 						flag.transform.localScale = Vector3.one;
@@ -248,8 +248,8 @@ public class BattleController:MonoBehaviour {
 		buildSpritePath = "Model/Build3d/"+csvData.ExportName;
 		GameObject buildLayoutInstance = null;
 		GameObject buildSpriteInstance = null;
-		buildLayoutInstance = GameObject.Instantiate(ResourceCache.load(buildLayoutPath)) as GameObject;
-		buildSpriteInstance = GameObject.Instantiate(ResourceCache.load(buildSpritePath)) as GameObject;
+		buildLayoutInstance = GameObject.Instantiate(ResourceCache.Load(buildLayoutPath)) as GameObject;
+		buildSpriteInstance = GameObject.Instantiate(ResourceCache.Load(buildSpritePath)) as GameObject;
 
 		buildSpriteInstance.transform.parent = buildLayoutInstance.transform.Find ("buildPos");
 		buildSpriteInstance.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);

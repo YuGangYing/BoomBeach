@@ -509,7 +509,7 @@ namespace BoomBeach
                 UserRegions ur = new UserRegions();
                 ur.ISFSObjectToBean(obj);
 				DataManager.GetInstance.userRegionsList[ur.regions_id] = ur;
-                GameObject islandHouse = Instantiate(ResourceCache.load("UI/islandHouse")) as GameObject;
+                GameObject islandHouse = Instantiate(ResourceCache.Load("UI/islandHouse")) as GameObject;
                 Transform house_pos = House.Find(ur.regions_id.ToString());
                 /*
                 while(house_pos.GetChildCount() > 0){

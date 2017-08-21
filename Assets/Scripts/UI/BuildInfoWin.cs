@@ -154,7 +154,7 @@ TID_BOOST_TROOP_DAMAGE = Troop damage +<number>%
 			Helper.CreateArtifactUI(BuildModel, currentPopBuildInfo.tid_level,currentPopBuildInfo.artifact_type);
 		}else{
 
-			GameObject buildModel = Instantiate (ResourceCache.load(currentPopBuildInfo.buildSpritePath)) as GameObject;
+			GameObject buildModel = Instantiate (ResourceCache.Load(currentPopBuildInfo.buildSpritePath)) as GameObject;
 			buildModel.transform.parent = BuildModel;
 			buildModel.transform.localPosition = Vector3.zero;
 			buildModel.transform.name = "model";

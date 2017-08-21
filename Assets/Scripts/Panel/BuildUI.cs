@@ -592,7 +592,7 @@ namespace BoomBeach {
                         //DownButtonsUI[i].transform.Find("Image").GetComponent<Image>().color = new Color(0.5f,0.5f, 0.5f,1);
 
                         Image img = DownButtonsUI[i].transform.Find("Image").GetComponent<Image>();
-                        img.material = ResourceCache.load("Materials/GrayUGUI") as Material;
+                        img.material = ResourceCache.Load("Materials/GrayUGUI") as Material;
                         DownButtonsUI[i].enabled = false;
                         //ResourceBtnDc.dynamicMaterial.shader = GrayShader;
                     }

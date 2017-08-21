@@ -461,7 +461,7 @@ public class SMSceneManager {
 			transitionPrefab = defaultTransitionPrefab;
 		}
 
-		GameObject prefab = ResourceCache.load(transitionPrefab) as GameObject;
+		GameObject prefab = ResourceCache.Load(transitionPrefab) as GameObject;
 		if (prefab == null) {
 			throw new ArgumentException("no transition prefab found at path " + transitionPrefab);
 		}

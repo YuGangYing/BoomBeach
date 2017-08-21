@@ -337,7 +337,7 @@ public static class Globals{
 		int A = (int)position.x;
 		int B = (int)position.z;
 		GridInfo gridInfo = null;
-		if(A>=0&&A<=Globals.GridArray.GetUpperBound(0)&&B>=0&&B<=Globals.GridArray.GetUpperBound(1))
+		if(A>=0 && A<=Globals.GridArray.GetUpperBound(0)&&B>=0&&B<=Globals.GridArray.GetUpperBound(1))
 		{
 			gridInfo = Globals.GridArray[A,B];
 		}

@@ -282,7 +282,7 @@ public class BattleResult : MonoBehaviour {
 
 	void CreateResultItem(BattleResultType type,int count)
 	{
-		GameObject obj = Instantiate (ResourceCache.load("UI/BattleResultItem")) as GameObject;
+		GameObject obj = Instantiate (ResourceCache.Load("UI/BattleResultItem")) as GameObject;
 		BattleResultItem item = obj.GetComponent<BattleResultItem> ();
 		BattleResultData data = new BattleResultData ();
 		data.type = type;

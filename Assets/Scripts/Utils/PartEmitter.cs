@@ -63,7 +63,7 @@ public class PartEmitter : MonoBehaviour {
 
 		if(partLabel==null)
 		{
-			GameObject p = Instantiate(ResourceCache.load("UI/PartLabel")) as GameObject;
+			GameObject p = Instantiate(ResourceCache.Load("UI/PartLabel")) as GameObject;
 			p.transform.parent = transform.parent.Find("UI");
 			p.transform.localScale = Vector3.one;
 			p.transform.localPosition = Vector3.zero;

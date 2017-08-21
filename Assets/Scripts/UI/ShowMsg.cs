@@ -11,7 +11,7 @@ public class ShowMsg: MonoBehaviour {
 		//return;
 		//Debug.Log("ddddd");
 
-		GameObject msg_obj = Instantiate(ResourceCache.load("DialogBox/MsgLabel")) as GameObject;
+		GameObject msg_obj = Instantiate(ResourceCache.Load("DialogBox/MsgLabel")) as GameObject;
 		msg_obj.layer = GameObject.FindWithTag("CenterAnchor").layer;
 		msg_obj.transform.parent = GameObject.FindWithTag("CenterAnchor").transform;
 		msg_obj.layer = msg_obj.transform.parent.gameObject.layer;

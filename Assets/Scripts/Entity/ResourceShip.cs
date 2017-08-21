@@ -33,7 +33,7 @@ public class ResourceShip : MonoBehaviour {
 	{
 		string buildLayoutPath = "Model/Layout/ResourceShipLayout";
 		string buildSpritePath = "Model/Build3d/resource_ship";
-		GameObject buildLayoutInstance = Instantiate (ResourceCache.load (buildLayoutPath)) as GameObject;
+		GameObject buildLayoutInstance = Instantiate (ResourceCache.Load (buildLayoutPath)) as GameObject;
 		buildLayoutInstance.transform.parent = BuildManager.GetInstance.buildContainer;
 		buildLayoutInstance.transform.name = i_partType.ToString()+"Ship";
 		buildLayoutInstance.transform.localScale = Vector3.one;
@@ -54,7 +54,7 @@ public class ResourceShip : MonoBehaviour {
 			buildLayoutInstance.transform.position = IronShipBeginPos;
 		}
 
-		GameObject buildSpriteInstance = Instantiate (ResourceCache.load (buildSpritePath)) as GameObject;
+		GameObject buildSpriteInstance = Instantiate (ResourceCache.Load (buildSpritePath)) as GameObject;
 		buildSpriteInstance.transform.parent = buildLayoutInstance.transform.Find ("buildPos");
 		buildSpriteInstance.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
 		buildSpriteInstance.transform.localPosition = Vector3.zero; 

@@ -33,10 +33,10 @@ namespace BoomBeach
 			for (int i = 0; i < buildingList.Count; i++) {
 				BuildParam param = new BuildParam ();
 				param.tid = buildingList [i].type;
-				param.level = buildingList [i].level;
+				param.level = buildingList [i].level ;
 				param.tid_level = param.tid + "_" + param.level;
-				Debug.Log (param.tid_level);
 				CreateBuild (param);
+//				CreateBuilding (buildingList [i]);
 			}
 		}
 
@@ -52,18 +52,21 @@ namespace BoomBeach
 		GameObject CreateBuilding(Network.BuildingModel buildingModel,MUnitCSVStructure unitConfig){
 			//1.读取建筑需要的四个基本模型
 			string buildLayoutPath = "Model/LayoutNew/build" + unitConfig.width;
-			if (ResourceCache.load (buildLayoutPath) == null) {//如果没有合适的Layout,则用默认的build3
+			if (ResourceCache.Load (buildLayoutPath) == null) {
+				//如果没有合适的Layout,则用默认的build3
 				buildLayoutPath = "Model/LayoutNew/build3";
 			}
-			GameObject buildLayoutInstance =  Instantiate (ResourceCache.load (buildLayoutPath)) as GameObject;
-//			GameObject buildSpInstance = null;
-//			GameObject buildSpriteInstance = null;
-//			string buildSpritePath = "";
+			GameObject buildLayoutInstance =  Instantiate (ResourceCache.Load (buildLayoutPath)) as GameObject;
 			string buildNewSpritePath = "Model/Build/buildnew" + unitConfig.width;
-			GameObject buildNewSpriteInstance = Instantiate (ResourceCache.load (buildNewSpritePath)) as GameObject;
-
-
-
+			GameObject buildNewSpriteInstance = Instantiate (ResourceCache.Load (buildNewSpritePath)) as GameObject;
+			string buildSpPath = "Model/Build/" + unitConfig.export_name + "_sp";
+			string buildSpritePath = "Model/Build/" + unitConfig.export_name;
+			if (ResourceCache.Load (buildSpritePath) != null) {
+				GameObject buildSpriteInstance = Instantiate (ResourceCache.Load (buildSpritePath)) as GameObject;
+			}
+			if (ResourceCache.Load (buildSpPath) != null) {
+				GameObject buildSpInstance = Instantiate (ResourceCache.Load (buildSpPath)) as GameObject;
+			}
 
 //			CreateBuildSpriteInstance (csvData, Lv1CsvData, ref buildSpriteInstance, ref buildSpInstance, ref buildSpritePath);
 //			//如果前面找不到配置的模型资源，则读取默认的模型代替。
@@ -115,10 +118,7 @@ namespace BoomBeach
 			} else {
 				//创建模型（新）
 				if (buildInfo == null) {
-					bbm.CreateBuildGo (out buildInfo, new BuildParam () {
-						tid_level = tid_level,
-						tid = param.tid
-					});
+					bbm.CreateBuildGo (out buildInfo,tid_level);
 				}
 				//初始化建筑（新）
 				bbm.InitBuilding (ref buildInfo, param);
@@ -145,8 +145,8 @@ namespace BoomBeach
             sb.AppendLine("buildLayoutPath : " + buildLayoutPath);
             sb.AppendLine("buildSpritePath : " + buildSpritePath);
             **/
-			GameObject buildLayoutInstance = Instantiate (ResourceCache.load (buildLayoutPath)) as GameObject;
-			GameObject buildSpriteInstance = Instantiate (ResourceCache.load (buildSpritePath)) as GameObject;
+			GameObject buildLayoutInstance = Instantiate (ResourceCache.Load (buildLayoutPath)) as GameObject;
+			GameObject buildSpriteInstance = Instantiate (ResourceCache.Load (buildSpritePath)) as GameObject;
 			buildSpriteInstance.transform.parent = buildLayoutInstance.transform.Find ("buildPos");
 			buildSpriteInstance.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
 			buildSpriteInstance.transform.localPosition = Vector3.zero;
@@ -272,74 +272,77 @@ namespace BoomBeach
 		/// <param name="tid_level"></param>
 		/// <param name="tid"></param>
 		/// <returns></returns>
-		public GameObject CreateBuildGo (out BuildInfo buildInfo, BuildParam param)
+		public GameObject CreateBuildGo (out BuildInfo buildInfo, string tid_level)
 		{
-			CsvInfo csvData = CSVManager.GetInstance.csvTable [param.tid_level] as CsvInfo;//该建筑level数据
-			CsvInfo Lv1CsvData = CSVManager.GetInstance.csvTable [param.tid + "_1"] as CsvInfo;//该建筑1级时的数据
-			//string buildLayoutPath = "Model/Layout/build" + csvData.Width;
-			//string buildSpPath = "Model/Build/" + csvData.ExportName + "_sp";
-			//string buildSpritePath = "Model/Build/" + csvData.ExportName;
-			//string buildNewSpritePath = "Model/Build/buildnew" + csvData.Width;
-			//1.读取建筑需要的四个基本模型
-			GameObject buildLayoutInstance = CreateBuildLayoutInstance (csvData);//基座
-			GameObject buildSpInstance = null;
-			GameObject buildSpriteInstance = null;
-			string buildSpritePath = "";
-			GameObject buildNewSpriteInstance = CreateNewSpriteInstance (csvData);
-			CreateBuildSpriteInstance (csvData, Lv1CsvData, ref buildSpriteInstance, ref buildSpInstance, ref buildSpritePath);
-			//如果前面找不到配置的模型资源，则读取默认的模型代替。
-			if (buildSpriteInstance == null) {
-				CreateDefaultBuilding (ref buildLayoutInstance, ref buildSpriteInstance, ref buildSpInstance);
+			MUnitCSVStructure mUnit = CSVManager.GetInstance.GetUnit (tid_level);
+			//1.基本の四つモデルがロドされる（读取建筑需要的四个基本模型）
+			string buildLayoutPath = "Model/LayoutNew/build" + mUnit.width;
+			GameObject buildLayoutInstance = Instantiate (ResourceCache.Load (buildLayoutPath)) as GameObject;//基本
+
+			string buildNewSpritePath = "Model/Build/buildnew" + mUnit.width;
+			GameObject buildNewSpriteInstance = Instantiate (ResourceCache.Load (buildNewSpritePath)) as GameObject;
+
+			string buildSpPath = "Model/Build/" + mUnit.export_name + "_sp";
+			GameObject buildSpInstance = Instantiate (ResourceCache.Load (buildSpPath)) as GameObject;
+
+			string buildSpritePath = "Model/Build/" + mUnit.export_name;
+			GameObject buildSpriteInstance = Instantiate (ResourceCache.Load (buildSpritePath)) as GameObject;
+
+			if (buildNewSpriteInstance != null) {
+				buildNewSpriteInstance.transform.parent = buildLayoutInstance.transform.Find ("buildPos");
+				buildNewSpriteInstance.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
+				buildNewSpriteInstance.transform.localPosition = Vector3.zero;
+				buildNewSpriteInstance.transform.name = "BuildNew";
+				buildNewSpriteInstance.gameObject.SetActive (false);//默认情况下会被禁用
 			}
-			//2.组合四个基本资源
-			AssembleBuilding (csvData, buildLayoutInstance, buildSpriteInstance, buildSpInstance, buildNewSpriteInstance);
+			buildSpriteInstance.transform.parent = buildLayoutInstance.transform.Find ("buildPos");
+			buildSpriteInstance.transform.localRotation = new Quaternion (0f, 0f, 0f, 0f);
+			buildSpriteInstance.transform.localPosition = Vector3.zero;
+			buildSpriteInstance.transform.name = "BuildMain";
+			buildSpInstance.transform.parent = buildLayoutInstance.transform;
+			buildSpInstance.transform.name = "StandPoints";
+			buildSpInstance.transform.localPosition = Vector3.zero;
+			//TODO 如果时障碍物或者遗迹，则删掉Floor,障碍物还没有
+			if (mUnit.category == GameConstant.TID_CATEGORY_ARTIFACT) {
+				Transform floor = buildLayoutInstance.transform.Find ("Floor");
+				if (floor != null)
+					Destroy (floor.gameObject);
+			}
 			buildLayoutInstance.transform.parent = this.buildContainer;
 			buildInfo = buildLayoutInstance.GetComponent<BuildInfo> ();
 			buildInfo.buildSpritePath = buildSpritePath;
-			buildInfo.tid = param.tid;
-			buildInfo.level = csvData.Level;
-			buildInfo.tid_level = param.tid_level;
-			buildInfo.tid_type = csvData.TID_Type;
-			buildInfo.csvInfo = csvData;
-
-			/*GameObject uiPrefab = Resources.Load<GameObject> ("Model/BuildUI");
-			Transform uiPos = buildInfo.transform.FindChild ("buildUIPos");*/
+			buildInfo.tid = mUnit.tid;
+			buildInfo.level = mUnit.level;
+			buildInfo.tid_level = tid_level;
+			buildInfo.tid_type = mUnit.category;
+			buildInfo.buildingInfo = mUnit;
 			return buildLayoutInstance;
 		}
-		//获取建筑基座模型
-		GameObject CreateBuildLayoutInstance (CsvInfo csvData)
-		{
-			//string buildLayoutPath = "Model/Layout/build" + csvData.Width;
-
-			string buildLayoutPath = "Model/LayoutNew/build" + csvData.Width;
-			if (ResourceCache.load (buildLayoutPath) == null) {//如果没有合适的Layout,则用默认的build3
-				buildLayoutPath = "Model/LayoutNew/build3";
-			}
-			return Instantiate (ResourceCache.load (buildLayoutPath)) as GameObject;
-		}
+//		//获取建筑基座模型
+//		GameObject CreateBuildLayoutInstance (int width)
+//		{
+//			//string buildLayoutPath = "Model/Layout/build" + csvData.Width;
+//			string buildLayoutPath = "Model/LayoutNew/build" + width;
+//			if (ResourceCache.load (buildLayoutPath) == null) {//如果没有合适的Layout,则用默认的build3
+//				buildLayoutPath = "Model/LayoutNew/build3";
+//			}
+//			return Instantiate (ResourceCache.load (buildLayoutPath)) as GameObject;
+//		}
 		//获取建筑模型，建筑sp，建筑模型路径
-		void CreateBuildSpriteInstance (CsvInfo csvData, CsvInfo Lv1CsvData, ref GameObject buildSpriteInstance, ref GameObject buildSpInstance, ref string buildSpritePath)
-		{
-			string buildSpPath = "Model/Build/" + csvData.ExportName + "_sp";
-			buildSpritePath = "Model/Build/" + csvData.ExportName;
-			//如果没有默认的Sprite，则用1级的sprite
-			if (ResourceCache.load (buildSpritePath) == null) {
-				buildSpritePath = "Model/Build/" + Lv1CsvData.ExportName;
-				buildSpPath = "Model/Build/" + Lv1CsvData.ExportName + "_sp";
-			}
-			if (ResourceCache.load (buildSpPath) == null) {
-				buildSpPath = "Model/Build/" + Lv1CsvData.ExportName + "_sp";
-			}
-			if (ResourceCache.load (buildSpritePath) != null)
-				buildSpriteInstance = Instantiate (ResourceCache.load (buildSpritePath)) as GameObject;
-			if (ResourceCache.load (buildSpPath) != null)
-				buildSpInstance = Instantiate (ResourceCache.load (buildSpPath)) as GameObject;
-		}
+//		void CreateBuildSpriteInstance (CsvInfo csvData, CsvInfo Lv1CsvData, ref GameObject buildSpriteInstance, ref GameObject buildSpInstance, ref string buildSpritePath)
+//		{
+//			string buildSpPath = "Model/Build/" + csvData.ExportName + "_sp";
+//			buildSpritePath = "Model/Build/" + csvData.ExportName;
+//			if (ResourceCache.load (buildSpritePath) != null)
+//				buildSpriteInstance = Instantiate (ResourceCache.load (buildSpritePath)) as GameObject;
+//			if (ResourceCache.load (buildSpPath) != null)
+//				buildSpInstance = Instantiate (ResourceCache.load (buildSpPath)) as GameObject;
+//		}
 		//获取建筑升级模型
-		GameObject CreateNewSpriteInstance (CsvInfo csvData)
+		GameObject CreateNewSpriteInstance (int width)
 		{
-			string buildNewSpritePath = "Model/Build/buildnew" + csvData.Width;
-			GameObject prefab = ResourceCache.load (buildNewSpritePath) as GameObject;
+			string buildNewSpritePath = "Model/Build/buildnew" + width;
+			GameObject prefab = ResourceCache.Load (buildNewSpritePath) as GameObject;
 			if (prefab == null) {
 				return null;
 			}
@@ -352,9 +355,9 @@ namespace BoomBeach
 			string buildSpritePath = "Model/Build/housing_lvl1";
 			string buildSpPath = "Model/Build/housing_lvl1_sp";
 			string buildLayoutPath = "Model/LayoutNew/build3";
-			buildLayoutInstance = Instantiate (ResourceCache.load (buildLayoutPath)) as GameObject;
-			buildSpriteInstance = Instantiate (ResourceCache.load (buildSpritePath)) as GameObject;
-			buildSpInstance = Instantiate (ResourceCache.load (buildSpPath)) as GameObject;
+			buildLayoutInstance = Instantiate (ResourceCache.Load (buildLayoutPath)) as GameObject;
+			buildSpriteInstance = Instantiate (ResourceCache.Load (buildSpritePath)) as GameObject;
+			buildSpInstance = Instantiate (ResourceCache.Load (buildSpPath)) as GameObject;
 		}
 		//组合四个基本模型
 		void AssembleBuilding (CsvInfo csvData, GameObject buildLayoutInstance, GameObject buildSpriteInstance, GameObject buildSpInstance, GameObject buildNewSpriteInstance)
@@ -539,12 +542,12 @@ namespace BoomBeach
 		void InitBuildingTemp (ref BuildInfo buildInfo, string tid_level)
 		{
 			buildInfo.building_id = Helper.getNewBuildingId ();
-			string name = "build_" + (CSVManager.GetInstance.csvTable [tid_level] as CsvInfo).Width + "__" + GetFormatStringByTime (buildInfo.building_id);
+			string name = "build_" + CSVManager.GetInstance.GetUnit (tid_level).width + "__" + GetFormatStringByTime (buildInfo.building_id);
 			buildInfo.transform.name = name;
 			//buildInfo.transform.name = "build_"+buildInfo.building_id;
 			buildInfo.status = global::BuildStatus.Create;//-1:客户端准备创建(建筑物会出现：取消,确定 按钮),0:正常;1:正在新建;2:正在升级;3:正常在移除;4:正在研究;5:正在训练;6:正在生产神像;
 			buildInfo.artifact_type = ArtifactType.None;
-			if (buildInfo.csvInfo.BuildingClass == "Artifact") {
+			if (buildInfo.buildingInfo.category == GameConstant.TID_CATEGORY_ARTIFACT) {
 				BuildInfo s = Helper.getBuildInfoByTid ("TID_BUILDING_ARTIFACT_WORKSHOP");
 				buildInfo.artifact_boost = s.artifact_boost;
 				buildInfo.artifact_type = s.artifact_type;

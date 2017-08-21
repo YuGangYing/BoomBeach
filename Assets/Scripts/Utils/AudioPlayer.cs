@@ -18,7 +18,7 @@ public class AudioPlayer : MonoBehaviour {
 	{
 		if(instance==null)
 		{
-			GameObject obj = GameObject.Instantiate(ResourceCache.load("Audio/AudioPlayer")) as GameObject;
+			GameObject obj = GameObject.Instantiate(ResourceCache.Load("Audio/AudioPlayer")) as GameObject;
 			obj.name = "AudioPlayer";
 			instance = obj.GetComponent<AudioPlayer>();
 			instance.sfxPlayerList = new Dictionary<string, SfxPlayer>();
@@ -153,7 +153,7 @@ public class AudioPlayer : MonoBehaviour {
 				if(BoomBeach.LocalSoundManager.SingleTon ().GetSound (name)!=null)
 					sfxPlayer.clip = BoomBeach.LocalSoundManager.SingleTon ().GetSound (name).clip;
 				else
-					sfxPlayer.clip = ResourceCache.load("Audio/sfx/"+name) as AudioClip;
+					sfxPlayer.clip = ResourceCache.Load("Audio/sfx/"+name) as AudioClip;
 			}
 			if (BoomBeach.LocalSoundManager.SingleTon ().IsPlayable (name)) {
 				sfxPlayer.Play();
@@ -166,7 +166,7 @@ public class AudioPlayer : MonoBehaviour {
 	{
 		if(name!="")
 		{
-			AudioClip clip = ResourceCache.load("Audio/music/"+name) as AudioClip;
+			AudioClip clip = ResourceCache.Load("Audio/music/"+name) as AudioClip;
 			GetComponent<AudioSource>().clip = clip;
 			GetComponent<AudioSource>().loop = isLoop;
 			if(!isPlayMusic)return;

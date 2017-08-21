@@ -61,7 +61,7 @@ namespace BoomBeach{
 
 		AudioClipInterval InitSound(string clipName,float interval){
 			AudioClipInterval audioClip = new AudioClipInterval ();
-			AudioClip clip = ResourceCache.load("Audio/sfx/"+clipName) as AudioClip;
+			AudioClip clip = ResourceCache.Load("Audio/sfx/"+clipName) as AudioClip;
 			audioClip.clip = clip;
 			if(clip==null){
 				Debug.LogError (clipName);

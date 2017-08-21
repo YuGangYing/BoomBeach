@@ -256,7 +256,7 @@ namespace BoomBeach
             }
             else
             {
-                GameObject buildModel = Instantiate(ResourceCache.load(buildInfo.buildSpritePath)) as GameObject;
+                GameObject buildModel = Instantiate(ResourceCache.Load(buildInfo.buildSpritePath)) as GameObject;
                 buildModel.transform.parent = BuildModel;
                 buildModel.transform.localPosition = Vector3.zero;
                 buildModel.transform.name = "model";

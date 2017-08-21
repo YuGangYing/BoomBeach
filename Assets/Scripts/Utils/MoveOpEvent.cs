@@ -200,11 +200,11 @@ public class MoveOpEvent : MonoBehaviour {
 		SelectedBuildInfo.Position = currentGrid.GridPosition;
 		if(SelectedBuildInfo.CheckBuildPlaceAble())
 		{
-			setGround (SelectedBuildInfo,"green");
+			SetGround (SelectedBuildInfo,"green");
 		}
 		else
 		{ 
-			setGround (SelectedBuildInfo,"red");
+			SetGround (SelectedBuildInfo,"red");
 		}
 		if(SelectedBuildInfo.status==BuildStatus.Create)
 			SelectedBuildInfo.buildUI.RefreshBuildBtn ();
@@ -534,7 +534,7 @@ public class MoveOpEvent : MonoBehaviour {
 	}
 
 
-	public void setGround(BuildInfo buildInfo,string color)
+	public void SetGround(BuildInfo buildInfo,string color)
 	{
 		Transform buildPlan = buildInfo.transform.Find ("buildplan");
 		Transform buildGrid = buildInfo.transform.Find ("buildgrid");
